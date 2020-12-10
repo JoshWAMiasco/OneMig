@@ -12,9 +12,17 @@ namespace PROJECT
 {
     public partial class CHOOSE : Form
     {
+        public string Admin { get; set; }
         public CHOOSE()
         {
             InitializeComponent();
+        }
+
+        public CHOOSE(string admin)
+        {
+            InitializeComponent();
+            Admin = admin;
+            this.Text = "ADMIN MODE";
         }
 
         private void EXIT_Click(object sender, EventArgs e)
@@ -23,7 +31,6 @@ namespace PROJECT
             LOG_IN next = new LOG_IN();
             next.ShowDialog();
         }
-
         private void Boards_for_Verif_Click(object sender, EventArgs e)
         {
             this.Hide();

@@ -28,44 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.Search_button = new System.Windows.Forms.Button();
             this.search_text = new System.Windows.Forms.TextBox();
             this.Add_btn = new System.Windows.Forms.Button();
             this.Exit_btn = new System.Windows.Forms.Button();
             this.dataGridViewList = new System.Windows.Forms.DataGridView();
-            this.sERIALNUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pARTNUMBERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bOARDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tESTERDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sITEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dIETYPEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tESTOPTIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sLOTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fIRSTVERIFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dATEFIRSTDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTVERIFIEDBYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sECONDVERIFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewLinkColumn();
-            this.dATESECONDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nDVERIFIEDBYDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sTATUSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rEMARKSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.boardDetailsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.boards_for_verificationDataSet2 = new PROJECT.boards_for_verificationDataSet2();
-            this.board_detailsTableAdapter = new PROJECT.boards_for_verificationDataSet2TableAdapters.board_detailsTableAdapter();
+            this.REFRESH = new System.Windows.Forms.Button();
+            this.SERIAL_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PART_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BOARD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TESTER_PLATFORMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TEST_PROGRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIRST_DATE_VERIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardDetailsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boards_for_verificationDataSet2)).BeginInit();
             this.SuspendLayout();
             // 
             // Search_button
             // 
-            this.Search_button.Location = new System.Drawing.Point(13, 13);
+            this.Search_button.Location = new System.Drawing.Point(30, 12);
             this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(117, 22);
+            this.Search_button.Size = new System.Drawing.Size(152, 21);
             this.Search_button.TabIndex = 0;
             this.Search_button.Text = "SEARCH";
             this.Search_button.UseVisualStyleBackColor = true;
@@ -73,7 +60,8 @@
             // 
             // search_text
             // 
-            this.search_text.Location = new System.Drawing.Point(136, 15);
+            this.search_text.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.search_text.Location = new System.Drawing.Point(188, 13);
             this.search_text.Name = "search_text";
             this.search_text.Size = new System.Drawing.Size(139, 20);
             this.search_text.TabIndex = 1;
@@ -81,7 +69,7 @@
             // 
             // Add_btn
             // 
-            this.Add_btn.Location = new System.Drawing.Point(281, 15);
+            this.Add_btn.Location = new System.Drawing.Point(354, 12);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(152, 22);
             this.Add_btn.TabIndex = 2;
@@ -91,7 +79,7 @@
             // 
             // Exit_btn
             // 
-            this.Exit_btn.Location = new System.Drawing.Point(647, 12);
+            this.Exit_btn.Location = new System.Drawing.Point(882, 14);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(141, 23);
             this.Exit_btn.TabIndex = 3;
@@ -105,199 +93,126 @@
             this.dataGridViewList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewList.AutoGenerateColumns = false;
             this.dataGridViewList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewList.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.sERIALNUMBERDataGridViewTextBoxColumn,
-            this.pARTNUMBERDataGridViewTextBoxColumn,
-            this.bOARDDataGridViewTextBoxColumn,
-            this.tESTERDataGridViewTextBoxColumn,
-            this.sITEDataGridViewTextBoxColumn,
-            this.dIETYPEDataGridViewTextBoxColumn,
-            this.tESTOPTIONDataGridViewTextBoxColumn,
-            this.sLOTDataGridViewTextBoxColumn,
-            this.fIRSTVERIFDataGridViewTextBoxColumn,
-            this.dATEFIRSTDataGridViewTextBoxColumn,
-            this.sTVERIFIEDBYDataGridViewTextBoxColumn,
-            this.sECONDVERIFDataGridViewTextBoxColumn,
-            this.dATESECONDDataGridViewTextBoxColumn,
-            this.nDVERIFIEDBYDataGridViewTextBoxColumn,
-            this.sTATUSDataGridViewTextBoxColumn,
-            this.rEMARKSDataGridViewTextBoxColumn});
-            this.dataGridViewList.DataSource = this.boardDetailsBindingSource;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewList.DefaultCellStyle = dataGridViewCellStyle2;
+            this.SERIAL_NUMBER,
+            this.PART_NUMBER,
+            this.BOARD,
+            this.TESTER_PLATFORMS,
+            this.TEST_PROGRAM,
+            this.FIRST_DATE_VERIF,
+            this.STATUS,
+            this.ENDORSEMENT_NUMBER});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewList.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewList.Location = new System.Drawing.Point(13, 54);
+            this.dataGridViewList.Location = new System.Drawing.Point(12, 43);
             this.dataGridViewList.Name = "dataGridViewList";
             this.dataGridViewList.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewList.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewList.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(775, 384);
+            this.dataGridViewList.Size = new System.Drawing.Size(1011, 467);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
-            // sERIALNUMBERDataGridViewTextBoxColumn
+            // REFRESH
             // 
-            this.sERIALNUMBERDataGridViewTextBoxColumn.DataPropertyName = "SERIAL NUMBER";
-            this.sERIALNUMBERDataGridViewTextBoxColumn.HeaderText = "SERIAL NUMBER";
-            this.sERIALNUMBERDataGridViewTextBoxColumn.Name = "sERIALNUMBERDataGridViewTextBoxColumn";
-            this.sERIALNUMBERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.REFRESH.Location = new System.Drawing.Point(526, 12);
+            this.REFRESH.Name = "REFRESH";
+            this.REFRESH.Size = new System.Drawing.Size(139, 22);
+            this.REFRESH.TabIndex = 5;
+            this.REFRESH.Text = "REFRESH";
+            this.REFRESH.UseVisualStyleBackColor = true;
+            this.REFRESH.Click += new System.EventHandler(this.REFRESH_Click);
             // 
-            // pARTNUMBERDataGridViewTextBoxColumn
+            // SERIAL_NUMBER
             // 
-            this.pARTNUMBERDataGridViewTextBoxColumn.DataPropertyName = "PART NUMBER";
-            this.pARTNUMBERDataGridViewTextBoxColumn.HeaderText = "PART NUMBER";
-            this.pARTNUMBERDataGridViewTextBoxColumn.Name = "pARTNUMBERDataGridViewTextBoxColumn";
-            this.pARTNUMBERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.SERIAL_NUMBER.DataPropertyName = "SERIAL NUMBER";
+            this.SERIAL_NUMBER.HeaderText = "SERIAL NUMBER";
+            this.SERIAL_NUMBER.Name = "SERIAL_NUMBER";
+            this.SERIAL_NUMBER.ReadOnly = true;
             // 
-            // bOARDDataGridViewTextBoxColumn
+            // PART_NUMBER
             // 
-            this.bOARDDataGridViewTextBoxColumn.DataPropertyName = "BOARD";
-            this.bOARDDataGridViewTextBoxColumn.HeaderText = "BOARD";
-            this.bOARDDataGridViewTextBoxColumn.Name = "bOARDDataGridViewTextBoxColumn";
-            this.bOARDDataGridViewTextBoxColumn.ReadOnly = true;
+            this.PART_NUMBER.DataPropertyName = "PART NUMBER";
+            this.PART_NUMBER.HeaderText = "PART NUMBER";
+            this.PART_NUMBER.Name = "PART_NUMBER";
+            this.PART_NUMBER.ReadOnly = true;
             // 
-            // tESTERDataGridViewTextBoxColumn
+            // BOARD
             // 
-            this.tESTERDataGridViewTextBoxColumn.DataPropertyName = "TESTER";
-            this.tESTERDataGridViewTextBoxColumn.HeaderText = "TESTER";
-            this.tESTERDataGridViewTextBoxColumn.Name = "tESTERDataGridViewTextBoxColumn";
-            this.tESTERDataGridViewTextBoxColumn.ReadOnly = true;
+            this.BOARD.DataPropertyName = "BOARD";
+            this.BOARD.HeaderText = "BOARD";
+            this.BOARD.Name = "BOARD";
+            this.BOARD.ReadOnly = true;
             // 
-            // sITEDataGridViewTextBoxColumn
+            // TESTER_PLATFORMS
             // 
-            this.sITEDataGridViewTextBoxColumn.DataPropertyName = "SITE";
-            this.sITEDataGridViewTextBoxColumn.HeaderText = "SITE";
-            this.sITEDataGridViewTextBoxColumn.Name = "sITEDataGridViewTextBoxColumn";
-            this.sITEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.TESTER_PLATFORMS.DataPropertyName = "TESTER PLATFORM";
+            this.TESTER_PLATFORMS.HeaderText = "TESTER PLATFORM";
+            this.TESTER_PLATFORMS.Name = "TESTER_PLATFORMS";
+            this.TESTER_PLATFORMS.ReadOnly = true;
             // 
-            // dIETYPEDataGridViewTextBoxColumn
+            // TEST_PROGRAM
             // 
-            this.dIETYPEDataGridViewTextBoxColumn.DataPropertyName = "DIE TYPE";
-            this.dIETYPEDataGridViewTextBoxColumn.HeaderText = "DIE TYPE";
-            this.dIETYPEDataGridViewTextBoxColumn.Name = "dIETYPEDataGridViewTextBoxColumn";
-            this.dIETYPEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.TEST_PROGRAM.DataPropertyName = "TEST PROGRAM";
+            this.TEST_PROGRAM.HeaderText = "TEST PROGRAM";
+            this.TEST_PROGRAM.Name = "TEST_PROGRAM";
+            this.TEST_PROGRAM.ReadOnly = true;
             // 
-            // tESTOPTIONDataGridViewTextBoxColumn
+            // FIRST_DATE_VERIF
             // 
-            this.tESTOPTIONDataGridViewTextBoxColumn.DataPropertyName = "TEST OPTION";
-            this.tESTOPTIONDataGridViewTextBoxColumn.HeaderText = "TEST OPTION";
-            this.tESTOPTIONDataGridViewTextBoxColumn.Name = "tESTOPTIONDataGridViewTextBoxColumn";
-            this.tESTOPTIONDataGridViewTextBoxColumn.ReadOnly = true;
+            this.FIRST_DATE_VERIF.DataPropertyName = "FIRST DATE";
+            this.FIRST_DATE_VERIF.HeaderText = "FIRST DATE VERIF";
+            this.FIRST_DATE_VERIF.Name = "FIRST_DATE_VERIF";
+            this.FIRST_DATE_VERIF.ReadOnly = true;
             // 
-            // sLOTDataGridViewTextBoxColumn
+            // STATUS
             // 
-            this.sLOTDataGridViewTextBoxColumn.DataPropertyName = "SLOT";
-            this.sLOTDataGridViewTextBoxColumn.HeaderText = "SLOT";
-            this.sLOTDataGridViewTextBoxColumn.Name = "sLOTDataGridViewTextBoxColumn";
-            this.sLOTDataGridViewTextBoxColumn.ReadOnly = true;
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
             // 
-            // fIRSTVERIFDataGridViewTextBoxColumn
+            // ENDORSEMENT_NUMBER
             // 
-            this.fIRSTVERIFDataGridViewTextBoxColumn.DataPropertyName = "FIRST VERIF";
-            this.fIRSTVERIFDataGridViewTextBoxColumn.HeaderText = "FIRST VERIF";
-            this.fIRSTVERIFDataGridViewTextBoxColumn.Name = "fIRSTVERIFDataGridViewTextBoxColumn";
-            this.fIRSTVERIFDataGridViewTextBoxColumn.ReadOnly = true;
-            this.fIRSTVERIFDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.fIRSTVERIFDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.fIRSTVERIFDataGridViewTextBoxColumn.ToolTipText = "hello";
-            // 
-            // dATEFIRSTDataGridViewTextBoxColumn
-            // 
-            this.dATEFIRSTDataGridViewTextBoxColumn.DataPropertyName = "DATE FIRST";
-            this.dATEFIRSTDataGridViewTextBoxColumn.HeaderText = "DATE FIRST";
-            this.dATEFIRSTDataGridViewTextBoxColumn.Name = "dATEFIRSTDataGridViewTextBoxColumn";
-            this.dATEFIRSTDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sTVERIFIEDBYDataGridViewTextBoxColumn
-            // 
-            this.sTVERIFIEDBYDataGridViewTextBoxColumn.DataPropertyName = "1ST VERIFIED BY";
-            this.sTVERIFIEDBYDataGridViewTextBoxColumn.HeaderText = "1ST VERIFIED BY";
-            this.sTVERIFIEDBYDataGridViewTextBoxColumn.Name = "sTVERIFIEDBYDataGridViewTextBoxColumn";
-            this.sTVERIFIEDBYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sECONDVERIFDataGridViewTextBoxColumn
-            // 
-            this.sECONDVERIFDataGridViewTextBoxColumn.DataPropertyName = "SECOND VERIF";
-            this.sECONDVERIFDataGridViewTextBoxColumn.HeaderText = "SECOND VERIF";
-            this.sECONDVERIFDataGridViewTextBoxColumn.Name = "sECONDVERIFDataGridViewTextBoxColumn";
-            this.sECONDVERIFDataGridViewTextBoxColumn.ReadOnly = true;
-            this.sECONDVERIFDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sECONDVERIFDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.sECONDVERIFDataGridViewTextBoxColumn.ToolTipText = "hello";
-            // 
-            // dATESECONDDataGridViewTextBoxColumn
-            // 
-            this.dATESECONDDataGridViewTextBoxColumn.DataPropertyName = "DATE SECOND";
-            this.dATESECONDDataGridViewTextBoxColumn.HeaderText = "DATE SECOND";
-            this.dATESECONDDataGridViewTextBoxColumn.Name = "dATESECONDDataGridViewTextBoxColumn";
-            this.dATESECONDDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nDVERIFIEDBYDataGridViewTextBoxColumn
-            // 
-            this.nDVERIFIEDBYDataGridViewTextBoxColumn.DataPropertyName = "2ND VERIFIED BY";
-            this.nDVERIFIEDBYDataGridViewTextBoxColumn.HeaderText = "2ND VERIFIED BY";
-            this.nDVERIFIEDBYDataGridViewTextBoxColumn.Name = "nDVERIFIEDBYDataGridViewTextBoxColumn";
-            this.nDVERIFIEDBYDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // sTATUSDataGridViewTextBoxColumn
-            // 
-            this.sTATUSDataGridViewTextBoxColumn.DataPropertyName = "STATUS";
-            this.sTATUSDataGridViewTextBoxColumn.HeaderText = "STATUS";
-            this.sTATUSDataGridViewTextBoxColumn.Name = "sTATUSDataGridViewTextBoxColumn";
-            this.sTATUSDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // rEMARKSDataGridViewTextBoxColumn
-            // 
-            this.rEMARKSDataGridViewTextBoxColumn.DataPropertyName = "REMARKS";
-            this.rEMARKSDataGridViewTextBoxColumn.HeaderText = "REMARKS";
-            this.rEMARKSDataGridViewTextBoxColumn.Name = "rEMARKSDataGridViewTextBoxColumn";
-            this.rEMARKSDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // boardDetailsBindingSource
-            // 
-            this.boardDetailsBindingSource.DataMember = "board details";
-            this.boardDetailsBindingSource.DataSource = this.boards_for_verificationDataSet2;
-            // 
-            // boards_for_verificationDataSet2
-            // 
-            this.boards_for_verificationDataSet2.DataSetName = "boards_for_verificationDataSet2";
-            this.boards_for_verificationDataSet2.EnforceConstraints = false;
-            this.boards_for_verificationDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // board_detailsTableAdapter
-            // 
-            this.board_detailsTableAdapter.ClearBeforeFill = true;
+            this.ENDORSEMENT_NUMBER.DataPropertyName = "ENDORSEMENT NUMBER";
+            this.ENDORSEMENT_NUMBER.HeaderText = "ENDORSEMENT NUMBER";
+            this.ENDORSEMENT_NUMBER.Name = "ENDORSEMENT_NUMBER";
+            this.ENDORSEMENT_NUMBER.ReadOnly = true;
+            this.ENDORSEMENT_NUMBER.Visible = false;
             // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(1036, 535);
+            this.Controls.Add(this.REFRESH);
             this.Controls.Add(this.dataGridViewList);
             this.Controls.Add(this.Exit_btn);
             this.Controls.Add(this.Add_btn);
@@ -308,8 +223,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SEARCH_BOARD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boardDetailsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.boards_for_verificationDataSet2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,24 +235,14 @@
         private System.Windows.Forms.Button Add_btn;
         private System.Windows.Forms.Button Exit_btn;
         private System.Windows.Forms.DataGridView dataGridViewList;
-        private boards_for_verificationDataSet2 boards_for_verificationDataSet2;
-        private System.Windows.Forms.BindingSource boardDetailsBindingSource;
-        private boards_for_verificationDataSet2TableAdapters.board_detailsTableAdapter board_detailsTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sERIALNUMBERDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pARTNUMBERDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn bOARDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tESTERDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sITEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dIETYPEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tESTOPTIONDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sLOTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn fIRSTVERIFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dATEFIRSTDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTVERIFIEDBYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewLinkColumn sECONDVERIFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dATESECONDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nDVERIFIEDBYDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sTATUSDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn rEMARKSDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button REFRESH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SERIAL_NUMBER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NUMBER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BOARD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TESTER_PLATFORMS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TEST_PROGRAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
     }
 }

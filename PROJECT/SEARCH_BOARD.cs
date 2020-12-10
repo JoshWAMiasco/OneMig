@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using MySql.Data.MySqlClient;
-using PROJECT.boards_for_verificationDataSet2TableAdapters;
 using System.Runtime.InteropServices;
 using Ubiety.Dns.Core.Records.NotUsed;
 
@@ -17,8 +16,9 @@ namespace PROJECT
 {
     public partial class SEARCH_BOARD : Form
     {
+        public string check;
         //MySqlConnection Connect = new MySqlConnection("server=mpoctsgdb.maxim-ic.com;user id = a2_utilities;password = a2_utilities;database=a2_utitilies");
-        MySqlConnection Connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
+        //MySqlConnection Connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
         MySqlCommand command;
         public SEARCH_BOARD()
         {
@@ -27,49 +27,25 @@ namespace PROJECT
 
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'boards_for_verificationDataSet2.board_details' table. You can move, or remove it, as needed.
-            try
-            {
-                this.board_detailsTableAdapter.Fill(this.boards_for_verificationDataSet2.board_details);
-            }
-            catch (Exception me)
-            {
-                MessageBox.Show(me.ToString());
-            }
+            dataGridViewList.DataSource = table(3);
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
         {
-            if (dataGridViewList.Columns[e.ColumnIndex].ToolTipText == "hello")
+            try
             {
+                dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 try
                 {
-                    dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
-                    try
-                    {
-                        System.Diagnostics.Process.Start(dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                    }
-                    catch (Exception me)
-                    {
-                        MessageBox.Show("SYSTEM CANNOT LOCATE THE FILE SPECIFIED");
-                    }
+                    string endorsement_number = (dataGridViewList.SelectedCells[7].Value.ToString());
+                    BOARD_DETAILS details = new BOARD_DETAILS(endorsement_number);
+                    details.ShowDialog();
                 }
-                catch (Exception me)
+                catch (Exception)
                 {
                     return;
                 }
             }
-            else if (dataGridViewList.Columns[e.ColumnIndex].HeaderText == "REMARKS")
-            {
-                try
-                {
-                    MessageBox.Show(dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString());
-                }
-                catch (Exception me)
-                {
-                    return;
-                }
-            }
-            else
+            catch (Exception)
             {
                 return;
             }
@@ -78,69 +54,80 @@ namespace PROJECT
         {
             switch(cmd)
             {
-                case 0:
-                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`SERIAL NUMBER` = '" + search_text.Text + "' OR `PART NUMBER` = '" + search_text.Text + "' OR " +
-                   "`BOARD` = '" + search_text.Text + "' OR `TESTER` = '" + search_text.Text + "' OR `DIE TYPE` = '" + search_text.Text + "' OR `TEST OPTION` = '" + search_text.Text + "'" +
-                  "OR `DATE FIRST` = '" + search_text.Text + "' OR `1ST VERIFIED BY` = '" + search_text.Text + "' OR `DATE SECOND` = '" + search_text.Text + "' OR `2ND VERIFIED BY` = '" + search_text.Text + "'" +
-                  "OR `STATUS` = '" + search_text.Text + "') ORDER BY `DATE FIRST` DESC LIMIT 30");
+                case 0: //TO CHECK IF THERE'S AND EXISTING DATA SEARCHED
+                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
+                        "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`) LIMIT 1",Connection.connect);
                     break;
-                case 1:
-                    command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`board details` WHERE (`SERIAL NUMBER` = '" + search_text.Text + "' OR `PART NUMBER` = '" + search_text.Text + "' OR " +
-                   "`BOARD` = '" + search_text.Text + "' OR `TESTER` = '" + search_text.Text + "' OR `DIE TYPE` = '" + search_text.Text + "' OR `TEST OPTION` = '" + search_text.Text + "'" +
-                  "OR `DATE FIRST` = '" + search_text.Text + "' OR `1ST VERIFIED BY` = '" + search_text.Text + "' OR `2ND VERIFIED BY` = '" + search_text.Text + "'" +
-                  "OR `STATUS` = '" + search_text.Text + "') ORDER BY `DATE FIRST` DESC LIMIT 30");
+                case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` WHERE('" + search_text.Text + "')" +
+                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`)" +
+                        " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-
+                case 2:  //TO DISPLAY THE TESTER PLATFORMS
+                    command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
+                    break;
+                case 3:  //FOR UPDATING PURPOSES
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
+                    break;
             }
         }
-        private DataTable table()
+        private DataTable table(int COMMAND)
         {
-            commands(1);
-            command.Connection = Connect;
-            Connect.Open();
-            MySqlDataAdapter read = new MySqlDataAdapter(command);
+            commands(COMMAND);
             DataTable new_data = new DataTable();
-            read.Fill(new_data);
-            Connect.Close();
-            return new_data;
+            if (Connection.OpenConnection())
+            {
+                MySqlDataAdapter read = new MySqlDataAdapter(command);
+                read.Fill(new_data);
+                Connection.CloseConnection();
+                return new_data;
+            }
+            else 
+                return new_data;
         }
-        private void load_data()
+        private void load_data(int commandss)
         {
-            if (search_text.Text == string.Empty)
+            if (string.IsNullOrWhiteSpace(search_text.Text))
             {
                 MessageBox.Show("NO INPUT");
             }
             else
             {
                 commands(0);
-                command.Connection = Connect;
-                Connect.Open();
-                string check = command.ExecuteScalar().ToString();
-                Connect.Close();
-                if (check == "0")
+                if (Connection.OpenConnection())
                 {
-                    MessageBox.Show("NO DATA");
-                    return;
+                    check = command.ExecuteScalar().ToString();
+                    if (Connection.CloseConnection())
+                    {
+                        if (check == "0")
+                        {
+                            MessageBox.Show("NO DATA");
+                            search_text.Clear();
+                            return;
+                        }
+                        else
+                        {
+                            dataGridViewList.DataSource = table(commandss);
+                        }
+                    }
+                    else return;
                 }
-                else
-                {
-                    Connect.Close();
-                    dataGridViewList.DataSource = table();
-                }
+                else return;
             }
         }
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            //yes
-            load_data();
+            load_data(1);
         }
 
         private void key_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                load_data();
+                load_data(1);
             }
         }
         private void Exit_btn_Click(object sender, EventArgs e)
@@ -152,10 +139,20 @@ namespace PROJECT
 
         private void Add_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            //this.Hide();
             ADD next = new ADD();
             next.ShowDialog();
         }
+        private void REFRESH_Click(object sender, EventArgs e)
+        {
+            search_text.Clear();
+            dataGridViewList.DataSource = table(3);
+        }
 
+        private void Tester_Option(object sender, EventArgs e)
+        {
+            search_text.Clear();
+            dataGridViewList.DataSource = table(2);
+        }
     }
 }

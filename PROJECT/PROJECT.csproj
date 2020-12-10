@@ -36,6 +36,7 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.3.0, Culture=neutral, PublicKeyToken=0e99375e54769942" />
     <Reference Include="Google.Protobuf, Version=3.6.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604" />
     <Reference Include="K4os.Compression.LZ4.Streams, Version=1.1.11.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d" />
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="MySql.Data, Version=8.0.21.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="Renci.SshNet, Version=2016.1.0.0, Culture=neutral, PublicKeyToken=1cee9f8bde3db106" />
     <Reference Include="System" />
@@ -57,13 +58,11 @@
     <Reference Include="Zstandard.Net, Version=1.1.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="boards_for_verificationDataSet2.cs">
-      <DependentUpon>boards_for_verificationDataSet2.xsd</DependentUpon>
+    <Compile Include="BOARD DETAILS.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="boards_for_verificationDataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>boards_for_verificationDataSet2.xsd</DependentUpon>
+    <Compile Include="BOARD DETAILS.Designer.cs">
+      <DependentUpon>BOARD DETAILS.cs</DependentUpon>
     </Compile>
     <Compile Include="CHOOSE.cs">
       <SubType>Form</SubType>
@@ -77,6 +76,8 @@
     <Compile Include="ADD.Designer.cs">
       <DependentUpon>ADD.cs</DependentUpon>
     </Compile>
+    <Compile Include="COMMANDS.cs" />
+    <Compile Include="Connection.cs" />
     <Compile Include="SEARCH_BOARD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +92,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BOARD DETAILS.resx">
+      <DependentUpon>BOARD DETAILS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CHOOSE.resx">
       <DependentUpon>CHOOSE.cs</DependentUpon>
     </EmbeddedResource>
@@ -113,17 +117,6 @@
     <EmbeddedResource Include="SEARCH_BOARD.resx">
       <DependentUpon>SEARCH_BOARD.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="boards_for_verificationDataSet2.xsc">
-      <DependentUpon>boards_for_verificationDataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="boards_for_verificationDataSet2.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>boards_for_verificationDataSet2.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="boards_for_verificationDataSet2.xss">
-      <DependentUpon>boards_for_verificationDataSet2.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

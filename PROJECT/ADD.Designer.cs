@@ -37,9 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Board = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.First_tester = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.Die_type = new System.Windows.Forms.TextBox();
+            this.Test_program = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.First_board_slot = new System.Windows.Forms.TextBox();
@@ -50,7 +49,6 @@
             this.second_verif_link = new System.Windows.Forms.LinkLabel();
             this.Add_second_verif = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.Status = new System.Windows.Forms.ComboBox();
             this.Test_option = new System.Windows.Forms.ComboBox();
             this.first_endorser = new System.Windows.Forms.ComboBox();
             this.second_endorser = new System.Windows.Forms.ComboBox();
@@ -66,11 +64,12 @@
             this.Second_Site = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.Second_tester = new System.Windows.Forms.TextBox();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.Second_tester = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.First_tester = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.Revision = new System.Windows.Forms.TextBox();
             this.Failed_during = new System.Windows.Forms.ComboBox();
@@ -79,15 +78,22 @@
             this.label17 = new System.Windows.Forms.Label();
             this.Failed_during_others = new System.Windows.Forms.TextBox();
             this.Failure_mode_others = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.Test_system = new System.Windows.Forms.ComboBox();
+            this.SPARES = new System.Windows.Forms.RadioButton();
+            this.BRG = new System.Windows.Forms.RadioButton();
+            this.FOR_SECOND_VERIF = new System.Windows.Forms.RadioButton();
+            this.FAILURE_CHANGED = new System.Windows.Forms.RadioButton();
+            this.INSTALL_TO_TESTER = new System.Windows.Forms.RadioButton();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
             // 
             // Save_btn
             // 
-            this.Save_btn.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Save_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save_btn.Location = new System.Drawing.Point(333, 524);
+            this.Save_btn.Location = new System.Drawing.Point(333, 523);
             this.Save_btn.Name = "Save_btn";
             this.Save_btn.Size = new System.Drawing.Size(121, 54);
             this.Save_btn.TabIndex = 0;
@@ -110,6 +116,7 @@
             // 
             // Serial_number
             // 
+            this.Serial_number.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Serial_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Serial_number.Location = new System.Drawing.Point(170, 19);
             this.Serial_number.Name = "Serial_number";
@@ -136,9 +143,11 @@
             this.label2.Size = new System.Drawing.Size(97, 13);
             this.label2.TabIndex = 5;
             this.label2.Text = "PART NUMBER";
+            this.label2.Visible = false;
             // 
             // Part_number
             // 
+            this.Part_number.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Part_number.Location = new System.Drawing.Point(170, 64);
             this.Part_number.Name = "Part_number";
             this.Part_number.Size = new System.Drawing.Size(121, 20);
@@ -149,15 +158,17 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(22, 158);
+            this.label3.Location = new System.Drawing.Point(22, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "BOARD";
+            this.label3.Visible = false;
             // 
             // Board
             // 
-            this.Board.Location = new System.Drawing.Point(170, 155);
+            this.Board.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Board.Location = new System.Drawing.Point(170, 147);
             this.Board.Name = "Board";
             this.Board.Size = new System.Drawing.Size(121, 20);
             this.Board.TabIndex = 6;
@@ -166,47 +177,42 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 128);
+            this.label4.Location = new System.Drawing.Point(16, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 9;
             this.label4.Text = "TESTER";
             // 
-            // First_tester
-            // 
-            this.First_tester.Location = new System.Drawing.Point(136, 125);
-            this.First_tester.Name = "First_tester";
-            this.First_tester.Size = new System.Drawing.Size(121, 20);
-            this.First_tester.TabIndex = 8;
-            this.First_tester.TextChanged += new System.EventHandler(this.Tester_TextChanged);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(22, 209);
+            this.label5.Location = new System.Drawing.Point(22, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 13);
             this.label5.TabIndex = 11;
             this.label5.Text = "LAST TEST PROGRAM";
+            this.label5.Visible = false;
             // 
-            // Die_type
+            // Test_program
             // 
-            this.Die_type.Location = new System.Drawing.Point(170, 204);
-            this.Die_type.Name = "Die_type";
-            this.Die_type.Size = new System.Drawing.Size(121, 20);
-            this.Die_type.TabIndex = 10;
-            this.Die_type.Visible = false;
+            this.Test_program.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Test_program.Location = new System.Drawing.Point(170, 191);
+            this.Test_program.Name = "Test_program";
+            this.Test_program.Size = new System.Drawing.Size(121, 20);
+            this.Test_program.TabIndex = 10;
+            this.Test_program.Visible = false;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(22, 415);
+            this.label6.Location = new System.Drawing.Point(22, 430);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "TEST OPTION";
+            this.label6.Visible = false;
             // 
             // label7
             // 
@@ -246,7 +252,6 @@
             this.first_verif_link.Name = "first_verif_link";
             this.first_verif_link.Size = new System.Drawing.Size(0, 13);
             this.first_verif_link.TabIndex = 17;
-            this.first_verif_link.Visible = false;
             this.first_verif_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.first_verif_link_LinkClicked);
             // 
             // Date_first_verif
@@ -266,13 +271,14 @@
             this.Date_second_verif.Name = "Date_second_verif";
             this.Date_second_verif.Size = new System.Drawing.Size(143, 20);
             this.Date_second_verif.TabIndex = 21;
-            this.Date_second_verif.ValueChanged += new System.EventHandler(this.compare_date);
+            this.Date_second_verif.Visible = false;
             // 
             // second_verif_link
             // 
+            this.second_verif_link.ActiveLinkColor = System.Drawing.Color.Red;
             this.second_verif_link.AutoSize = true;
             this.second_verif_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.second_verif_link.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.second_verif_link.LinkColor = System.Drawing.Color.Black;
             this.second_verif_link.Location = new System.Drawing.Point(19, 64);
             this.second_verif_link.Name = "second_verif_link";
             this.second_verif_link.Size = new System.Drawing.Size(0, 13);
@@ -295,25 +301,12 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(26, 467);
+            this.label8.Location = new System.Drawing.Point(26, 469);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 13);
+            this.label8.Size = new System.Drawing.Size(60, 13);
             this.label8.TabIndex = 22;
-            this.label8.Text = "STATUS";
-            // 
-            // Status
-            // 
-            this.Status.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.Status.FormattingEnabled = true;
-            this.Status.Items.AddRange(new object[] {
-            "SPARE",
-            "BRG",
-            "FOR SECOND VERIF"});
-            this.Status.Location = new System.Drawing.Point(152, 459);
-            this.Status.Name = "Status";
-            this.Status.Size = new System.Drawing.Size(139, 21);
-            this.Status.TabIndex = 23;
-            this.Status.Visible = false;
+            this.label8.Text = "STATUS:";
+            this.label8.Visible = false;
             // 
             // Test_option
             // 
@@ -327,7 +320,7 @@
             "QA_ROOM",
             "QA_COLD",
             "N/A"});
-            this.Test_option.Location = new System.Drawing.Point(170, 410);
+            this.Test_option.Location = new System.Drawing.Point(170, 425);
             this.Test_option.Name = "Test_option";
             this.Test_option.Size = new System.Drawing.Size(121, 21);
             this.Test_option.TabIndex = 24;
@@ -384,13 +377,12 @@
             this.Second_verif_text.Size = new System.Drawing.Size(84, 13);
             this.Second_verif_text.TabIndex = 28;
             this.Second_verif_text.Text = "VERIFIED BY";
-            this.Second_verif_text.Visible = false;
             // 
             // Update_Button
             // 
-            this.Update_Button.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.Update_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_Button.Location = new System.Drawing.Point(613, 525);
+            this.Update_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Update_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Update_Button.Location = new System.Drawing.Point(603, 524);
             this.Update_Button.Name = "Update_Button";
             this.Update_Button.Size = new System.Drawing.Size(121, 54);
             this.Update_Button.TabIndex = 29;
@@ -408,10 +400,12 @@
             this.label10.Size = new System.Drawing.Size(154, 13);
             this.label10.TabIndex = 30;
             this.label10.Text = "PROBLEM DESCRIPTION";
+            this.label10.Visible = false;
             // 
             // Remarks
             // 
-            this.Remarks.Location = new System.Drawing.Point(333, 296);
+            this.Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Remarks.Location = new System.Drawing.Point(333, 295);
             this.Remarks.Multiline = true;
             this.Remarks.Name = "Remarks";
             this.Remarks.Size = new System.Drawing.Size(682, 189);
@@ -423,34 +417,25 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(18, 166);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(35, 13);
+            this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 32;
-            this.label11.Text = "SITE";
+            this.label11.Text = "SITE/SECTOR";
             // 
             // First_Site
             // 
             this.First_Site.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.First_Site.FormattingEnabled = true;
-            this.First_Site.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
             this.First_Site.Location = new System.Drawing.Point(136, 163);
             this.First_Site.Name = "First_Site";
             this.First_Site.Size = new System.Drawing.Size(121, 21);
             this.First_Site.TabIndex = 33;
             this.First_Site.Visible = false;
+            this.First_Site.SelectedIndexChanged += new System.EventHandler(this.First_Site_SelectedIndexChanged);
             // 
             // Second_Site
             // 
             this.Second_Site.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Second_Site.FormattingEnabled = true;
-            this.Second_Site.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4"});
             this.Second_Site.Location = new System.Drawing.Point(137, 163);
             this.Second_Site.Name = "Second_Site";
             this.Second_Site.Size = new System.Drawing.Size(121, 21);
@@ -462,32 +447,26 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(16, 166);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 13);
+            this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 36;
-            this.label12.Text = "SITE";
+            this.label12.Text = "SITE/SECTOR";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 133);
+            this.label13.Location = new System.Drawing.Point(16, 135);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 13);
             this.label13.TabIndex = 35;
             this.label13.Text = "TESTER";
             // 
-            // Second_tester
-            // 
-            this.Second_tester.Location = new System.Drawing.Point(137, 130);
-            this.Second_tester.Name = "Second_tester";
-            this.Second_tester.Size = new System.Drawing.Size(121, 20);
-            this.Second_tester.TabIndex = 34;
-            // 
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Second_box.Controls.Add(this.Second_tester);
             this.Second_box.Controls.Add(this.label14);
             this.Second_box.Controls.Add(this.Date_second_verif);
-            this.Second_box.Controls.Add(this.textBox1);
+            this.Second_box.Controls.Add(this.Second_slot);
             this.Second_box.Controls.Add(this.Add_second_verif);
             this.Second_box.Controls.Add(this.second_verif_link);
             this.Second_box.Controls.Add(this.Second_Site);
@@ -495,7 +474,7 @@
             this.Second_box.Controls.Add(this.label12);
             this.Second_box.Controls.Add(this.Second_verif_text);
             this.Second_box.Controls.Add(this.label13);
-            this.Second_box.Controls.Add(this.Second_tester);
+            this.Second_box.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.Second_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Second_box.Location = new System.Drawing.Point(679, 5);
             this.Second_box.Name = "Second_box";
@@ -504,6 +483,16 @@
             this.Second_box.TabStop = false;
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
+            // 
+            // Second_tester
+            // 
+            this.Second_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Second_tester.FormattingEnabled = true;
+            this.Second_tester.Location = new System.Drawing.Point(137, 130);
+            this.Second_tester.Name = "Second_tester";
+            this.Second_tester.Size = new System.Drawing.Size(121, 21);
+            this.Second_tester.TabIndex = 35;
+            this.Second_tester.SelectedIndexChanged += new System.EventHandler(this.Second_tester_SelectedIndexChanged);
             // 
             // label14
             // 
@@ -515,22 +504,22 @@
             this.label14.TabIndex = 35;
             this.label14.Text = "SLOT";
             // 
-            // textBox1
+            // Second_slot
             // 
-            this.textBox1.Location = new System.Drawing.Point(137, 200);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 34;
+            this.Second_slot.Location = new System.Drawing.Point(137, 200);
+            this.Second_slot.Name = "Second_slot";
+            this.Second_slot.Size = new System.Drawing.Size(121, 20);
+            this.Second_slot.TabIndex = 34;
             // 
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.First_box.Controls.Add(this.First_tester);
             this.First_box.Controls.Add(this.first_endorser);
             this.First_box.Controls.Add(this.label9);
             this.First_box.Controls.Add(this.First_Site);
             this.First_box.Controls.Add(this.Add_first_verif);
             this.First_box.Controls.Add(this.label11);
-            this.First_box.Controls.Add(this.First_tester);
             this.First_box.Controls.Add(this.label4);
             this.First_box.Controls.Add(this.first_verif_link);
             this.First_box.Controls.Add(this.label7);
@@ -545,6 +534,16 @@
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
             // 
+            // First_tester
+            // 
+            this.First_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.First_tester.FormattingEnabled = true;
+            this.First_tester.Location = new System.Drawing.Point(136, 130);
+            this.First_tester.Name = "First_tester";
+            this.First_tester.Size = new System.Drawing.Size(121, 21);
+            this.First_tester.TabIndex = 34;
+            this.First_tester.SelectedIndexChanged += new System.EventHandler(this.First_tester_SelectedIndexChanged);
+            // 
             // label15
             // 
             this.label15.AutoSize = true;
@@ -554,9 +553,11 @@
             this.label15.Size = new System.Drawing.Size(66, 13);
             this.label15.TabIndex = 43;
             this.label15.Text = "REVISION";
+            this.label15.Visible = false;
             // 
             // Revision
             // 
+            this.Revision.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Revision.Location = new System.Drawing.Point(170, 109);
             this.Revision.Name = "Revision";
             this.Revision.Size = new System.Drawing.Size(121, 20);
@@ -570,10 +571,10 @@
             this.Failed_during.Items.AddRange(new object[] {
             "Gauge Study",
             "Low-Yield Verification",
-            "Others",
+            "OTHERS",
             "Scheduled Calibration",
             "Set-up Verification"});
-            this.Failed_during.Location = new System.Drawing.Point(170, 253);
+            this.Failed_during.Location = new System.Drawing.Point(170, 268);
             this.Failed_during.Name = "Failed_during";
             this.Failed_during.Size = new System.Drawing.Size(121, 21);
             this.Failed_during.TabIndex = 45;
@@ -584,11 +585,12 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(22, 258);
+            this.label16.Location = new System.Drawing.Point(22, 273);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 13);
             this.label16.TabIndex = 44;
             this.label16.Text = "FAILED DURING";
+            this.label16.Visible = false;
             // 
             // Failure_mode
             // 
@@ -605,7 +607,7 @@
             "POST CALIBRATION",
             "VERIFY",
             "OTHERS"});
-            this.Failure_mode.Location = new System.Drawing.Point(170, 332);
+            this.Failure_mode.Location = new System.Drawing.Point(170, 347);
             this.Failure_mode.Name = "Failure_mode";
             this.Failure_mode.Size = new System.Drawing.Size(121, 21);
             this.Failure_mode.TabIndex = 47;
@@ -616,15 +618,17 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(26, 335);
+            this.label17.Location = new System.Drawing.Point(26, 350);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 13);
             this.label17.TabIndex = 46;
             this.label17.Text = "FAILURE MODE";
+            this.label17.Visible = false;
             // 
             // Failed_during_others
             // 
-            this.Failed_during_others.Location = new System.Drawing.Point(152, 281);
+            this.Failed_during_others.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Failed_during_others.Location = new System.Drawing.Point(152, 296);
             this.Failed_during_others.Name = "Failed_during_others";
             this.Failed_during_others.Size = new System.Drawing.Size(139, 20);
             this.Failed_during_others.TabIndex = 48;
@@ -632,17 +636,113 @@
             // 
             // Failure_mode_others
             // 
-            this.Failure_mode_others.Location = new System.Drawing.Point(152, 366);
+            this.Failure_mode_others.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Failure_mode_others.Location = new System.Drawing.Point(152, 381);
             this.Failure_mode_others.Name = "Failure_mode_others";
             this.Failure_mode_others.Size = new System.Drawing.Size(139, 20);
             this.Failure_mode_others.TabIndex = 49;
             this.Failure_mode_others.Visible = false;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(22, 229);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 13);
+            this.label18.TabIndex = 51;
+            this.label18.Text = "TEST SYSTEM";
+            this.label18.Visible = false;
+            // 
+            // Test_system
+            // 
+            this.Test_system.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Test_system.FormattingEnabled = true;
+            this.Test_system.Location = new System.Drawing.Point(170, 229);
+            this.Test_system.Name = "Test_system";
+            this.Test_system.Size = new System.Drawing.Size(121, 21);
+            this.Test_system.TabIndex = 52;
+            this.Test_system.Visible = false;
+            this.Test_system.SelectionChangeCommitted += new System.EventHandler(this.Test_system_SelectionChangeCommitted);
+            // 
+            // SPARES
+            // 
+            this.SPARES.AutoSize = true;
+            this.SPARES.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SPARES.Location = new System.Drawing.Point(29, 487);
+            this.SPARES.Name = "SPARES";
+            this.SPARES.Size = new System.Drawing.Size(74, 17);
+            this.SPARES.TabIndex = 53;
+            this.SPARES.TabStop = true;
+            this.SPARES.Text = "SPARES";
+            this.SPARES.UseVisualStyleBackColor = true;
+            this.SPARES.Visible = false;
+            // 
+            // BRG
+            // 
+            this.BRG.AutoSize = true;
+            this.BRG.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BRG.Location = new System.Drawing.Point(29, 524);
+            this.BRG.Name = "BRG";
+            this.BRG.Size = new System.Drawing.Size(51, 17);
+            this.BRG.TabIndex = 54;
+            this.BRG.TabStop = true;
+            this.BRG.Text = "BRG";
+            this.BRG.UseVisualStyleBackColor = true;
+            this.BRG.Visible = false;
+            // 
+            // FOR_SECOND_VERIF
+            // 
+            this.FOR_SECOND_VERIF.AutoSize = true;
+            this.FOR_SECOND_VERIF.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FOR_SECOND_VERIF.Location = new System.Drawing.Point(27, 561);
+            this.FOR_SECOND_VERIF.Name = "FOR_SECOND_VERIF";
+            this.FOR_SECOND_VERIF.Size = new System.Drawing.Size(145, 17);
+            this.FOR_SECOND_VERIF.TabIndex = 55;
+            this.FOR_SECOND_VERIF.TabStop = true;
+            this.FOR_SECOND_VERIF.Text = "FOR SECOND VERIF";
+            this.FOR_SECOND_VERIF.UseVisualStyleBackColor = true;
+            this.FOR_SECOND_VERIF.Visible = false;
+            // 
+            // FAILURE_CHANGED
+            // 
+            this.FAILURE_CHANGED.AutoSize = true;
+            this.FAILURE_CHANGED.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FAILURE_CHANGED.Location = new System.Drawing.Point(170, 487);
+            this.FAILURE_CHANGED.Name = "FAILURE_CHANGED";
+            this.FAILURE_CHANGED.Size = new System.Drawing.Size(132, 17);
+            this.FAILURE_CHANGED.TabIndex = 56;
+            this.FAILURE_CHANGED.TabStop = true;
+            this.FAILURE_CHANGED.Text = "FAILURE CHANGE";
+            this.FAILURE_CHANGED.UseVisualStyleBackColor = true;
+            this.FAILURE_CHANGED.Visible = false;
+            // 
+            // INSTALL_TO_TESTER
+            // 
+            this.INSTALL_TO_TESTER.AutoSize = true;
+            this.INSTALL_TO_TESTER.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.INSTALL_TO_TESTER.Location = new System.Drawing.Point(170, 524);
+            this.INSTALL_TO_TESTER.Name = "INSTALL_TO_TESTER";
+            this.INSTALL_TO_TESTER.Size = new System.Drawing.Size(150, 17);
+            this.INSTALL_TO_TESTER.TabIndex = 57;
+            this.INSTALL_TO_TESTER.TabStop = true;
+            this.INSTALL_TO_TESTER.Text = "INSTALL TO TESTER";
+            this.INSTALL_TO_TESTER.UseVisualStyleBackColor = true;
+            this.INSTALL_TO_TESTER.Visible = false;
+            // 
             // ADD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MediumAquamarine;
             this.ClientSize = new System.Drawing.Size(1043, 615);
+            this.Controls.Add(this.INSTALL_TO_TESTER);
+            this.Controls.Add(this.FAILURE_CHANGED);
+            this.Controls.Add(this.FOR_SECOND_VERIF);
+            this.Controls.Add(this.BRG);
+            this.Controls.Add(this.SPARES);
+            this.Controls.Add(this.Test_system);
+            this.Controls.Add(this.label18);
             this.Controls.Add(this.Failure_mode_others);
             this.Controls.Add(this.Failed_during_others);
             this.Controls.Add(this.Failure_mode);
@@ -657,11 +757,10 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.Update_Button);
             this.Controls.Add(this.Test_option);
-            this.Controls.Add(this.Status);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Die_type);
+            this.Controls.Add(this.Test_program);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Board);
             this.Controls.Add(this.label2);
@@ -670,8 +769,10 @@
             this.Controls.Add(this.Serial_number);
             this.Controls.Add(this.Exit_btn);
             this.Controls.Add(this.Save_btn);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "ADD";
-            this.Text = " ";
+            this.Text = " ADD BOARD DETAILS";
+            this.Load += new System.EventHandler(this.ADD_Load);
             this.Second_box.ResumeLayout(false);
             this.Second_box.PerformLayout();
             this.First_box.ResumeLayout(false);
@@ -685,16 +786,14 @@
 
         private System.Windows.Forms.Button Save_btn;
         private System.Windows.Forms.Button Exit_btn;
-        private System.Windows.Forms.TextBox Serial_number;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox Part_number;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Board;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox First_tester;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Die_type;
+        private System.Windows.Forms.TextBox Test_program;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox First_board_slot;
@@ -705,7 +804,6 @@
         private System.Windows.Forms.LinkLabel second_verif_link;
         private System.Windows.Forms.Button Add_second_verif;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox Status;
         private System.Windows.Forms.ComboBox Test_option;
         private System.Windows.Forms.ComboBox first_endorser;
         private System.Windows.Forms.ComboBox second_endorser;
@@ -721,11 +819,10 @@
         private System.Windows.Forms.ComboBox Second_Site;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox Second_tester;
         private System.Windows.Forms.GroupBox Second_box;
         private System.Windows.Forms.GroupBox First_box;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Second_slot;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox Revision;
         private System.Windows.Forms.ComboBox Failed_during;
@@ -734,5 +831,15 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox Failed_during_others;
         private System.Windows.Forms.TextBox Failure_mode_others;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox Test_system;
+        private System.Windows.Forms.ComboBox Second_tester;
+        private System.Windows.Forms.ComboBox First_tester;
+        public System.Windows.Forms.TextBox Serial_number;
+        private System.Windows.Forms.RadioButton SPARES;
+        private System.Windows.Forms.RadioButton BRG;
+        private System.Windows.Forms.RadioButton FOR_SECOND_VERIF;
+        private System.Windows.Forms.RadioButton FAILURE_CHANGED;
+        private System.Windows.Forms.RadioButton INSTALL_TO_TESTER;
     }
 }
