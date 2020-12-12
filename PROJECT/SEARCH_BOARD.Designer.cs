@@ -36,7 +36,6 @@
             this.Add_btn = new System.Windows.Forms.Button();
             this.Exit_btn = new System.Windows.Forms.Button();
             this.dataGridViewList = new System.Windows.Forms.DataGridView();
-            this.REFRESH = new System.Windows.Forms.Button();
             this.SERIAL_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PART_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BOARD = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,11 +44,13 @@
             this.FIRST_DATE_VERIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.REFRESH = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
             // Search_button
             // 
+            this.Search_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search_button.Location = new System.Drawing.Point(30, 12);
             this.Search_button.Name = "Search_button";
             this.Search_button.Size = new System.Drawing.Size(152, 21);
@@ -69,6 +70,7 @@
             // 
             // Add_btn
             // 
+            this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add_btn.Location = new System.Drawing.Point(354, 12);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(152, 22);
@@ -79,7 +81,9 @@
             // 
             // Exit_btn
             // 
-            this.Exit_btn.Location = new System.Drawing.Point(882, 14);
+            this.Exit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Exit_btn.Location = new System.Drawing.Point(882, 10);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(141, 23);
             this.Exit_btn.TabIndex = 3;
@@ -94,7 +98,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewList.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
+            this.dataGridViewList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,6 +117,7 @@
             this.FIRST_DATE_VERIF,
             this.STATUS,
             this.ENDORSEMENT_NUMBER});
+            this.dataGridViewList.Cursor = System.Windows.Forms.Cursors.Hand;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -138,16 +143,6 @@
             this.dataGridViewList.Size = new System.Drawing.Size(1011, 467);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
-            // 
-            // REFRESH
-            // 
-            this.REFRESH.Location = new System.Drawing.Point(526, 12);
-            this.REFRESH.Name = "REFRESH";
-            this.REFRESH.Size = new System.Drawing.Size(139, 22);
-            this.REFRESH.TabIndex = 5;
-            this.REFRESH.Text = "REFRESH";
-            this.REFRESH.UseVisualStyleBackColor = true;
-            this.REFRESH.Click += new System.EventHandler(this.REFRESH_Click);
             // 
             // SERIAL_NUMBER
             // 
@@ -206,11 +201,22 @@
             this.ENDORSEMENT_NUMBER.ReadOnly = true;
             this.ENDORSEMENT_NUMBER.Visible = false;
             // 
+            // REFRESH
+            // 
+            this.REFRESH.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.REFRESH.Location = new System.Drawing.Point(526, 12);
+            this.REFRESH.Name = "REFRESH";
+            this.REFRESH.Size = new System.Drawing.Size(139, 22);
+            this.REFRESH.TabIndex = 5;
+            this.REFRESH.Text = "REFRESH";
+            this.REFRESH.UseVisualStyleBackColor = true;
+            this.REFRESH.Click += new System.EventHandler(this.REFRESH_Click);
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1036, 535);
             this.Controls.Add(this.REFRESH);
             this.Controls.Add(this.dataGridViewList);

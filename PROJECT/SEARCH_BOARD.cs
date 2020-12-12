@@ -148,11 +148,5 @@ namespace PROJECT
             search_text.Clear();
             dataGridViewList.DataSource = table(3);
         }
-
-        private void Tester_Option(object sender, EventArgs e)
-        {
-            search_text.Clear();
-            dataGridViewList.DataSource = table(2);
-        }
     }
 }

@@ -37,5 +37,12 @@ namespace PROJECT
             SEARCH_BOARD next = new SEARCH_BOARD();
             next.ShowDialog();
         }
+
+        private void EDIT_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            EDIT_TESTERS edit = new EDIT_TESTERS();
+            edit.ShowDialog();
+        }
     }
 }

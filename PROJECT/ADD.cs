@@ -19,8 +19,6 @@ namespace PROJECT
 {
     public partial class ADD : Form
     {
-        //public MySqlConnection connect = new MySqlConnection("server=mpoctsgdb.maxim-ic.com;user id=a2_utilities;password = a2_utilities;database=a2_utitilies");
-        //MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
         MySqlCommand command;
         public string tester_platform, get_status, inputBox,FileName,status,displayStatus;
         public int sites;
@@ -55,7 +53,6 @@ namespace PROJECT
                 {
                     case DialogResult.Yes:
                         commands(InputCommand);
-                        Save_btn.Visible = false;
                         break;
                     case DialogResult.No:
                         return;
@@ -145,7 +142,7 @@ namespace PROJECT
             }
             else
             {
-                if (First_tester.Items.Count != 0)
+                if (First_Site.Items.Count != 0)
                 {
                     if (First_Site.SelectedIndex == -1)
                     {
@@ -158,24 +155,28 @@ namespace PROJECT
         }
         private bool ForSecondVerif()
         {
-            if (second_verif_link.Text == string.Empty || Second_tester.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Second_slot.Text)
-                    || second_endorser.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Remarks.Text))
+            if (compare_date())
             {
-                error();
-                return false;
-            }
-            else 
-            {
-                if (Second_tester.Items.Count != 0)
+                if (second_verif_link.Text == string.Empty || Second_tester.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Second_slot.Text)
+                        || second_endorser.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Remarks.Text))
                 {
-                    if (Second_Site.SelectedIndex == -1)
+                    error();
+                    return false;
+                }
+                else
+                {
+                    if (Second_Site.Items.Count != 0)
                     {
-                        error();
-                        return false;
+                        if (Second_Site.SelectedIndex == -1)
+                        {
+                            error();
+                            return false;
+                        }
                     }
                 }
+                return true;
             }
-            return true;
+            return false;
         }
         private void Update_Button_Click(object sender, EventArgs e)
         {
@@ -355,7 +356,10 @@ namespace PROJECT
                                 case DialogResult.No:
                                     clear_all();
                                     Serial_number.Clear();
+                                    Save_btn.Visible = false;
                                     Update_Button.Visible = false;
+                                    FAILURE_CHANGED.Visible = false;
+                                    INSTALL_TO_TESTER.Visible = false;
                                     Connection.CloseConnection();
                                     return;
                             }
@@ -397,6 +401,8 @@ namespace PROJECT
                             Save_btn.Visible = false;
                             Update_Button.Visible = true;
                             Second_box.Visible = true;
+                            FAILURE_CHANGED.Visible = true;
+                            INSTALL_TO_TESTER.Visible = true;
                             FOR_SECOND_VERIF.Visible = false;
                             if (Test_system.Text == "ASL4K" || Test_system.Text == "ASL1K")
                             {
@@ -418,8 +424,7 @@ namespace PROJECT
                                 Connection.CloseConnection();
                             }
                             else
-                            {
-  
+                            { 
                                 tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
                                 command = new MySqlCommand(tester_platform, Connection.connect);
 
@@ -526,7 +531,7 @@ namespace PROJECT
         {
             foreach (Control c in this.Controls)
             {
-                if (c == Remarks || c == Save_btn || c == Update_Button || c == Exit_btn || c == Serial_number 
+                if (c == Remarks || c == Save_btn || c == Update_Button || c == Exit_btn || c == Serial_number
                     || c == Second_box || c is RadioButton)
                 {
                     continue;
@@ -543,6 +548,8 @@ namespace PROJECT
                             ctrl.Enabled = false;
                     }
                 }
+                else if (c is Label)
+                    continue;
                 else
                 {
                     c.Enabled = false;
@@ -788,6 +795,7 @@ namespace PROJECT
         {
             LoadTesterPlatforms();
         }
+
         private void LoadTesterPlatforms()
         {
             Test_system.Items.Clear();

@@ -31,10 +31,12 @@
             this.System_Limit = new System.Windows.Forms.Button();
             this.Boards_for_Verif = new System.Windows.Forms.Button();
             this.EXIT = new System.Windows.Forms.Button();
+            this.EDIT = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // System_Limit
             // 
+            this.System_Limit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.System_Limit.Location = new System.Drawing.Point(50, 38);
             this.System_Limit.Name = "System_Limit";
             this.System_Limit.Size = new System.Drawing.Size(175, 59);
@@ -44,6 +46,7 @@
             // 
             // Boards_for_Verif
             // 
+            this.Boards_for_Verif.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Boards_for_Verif.Location = new System.Drawing.Point(273, 38);
             this.Boards_for_Verif.Name = "Boards_for_Verif";
             this.Boards_for_Verif.Size = new System.Drawing.Size(175, 59);
@@ -54,13 +57,25 @@
             // 
             // EXIT
             // 
-            this.EXIT.Location = new System.Drawing.Point(156, 125);
+            this.EXIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EXIT.Location = new System.Drawing.Point(50, 127);
             this.EXIT.Name = "EXIT";
-            this.EXIT.Size = new System.Drawing.Size(173, 52);
+            this.EXIT.Size = new System.Drawing.Size(175, 52);
             this.EXIT.TabIndex = 2;
             this.EXIT.Text = "EXIT";
             this.EXIT.UseVisualStyleBackColor = true;
             this.EXIT.Click += new System.EventHandler(this.EXIT_Click);
+            // 
+            // EDIT
+            // 
+            this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EDIT.Location = new System.Drawing.Point(273, 127);
+            this.EDIT.Name = "EDIT";
+            this.EDIT.Size = new System.Drawing.Size(175, 52);
+            this.EDIT.TabIndex = 3;
+            this.EDIT.Text = "EDIT";
+            this.EDIT.UseVisualStyleBackColor = true;
+            this.EDIT.Click += new System.EventHandler(this.EDIT_Click);
             // 
             // CHOOSE
             // 
@@ -68,6 +83,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
             this.ClientSize = new System.Drawing.Size(479, 245);
+            this.Controls.Add(this.EDIT);
             this.Controls.Add(this.EXIT);
             this.Controls.Add(this.Boards_for_Verif);
             this.Controls.Add(this.System_Limit);
@@ -82,5 +98,6 @@
         private System.Windows.Forms.Button System_Limit;
         private System.Windows.Forms.Button Boards_for_Verif;
         private System.Windows.Forms.Button EXIT;
+        private System.Windows.Forms.Button EDIT;
     }
 }

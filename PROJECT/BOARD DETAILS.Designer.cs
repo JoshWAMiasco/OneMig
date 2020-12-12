@@ -83,7 +83,6 @@ namespace PROJECT
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(13, 258);
             this.label17.Name = "label17";
@@ -256,6 +255,7 @@ namespace PROJECT
             // Add_first_verif
             // 
             this.Add_first_verif.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Add_first_verif.Cursor = System.Windows.Forms.Cursors.Default;
             this.Add_first_verif.Location = new System.Drawing.Point(18, 19);
             this.Add_first_verif.Name = "Add_first_verif";
             this.Add_first_verif.Size = new System.Drawing.Size(143, 24);
@@ -284,6 +284,7 @@ namespace PROJECT
             // First_verif_link
             // 
             this.First_verif_link.AutoSize = true;
+            this.First_verif_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.First_verif_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.First_verif_link.LinkColor = System.Drawing.Color.Black;
             this.First_verif_link.Location = new System.Drawing.Point(18, 60);
@@ -389,6 +390,7 @@ namespace PROJECT
             // Add_second_verif
             // 
             this.Add_second_verif.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Add_second_verif.Cursor = System.Windows.Forms.Cursors.Default;
             this.Add_second_verif.Location = new System.Drawing.Point(19, 23);
             this.Add_second_verif.Name = "Add_second_verif";
             this.Add_second_verif.Size = new System.Drawing.Size(143, 24);
@@ -400,6 +402,7 @@ namespace PROJECT
             // 
             this.Second_verif_link.ActiveLinkColor = System.Drawing.Color.Red;
             this.Second_verif_link.AutoSize = true;
+            this.Second_verif_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Second_verif_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Second_verif_link.LinkColor = System.Drawing.Color.Black;
             this.Second_verif_link.Location = new System.Drawing.Point(19, 64);
@@ -457,6 +460,7 @@ namespace PROJECT
             // Exit_btn
             // 
             this.Exit_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_btn.Location = new System.Drawing.Point(12, 432);
             this.Exit_btn.Name = "Exit_btn";
@@ -470,6 +474,7 @@ namespace PROJECT
             // 
             this.Failure_mode.AutoSize = true;
             this.Failure_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Failure_mode.ForeColor = System.Drawing.Color.Black;
             this.Failure_mode.Location = new System.Drawing.Point(177, 258);
             this.Failure_mode.Name = "Failure_mode";
             this.Failure_mode.Size = new System.Drawing.Size(0, 13);
@@ -479,6 +484,7 @@ namespace PROJECT
             // 
             this.Failed_during.AutoSize = true;
             this.Failed_during.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Failed_during.ForeColor = System.Drawing.Color.Black;
             this.Failed_during.Location = new System.Drawing.Point(177, 215);
             this.Failed_during.Name = "Failed_during";
             this.Failed_during.Size = new System.Drawing.Size(0, 13);
@@ -488,6 +494,7 @@ namespace PROJECT
             // 
             this.Revision.AutoSize = true;
             this.Revision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Revision.ForeColor = System.Drawing.Color.Black;
             this.Revision.Location = new System.Drawing.Point(176, 100);
             this.Revision.Name = "Revision";
             this.Revision.Size = new System.Drawing.Size(0, 13);
@@ -497,6 +504,7 @@ namespace PROJECT
             // 
             this.Status.AutoSize = true;
             this.Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Status.ForeColor = System.Drawing.Color.Black;
             this.Status.Location = new System.Drawing.Point(177, 343);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(0, 13);
@@ -506,6 +514,7 @@ namespace PROJECT
             // 
             this.Test_option.AutoSize = true;
             this.Test_option.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test_option.ForeColor = System.Drawing.Color.Black;
             this.Test_option.Location = new System.Drawing.Point(177, 302);
             this.Test_option.Name = "Test_option";
             this.Test_option.Size = new System.Drawing.Size(0, 13);
@@ -515,6 +524,7 @@ namespace PROJECT
             // 
             this.Test_program.AutoSize = true;
             this.Test_program.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Test_program.ForeColor = System.Drawing.Color.Black;
             this.Test_program.Location = new System.Drawing.Point(176, 181);
             this.Test_program.Name = "Test_program";
             this.Test_program.Size = new System.Drawing.Size(0, 13);
@@ -524,6 +534,7 @@ namespace PROJECT
             // 
             this.Board.AutoSize = true;
             this.Board.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Board.ForeColor = System.Drawing.Color.Black;
             this.Board.Location = new System.Drawing.Point(176, 141);
             this.Board.Name = "Board";
             this.Board.Size = new System.Drawing.Size(0, 13);
@@ -533,6 +544,7 @@ namespace PROJECT
             // 
             this.Part_number.AutoSize = true;
             this.Part_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Part_number.ForeColor = System.Drawing.Color.Black;
             this.Part_number.Location = new System.Drawing.Point(176, 61);
             this.Part_number.Name = "Part_number";
             this.Part_number.Size = new System.Drawing.Size(0, 13);
@@ -542,6 +554,7 @@ namespace PROJECT
             // 
             this.Serial_number.AutoSize = true;
             this.Serial_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Serial_number.ForeColor = System.Drawing.Color.Black;
             this.Serial_number.Location = new System.Drawing.Point(176, 27);
             this.Serial_number.Name = "Serial_number";
             this.Serial_number.Size = new System.Drawing.Size(0, 13);
@@ -551,7 +564,7 @@ namespace PROJECT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.ClientSize = new System.Drawing.Size(1060, 506);
             this.Controls.Add(this.Failure_mode);
             this.Controls.Add(this.Failed_during);

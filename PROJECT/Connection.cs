@@ -11,6 +11,7 @@ namespace PROJECT
 {
     class Connection
     {
+        //public static MySqlConnection connect = new MySqlConnection("server=mpoctsgdb.maxim-ic.com;user id=a2_utilities;password = a2_utilities;database=a2_utitilies");
         public static MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
 
         public static bool OpenConnection()
