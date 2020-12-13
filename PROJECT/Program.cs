@@ -16,7 +16,7 @@ namespace PROJECT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LOG_IN());
+            Application.Run(new EDIT_TESTERS());
         }
     }
 }

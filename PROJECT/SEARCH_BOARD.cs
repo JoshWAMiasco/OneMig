@@ -133,8 +133,8 @@ namespace PROJECT
         private void Exit_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            CHOOSE next = new CHOOSE();
-            next.ShowDialog();
+            EDIT_TESTERS back = new EDIT_TESTERS();
+            back.ShowDialog();
         }
 
         private void Add_btn_Click(object sender, EventArgs e)

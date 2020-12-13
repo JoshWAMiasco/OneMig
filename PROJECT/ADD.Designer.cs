@@ -93,7 +93,7 @@
             // 
             this.Save_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save_btn.Location = new System.Drawing.Point(388, 644);
+            this.Save_btn.Location = new System.Drawing.Point(388, 630);
             this.Save_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Save_btn.Name = "Save_btn";
             this.Save_btn.Size = new System.Drawing.Size(141, 66);
@@ -107,7 +107,7 @@
             // 
             this.Exit_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn.Location = new System.Drawing.Point(1043, 645);
+            this.Exit_btn.Location = new System.Drawing.Point(1042, 629);
             this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(141, 66);
@@ -409,7 +409,7 @@
             // 
             this.Update_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Update_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_Button.Location = new System.Drawing.Point(703, 645);
+            this.Update_Button.Location = new System.Drawing.Point(709, 630);
             this.Update_Button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Update_Button.Name = "Update_Button";
             this.Update_Button.Size = new System.Drawing.Size(141, 66);
@@ -800,7 +800,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1217, 757);
+            this.ClientSize = new System.Drawing.Size(1217, 709);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.INSTALL_TO_TESTER);
             this.Controls.Add(this.Test_system);

@@ -64,19 +64,12 @@
     <Compile Include="BOARD DETAILS.Designer.cs">
       <DependentUpon>BOARD DETAILS.cs</DependentUpon>
     </Compile>
-    <Compile Include="CHOOSE.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CHOOSE.Designer.cs">
-      <DependentUpon>CHOOSE.cs</DependentUpon>
-    </Compile>
     <Compile Include="ADD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ADD.Designer.cs">
       <DependentUpon>ADD.cs</DependentUpon>
     </Compile>
-    <Compile Include="COMMANDS.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="EDIT_TESTERS.cs">
       <SubType>Form</SubType>
@@ -90,28 +83,16 @@
     <Compile Include="SEARCH_BOARD.Designer.cs">
       <DependentUpon>SEARCH_BOARD.cs</DependentUpon>
     </Compile>
-    <Compile Include="LOG_IN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LOG_IN.Designer.cs">
-      <DependentUpon>LOG_IN.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BOARD DETAILS.resx">
       <DependentUpon>BOARD DETAILS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CHOOSE.resx">
-      <DependentUpon>CHOOSE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ADD.resx">
       <DependentUpon>ADD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EDIT_TESTERS.resx">
       <DependentUpon>EDIT_TESTERS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LOG_IN.resx">
-      <DependentUpon>LOG_IN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
