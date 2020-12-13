@@ -13,6 +13,7 @@ namespace PROJECT
     {
         //public static MySqlConnection connect = new MySqlConnection("server=mpoctsgdb.maxim-ic.com;user id=a2_utilities;password = a2_utilities;database=a2_utitilies");
         public static MySqlConnection connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
+        public static MySqlConnection ConnectBoards = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_of_testers");
 
         public static bool OpenConnection()
         {
@@ -40,6 +41,41 @@ namespace PROJECT
             try
             {
                 connect.Close();
+                return true;
+            }
+            catch (MySqlException me)
+            {
+                MessageBox.Show(me.ToString());
+                return false;
+            }
+        }
+        public static bool OpenConnectionForBoards()
+        {
+            try
+            {
+                ConnectBoards.Open();
+                return true;
+            }
+            catch (MySqlException me)
+            {
+                MessageBox.Show(me.ToString());
+                switch (me.Number)
+                {
+                    case 0:
+                        MessageBox.Show("CANNOT CONNECT TO THE SERVER, CHECK THE NETWORK OR CONTACT ADMINISTRATOR");
+                        break;
+                    default:
+                        MessageBox.Show(me.ToString());
+                        break;
+                }
+                return false;
+            }
+        }
+        public static bool CloseConnectionForBoards()
+        {
+            try
+            {
+                ConnectBoards.Close();
                 return true;
             }
             catch (MySqlException me)
