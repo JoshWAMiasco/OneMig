@@ -172,7 +172,7 @@ namespace PROJECT
             // 
             // First_box
             // 
-            this.First_box.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.First_box.Controls.Add(this.First_date);
             this.First_box.Controls.Add(this.First_endorser);
             this.First_box.Controls.Add(this.First_site);
@@ -305,7 +305,7 @@ namespace PROJECT
             // 
             // Second_box
             // 
-            this.Second_box.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.Second_box.Controls.Add(this.Second_date);
             this.Second_box.Controls.Add(this.Second_endorser);
             this.Second_box.Controls.Add(this.Second_site);
@@ -564,7 +564,7 @@ namespace PROJECT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.BackColor = System.Drawing.Color.Teal;
             this.ClientSize = new System.Drawing.Size(1060, 506);
             this.Controls.Add(this.Failure_mode);
             this.Controls.Add(this.Failed_during);

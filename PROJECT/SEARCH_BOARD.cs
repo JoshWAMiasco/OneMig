@@ -27,6 +27,7 @@ namespace PROJECT
 
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
+            Username.Focus();
             dataGridViewList.DataSource = table(3);
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
@@ -132,9 +133,7 @@ namespace PROJECT
         }
         private void Exit_btn_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            EDIT_TESTERS back = new EDIT_TESTERS();
-            back.ShowDialog();
+            this.Close();
         }
 
         private void Add_btn_Click(object sender, EventArgs e)
@@ -148,5 +147,77 @@ namespace PROJECT
             search_text.Clear();
             dataGridViewList.DataSource = table(3);
         }
+
+        private void User(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text))
+                {
+                    MessageBox.Show("INCOMPLETE INPUT");
+                }
+                else
+                {
+                    if (Username.Text.ToLower() == "maxte" && Password.Text.ToLower() == "tsg")
+                    {
+                        Log_in.Visible = false;
+                        Log_out.Visible = true;
+                        Add_btn.Visible = true;
+                    }
+                    else if (Username.Text.ToLower() == "admin" && Password.Text.ToLower() == "admin")
+                    {
+                        Log_in.Visible = false;
+                        Log_out.Visible = true;
+                        Add_btn.Visible = true;
+                        EDIT.Visible = true;
+                    }
+                    else
+                        MessageBox.Show("INCORRECT");
+                }
+            }
+        }
+        private void Pass(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text))
+                {
+                    MessageBox.Show("INCOMPLETE INPUT");
+                }
+                else
+                {
+                    if (Username.Text.ToLower() == "maxte" && Password.Text.ToLower() == "tsg")
+                    {
+                        Log_in.Visible = false;
+                        Log_out.Visible = true;
+                        Add_btn.Visible = true;
+                    }
+                    else if (Username.Text.ToLower() == "admin" && Password.Text.ToLower() == "admin")
+                    {
+                        Log_in.Visible = false;
+                        Log_out.Visible = true;
+                        Add_btn.Visible = true;
+                        EDIT.Visible = true;
+                    }
+                    else
+                        MessageBox.Show("INCORRECT");
+                }
+            }
+        } 
+        private void EDIT_Click(object sender, EventArgs e)
+        {
+            EDIT_TESTERS edit = new EDIT_TESTERS();
+            edit.ShowDialog();
+        }
+
+        private void Log_out_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Log_in.Visible = true;
+            Log_out.Visible = false;
+            Add_btn.Visible = false;
+            EDIT.Visible = false;
+            Username.Clear();
+            Password.Clear();
+        }      
     }
 }

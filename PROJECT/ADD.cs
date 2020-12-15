@@ -20,7 +20,7 @@ namespace PROJECT
     public partial class ADD : Form
     {
         MySqlCommand command;
-        public string tester_platform, get_status, inputBox,FileName,status,displayStatus;
+        public string tester_platform, get_status, inputBox,FileName,status,displayStatus,boardQuery,database,ForTmT;
         public int sites;
         
         byte[] data;
@@ -346,7 +346,6 @@ namespace PROJECT
                                     all_controls();
                                     Part_number.Text = read_data["PART NUMBER"].ToString();
                                     Revision.Text = read_data["REVISION"].ToString();
-                                    Board.Text = read_data["BOARD"].ToString();
                                     Connection.CloseConnection();
                                     Update_Button.Visible = false;
                                     FAILURE_CHANGED.Visible = false;
@@ -368,11 +367,11 @@ namespace PROJECT
                         {
                             ClearItemsInTesterBox();
                             Test_system.Items.Clear();
+                            Boards.Items.Clear();
                             all_controls();
                             Part_number.Text = read_data["PART NUMBER"].ToString();
-                            Board.Text = read_data["BOARD"].ToString();
                             Revision.Text = read_data["REVISION"].ToString();
-                            Board.Text = read_data["BOARD"].ToString();
+                            Boards.Items.Add(read_data["BOARD"].ToString());
                             Test_program.Text = read_data["TEST PROGRAM"].ToString();
                             Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
                             Failed_during.Text = read_data["FAILED DURING"].ToString();
@@ -392,6 +391,7 @@ namespace PROJECT
                             disable_control();
                             first_verif_link.Text = FileName;
                             Test_system.SelectedIndex = 0;
+                            Boards.SelectedIndex = 0;
                             First_tester.SelectedIndex = 0;
                             First_Site.SelectedIndex = 0;
                             if (First_Site.Text.Equals(string.Empty))
@@ -486,7 +486,7 @@ namespace PROJECT
                     command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`) VALUES('" + Serial_number.Text + "'," +
-            "'" + Part_number.Text + "','" + Revision.Text + "','" + Board.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
+            "'" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + Date_first_verif.Text + "','" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "','" + Test_system.Text + "'," +
             "'" + Filename(first_verif_link.Text) + "')");
@@ -506,7 +506,7 @@ namespace PROJECT
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,`SECOND DATE`," +
             "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`) " +
-            "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Board.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
+            "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + Date_first_verif.Text + "','" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "',@SECOND_DATA," +
             "'" + Date_second_verif.Text + "','" + Second_tester.Text + "','" + Second_Site.Text + "','" + Second_slot.Text + "','" + second_endorser.Text + "','" + Test_system.Text + "'," +
@@ -798,6 +798,7 @@ namespace PROJECT
 
         private void LoadTesterPlatforms()
         {
+            Boards.Items.Clear();
             Test_system.Items.Clear();
             commands(5);
             if (Connection.OpenConnection())
@@ -816,6 +817,7 @@ namespace PROJECT
             ClearItemsInTesterBox();
             Testers();
             Show_second_grpBox();
+            LoadBoards();
         }
         private void ClearItemsInTesterBox()
         {
@@ -833,15 +835,18 @@ namespace PROJECT
             tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
             command = new MySqlCommand(tester_platform, Connection.connect);
 
-            Connection.OpenConnection();
-            MySqlDataReader read_data = command.ExecuteReader();
-            while (read_data.Read())
+            if (Connection.OpenConnection())
             {
-                First_tester.Items.Add(read_data.GetString(Test_system.Text.ToUpper()));
-                Second_tester.Items.Add(read_data.GetString(Test_system.Text.ToUpper()));
+                MySqlDataReader read_data = command.ExecuteReader();
+                while (read_data.Read())
+                {
+                    First_tester.Items.Add(read_data.GetString(Test_system.Text.ToUpper()));
+                    Second_tester.Items.Add(read_data.GetString(Test_system.Text.ToUpper()));
+                }
+                sites = int.Parse(read_data["SITE"].ToString());
+                Connection.CloseConnection();
             }
-            sites = int.Parse(read_data["SITE"].ToString());
-            Connection.CloseConnection();
+            else return;
             if (sites != 0)
             {
                 for (int CountSite = 1; CountSite <= sites; CountSite++)
@@ -859,6 +864,28 @@ namespace PROJECT
                 Second_Site.Visible = false;
                 Second_Site.Items.Clear();
             }
+        }
+        private void LoadBoards()
+        {
+            Boards.Items.Clear();
+            database = "boards_of_testers";
+            if (Test_system.Text == "ASL1K" || Test_system.Text == "ASL4K")
+                ForTmT = "tmt";
+            else
+                ForTmT = Test_system.Text;
+            boardQuery = string.Format("SELECT * FROM `{0}`.`{1}`", database, ForTmT.ToLower());
+            command = new MySqlCommand(boardQuery, Connection.ConnectBoards);
+
+            if (Connection.OpenConnectionForBoards())
+            {
+                MySqlDataReader LoadBoards = command.ExecuteReader();
+                while(LoadBoards.Read())
+                {
+                    Boards.Items.Add(LoadBoards.GetString(ForTmT.ToUpper()));
+                }
+                Connection.CloseConnectionForBoards();
+            }
+
         }
     }
 }
