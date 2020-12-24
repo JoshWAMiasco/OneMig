@@ -69,21 +69,26 @@ namespace PROJECT
                         "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`) LIMIT 1",Connection.connect);
                     break;
                 case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
-                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`)" +
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` WHERE '" + search_text.Text + "'" +
+                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`STATUS`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 2:  //TO DISPLAY THE TESTER PLATFORMS
                     command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d')," +
+                        "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 20",Connection.connect);
                     break;
                 case 4:
                     command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",                     
                         Connection.connect);
+                    break;
+                case 5: command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')" +
+                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 20",Connection.connect);
                     break;
             }
         }
@@ -103,7 +108,6 @@ namespace PROJECT
         }
         private void load_data(int commandss)
         {
-            check = null;
             if (string.IsNullOrWhiteSpace(search_text.Text))
             {
                 MessageBox.Show("NO INPUT");
@@ -114,7 +118,6 @@ namespace PROJECT
                 if (Connection.OpenConnection())
                 {
                     check = command.ExecuteScalar().ToString();
-                    MessageBox.Show(check);
                     if (Connection.CloseConnection())
                     {
                         if (check == "0")
@@ -161,6 +164,14 @@ namespace PROJECT
         {
             search_text.Clear();
             dataGridViewList.DataSource = table(3);
+            commands(4);
+            if (Connection.OpenConnection())
+            {
+                check = command.ExecuteScalar().ToString();
+                Connection.CloseConnection();
+                DUE_DATE.Text = string.Format("OVERDUE({0})", check);
+            }
+            else Connection.CloseConnection();
         }
 
         private void User(object sender, KeyEventArgs e)
@@ -238,6 +249,15 @@ namespace PROJECT
 
         private void DUE_DATE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            search_text.Clear();
+            if (check == "0")
+            {
+                return;
+            }
+            else
+            {
+                dataGridViewList.DataSource = table(5);
+            }
         }
     }
 }

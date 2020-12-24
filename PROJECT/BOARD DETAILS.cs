@@ -29,7 +29,7 @@ namespace PROJECT
         private void Load_Boards(object sender, EventArgs e)
         {
             command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
-            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,`SECOND DATE`," +
+            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,date_format(`FIRST DATE`,'%Y-%m-%d'),`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,date_format(`SECOND DATE`,'%Y-%m-%d')," +
             "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2` FROM `boards_for_verification`.`board details` " +
             "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
 
@@ -54,7 +54,7 @@ namespace PROJECT
                 Remarks.Text = read_data["REMARKS"].ToString();
                 Status.Text = read_data["STATUS"].ToString();
                 Data1 = (byte[])read_data["FIRST DATALOG"];
-                First_date.Text = read_data["FIRST DATE"].ToString();
+                First_date.Text = read_data["date_format(`FIRST DATE`,'%Y-%m-%d')"].ToString();
                 First_tester.Text = read_data["FIRST TESTER"].ToString();
                 First_site.Text = read_data["FIRST SITE"].ToString();
                 First_slot.Text = read_data["FIRST SLOT"].ToString();
@@ -62,7 +62,7 @@ namespace PROJECT
                 Second_verif_link.Text = read_data["SECOND DATALOG"].ToString();
                 if (Second_verif_link.Text != String.Empty)
                     Data2 = (byte[])read_data["SECOND DATALOG"];
-                Second_date.Text = read_data["SECOND DATE"].ToString();
+                Second_date.Text = read_data["date_format(`SECOND DATE`,'%Y-%m-%d')"].ToString();
                 Second_tester.Text = read_data["SECOND TESTER"].ToString();
                 Second_site.Text = read_data["SECOND SITE"].ToString();
                 Second_slot.Text = read_data["SECOND SLOT"].ToString();

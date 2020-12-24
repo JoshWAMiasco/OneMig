@@ -840,7 +840,11 @@ namespace PROJECT
                     }
                     Second_Site.Visible = true;
                 }
-                else Second_Site.Visible = false;
+                else
+                {
+                    Second_Site.Items.Clear();
+                    Second_Site.Visible = false;
+                }
             }
             else return;
         }
