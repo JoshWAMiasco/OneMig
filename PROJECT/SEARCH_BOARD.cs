@@ -29,6 +29,14 @@ namespace PROJECT
         {
             Username.Focus();
             dataGridViewList.DataSource = table(3);
+            commands(4);
+            if (Connection.OpenConnection())
+            {
+                check = command.ExecuteScalar().ToString();
+                Connection.CloseConnection();
+                DUE_DATE.Text = string.Format("OVERDUE({0})", check);
+            }
+            else Connection.CloseConnection();
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
         {
@@ -55,13 +63,14 @@ namespace PROJECT
         {
             switch(cmd)
             {
+               
                 case 0: //TO CHECK IF THERE'S AND EXISTING DATA SEARCHED
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
-                        "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`) LIMIT 1",Connection.connect);
+                        "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`) LIMIT 1",Connection.connect);
                     break;
                 case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE('" + search_text.Text + "')" +
+                        " FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
                         " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
@@ -70,7 +79,11 @@ namespace PROJECT
                     break;
                 case 3:  //FOR UPDATING PURPOSES
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
+                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 20",Connection.connect);
+                    break;
+                case 4:
+                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",                     
+                        Connection.connect);
                     break;
             }
         }
@@ -90,6 +103,7 @@ namespace PROJECT
         }
         private void load_data(int commandss)
         {
+            check = null;
             if (string.IsNullOrWhiteSpace(search_text.Text))
             {
                 MessageBox.Show("NO INPUT");
@@ -100,6 +114,7 @@ namespace PROJECT
                 if (Connection.OpenConnection())
                 {
                     check = command.ExecuteScalar().ToString();
+                    MessageBox.Show(check);
                     if (Connection.CloseConnection())
                     {
                         if (check == "0")
@@ -218,6 +233,11 @@ namespace PROJECT
             EDIT.Visible = false;
             Username.Clear();
             Password.Clear();
-        }      
+            Username.Focus();
+        }
+
+        private void DUE_DATE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+        }
     }
 }

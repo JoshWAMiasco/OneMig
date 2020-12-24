@@ -424,6 +424,7 @@
             // Remarks
             // 
             this.Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Remarks.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Remarks.Location = new System.Drawing.Point(388, 368);
             this.Remarks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Remarks.Multiline = true;
@@ -856,7 +857,6 @@
         private System.Windows.Forms.Button Exit_btn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox Part_number;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -909,5 +909,6 @@
         private System.Windows.Forms.RadioButton FAILURE_CHANGED;
         private System.Windows.Forms.RadioButton INSTALL_TO_TESTER;
         private System.Windows.Forms.ComboBox Boards;
+        public System.Windows.Forms.TextBox Part_number;
     }
 }

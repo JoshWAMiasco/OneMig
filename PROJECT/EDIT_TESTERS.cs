@@ -224,13 +224,19 @@ namespace PROJECT
                             Tester_platform = Tester_platforms.Text;
                     }
                     FullCommand = null;
+                    List_AddOrDelete = null;
+                    List_value = null;
                     Commands(save);
                     if (Tester.Checked)
                     {
                         if (Connection.OpenConnection())
                         {
-                            Command.ExecuteNonQuery();
-                            Connection.CloseConnection();
+                            try
+                            {
+                                Command.ExecuteNonQuery();
+                                Connection.CloseConnection();
+                            }
+                            catch (Exception message) { MessageBox.Show(message.ToString()); }
                         }
                         else return;
                     }
@@ -238,8 +244,12 @@ namespace PROJECT
                     {
                         if (Connection.OpenConnectionForBoards())
                         {
-                            Command.ExecuteNonQuery();
-                            Connection.CloseConnectionForBoards();
+                            try
+                            {
+                                Command.ExecuteNonQuery();
+                                Connection.CloseConnection();
+                            }
+                            catch (Exception message) { MessageBox.Show(message.ToString());}
                         }
                         else return;
                     }

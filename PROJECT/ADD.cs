@@ -21,8 +21,8 @@ namespace PROJECT
     {
         MySqlCommand command;
         public string tester_platform, get_status, inputBox,FileName,status,displayStatus,boardQuery,database,ForTmT;
-        public int sites;
-        
+        public int sites, DoNotLoadBoard;
+
         byte[] data;
         public ADD()
         {
@@ -67,6 +67,8 @@ namespace PROJECT
                 catch (MySqlException m)
                 {
                     MessageBox.Show(m.ToString());
+                    Connection.CloseConnection();
+                    return;
                 }
                 if (Connection.CloseConnection())
                 {
@@ -289,8 +291,9 @@ namespace PROJECT
         {
             if (Save_btn.Visible == false)
             {
-                File.WriteAllBytes(FileName, data);
-                System.Diagnostics.Process.Start(FileName);
+                string DatalogFile = string.Format("C:\\Users\\{0}\\Desktop\\{1}", Environment.UserName, FileName);
+                File.WriteAllBytes(DatalogFile, data);
+                System.Diagnostics.Process.Start(DatalogFile);
             }
             else
             {
@@ -315,160 +318,203 @@ namespace PROJECT
                 MessageBox.Show("ERROR " + mess.ToString());
             }
         }
+
+        private bool CheckTextBox(string textBox)
+        {
+            char[] text = textBox.ToCharArray();
+            if (textBox.Length > 10)
+            {
+                MessageBox.Show("MAXIMUM OF TEN CHARACTERS ONLY");
+                return false;
+            }
+            for (int Txt = 0; Txt < textBox.Length ; Txt++)
+            {
+                if (char.IsLetterOrDigit(text[Txt]))
+                {
+                    continue;
+                }
+                else
+                {
+                    MessageBox.Show("PLEASE ENTER NUMBER OR LETTER ONLY");
+                    return false;
+                }
+            }
+            return true;
+        }
         private void Key_Enter(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                if (string.IsNullOrWhiteSpace(Serial_number.Text))
+                if (CheckTextBox(Serial_number.Text))
                 {
-                    MessageBox.Show("NO INPUT");
-                    return;
-                }    
-                commands(1);
-                command.Connection = Connection.connect;
-
-                if (Connection.OpenConnection())
-                {
-                    MySqlDataReader read_data = command.ExecuteReader();
-                    read_data.Read();
-                    try
+                    //if (Serial_number.Text.Contains())
+                    if (string.IsNullOrWhiteSpace(Serial_number.Text))
                     {
-                        get_status = read_data["STATUS"].ToString();
-                        if (get_status == "SPARES" || get_status == "BRG" || get_status.Contains("INSTALL") || get_status == "FAILURE CHANGED")
+                        MessageBox.Show("NO INPUT");
+                        return;
+                    }
+                    commands(1);
+                    command.Connection = Connection.connect;
+
+                    if (Connection.OpenConnection())
+                    {
+                        MySqlDataReader read_data = command.ExecuteReader();
+                        read_data.Read();
+                        try
                         {
-                            DialogResult yes_no = MessageBox.Show("LAST TRANSACTION: " + get_status + ", ADD NEW?", "ATTENTION!",
-                                MessageBoxButtons.YesNo);
+                            get_status = read_data["STATUS"].ToString();
+                            if (get_status == "SPARES" || get_status == "BRG" || get_status.Contains("INSTALL") || get_status == "FAILURE CHANGED")
+                            {
+                                DialogResult yes_no = MessageBox.Show("LAST TRANSACTION: " + get_status + ", ADD NEW?", "ATTENTION!",
+                                    MessageBoxButtons.YesNo);
+                                switch (yes_no)
+                                {
+                                    case DialogResult.Yes:
+                                        clear_all();
+                                        enable_control();
+                                        all_controls();
+                                        Part_number.Text = read_data["PART NUMBER"].ToString();
+                                        Revision.Text = read_data["REVISION"].ToString();
+                                        Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
+                                        Boards.Items.Add(read_data["BOARD"].ToString());
+                                        Connection.CloseConnection();
+                                        Boards.SelectedIndex = 0;
+                                        Boards.SelectedIndex = 0;
+                                        Update_Button.Visible = false;
+                                        FAILURE_CHANGED.Visible = false;
+                                        INSTALL_TO_TESTER.Visible = false;
+                                        if (Test_system.Items.Contains("ASL4K"))
+                                            Test_system.Items.Add("ASL1K");
+                                        else if (Test_system.Items.Contains("ASL1K"))
+                                            Test_system.Items.Add("ASL4K");
+                                        else
+                                        {
+                                            Test_system.SelectedIndex = 0;
+                                            Testers();
+                                            return;
+                                        }
+                                        DoNotLoadBoard = 1;
+                                        //LoadTesterPlatforms();
+                                        return;
+                                    case DialogResult.No:
+                                        Connection.CloseConnection();
+                                        clear_all();
+                                        Serial_number.Clear();
+                                        Save_btn.Visible = false;
+                                        Update_Button.Visible = false;
+                                        FAILURE_CHANGED.Visible = false;
+                                        INSTALL_TO_TESTER.Visible = false;
+                                        DoNotLoadBoard = 0;
+                                        return;
+                                }
+                            }
+                            else
+                            {
+                                ClearItemsInTesterBox();
+                                Test_system.Items.Clear();
+                                Boards.Items.Clear();
+                                all_controls();
+                                Part_number.Text = read_data["PART NUMBER"].ToString();
+                                Revision.Text = read_data["REVISION"].ToString();
+                                Boards.Items.Add(read_data["BOARD"].ToString());
+                                Test_program.Text = read_data["TEST PROGRAM"].ToString();
+                                Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
+                                Failed_during.Text = read_data["FAILED DURING"].ToString();
+                                Failed_during_others.Text = read_data["FAILED DURING OTHERS"].ToString();
+                                Failure_mode.Text = read_data["FAILURE MODE"].ToString();
+                                Failure_mode_others.Text = read_data["FAILURE MODE OTHERS"].ToString();
+                                Test_option.Text = read_data["TEST OPTION"].ToString();
+                                Remarks.Text = read_data["REMARKS"].ToString();
+                                data = (byte[])read_data["FIRST DATALOG"];
+                                Date_first_verif.Text = read_data["FIRST DATE"].ToString();
+                                First_tester.Items.Add(read_data["FIRST TESTER"]);
+                                First_Site.Items.Add(read_data["FIRST SITE"].ToString());
+                                First_board_slot.Text = read_data["FIRST SLOT"].ToString();
+                                first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
+                                FileName = read_data["FILENAME 1"].ToString();
+                                Connection.CloseConnection();
+                                disable_control();
+                                first_verif_link.Text = FileName;
+                                Test_system.SelectedIndex = 0;
+                                Boards.SelectedIndex = 0;
+                                First_tester.SelectedIndex = 0;
+                                First_Site.SelectedIndex = 0;
+                                if (First_Site.Text.Equals(string.Empty))
+                                    First_Site.Visible = false;
+                                else
+                                    First_Site.Visible = true;
+                                Save_btn.Visible = false;
+                                Update_Button.Visible = true;
+                                Second_box.Visible = true;
+                                FAILURE_CHANGED.Visible = true;
+                                INSTALL_TO_TESTER.Visible = true;
+                                FOR_SECOND_VERIF.Visible = false;
+                                if (Test_system.Text == "ASL4K" || Test_system.Text == "ASL1K")
+                                {
+                                    command = new MySqlCommand("select * from `boards_for_verification`.`asl1k`", Connection.connect);
+                                    Connection.OpenConnection();
+                                    MySqlDataReader read1k = command.ExecuteReader();
+                                    while (read1k.Read())
+                                    {
+                                        Second_tester.Items.Add(read1k["ASL1K"].ToString());
+                                    }
+                                    Connection.CloseConnection();
+                                    command = new MySqlCommand("select * from `boards_for_verification`.`asl4k`", Connection.connect);
+                                    Connection.OpenConnection();
+                                    MySqlDataReader read4k = command.ExecuteReader();
+                                    while (read4k.Read())
+                                    {
+                                        Second_tester.Items.Add(read4k["ASL4K"].ToString());
+                                    }
+                                    Connection.CloseConnection();
+                                }
+                                else
+                                {
+                                    tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
+                                    command = new MySqlCommand(tester_platform, Connection.connect);
+
+                                    Connection.OpenConnection();
+                                    MySqlDataReader read = command.ExecuteReader();
+                                    while (read.Read())
+                                    {
+                                        Second_tester.Items.Add(read.GetString(Test_system.Text.ToUpper()));
+                                    }
+                                    sites = int.Parse(read["SITE"].ToString());
+                                    Connection.CloseConnection();
+                                    if (sites != 0)
+                                    {
+                                        for (int CountSite = 1; CountSite <= sites; CountSite++)
+                                        {
+                                            Second_Site.Items.Add(CountSite.ToString());
+                                        }
+                                        Second_Site.Visible = true;
+                                    }
+                                }
+                            }
+                        }
+                        catch (Exception me)
+                        {
+                            DialogResult yes_no = MessageBox.Show("NO DATA, ADD NEW?", "ATTENTION!", MessageBoxButtons.YesNo);
                             switch (yes_no)
                             {
                                 case DialogResult.Yes:
-                                    clear_all();
-                                    enable_control();
-                                    all_controls();
-                                    Part_number.Text = read_data["PART NUMBER"].ToString();
-                                    Revision.Text = read_data["REVISION"].ToString();
                                     Connection.CloseConnection();
+                                    clear_all();
+                                    all_controls();
+                                    enable_control();
                                     Update_Button.Visible = false;
                                     FAILURE_CHANGED.Visible = false;
                                     INSTALL_TO_TESTER.Visible = false;
                                     LoadTesterPlatforms();
-                                    return;
+                                    break;
                                 case DialogResult.No:
-                                    clear_all();
+                                    Connection.CloseConnection();
                                     Serial_number.Clear();
+                                    clear_all();
                                     Save_btn.Visible = false;
                                     Update_Button.Visible = false;
-                                    FAILURE_CHANGED.Visible = false;
-                                    INSTALL_TO_TESTER.Visible = false;
-                                    Connection.CloseConnection();
-                                    return;
+                                    break;
                             }
-                        }
-                        else
-                        {
-                            ClearItemsInTesterBox();
-                            Test_system.Items.Clear();
-                            Boards.Items.Clear();
-                            all_controls();
-                            Part_number.Text = read_data["PART NUMBER"].ToString();
-                            Revision.Text = read_data["REVISION"].ToString();
-                            Boards.Items.Add(read_data["BOARD"].ToString());
-                            Test_program.Text = read_data["TEST PROGRAM"].ToString();
-                            Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
-                            Failed_during.Text = read_data["FAILED DURING"].ToString();
-                            Failed_during_others.Text = read_data["FAILED DURING OTHERS"].ToString();
-                            Failure_mode.Text = read_data["FAILURE MODE"].ToString();
-                            Failure_mode_others.Text = read_data["FAILURE MODE OTHERS"].ToString();
-                            Test_option.Text = read_data["TEST OPTION"].ToString();
-                            Remarks.Text = read_data["REMARKS"].ToString();
-                            data = (byte[])read_data["FIRST DATALOG"];
-                            Date_first_verif.Text = read_data["FIRST DATE"].ToString();
-                            First_tester.Items.Add(read_data["FIRST TESTER"]);
-                            First_Site.Items.Add(read_data["FIRST SITE"].ToString());
-                            First_board_slot.Text = read_data["FIRST SLOT"].ToString();
-                            first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
-                            FileName = read_data["FILENAME 1"].ToString();
-                            Connection.CloseConnection();
-                            disable_control();
-                            first_verif_link.Text = FileName;
-                            Test_system.SelectedIndex = 0;
-                            Boards.SelectedIndex = 0;
-                            First_tester.SelectedIndex = 0;
-                            First_Site.SelectedIndex = 0;
-                            if (First_Site.Text.Equals(string.Empty))
-                                First_Site.Visible = false;
-                            else
-                                First_Site.Visible = true;
-                            Save_btn.Visible = false;
-                            Update_Button.Visible = true;
-                            Second_box.Visible = true;
-                            FAILURE_CHANGED.Visible = true;
-                            INSTALL_TO_TESTER.Visible = true;
-                            FOR_SECOND_VERIF.Visible = false;
-                            if (Test_system.Text == "ASL4K" || Test_system.Text == "ASL1K")
-                            {
-                                command = new MySqlCommand("select * from `boards_for_verification`.`asl1k`", Connection.connect);
-                                Connection.OpenConnection();
-                                MySqlDataReader read1k = command.ExecuteReader();
-                                while (read1k.Read())
-                                {
-                                    Second_tester.Items.Add(read1k["ASL1K"].ToString());
-                                }
-                                Connection.CloseConnection();
-                                command = new MySqlCommand("select * from `boards_for_verification`.`asl4k`", Connection.connect);
-                                Connection.OpenConnection();
-                                MySqlDataReader read4k = command.ExecuteReader();
-                                while (read4k.Read())
-                                {
-                                    Second_tester.Items.Add(read4k["ASL4K"].ToString());
-                                }
-                                Connection.CloseConnection();
-                            }
-                            else
-                            { 
-                                tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
-                                command = new MySqlCommand(tester_platform, Connection.connect);
-
-                                Connection.OpenConnection();
-                                MySqlDataReader read = command.ExecuteReader();
-                                while (read.Read())
-                                {
-                                    Second_tester.Items.Add(read.GetString(Test_system.Text.ToUpper()));
-                                }
-                                sites = int.Parse(read["SITE"].ToString());
-                                Connection.CloseConnection();
-                                if (sites != 0)
-                                {
-                                    for (int CountSite = 1; CountSite <= sites; CountSite++)
-                                    {
-                                        Second_Site.Items.Add(CountSite.ToString());
-                                    }
-                                    Second_Site.Visible = true;
-                                }
-                            }
-                        }
-                    }
-                    catch (Exception me)
-                    {
-                        DialogResult yes_no = MessageBox.Show("NO DATA, ADD NEW?", "ATTENTION!", MessageBoxButtons.YesNo);
-                        switch (yes_no)
-                        {
-                            case DialogResult.Yes:
-                                Connection.CloseConnection();
-                                clear_all();
-                                all_controls();
-                                enable_control();
-                                Update_Button.Visible = false;
-                                FAILURE_CHANGED.Visible = false;
-                                INSTALL_TO_TESTER.Visible = false;
-                                LoadTesterPlatforms();
-                                break;
-                            case DialogResult.No:
-                                Connection.CloseConnection();
-                                Serial_number.Clear();
-                                clear_all();
-                                Save_btn.Visible = false;
-                                Update_Button.Visible = false;
-                                break;
                         }
                     }
                 }
@@ -524,6 +570,10 @@ namespace PROJECT
                 case 7:  // IF THE SECOND VERIFICATION PASSED AND INSTALLED ALREADY TO THE TESTER
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` SET `STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",inputBox.ToUpper()));
+                    break;
+                case 8:
+                    tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
+                    command = new MySqlCommand(tester_platform, Connection.connect);
                     break;
             }
         }
@@ -649,6 +699,9 @@ namespace PROJECT
                     c.Visible = false;
                 }
             }
+            Test_system.Items.Clear();
+            Boards.Items.Clear();
+            ClearItemsInTesterBox();
         }
         private void Show_second_grpBox()
         {
@@ -817,7 +870,13 @@ namespace PROJECT
             ClearItemsInTesterBox();
             Testers();
             Show_second_grpBox();
-            LoadBoards();
+            if (DoNotLoadBoard == 1)
+            {
+                DoNotLoadBoard = 0;
+                return;
+            }
+            else
+                LoadBoards();
         }
         private void ClearItemsInTesterBox()
         {
@@ -832,9 +891,7 @@ namespace PROJECT
         }
         private void Testers()
         {
-            tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
-            command = new MySqlCommand(tester_platform, Connection.connect);
-
+            commands(8);
             if (Connection.OpenConnection())
             {
                 MySqlDataReader read_data = command.ExecuteReader();
@@ -842,27 +899,59 @@ namespace PROJECT
                 {
                     First_tester.Items.Add(read_data.GetString(Test_system.Text.ToUpper()));
                     Second_tester.Items.Add(read_data.GetString(Test_system.Text.ToUpper()));
+                    sites = int.Parse(read_data["SITE"].ToString());
                 }
-                sites = int.Parse(read_data["SITE"].ToString());
                 Connection.CloseConnection();
             }
             else return;
-            if (sites != 0)
+            if (Test_system.Text == "ASL4K")
             {
-                for (int CountSite = 1; CountSite <= sites; CountSite++)
+                command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`asl1k`", Connection.connect);
+
+                if (Connection.OpenConnection())
                 {
-                    First_Site.Items.Add(CountSite.ToString());
-                    Second_Site.Items.Add(CountSite.ToString());
+                    MySqlDataReader readAsl1k = command.ExecuteReader();
+                    while (readAsl1k.Read())
+                    {
+                        Second_tester.Items.Add(readAsl1k.GetString("ASL1K"));
+                    }
+                    Connection.CloseConnection();
                 }
-                Second_Site.Visible = true;
-                First_Site.Visible = true;
+
+            }
+            else if (Test_system.Text == "ASL1K")
+            {
+                First_Site.Visible = false;
+                command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`asl4k`", Connection.connect);
+                if (Connection.OpenConnection())
+                {
+                    MySqlDataReader readAsl4k = command.ExecuteReader();
+                    while (readAsl4k.Read())
+                    {
+                        Second_tester.Items.Add(readAsl4k.GetString("ASL4K"));
+                    }
+                    Connection.CloseConnection();
+                }
             }
             else
             {
-                First_Site.Visible = false;
-                First_Site.Items.Clear();
-                Second_Site.Visible = false;
-                Second_Site.Items.Clear();
+                if (sites != 0)
+                {
+                    for (int CountSite = 1; CountSite <= sites; CountSite++)
+                    {
+                        First_Site.Items.Add(CountSite.ToString());
+                        Second_Site.Items.Add(CountSite.ToString());
+                    }
+                    Second_Site.Visible = true;
+                    First_Site.Visible = true;
+                }
+                else
+                {
+                    First_Site.Visible = false;
+                    First_Site.Items.Clear();
+                    Second_Site.Visible = false;
+                    Second_Site.Items.Clear();
+                }
             }
         }
         private void LoadBoards()

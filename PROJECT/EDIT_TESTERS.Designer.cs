@@ -44,8 +44,6 @@ namespace PROJECT
             this.AddOrRemoveText = new System.Windows.Forms.Label();
             this.Tester = new System.Windows.Forms.RadioButton();
             this.Board = new System.Windows.Forms.RadioButton();
-            this.Save_progress = new System.Windows.Forms.ProgressBar();
-            this.saveText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddOrDelete
@@ -113,7 +111,7 @@ namespace PROJECT
             this.Save_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.Save_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save_btn.Location = new System.Drawing.Point(12, 432);
+            this.Save_btn.Location = new System.Drawing.Point(15, 420);
             this.Save_btn.Name = "Save_btn";
             this.Save_btn.Size = new System.Drawing.Size(117, 41);
             this.Save_btn.TabIndex = 6;
@@ -137,7 +135,7 @@ namespace PROJECT
             this.BACK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.BACK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BACK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BACK.Location = new System.Drawing.Point(342, 432);
+            this.BACK.Location = new System.Drawing.Point(342, 420);
             this.BACK.Name = "BACK";
             this.BACK.Size = new System.Drawing.Size(115, 41);
             this.BACK.TabIndex = 9;
@@ -175,7 +173,7 @@ namespace PROJECT
             this.REMOVE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.REMOVE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.REMOVE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.REMOVE.Location = new System.Drawing.Point(177, 433);
+            this.REMOVE.Location = new System.Drawing.Point(175, 421);
             this.REMOVE.Name = "REMOVE";
             this.REMOVE.Size = new System.Drawing.Size(115, 40);
             this.REMOVE.TabIndex = 12;
@@ -221,36 +219,14 @@ namespace PROJECT
             this.Board.UseVisualStyleBackColor = true;
             this.Board.Click += new System.EventHandler(this.Boards_mode);
             // 
-            // Save_progress
-            // 
-            this.Save_progress.Location = new System.Drawing.Point(12, 488);
-            this.Save_progress.Name = "Save_progress";
-            this.Save_progress.Size = new System.Drawing.Size(100, 18);
-            this.Save_progress.TabIndex = 24;
-            this.Save_progress.Visible = false;
-            // 
-            // saveText
-            // 
-            this.saveText.AutoSize = true;
-            this.saveText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.saveText.Location = new System.Drawing.Point(111, 490);
-            this.saveText.Name = "saveText";
-            this.saveText.Size = new System.Drawing.Size(84, 16);
-            this.saveText.TabIndex = 25;
-            this.saveText.Text = "SAVING.....";
-            this.saveText.Visible = false;
-            // 
             // EDIT_TESTERS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(469, 515);
+            this.ClientSize = new System.Drawing.Size(469, 478);
             this.Controls.Add(this.Tester);
-            this.Controls.Add(this.saveText);
             this.Controls.Add(this.Board);
-            this.Controls.Add(this.Save_progress);
             this.Controls.Add(this.Current_List);
             this.Controls.Add(this.AddOrDelete);
             this.Controls.Add(this.label4);
@@ -290,7 +266,5 @@ namespace PROJECT
         private System.Windows.Forms.Label AddOrRemoveText;
         private System.Windows.Forms.RadioButton Tester;
         private System.Windows.Forms.RadioButton Board;
-        private System.Windows.Forms.ProgressBar Save_progress;
-        private System.Windows.Forms.Label saveText;
     }
 }

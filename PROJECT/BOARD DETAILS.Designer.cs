@@ -39,7 +39,7 @@ namespace PROJECT
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.First_box = new System.Windows.Forms.GroupBox();
-            this.First_date = new System.Windows.Forms.Label();
+            this.First_date = new System.Windows.Forms.DateTimePicker();
             this.First_endorser = new System.Windows.Forms.Label();
             this.First_site = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.Label();
@@ -52,7 +52,7 @@ namespace PROJECT
             this.First_verif_link = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
-            this.Second_date = new System.Windows.Forms.Label();
+            this.Second_date = new System.Windows.Forms.DateTimePicker();
             this.Second_endorser = new System.Windows.Forms.Label();
             this.Second_site = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -84,6 +84,7 @@ namespace PROJECT
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label17.Location = new System.Drawing.Point(13, 258);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 13);
@@ -94,6 +95,7 @@ namespace PROJECT
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label16.Location = new System.Drawing.Point(13, 215);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 13);
@@ -104,6 +106,7 @@ namespace PROJECT
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label15.Location = new System.Drawing.Point(12, 100);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(66, 13);
@@ -114,6 +117,7 @@ namespace PROJECT
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label8.Location = new System.Drawing.Point(13, 343);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
@@ -124,6 +128,7 @@ namespace PROJECT
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label6.Location = new System.Drawing.Point(13, 302);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 13);
@@ -134,6 +139,7 @@ namespace PROJECT
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label5.Location = new System.Drawing.Point(12, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 13);
@@ -144,6 +150,7 @@ namespace PROJECT
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label3.Location = new System.Drawing.Point(12, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
@@ -154,6 +161,7 @@ namespace PROJECT
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label2.Location = new System.Drawing.Point(12, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(97, 13);
@@ -164,6 +172,7 @@ namespace PROJECT
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label1.Location = new System.Drawing.Point(12, 27);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(108, 13);
@@ -172,7 +181,7 @@ namespace PROJECT
             // 
             // First_box
             // 
-            this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.First_box.Controls.Add(this.First_date);
             this.First_box.Controls.Add(this.First_endorser);
             this.First_box.Controls.Add(this.First_site);
@@ -195,10 +204,12 @@ namespace PROJECT
             // 
             // First_date
             // 
-            this.First_date.AutoSize = true;
-            this.First_date.Location = new System.Drawing.Point(133, 98);
+            this.First_date.CustomFormat = "yyyy-MM-dd";
+            this.First_date.Enabled = false;
+            this.First_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.First_date.Location = new System.Drawing.Point(139, 93);
             this.First_date.Name = "First_date";
-            this.First_date.Size = new System.Drawing.Size(0, 13);
+            this.First_date.Size = new System.Drawing.Size(89, 20);
             this.First_date.TabIndex = 40;
             // 
             // First_endorser
@@ -305,7 +316,7 @@ namespace PROJECT
             // 
             // Second_box
             // 
-            this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.Second_box.Controls.Add(this.Second_date);
             this.Second_box.Controls.Add(this.Second_endorser);
             this.Second_box.Controls.Add(this.Second_site);
@@ -329,10 +340,12 @@ namespace PROJECT
             // 
             // Second_date
             // 
-            this.Second_date.AutoSize = true;
-            this.Second_date.Location = new System.Drawing.Point(134, 98);
+            this.Second_date.CustomFormat = "yyyy-MM-dd";
+            this.Second_date.Enabled = false;
+            this.Second_date.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Second_date.Location = new System.Drawing.Point(137, 92);
             this.Second_date.Name = "Second_date";
-            this.Second_date.Size = new System.Drawing.Size(0, 13);
+            this.Second_date.Size = new System.Drawing.Size(88, 20);
             this.Second_date.TabIndex = 41;
             // 
             // Second_endorser
@@ -440,6 +453,8 @@ namespace PROJECT
             // 
             // Remarks
             // 
+            this.Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.Remarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Remarks.Location = new System.Drawing.Point(366, 297);
             this.Remarks.Multiline = true;
             this.Remarks.Name = "Remarks";
@@ -451,6 +466,7 @@ namespace PROJECT
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label10.Location = new System.Drawing.Point(363, 281);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(154, 13);
@@ -459,7 +475,7 @@ namespace PROJECT
             // 
             // Exit_btn
             // 
-            this.Exit_btn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Exit_btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_btn.Location = new System.Drawing.Point(12, 432);
@@ -474,7 +490,7 @@ namespace PROJECT
             // 
             this.Failure_mode.AutoSize = true;
             this.Failure_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Failure_mode.ForeColor = System.Drawing.Color.Black;
+            this.Failure_mode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Failure_mode.Location = new System.Drawing.Point(177, 258);
             this.Failure_mode.Name = "Failure_mode";
             this.Failure_mode.Size = new System.Drawing.Size(0, 13);
@@ -484,7 +500,7 @@ namespace PROJECT
             // 
             this.Failed_during.AutoSize = true;
             this.Failed_during.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Failed_during.ForeColor = System.Drawing.Color.Black;
+            this.Failed_during.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Failed_during.Location = new System.Drawing.Point(177, 215);
             this.Failed_during.Name = "Failed_during";
             this.Failed_during.Size = new System.Drawing.Size(0, 13);
@@ -494,7 +510,7 @@ namespace PROJECT
             // 
             this.Revision.AutoSize = true;
             this.Revision.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Revision.ForeColor = System.Drawing.Color.Black;
+            this.Revision.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Revision.Location = new System.Drawing.Point(176, 100);
             this.Revision.Name = "Revision";
             this.Revision.Size = new System.Drawing.Size(0, 13);
@@ -504,7 +520,7 @@ namespace PROJECT
             // 
             this.Status.AutoSize = true;
             this.Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Status.ForeColor = System.Drawing.Color.Black;
+            this.Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Status.Location = new System.Drawing.Point(177, 343);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(0, 13);
@@ -514,7 +530,7 @@ namespace PROJECT
             // 
             this.Test_option.AutoSize = true;
             this.Test_option.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Test_option.ForeColor = System.Drawing.Color.Black;
+            this.Test_option.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Test_option.Location = new System.Drawing.Point(177, 302);
             this.Test_option.Name = "Test_option";
             this.Test_option.Size = new System.Drawing.Size(0, 13);
@@ -524,7 +540,7 @@ namespace PROJECT
             // 
             this.Test_program.AutoSize = true;
             this.Test_program.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Test_program.ForeColor = System.Drawing.Color.Black;
+            this.Test_program.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Test_program.Location = new System.Drawing.Point(176, 181);
             this.Test_program.Name = "Test_program";
             this.Test_program.Size = new System.Drawing.Size(0, 13);
@@ -534,7 +550,7 @@ namespace PROJECT
             // 
             this.Board.AutoSize = true;
             this.Board.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Board.ForeColor = System.Drawing.Color.Black;
+            this.Board.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Board.Location = new System.Drawing.Point(176, 141);
             this.Board.Name = "Board";
             this.Board.Size = new System.Drawing.Size(0, 13);
@@ -544,7 +560,7 @@ namespace PROJECT
             // 
             this.Part_number.AutoSize = true;
             this.Part_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Part_number.ForeColor = System.Drawing.Color.Black;
+            this.Part_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Part_number.Location = new System.Drawing.Point(176, 61);
             this.Part_number.Name = "Part_number";
             this.Part_number.Size = new System.Drawing.Size(0, 13);
@@ -554,7 +570,7 @@ namespace PROJECT
             // 
             this.Serial_number.AutoSize = true;
             this.Serial_number.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Serial_number.ForeColor = System.Drawing.Color.Black;
+            this.Serial_number.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Serial_number.Location = new System.Drawing.Point(176, 27);
             this.Serial_number.Name = "Serial_number";
             this.Serial_number.Size = new System.Drawing.Size(0, 13);
@@ -564,7 +580,7 @@ namespace PROJECT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Teal;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1060, 506);
             this.Controls.Add(this.Failure_mode);
             this.Controls.Add(this.Failed_during);
@@ -647,7 +663,7 @@ namespace PROJECT
         private System.Windows.Forms.Label Board;
         private System.Windows.Forms.Label Part_number;
         private System.Windows.Forms.Label Serial_number;
-        private System.Windows.Forms.Label First_date;
-        private System.Windows.Forms.Label Second_date;
+        private System.Windows.Forms.DateTimePicker First_date;
+        private System.Windows.Forms.DateTimePicker Second_date;
     }
 }

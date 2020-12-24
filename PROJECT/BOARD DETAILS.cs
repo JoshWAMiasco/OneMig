@@ -92,14 +92,16 @@ namespace PROJECT
 
         private void First_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            File.WriteAllBytes(FileName1, Data1);
-            System.Diagnostics.Process.Start(FileName1);
+            string file1 = string.Format("C:\\Users\\{0}\\Desktop\\{1}", Environment.UserName, FileName1);
+            File.WriteAllBytes(file1, Data1);
+            System.Diagnostics.Process.Start(file1);
         }
 
         private void Second_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            File.WriteAllBytes(Filename2, Data2);
-            System.Diagnostics.Process.Start(Filename2);
+            string file2 = string.Format("C:\\Users\\{0}\\Desktop\\{1}", Environment.UserName, Filename2);
+            File.WriteAllBytes(file2, Data2);
+            System.Diagnostics.Process.Start(file2);
         }
     }
 }
