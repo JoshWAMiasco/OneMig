@@ -50,6 +50,7 @@
             this.FIRST_DATE_VERIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Date_search = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.Log_in.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +61,7 @@
             this.Search_button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Search_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Search_button.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Search_button.Location = new System.Drawing.Point(17, 5);
+            this.Search_button.Location = new System.Drawing.Point(7, 5);
             this.Search_button.Name = "Search_button";
             this.Search_button.Size = new System.Drawing.Size(162, 21);
             this.Search_button.TabIndex = 0;
@@ -72,7 +73,7 @@
             // 
             this.search_text.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.search_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_text.Location = new System.Drawing.Point(185, 7);
+            this.search_text.Location = new System.Drawing.Point(175, 7);
             this.search_text.Name = "search_text";
             this.search_text.Size = new System.Drawing.Size(161, 20);
             this.search_text.TabIndex = 1;
@@ -84,7 +85,7 @@
             this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Add_btn.Location = new System.Drawing.Point(521, 6);
+            this.Add_btn.Location = new System.Drawing.Point(511, 6);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(177, 22);
             this.Add_btn.TabIndex = 2;
@@ -98,7 +99,7 @@
             this.Exit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn.Location = new System.Drawing.Point(1029, 30);
+            this.Exit_btn.Location = new System.Drawing.Point(973, 30);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(164, 23);
             this.Exit_btn.TabIndex = 3;
@@ -127,12 +128,12 @@
             this.ENDORSEMENT_NUMBER});
             this.dataGridViewList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridViewList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewList.Location = new System.Drawing.Point(17, 59);
+            this.dataGridViewList.Location = new System.Drawing.Point(7, 59);
             this.dataGridViewList.Name = "dataGridViewList";
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1176, 553);
+            this.dataGridViewList.Size = new System.Drawing.Size(1131, 502);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -142,7 +143,7 @@
             this.REFRESH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.REFRESH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.REFRESH.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.REFRESH.Location = new System.Drawing.Point(17, 30);
+            this.REFRESH.Location = new System.Drawing.Point(7, 30);
             this.REFRESH.Name = "REFRESH";
             this.REFRESH.Size = new System.Drawing.Size(162, 22);
             this.REFRESH.TabIndex = 5;
@@ -157,7 +158,7 @@
             this.Log_in.Controls.Add(this.label6);
             this.Log_in.Controls.Add(this.Password);
             this.Log_in.Controls.Add(this.Username);
-            this.Log_in.Location = new System.Drawing.Point(921, 5);
+            this.Log_in.Location = new System.Drawing.Point(866, 5);
             this.Log_in.Name = "Log_in";
             this.Log_in.Size = new System.Drawing.Size(272, 50);
             this.Log_in.TabIndex = 22;
@@ -168,7 +169,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label7.Location = new System.Drawing.Point(5, 30);
+            this.label7.Location = new System.Drawing.Point(15, 30);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(78, 13);
             this.label7.TabIndex = 20;
@@ -182,7 +183,7 @@
             this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label6.Location = new System.Drawing.Point(5, 3);
+            this.label6.Location = new System.Drawing.Point(15, 3);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(76, 13);
             this.label6.TabIndex = 19;
@@ -190,7 +191,7 @@
             // 
             // Password
             // 
-            this.Password.Location = new System.Drawing.Point(99, 27);
+            this.Password.Location = new System.Drawing.Point(108, 27);
             this.Password.Name = "Password";
             this.Password.PasswordChar = '*';
             this.Password.Size = new System.Drawing.Size(163, 20);
@@ -200,7 +201,7 @@
             // Username
             // 
             this.Username.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Username.Location = new System.Drawing.Point(99, 0);
+            this.Username.Location = new System.Drawing.Point(108, 0);
             this.Username.Name = "Username";
             this.Username.Size = new System.Drawing.Size(163, 20);
             this.Username.TabIndex = 17;
@@ -215,7 +216,7 @@
             this.Log_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Log_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Log_out.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Log_out.Location = new System.Drawing.Point(1107, 7);
+            this.Log_out.Location = new System.Drawing.Point(1063, 5);
             this.Log_out.Name = "Log_out";
             this.Log_out.Size = new System.Drawing.Size(74, 16);
             this.Log_out.TabIndex = 23;
@@ -229,7 +230,7 @@
             this.EDIT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EDIT.Location = new System.Drawing.Point(704, 6);
+            this.EDIT.Location = new System.Drawing.Point(693, 6);
             this.EDIT.Name = "EDIT";
             this.EDIT.Size = new System.Drawing.Size(162, 22);
             this.EDIT.TabIndex = 24;
@@ -243,7 +244,7 @@
             this.DUE_DATE.AutoSize = true;
             this.DUE_DATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DUE_DATE.LinkColor = System.Drawing.Color.Yellow;
-            this.DUE_DATE.Location = new System.Drawing.Point(189, 35);
+            this.DUE_DATE.Location = new System.Drawing.Point(179, 35);
             this.DUE_DATE.Name = "DUE_DATE";
             this.DUE_DATE.Size = new System.Drawing.Size(0, 16);
             this.DUE_DATE.TabIndex = 25;
@@ -306,12 +307,23 @@
             this.ENDORSEMENT_NUMBER.ReadOnly = true;
             this.ENDORSEMENT_NUMBER.Visible = false;
             // 
+            // Date_search
+            // 
+            this.Date_search.CustomFormat = "yyyy-MM-dd";
+            this.Date_search.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.Date_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Date_search.Location = new System.Drawing.Point(342, 7);
+            this.Date_search.Name = "Date_search";
+            this.Date_search.Size = new System.Drawing.Size(101, 20);
+            this.Date_search.TabIndex = 26;
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1209, 624);
+            this.ClientSize = new System.Drawing.Size(1149, 573);
+            this.Controls.Add(this.Date_search);
             this.Controls.Add(this.DUE_DATE);
             this.Controls.Add(this.EDIT);
             this.Controls.Add(this.Log_out);
@@ -359,5 +371,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
+        private System.Windows.Forms.DateTimePicker Date_search;
     }
 }

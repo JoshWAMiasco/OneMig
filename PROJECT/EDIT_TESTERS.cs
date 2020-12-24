@@ -157,12 +157,12 @@ namespace PROJECT
                 if (AddOrDelete.Items.Count != 0)
                 {
                     if (AddOrDelete.SelectedIndex == -1)
-                        MessageBox.Show("PLEASE SELECT ON THE LIST");
+                        MessageBox.Show("PLEASE SELECT ON THE LEFT LIST");
                     else
                         AddOrDelete.Items.RemoveAt(AddOrDelete.SelectedIndex);
                 }
                 else
-                    MessageBox.Show("LIST IS EMPTY");
+                    MessageBox.Show("LIST TO BE DELETED IS EMPTY");
             }
             else if (Mode.SelectedIndex == 1)
             {

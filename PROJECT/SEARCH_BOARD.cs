@@ -90,6 +90,10 @@ namespace PROJECT
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')" +
                         "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 20",Connection.connect);
                     break;
+                case 6:
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')", Connection.connect);
+                    break;
             }
         }
         private DataTable table(int COMMAND)
@@ -140,6 +144,7 @@ namespace PROJECT
         private void Search_button_Click(object sender, EventArgs e)
         {
             load_data(1);
+            Date_search.ResetText();
         }
 
         private void key_Enter(object sender, KeyEventArgs e)
@@ -147,6 +152,7 @@ namespace PROJECT
             if (e.KeyCode == Keys.Enter)
             {
                 load_data(1);
+                Date_search.ResetText();
             }
         }
         private void Exit_btn_Click(object sender, EventArgs e)
@@ -162,6 +168,7 @@ namespace PROJECT
         }
         private void REFRESH_Click(object sender, EventArgs e)
         {
+            Date_search.ResetText();
             search_text.Clear();
             dataGridViewList.DataSource = table(3);
             commands(4);
@@ -258,6 +265,12 @@ namespace PROJECT
             {
                 dataGridViewList.DataSource = table(5);
             }
+        }
+
+        private void Select_date(object sender, EventArgs e)
+        {
+            search_text.Clear();
+            dataGridViewList.DataSource = table(6);
         }
     }
 }

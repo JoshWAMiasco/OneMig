@@ -184,11 +184,11 @@ namespace PROJECT
             // AddOrRemoveText
             // 
             this.AddOrRemoveText.AutoSize = true;
-            this.AddOrRemoveText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddOrRemoveText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddOrRemoveText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.AddOrRemoveText.Location = new System.Drawing.Point(171, 80);
+            this.AddOrRemoveText.Location = new System.Drawing.Point(163, 80);
             this.AddOrRemoveText.Name = "AddOrRemoveText";
-            this.AddOrRemoveText.Size = new System.Drawing.Size(0, 20);
+            this.AddOrRemoveText.Size = new System.Drawing.Size(0, 25);
             this.AddOrRemoveText.TabIndex = 13;
             // 
             // Tester
