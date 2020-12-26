@@ -101,6 +101,13 @@ namespace PROJECT
                             error();
                             return false;
                         }
+                        else if (textBox.Text.Length > 20)
+                        {
+                            MessageBox.Show("TOO LONG INPUT!");
+                            return false;
+                        }
+                        else continue;
+
                     }
                 }
                 else if (c is ComboBox)
@@ -120,6 +127,12 @@ namespace PROJECT
                                 error();
                                 return false;
                             }
+                            else if (Failed_during_others.Text.Length > 20)
+                            {
+                                MessageBox.Show("TOO LONG INPUT!");
+                                return false;
+                            }
+                            else continue;
                         }
                     }
                     else if (comboBox == Failure_mode)
@@ -131,6 +144,12 @@ namespace PROJECT
                                 error();
                                 return false;
                             }
+                            else if (Failure_mode_others.Text.Length > 20)
+                            {
+                                MessageBox.Show("TOO LONG INPUT!");
+                                return false;
+                            }
+                            else continue;
                         }
                     }
                 }
@@ -142,6 +161,7 @@ namespace PROJECT
                 error();
                 return false;
             }
+            else if (First_board_slot.Text.Contains())
             else
             {
                 if (First_Site.Items.Count != 0)
