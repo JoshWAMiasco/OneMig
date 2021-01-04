@@ -161,7 +161,11 @@ namespace PROJECT
                 error();
                 return false;
             }
-            else if (First_board_slot.Text.Contains())
+            else if (First_board_slot.Text.Length > 5)
+            {
+                MessageBox.Show("TOO LONG INPUT!");
+                return false;
+            }
             else
             {
                 if (First_Site.Items.Count != 0)
@@ -183,6 +187,11 @@ namespace PROJECT
                         || second_endorser.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Remarks.Text))
                 {
                     error();
+                    return false;
+                }
+                else if (Second_slot.Text.Length > 5)
+                {
+                    MessageBox.Show("TOO LONG INPUT!");
                     return false;
                 }
                 else
@@ -342,7 +351,7 @@ namespace PROJECT
         private bool CheckTextBox(string textBox)
         {
             char[] text = textBox.ToCharArray();
-            if (textBox.Length > 10)
+            if (textBox.Length > 15)
             {
                 MessageBox.Show("MAXIMUM OF TEN CHARACTERS ONLY");
                 return false;

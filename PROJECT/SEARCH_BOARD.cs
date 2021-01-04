@@ -80,19 +80,23 @@ namespace PROJECT
                 case 3:  //FOR UPDATING PURPOSES
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d')," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 20",Connection.connect);
+                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 4:
+                case 4: //TO CHECK AND COUNT THE OVERDUE TRANSACTIONS
                     command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",                     
                         Connection.connect);
                     break;
-                case 5: command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
+                case 5: //FOR OVERDUE TRANSACTIONS VIEWING
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')" +
-                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 20",Connection.connect);
+                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 6:
+                case 6:  //FOR CHECKING TRANSACTIONS WITH SPECIFIC DATE
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')", Connection.connect);
+                    break;
+                case 7:
+                    //select* from `board details` where(('Y6') IN(`SERIAL NUMBER`,`PART NUMBER`) AND `FIRST DATE` = '2020-12-19')
                     break;
             }
         }

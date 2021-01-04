@@ -99,7 +99,7 @@
             this.Exit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn.Location = new System.Drawing.Point(976, 30);
+            this.Exit_btn.Location = new System.Drawing.Point(975, 30);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(164, 23);
             this.Exit_btn.TabIndex = 3;
@@ -133,7 +133,7 @@
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1134, 502);
+            this.dataGridViewList.Size = new System.Drawing.Size(1133, 504);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -215,7 +215,7 @@
             this.Log_in.Controls.Add(this.label6);
             this.Log_in.Controls.Add(this.Password);
             this.Log_in.Controls.Add(this.Username);
-            this.Log_in.Location = new System.Drawing.Point(869, 5);
+            this.Log_in.Location = new System.Drawing.Point(868, 5);
             this.Log_in.Name = "Log_in";
             this.Log_in.Size = new System.Drawing.Size(272, 50);
             this.Log_in.TabIndex = 22;
@@ -273,7 +273,7 @@
             this.Log_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Log_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Log_out.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Log_out.Location = new System.Drawing.Point(1066, 5);
+            this.Log_out.Location = new System.Drawing.Point(1065, 5);
             this.Log_out.Name = "Log_out";
             this.Log_out.Size = new System.Drawing.Size(74, 16);
             this.Log_out.TabIndex = 23;
@@ -322,7 +322,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1152, 573);
+            this.ClientSize = new System.Drawing.Size(1151, 575);
             this.Controls.Add(this.Date_search);
             this.Controls.Add(this.DUE_DATE);
             this.Controls.Add(this.EDIT);
