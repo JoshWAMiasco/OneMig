@@ -839,6 +839,25 @@ namespace PROJECT
                 Failure_mode_others.Clear();
             }
         }
+
+        private void FirstDateCheck(object sender, EventArgs e)
+        {
+            if (Date_first_verif.Value > DateTime.Now)
+            {
+                MessageBox.Show("INVALID DATE");
+                Date_first_verif.ResetText();
+            }
+        }
+
+        private void SecondDateCheck(object sender, EventArgs e)
+        {
+            if (Date_second_verif.Value > DateTime.Now)
+            {
+                MessageBox.Show("INVALID DATE");
+                Date_second_verif.ResetText();
+            }
+        }
+
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Test_system.Text.Contains("ASL4K"))
