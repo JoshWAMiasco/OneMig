@@ -838,6 +838,9 @@
             this.Controls.Add(this.Save_btn);
             this.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1233, 748);
+            this.MinimumSize = new System.Drawing.Size(1233, 748);
             this.Name = "ADD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ADD BOARD DETAILS";

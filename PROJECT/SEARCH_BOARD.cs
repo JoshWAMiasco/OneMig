@@ -271,7 +271,7 @@ namespace PROJECT
             }
         }
 
-        private void Select_date(object sender, EventArgs e)
+        private void selectDate(object sender, EventArgs e)
         {
             search_text.Clear();
             dataGridViewList.DataSource = table(6);

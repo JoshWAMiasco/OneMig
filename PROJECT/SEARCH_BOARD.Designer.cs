@@ -128,12 +128,12 @@
             this.ENDORSEMENT_NUMBER});
             this.dataGridViewList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridViewList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewList.Location = new System.Drawing.Point(7, 59);
+            this.dataGridViewList.Location = new System.Drawing.Point(7, 74);
             this.dataGridViewList.Name = "dataGridViewList";
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1133, 504);
+            this.dataGridViewList.Size = new System.Drawing.Size(1133, 489);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -316,6 +316,7 @@
             this.Date_search.Name = "Date_search";
             this.Date_search.Size = new System.Drawing.Size(109, 20);
             this.Date_search.TabIndex = 26;
+            this.Date_search.CloseUp += new System.EventHandler(this.selectDate);
             // 
             // SEARCH_BOARD
             // 
@@ -335,6 +336,7 @@
             this.Controls.Add(this.search_text);
             this.Controls.Add(this.Search_button);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinimumSize = new System.Drawing.Size(1167, 614);
             this.Name = "SEARCH_BOARD";
             this.Text = "WELCOME";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

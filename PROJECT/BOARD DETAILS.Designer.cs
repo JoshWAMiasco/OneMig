@@ -39,6 +39,7 @@ namespace PROJECT
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.First_date = new System.Windows.Forms.Label();
             this.First_endorser = new System.Windows.Forms.Label();
             this.First_site = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@ namespace PROJECT
             this.First_verif_link = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.Second_date = new System.Windows.Forms.Label();
             this.Second_endorser = new System.Windows.Forms.Label();
             this.Second_site = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -74,8 +76,6 @@ namespace PROJECT
             this.Board = new System.Windows.Forms.Label();
             this.Part_number = new System.Windows.Forms.Label();
             this.Serial_number = new System.Windows.Forms.Label();
-            this.First_date = new System.Windows.Forms.Label();
-            this.Second_date = new System.Windows.Forms.Label();
             this.First_box.SuspendLayout();
             this.Second_box.SuspendLayout();
             this.SuspendLayout();
@@ -202,6 +202,14 @@ namespace PROJECT
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             // 
+            // First_date
+            // 
+            this.First_date.AutoSize = true;
+            this.First_date.Location = new System.Drawing.Point(136, 98);
+            this.First_date.Name = "First_date";
+            this.First_date.Size = new System.Drawing.Size(0, 13);
+            this.First_date.TabIndex = 40;
+            // 
             // First_endorser
             // 
             this.First_endorser.AutoSize = true;
@@ -327,6 +335,14 @@ namespace PROJECT
             this.Second_box.TabIndex = 64;
             this.Second_box.TabStop = false;
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
+            // 
+            // Second_date
+            // 
+            this.Second_date.AutoSize = true;
+            this.Second_date.Location = new System.Drawing.Point(134, 98);
+            this.Second_date.Name = "Second_date";
+            this.Second_date.Size = new System.Drawing.Size(0, 13);
+            this.Second_date.TabIndex = 41;
             // 
             // Second_endorser
             // 
@@ -556,22 +572,6 @@ namespace PROJECT
             this.Serial_number.Size = new System.Drawing.Size(0, 13);
             this.Serial_number.TabIndex = 67;
             // 
-            // First_date
-            // 
-            this.First_date.AutoSize = true;
-            this.First_date.Location = new System.Drawing.Point(136, 98);
-            this.First_date.Name = "First_date";
-            this.First_date.Size = new System.Drawing.Size(0, 13);
-            this.First_date.TabIndex = 40;
-            // 
-            // Second_date
-            // 
-            this.Second_date.AutoSize = true;
-            this.Second_date.Location = new System.Drawing.Point(134, 98);
-            this.Second_date.Name = "Second_date";
-            this.Second_date.Size = new System.Drawing.Size(0, 13);
-            this.Second_date.TabIndex = 41;
-            // 
             // BOARD_DETAILS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -601,6 +601,9 @@ namespace PROJECT
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1076, 545);
+            this.MinimumSize = new System.Drawing.Size(1076, 545);
             this.Name = "BOARD_DETAILS";
             this.Text = "BOARD_DETAILS";
             this.Load += new System.EventHandler(this.Load_Boards);
