@@ -351,7 +351,17 @@
             "RALPH ARVIN CANDA",
             "SUSANA SAN GABRIEL",
             "BABYLYN HILARIO",
-            "JEFFERSON AMARO"});
+            "JOSHUA MIASCO",
+            "VJ TOLENTINO",
+            "ROALD BAGABAY",
+            "DARYL SOVERANO",
+            "ROSVE VIRAY",
+            "MARVIN CHAVEZ",
+            "BRYAN FELICIANO",
+            "MARK DEVON",
+            "MAC KELLY",
+            "ERWIN DESEO",
+            "JAMES ANORA"});
             this.first_endorser.Location = new System.Drawing.Point(145, 286);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
@@ -369,7 +379,17 @@
             "RALPH ARVIN CANDA",
             "SUSANA SAN GABRIEL",
             "BABYLYN HILARIO",
-            "JEFFERSON AMARO"});
+            "JOSHUA MIASCO",
+            "VJ TOLENTINO",
+            "ROALD BAGABAY",
+            "DARYL SOVERANO",
+            "ROSVE VIRAY",
+            "MARVIN CHAVEZ",
+            "BRYAN FELICIANO",
+            "MARK DEVON",
+            "MAC KELLY",
+            "ERWIN DESEO",
+            "JAMES ANORA"});
             this.second_endorser.Location = new System.Drawing.Point(141, 286);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";

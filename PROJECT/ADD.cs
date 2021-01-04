@@ -521,7 +521,7 @@ namespace PROJECT
                                 }
                             }
                         }
-                        catch (Exception me)
+                        catch (Exception)
                         {
                             DialogResult yes_no = MessageBox.Show("NO DATA, ADD NEW?", "ATTENTION!", MessageBoxButtons.YesNo);
                             switch (yes_no)
