@@ -11,6 +11,7 @@ using System.IO;
 using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices;
 using Ubiety.Dns.Core.Records.NotUsed;
+using Squirrel;
 
 namespace PROJECT
 {
@@ -93,7 +94,7 @@ namespace PROJECT
                     break;
                 case 6:  //FOR CHECKING TRANSACTIONS WITH SPECIFIC DATE
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')", Connection.connect);
+                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
                 case 7:
                     //select* from `board details` where(('Y6') IN(`SERIAL NUMBER`,`PART NUMBER`) AND `FIRST DATE` = '2020-12-19')
@@ -279,12 +280,23 @@ namespace PROJECT
 
         private void UPDATE_Click(object sender, EventArgs e)
         {
-
+            CheckForUpdates();
+            MessageBox.Show("APPLICATION WILL CLOSE");
+            this.Close();
         }
 
         private void Date(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
         }
+
+        private async Task CheckForUpdates()
+        {
+            using (var update = new UpdateManager(@"\\maxcavte01\tsg\migs\Update"))
+            {
+                await update.UpdateApp();
+            }
+        }
     }
 }
+ 

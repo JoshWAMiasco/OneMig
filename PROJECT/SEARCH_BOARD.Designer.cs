@@ -135,7 +135,7 @@
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1133, 489);
+            this.dataGridViewList.Size = new System.Drawing.Size(1133, 496);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -287,6 +287,7 @@
             // EDIT
             // 
             this.EDIT.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.EDIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
             this.EDIT.Location = new System.Drawing.Point(693, 6);
@@ -336,6 +337,7 @@
             // 
             this.UPDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.UPDATE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UPDATE.Enabled = false;
             this.UPDATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UPDATE.Location = new System.Drawing.Point(511, 35);
             this.UPDATE.Name = "UPDATE";

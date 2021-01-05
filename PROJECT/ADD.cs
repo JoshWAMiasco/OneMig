@@ -412,6 +412,7 @@ namespace PROJECT
                                         Update_Button.Visible = false;
                                         FAILURE_CHANGED.Visible = false;
                                         INSTALL_TO_TESTER.Visible = false;
+                                        DoNotLoadBoard = 1;
                                         if (Test_system.Items.Contains("ASL4K"))
                                             Test_system.Items.Add("ASL1K");
                                         else if (Test_system.Items.Contains("ASL1K"))
@@ -422,8 +423,6 @@ namespace PROJECT
                                             Testers();
                                             return;
                                         }
-                                        DoNotLoadBoard = 1;
-                                        //LoadTesterPlatforms();
                                         return;
                                     case DialogResult.No:
                                         Connection.CloseConnection();
@@ -534,6 +533,7 @@ namespace PROJECT
                                     Update_Button.Visible = false;
                                     FAILURE_CHANGED.Visible = false;
                                     INSTALL_TO_TESTER.Visible = false;
+                                    DoNotLoadBoard = 0;
                                     LoadTesterPlatforms();
                                     break;
                                 case DialogResult.No:
@@ -934,7 +934,6 @@ namespace PROJECT
             Show_second_grpBox();
             if (DoNotLoadBoard == 1)
             {
-                DoNotLoadBoard = 0;
                 return;
             }
             else
