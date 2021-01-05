@@ -858,6 +858,16 @@ namespace PROJECT
             }
         }
 
+        private void First_date(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
+        private void Second_date(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
+
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Test_system.Text.Contains("ASL4K"))

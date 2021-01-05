@@ -52,6 +52,7 @@
             this.DUE_DATE = new System.Windows.Forms.LinkLabel();
             this.Date_search = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
+            this.UPDATE = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.Log_in.SuspendLayout();
             this.SuspendLayout();
@@ -318,6 +319,7 @@
             this.Date_search.Size = new System.Drawing.Size(109, 20);
             this.Date_search.TabIndex = 26;
             this.Date_search.CloseUp += new System.EventHandler(this.selectDate);
+            this.Date_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Date);
             // 
             // label1
             // 
@@ -330,12 +332,26 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "VERSION 1.0";
             // 
+            // UPDATE
+            // 
+            this.UPDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.UPDATE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UPDATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UPDATE.Location = new System.Drawing.Point(511, 35);
+            this.UPDATE.Name = "UPDATE";
+            this.UPDATE.Size = new System.Drawing.Size(177, 23);
+            this.UPDATE.TabIndex = 28;
+            this.UPDATE.Text = "UPDATE";
+            this.UPDATE.UseVisualStyleBackColor = false;
+            this.UPDATE.Click += new System.EventHandler(this.UPDATE_Click);
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.UPDATE);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Date_search);
             this.Controls.Add(this.DUE_DATE);
@@ -388,5 +404,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
         private System.Windows.Forms.DateTimePicker Date_search;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button UPDATE;
     }
 }

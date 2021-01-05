@@ -276,5 +276,15 @@ namespace PROJECT
             search_text.Clear();
             dataGridViewList.DataSource = table(6);
         }
+
+        private void UPDATE_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Date(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }
     }
 }

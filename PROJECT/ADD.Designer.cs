@@ -271,6 +271,7 @@
             this.Date_first_verif.Size = new System.Drawing.Size(166, 20);
             this.Date_first_verif.TabIndex = 18;
             this.Date_first_verif.CloseUp += new System.EventHandler(this.FirstDateCheck);
+            this.Date_first_verif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.First_date);
             // 
             // Date_second_verif
             // 
@@ -283,6 +284,7 @@
             this.Date_second_verif.TabIndex = 21;
             this.Date_second_verif.Visible = false;
             this.Date_second_verif.CloseUp += new System.EventHandler(this.SecondDateCheck);
+            this.Date_second_verif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Second_date);
             // 
             // second_verif_link
             // 

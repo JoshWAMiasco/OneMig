@@ -110,6 +110,12 @@
     <Compile Include="EDIT_TESTERS.Designer.cs">
       <DependentUpon>EDIT_TESTERS.cs</DependentUpon>
     </Compile>
+    <Compile Include="LOG_IN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LOG_IN.Designer.cs">
+      <DependentUpon>LOG_IN.cs</DependentUpon>
+    </Compile>
     <Compile Include="SEARCH_BOARD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EDIT_TESTERS.resx">
       <DependentUpon>EDIT_TESTERS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LOG_IN.resx">
+      <DependentUpon>LOG_IN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -155,7 +164,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\WIN_20201017_19_00_18_Pro.jpg" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
