@@ -80,12 +80,14 @@ namespace PROJECT
             if(Mode.SelectedIndex == 0)
             {
                 AddOrRemoveText.Text = "ADD MODE";
+                AddOrDelete.Items.Clear();
                 label3.Visible = true;
                 ADD.Visible = true;
             }
             else
             {
                 AddOrRemoveText.Text = "DELETE MODE";
+                AddOrDelete.Items.Clear();
                 label3.Visible = false;
                 ADD.Visible = false;
             }
@@ -157,9 +159,12 @@ namespace PROJECT
                 if (AddOrDelete.Items.Count != 0)
                 {
                     if (AddOrDelete.SelectedIndex == -1)
-                        MessageBox.Show("PLEASE SELECT ON THE LEFT LIST");
+                    {
+                        MessageBox.Show("PLEASE SELECT AN ITEM TO BE DELETED!");
+                        return;
+                    }
                     else
-                        AddOrDelete.Items.RemoveAt(AddOrDelete.SelectedIndex);
+                       AddOrDelete.Items.RemoveAt(AddOrDelete.SelectedIndex);
                 }
                 else
                     MessageBox.Show("LIST TO BE DELETED IS EMPTY");
@@ -236,7 +241,12 @@ namespace PROJECT
                                 Command.ExecuteNonQuery();
                                 Connection.CloseConnection();
                             }
-                            catch (Exception message) { MessageBox.Show(message.ToString()); }
+                            catch (Exception message)
+                            {
+                                MessageBox.Show(message.ToString());
+                                Connection.CloseConnection();
+                                return;
+                            }
                         }
                         else return;
                     }
@@ -249,7 +259,12 @@ namespace PROJECT
                                 Command.ExecuteNonQuery();
                                 Connection.CloseConnectionForBoards();
                             }
-                            catch (Exception message) { MessageBox.Show(message.ToString());}
+                            catch (Exception message) 
+                            { 
+                                MessageBox.Show(message.ToString());
+                                Connection.CloseConnectionForBoards();
+                                return;
+                            }
                         }
                         else return;
                     }

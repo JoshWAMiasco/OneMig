@@ -29,6 +29,7 @@ namespace PROJECT
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EDIT_TESTERS));
             this.AddOrDelete = new System.Windows.Forms.ListBox();
             this.Current_List = new System.Windows.Forms.ListBox();
             this.ADD = new System.Windows.Forms.TextBox();
@@ -240,6 +241,7 @@ namespace PROJECT
             this.Controls.Add(this.label1);
             this.Controls.Add(this.REMOVE);
             this.Controls.Add(this.Tester_platforms);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(485, 517);
             this.MinimumSize = new System.Drawing.Size(485, 517);

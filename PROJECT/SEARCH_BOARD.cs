@@ -285,18 +285,17 @@ namespace PROJECT
             this.Close();
         }
 
-        private void Date(object sender, KeyEventArgs e)
-        {
-            e.SuppressKeyPress = true;
-        }
-
         private async Task CheckForUpdates()
         {
-            using (var update = new UpdateManager(@"\\maxcavte01\tsg\migs\Update"))
+            using (var update = new UpdateManager(@"\\maxcavte01\TSG\migs\Update"))
             {
                 await update.UpdateApp();
             }
         }
+        private void Date(object sender, KeyEventArgs e)
+        {
+            e.SuppressKeyPress = true;
+        }     
     }
 }
  

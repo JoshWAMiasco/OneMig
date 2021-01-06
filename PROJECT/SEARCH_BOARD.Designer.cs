@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SEARCH_BOARD));
             this.Search_button = new System.Windows.Forms.Button();
             this.search_text = new System.Windows.Forms.TextBox();
             this.Add_btn = new System.Windows.Forms.Button();
@@ -87,7 +88,7 @@
             this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Add_btn.Location = new System.Drawing.Point(511, 6);
+            this.Add_btn.Location = new System.Drawing.Point(457, 6);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(177, 22);
             this.Add_btn.TabIndex = 2;
@@ -101,7 +102,7 @@
             this.Exit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn.Location = new System.Drawing.Point(975, 30);
+            this.Exit_btn.Location = new System.Drawing.Point(982, 30);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(164, 23);
             this.Exit_btn.TabIndex = 3;
@@ -135,7 +136,7 @@
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1133, 496);
+            this.dataGridViewList.Size = new System.Drawing.Size(1140, 500);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -217,7 +218,7 @@
             this.Log_in.Controls.Add(this.label6);
             this.Log_in.Controls.Add(this.Password);
             this.Log_in.Controls.Add(this.Username);
-            this.Log_in.Location = new System.Drawing.Point(868, 5);
+            this.Log_in.Location = new System.Drawing.Point(875, 5);
             this.Log_in.Name = "Log_in";
             this.Log_in.Size = new System.Drawing.Size(272, 50);
             this.Log_in.TabIndex = 22;
@@ -275,7 +276,7 @@
             this.Log_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Log_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.Log_out.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Log_out.Location = new System.Drawing.Point(1065, 5);
+            this.Log_out.Location = new System.Drawing.Point(1072, 5);
             this.Log_out.Name = "Log_out";
             this.Log_out.Size = new System.Drawing.Size(74, 16);
             this.Log_out.TabIndex = 23;
@@ -290,7 +291,7 @@
             this.EDIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EDIT.Location = new System.Drawing.Point(693, 6);
+            this.EDIT.Location = new System.Drawing.Point(639, 6);
             this.EDIT.Name = "EDIT";
             this.EDIT.Size = new System.Drawing.Size(162, 22);
             this.EDIT.TabIndex = 24;
@@ -331,14 +332,14 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 16);
             this.label1.TabIndex = 27;
-            this.label1.Text = "VERSION 1.0.1";
+            this.label1.Text = "VERSION 1.0.0";
             // 
             // UPDATE
             // 
             this.UPDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.UPDATE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UPDATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UPDATE.Location = new System.Drawing.Point(511, 35);
+            this.UPDATE.Location = new System.Drawing.Point(457, 35);
             this.UPDATE.Name = "UPDATE";
             this.UPDATE.Size = new System.Drawing.Size(177, 23);
             this.UPDATE.TabIndex = 28;
@@ -351,7 +352,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.ClientSize = new System.Drawing.Size(1154, 575);
             this.Controls.Add(this.UPDATE);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Date_search);
@@ -366,6 +367,7 @@
             this.Controls.Add(this.search_text);
             this.Controls.Add(this.Search_button);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1167, 614);
             this.Name = "SEARCH_BOARD";
             this.Text = "WELCOME";
