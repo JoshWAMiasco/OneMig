@@ -247,7 +247,7 @@ namespace PROJECT
                             try
                             {
                                 Command.ExecuteNonQuery();
-                                Connection.CloseConnection();
+                                Connection.CloseConnectionForBoards();
                             }
                             catch (Exception message) { MessageBox.Show(message.ToString());}
                         }

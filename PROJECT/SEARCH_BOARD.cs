@@ -281,7 +281,7 @@ namespace PROJECT
         private void UPDATE_Click(object sender, EventArgs e)
         {
             CheckForUpdates();
-            MessageBox.Show("APPLICATION WILL CLOSE");
+            MessageBox.Show("UPDATE DONE, THE APPLICATION WILL CLOSE");
             this.Close();
         }
 
