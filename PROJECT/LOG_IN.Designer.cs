@@ -74,9 +74,9 @@ namespace PROJECT
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.label1.Location = new System.Drawing.Point(12, 272);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 20);
+            this.label1.Size = new System.Drawing.Size(134, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "VERSION 1.0";
+            this.label1.Text = "VERSION 1.0.1";
             // 
             // label2
             // 
