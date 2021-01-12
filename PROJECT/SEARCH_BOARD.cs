@@ -287,7 +287,7 @@ namespace PROJECT
 
         private async Task CheckForUpdates()
         {
-            using (var update = new UpdateManager(@"\\maxcavte01\TSG\migs\Update"))
+            using (var update = new UpdateManager(@"\\maxcavfs01\mpoc_asl_softwares\12_Projects and Activities\BFV APPLICATION"))
             {
                 await update.UpdateApp();
             }
