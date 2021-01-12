@@ -66,7 +66,7 @@
             this.Search_button.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Search_button.Location = new System.Drawing.Point(7, 5);
             this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(162, 21);
+            this.Search_button.Size = new System.Drawing.Size(111, 21);
             this.Search_button.TabIndex = 0;
             this.Search_button.Text = "SEARCH";
             this.Search_button.UseVisualStyleBackColor = false;
@@ -76,9 +76,9 @@
             // 
             this.search_text.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.search_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_text.Location = new System.Drawing.Point(175, 7);
+            this.search_text.Location = new System.Drawing.Point(124, 7);
             this.search_text.Name = "search_text";
-            this.search_text.Size = new System.Drawing.Size(161, 20);
+            this.search_text.Size = new System.Drawing.Size(147, 20);
             this.search_text.TabIndex = 1;
             this.search_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_Enter);
             // 
@@ -88,9 +88,9 @@
             this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Add_btn.Location = new System.Drawing.Point(457, 6);
+            this.Add_btn.Location = new System.Drawing.Point(389, 5);
             this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(177, 22);
+            this.Add_btn.Size = new System.Drawing.Size(162, 22);
             this.Add_btn.TabIndex = 2;
             this.Add_btn.Text = "ADD/UPDATE BOARD";
             this.Add_btn.UseVisualStyleBackColor = false;
@@ -131,12 +131,12 @@
             this.ENDORSEMENT_NUMBER});
             this.dataGridViewList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridViewList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.dataGridViewList.Location = new System.Drawing.Point(7, 133);
+            this.dataGridViewList.Location = new System.Drawing.Point(7, 74);
             this.dataGridViewList.Name = "dataGridViewList";
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1140, 441);
+            this.dataGridViewList.Size = new System.Drawing.Size(1140, 500);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -207,7 +207,7 @@
             this.REFRESH.ForeColor = System.Drawing.SystemColors.ControlText;
             this.REFRESH.Location = new System.Drawing.Point(7, 30);
             this.REFRESH.Name = "REFRESH";
-            this.REFRESH.Size = new System.Drawing.Size(162, 22);
+            this.REFRESH.Size = new System.Drawing.Size(111, 22);
             this.REFRESH.TabIndex = 5;
             this.REFRESH.Text = "REFRESH";
             this.REFRESH.UseVisualStyleBackColor = false;
@@ -293,7 +293,7 @@
             this.EDIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EDIT.Location = new System.Drawing.Point(639, 6);
+            this.EDIT.Location = new System.Drawing.Point(557, 5);
             this.EDIT.Name = "EDIT";
             this.EDIT.Size = new System.Drawing.Size(162, 22);
             this.EDIT.TabIndex = 24;
@@ -307,7 +307,7 @@
             this.DUE_DATE.AutoSize = true;
             this.DUE_DATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DUE_DATE.LinkColor = System.Drawing.Color.Yellow;
-            this.DUE_DATE.Location = new System.Drawing.Point(179, 35);
+            this.DUE_DATE.Location = new System.Drawing.Point(127, 35);
             this.DUE_DATE.Name = "DUE_DATE";
             this.DUE_DATE.Size = new System.Drawing.Size(0, 16);
             this.DUE_DATE.TabIndex = 25;
@@ -318,9 +318,9 @@
             this.Date_search.CustomFormat = "yyyy-MM-dd";
             this.Date_search.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.Date_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date_search.Location = new System.Drawing.Point(342, 7);
+            this.Date_search.Location = new System.Drawing.Point(277, 8);
             this.Date_search.Name = "Date_search";
-            this.Date_search.Size = new System.Drawing.Size(109, 20);
+            this.Date_search.Size = new System.Drawing.Size(106, 20);
             this.Date_search.TabIndex = 26;
             this.Date_search.CloseUp += new System.EventHandler(this.selectDate);
             this.Date_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Date);
@@ -341,9 +341,9 @@
             this.UPDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.UPDATE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UPDATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UPDATE.Location = new System.Drawing.Point(457, 35);
+            this.UPDATE.Location = new System.Drawing.Point(722, 5);
             this.UPDATE.Name = "UPDATE";
-            this.UPDATE.Size = new System.Drawing.Size(177, 23);
+            this.UPDATE.Size = new System.Drawing.Size(147, 23);
             this.UPDATE.TabIndex = 28;
             this.UPDATE.Text = "UPDATE";
             this.UPDATE.UseVisualStyleBackColor = false;
