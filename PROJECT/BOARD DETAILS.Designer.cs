@@ -451,7 +451,7 @@ namespace PROJECT
             // Remarks
             // 
             this.Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.Remarks.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Remarks.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Remarks.Location = new System.Drawing.Point(366, 297);
             this.Remarks.Multiline = true;
             this.Remarks.Name = "Remarks";

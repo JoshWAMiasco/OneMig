@@ -114,7 +114,7 @@
             this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(141, 66);
-            this.Exit_btn.TabIndex = 1;
+            this.Exit_btn.TabIndex = 60;
             this.Exit_btn.Text = "EXIT";
             this.Exit_btn.UseVisualStyleBackColor = false;
             this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
@@ -127,7 +127,7 @@
             this.Serial_number.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Serial_number.Name = "Serial_number";
             this.Serial_number.Size = new System.Drawing.Size(140, 20);
-            this.Serial_number.TabIndex = 2;
+            this.Serial_number.TabIndex = 1;
             this.Serial_number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Enter);
             // 
             // label1
@@ -161,7 +161,7 @@
             this.Part_number.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Part_number.Name = "Part_number";
             this.Part_number.Size = new System.Drawing.Size(140, 20);
-            this.Part_number.TabIndex = 4;
+            this.Part_number.TabIndex = 2;
             this.Part_number.Visible = false;
             // 
             // label3
@@ -205,7 +205,7 @@
             this.Test_program.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Test_program.Name = "Test_program";
             this.Test_program.Size = new System.Drawing.Size(140, 20);
-            this.Test_program.TabIndex = 10;
+            this.Test_program.TabIndex = 6;
             this.Test_program.Visible = false;
             // 
             // label6
@@ -345,7 +345,7 @@
             this.Test_option.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Test_option.Name = "Test_option";
             this.Test_option.Size = new System.Drawing.Size(140, 21);
-            this.Test_option.TabIndex = 24;
+            this.Test_option.TabIndex = 9;
             this.Test_option.Visible = false;
             // 
             // first_endorser
@@ -452,7 +452,7 @@
             // Remarks
             // 
             this.Remarks.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.Remarks.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Remarks.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Remarks.Location = new System.Drawing.Point(388, 368);
             this.Remarks.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Remarks.Multiline = true;
@@ -622,7 +622,7 @@
             this.Revision.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Revision.Name = "Revision";
             this.Revision.Size = new System.Drawing.Size(140, 20);
-            this.Revision.TabIndex = 42;
+            this.Revision.TabIndex = 3;
             this.Revision.Visible = false;
             // 
             // Failed_during
@@ -640,7 +640,7 @@
             this.Failed_during.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Failed_during.Name = "Failed_during";
             this.Failed_during.Size = new System.Drawing.Size(140, 21);
-            this.Failed_during.TabIndex = 45;
+            this.Failed_during.TabIndex = 7;
             this.Failed_during.Visible = false;
             this.Failed_during.SelectedIndexChanged += new System.EventHandler(this.Failed_during_indexchanged);
             // 
@@ -676,7 +676,7 @@
             this.Failure_mode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Failure_mode.Name = "Failure_mode";
             this.Failure_mode.Size = new System.Drawing.Size(140, 21);
-            this.Failure_mode.TabIndex = 47;
+            this.Failure_mode.TabIndex = 8;
             this.Failure_mode.Visible = false;
             this.Failure_mode.SelectedIndexChanged += new System.EventHandler(this.Failure_mode_indexchanged);
             // 
@@ -735,7 +735,7 @@
             this.Test_system.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Test_system.Name = "Test_system";
             this.Test_system.Size = new System.Drawing.Size(140, 21);
-            this.Test_system.TabIndex = 52;
+            this.Test_system.TabIndex = 4;
             this.Test_system.Visible = false;
             this.Test_system.SelectionChangeCommitted += new System.EventHandler(this.Test_system_SelectionChangeCommitted);
             // 
@@ -822,7 +822,7 @@
             this.Boards.Location = new System.Drawing.Point(198, 216);
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(140, 21);
-            this.Boards.TabIndex = 58;
+            this.Boards.TabIndex = 5;
             this.Boards.Visible = false;
             // 
             // ADD
