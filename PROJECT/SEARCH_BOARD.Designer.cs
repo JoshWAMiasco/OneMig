@@ -318,7 +318,7 @@
             this.Date_search.CustomFormat = "yyyy-MM-dd";
             this.Date_search.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.Date_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date_search.Location = new System.Drawing.Point(277, 8);
+            this.Date_search.Location = new System.Drawing.Point(277, 7);
             this.Date_search.Name = "Date_search";
             this.Date_search.Size = new System.Drawing.Size(106, 20);
             this.Date_search.TabIndex = 26;

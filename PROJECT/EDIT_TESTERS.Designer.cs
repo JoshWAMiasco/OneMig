@@ -45,6 +45,7 @@ namespace PROJECT
             this.AddOrRemoveText = new System.Windows.Forms.Label();
             this.Tester = new System.Windows.Forms.RadioButton();
             this.Board = new System.Windows.Forms.RadioButton();
+            this.ADD_BTN = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AddOrDelete
@@ -58,7 +59,7 @@ namespace PROJECT
             // Current_List
             // 
             this.Current_List.FormattingEnabled = true;
-            this.Current_List.Location = new System.Drawing.Point(252, 167);
+            this.Current_List.Location = new System.Drawing.Point(342, 168);
             this.Current_List.Name = "Current_List";
             this.Current_List.Size = new System.Drawing.Size(205, 238);
             this.Current_List.TabIndex = 1;
@@ -125,7 +126,7 @@ namespace PROJECT
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label2.Location = new System.Drawing.Point(281, 133);
+            this.label2.Location = new System.Drawing.Point(365, 129);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(145, 16);
             this.label2.TabIndex = 7;
@@ -136,7 +137,7 @@ namespace PROJECT
             this.BACK.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.BACK.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BACK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BACK.Location = new System.Drawing.Point(342, 420);
+            this.BACK.Location = new System.Drawing.Point(432, 420);
             this.BACK.Name = "BACK";
             this.BACK.Size = new System.Drawing.Size(115, 41);
             this.BACK.TabIndex = 9;
@@ -174,9 +175,9 @@ namespace PROJECT
             this.REMOVE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.REMOVE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.REMOVE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.REMOVE.Location = new System.Drawing.Point(175, 421);
+            this.REMOVE.Location = new System.Drawing.Point(224, 286);
             this.REMOVE.Name = "REMOVE";
-            this.REMOVE.Size = new System.Drawing.Size(115, 40);
+            this.REMOVE.Size = new System.Drawing.Size(112, 30);
             this.REMOVE.TabIndex = 12;
             this.REMOVE.Text = "REMOVE";
             this.REMOVE.UseVisualStyleBackColor = false;
@@ -187,7 +188,7 @@ namespace PROJECT
             this.AddOrRemoveText.AutoSize = true;
             this.AddOrRemoveText.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddOrRemoveText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.AddOrRemoveText.Location = new System.Drawing.Point(163, 80);
+            this.AddOrRemoveText.Location = new System.Drawing.Point(196, 80);
             this.AddOrRemoveText.Name = "AddOrRemoveText";
             this.AddOrRemoveText.Size = new System.Drawing.Size(0, 25);
             this.AddOrRemoveText.TabIndex = 13;
@@ -220,12 +221,27 @@ namespace PROJECT
             this.Board.UseVisualStyleBackColor = true;
             this.Board.Click += new System.EventHandler(this.Boards_mode);
             // 
+            // ADD_BTN
+            // 
+            this.ADD_BTN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.ADD_BTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ADD_BTN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ADD_BTN.Location = new System.Drawing.Point(224, 250);
+            this.ADD_BTN.Name = "ADD_BTN";
+            this.ADD_BTN.Size = new System.Drawing.Size(112, 30);
+            this.ADD_BTN.TabIndex = 16;
+            this.ADD_BTN.Text = ">>ADD>>";
+            this.ADD_BTN.UseVisualStyleBackColor = false;
+            this.ADD_BTN.Visible = false;
+            this.ADD_BTN.Click += new System.EventHandler(this.ADD_BTN_Click);
+            // 
             // EDIT_TESTERS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(469, 478);
+            this.ClientSize = new System.Drawing.Size(559, 478);
+            this.Controls.Add(this.ADD_BTN);
             this.Controls.Add(this.Tester);
             this.Controls.Add(this.Board);
             this.Controls.Add(this.Current_List);
@@ -243,8 +259,6 @@ namespace PROJECT
             this.Controls.Add(this.Tester_platforms);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(485, 517);
-            this.MinimumSize = new System.Drawing.Size(485, 517);
             this.Name = "EDIT_TESTERS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADD/DELETE";
@@ -271,5 +285,6 @@ namespace PROJECT
         private System.Windows.Forms.Label AddOrRemoveText;
         private System.Windows.Forms.RadioButton Tester;
         private System.Windows.Forms.RadioButton Board;
+        private System.Windows.Forms.Button ADD_BTN;
     }
 }

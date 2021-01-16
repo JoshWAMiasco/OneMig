@@ -92,7 +92,7 @@ namespace PROJECT
                 if (c is TextBox)
                 {
                     TextBox textBox = c as TextBox;
-                    if (textBox == Failure_mode_others || textBox == Failed_during_others)
+                    if (textBox == Failure_mode_others || textBox == Failed_during_others || textBox == Remarks)
                         continue;
                     else
                     {

@@ -81,15 +81,25 @@ namespace PROJECT
             {
                 AddOrRemoveText.Text = "ADD MODE";
                 AddOrDelete.Items.Clear();
+                Current_List.Items.Clear();
+                ADD_BTN.Visible = false;
+                REMOVE.Text = "REMOVE";
                 label3.Visible = true;
                 ADD.Visible = true;
+                Board.Checked = false;
+                Tester.Checked = false;
             }
             else
             {
                 AddOrRemoveText.Text = "DELETE MODE";
                 AddOrDelete.Items.Clear();
+                Current_List.Items.Clear();
+                ADD_BTN.Visible = true;
+                REMOVE.Text = "<<REMOVE<<";
                 label3.Visible = false;
                 ADD.Visible = false;
+                Board.Checked = false;
+                Tester.Checked = false;
             }
         }
         private void CheckTextInListBox()
@@ -180,7 +190,7 @@ namespace PROJECT
                 }
             }
             else
-                MessageBox.Show("PLEASE CHOOSE OPTION");
+                MessageBox.Show("PLEASE CHOOSE MODE FIRST");
         }
         private void Save_btn_Click(object sender, EventArgs e)
         {
@@ -211,7 +221,7 @@ namespace PROJECT
                 }
             }
             else
-                MessageBox.Show("PLEASE CHOOSE OPTION");
+                MessageBox.Show("PLEASE CHOOSE MODE");
         }
         private void Save_data(int save)  //FOR SAVING THE DATA
         {
@@ -280,6 +290,25 @@ namespace PROJECT
                     break;
             }
         }
+
+        private void ADD_BTN_Click(object sender, EventArgs e)
+        {
+            if (AddOrDelete.Items.Count == 0)
+            {
+                return;
+            }
+            else if (AddOrDelete.SelectedIndex == -1)
+            {
+                MessageBox.Show("PLEASE SELECT AN ITEM TO BE MOVE BACK TO THE CURRENT LIST");
+                return;
+            }
+            else
+            {
+                Current_List.Items.Add(AddOrDelete.SelectedItem);
+                AddOrDelete.Items.RemoveAt(AddOrDelete.SelectedIndex);
+            }
+        }
+
         private void Tester_platforms_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Tester.Checked)

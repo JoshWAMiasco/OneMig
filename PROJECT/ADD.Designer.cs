@@ -93,6 +93,7 @@
             // Save_btn
             // 
             this.Save_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Save_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Save_btn.Location = new System.Drawing.Point(388, 630);
             this.Save_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -107,6 +108,7 @@
             // Exit_btn
             // 
             this.Exit_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Exit_btn.Location = new System.Drawing.Point(1042, 629);
             this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -423,6 +425,7 @@
             // Update_Button
             // 
             this.Update_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.Update_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Update_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Update_Button.Location = new System.Drawing.Point(709, 630);
             this.Update_Button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
