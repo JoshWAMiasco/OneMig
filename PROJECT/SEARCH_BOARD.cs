@@ -65,14 +65,14 @@ namespace PROJECT
             switch(cmd)
             {
                
-                case 0: //TO CHECK IF THERE'S AND EXISTING DATA SEARCHED
+                case 0: //TO CHECK IF THERE'S EXISTING DATA SEARCHED
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
                         "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`) LIMIT 1",Connection.connect);
                     break;
                 case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE '" + search_text.Text + "'" +
-                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`STATUS`)" +
+                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 2:  //TO DISPLAY THE TESTER PLATFORMS
