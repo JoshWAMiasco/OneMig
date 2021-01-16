@@ -84,6 +84,7 @@ namespace PROJECT
                 Current_List.Items.Clear();
                 ADD_BTN.Visible = false;
                 REMOVE.Text = "REMOVE";
+                ADD.Clear();
                 label3.Visible = true;
                 ADD.Visible = true;
                 Board.Checked = false;
@@ -95,7 +96,7 @@ namespace PROJECT
                 AddOrDelete.Items.Clear();
                 Current_List.Items.Clear();
                 ADD_BTN.Visible = true;
-                REMOVE.Text = "<<REMOVE<<";
+                REMOVE.Text = "<-- REMOVE <--";
                 label3.Visible = false;
                 ADD.Visible = false;
                 Board.Checked = false;
@@ -196,7 +197,11 @@ namespace PROJECT
         {
             if (Mode.SelectedIndex == 0)   //FOR ADDING NEW DATA
             {
-                if (AddOrDelete.Items.Count == 0)
+                if (Board.Checked == false && Tester.Checked == false)
+                    MessageBox.Show("PLEASE CHOOSE IF BOARD OR TESTER");
+                else if (Tester_platforms.SelectedIndex == -1)
+                    MessageBox.Show("PLEASE CHOOSE A TESTER PLATFORM");
+                else if (AddOrDelete.Items.Count == 0)
                     MessageBox.Show("LIST IS EMPTY");
                 else
                 {
@@ -209,7 +214,11 @@ namespace PROJECT
             }
             else if (Mode.SelectedIndex == 1)    // FOR REMOVING DATA FROM DATABASE
             {
-                if (AddOrDelete.Items.Count == 0)
+                if (Board.Checked == false && Tester.Checked == false)
+                    MessageBox.Show("PLEASE CHOOSE IF BOARD OR TESTER");
+                else if (Tester_platforms.SelectedIndex == -1)
+                    MessageBox.Show("PLEASE CHOOSE A TESTER PLATFORM");
+                else if (AddOrDelete.Items.Count == 0)
                     MessageBox.Show("LIST TO BE DELETED IS EMPTY");
                 else
                 {
@@ -299,7 +308,7 @@ namespace PROJECT
             }
             else if (AddOrDelete.SelectedIndex == -1)
             {
-                MessageBox.Show("PLEASE SELECT AN ITEM TO BE MOVE BACK TO THE CURRENT LIST");
+                MessageBox.Show("PLEASE SELECT AN ITEM TO BE MOVE BACK TO THE CURRENT VALUES");
                 return;
             }
             else

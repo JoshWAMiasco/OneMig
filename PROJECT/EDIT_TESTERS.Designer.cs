@@ -230,7 +230,7 @@ namespace PROJECT
             this.ADD_BTN.Name = "ADD_BTN";
             this.ADD_BTN.Size = new System.Drawing.Size(112, 30);
             this.ADD_BTN.TabIndex = 16;
-            this.ADD_BTN.Text = ">>ADD>>";
+            this.ADD_BTN.Text = "--> ADD -->";
             this.ADD_BTN.UseVisualStyleBackColor = false;
             this.ADD_BTN.Visible = false;
             this.ADD_BTN.Click += new System.EventHandler(this.ADD_BTN_Click);
