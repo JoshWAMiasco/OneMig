@@ -95,7 +95,7 @@
             this.Save_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Save_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Save_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save_btn.Location = new System.Drawing.Point(388, 630);
+            this.Save_btn.Location = new System.Drawing.Point(388, 608);
             this.Save_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Save_btn.Name = "Save_btn";
             this.Save_btn.Size = new System.Drawing.Size(141, 66);
@@ -110,7 +110,7 @@
             this.Exit_btn.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn.Location = new System.Drawing.Point(1042, 629);
+            this.Exit_btn.Location = new System.Drawing.Point(1042, 608);
             this.Exit_btn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Exit_btn.Name = "Exit_btn";
             this.Exit_btn.Size = new System.Drawing.Size(141, 66);
@@ -321,11 +321,11 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label8.Location = new System.Drawing.Point(98, 535);
+            this.label8.Location = new System.Drawing.Point(142, 507);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(176, 25);
+            this.label8.Size = new System.Drawing.Size(82, 25);
             this.label8.TabIndex = 22;
-            this.label8.Text = "CHOOSE STATUS";
+            this.label8.Text = "STATUS";
             this.label8.Visible = false;
             // 
             // Test_option
@@ -427,7 +427,7 @@
             this.Update_Button.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.Update_Button.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Update_Button.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Update_Button.Location = new System.Drawing.Point(709, 630);
+            this.Update_Button.Location = new System.Drawing.Point(709, 608);
             this.Update_Button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Update_Button.Name = "Update_Button";
             this.Update_Button.Size = new System.Drawing.Size(141, 66);
@@ -744,7 +744,7 @@
             this.SPARES.AutoSize = true;
             this.SPARES.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SPARES.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.SPARES.Location = new System.Drawing.Point(37, 584);
+            this.SPARES.Location = new System.Drawing.Point(37, 556);
             this.SPARES.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SPARES.Name = "SPARES";
             this.SPARES.Size = new System.Drawing.Size(85, 25);
@@ -759,7 +759,7 @@
             this.BRG.AutoSize = true;
             this.BRG.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.BRG.Location = new System.Drawing.Point(37, 630);
+            this.BRG.Location = new System.Drawing.Point(37, 602);
             this.BRG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BRG.Name = "BRG";
             this.BRG.Size = new System.Drawing.Size(61, 25);
@@ -774,7 +774,7 @@
             this.FOR_SECOND_VERIF.AutoSize = true;
             this.FOR_SECOND_VERIF.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FOR_SECOND_VERIF.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.FOR_SECOND_VERIF.Location = new System.Drawing.Point(37, 674);
+            this.FOR_SECOND_VERIF.Location = new System.Drawing.Point(37, 646);
             this.FOR_SECOND_VERIF.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FOR_SECOND_VERIF.Name = "FOR_SECOND_VERIF";
             this.FOR_SECOND_VERIF.Size = new System.Drawing.Size(179, 25);
@@ -789,7 +789,7 @@
             this.FAILURE_CHANGED.AutoSize = true;
             this.FAILURE_CHANGED.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAILURE_CHANGED.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.FAILURE_CHANGED.Location = new System.Drawing.Point(177, 584);
+            this.FAILURE_CHANGED.Location = new System.Drawing.Point(177, 556);
             this.FAILURE_CHANGED.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FAILURE_CHANGED.Name = "FAILURE_CHANGED";
             this.FAILURE_CHANGED.Size = new System.Drawing.Size(167, 25);
@@ -804,7 +804,7 @@
             this.INSTALL_TO_TESTER.AutoSize = true;
             this.INSTALL_TO_TESTER.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.INSTALL_TO_TESTER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.INSTALL_TO_TESTER.Location = new System.Drawing.Point(177, 630);
+            this.INSTALL_TO_TESTER.Location = new System.Drawing.Point(177, 602);
             this.INSTALL_TO_TESTER.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.INSTALL_TO_TESTER.Name = "INSTALL_TO_TESTER";
             this.INSTALL_TO_TESTER.Size = new System.Drawing.Size(170, 25);
@@ -830,7 +830,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1217, 709);
+            this.ClientSize = new System.Drawing.Size(1196, 687);
             this.Controls.Add(this.Boards);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.INSTALL_TO_TESTER);
@@ -868,8 +868,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(1233, 748);
-            this.MinimumSize = new System.Drawing.Size(1233, 748);
+            this.MaximumSize = new System.Drawing.Size(1212, 726);
+            this.MinimumSize = new System.Drawing.Size(1212, 726);
             this.Name = "ADD";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " ADD BOARD DETAILS";
