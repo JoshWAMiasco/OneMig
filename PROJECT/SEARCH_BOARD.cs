@@ -18,6 +18,7 @@ namespace PROJECT
     public partial class SEARCH_BOARD : Form
     {
         public string check;
+        public int count;
         //MySqlConnection Connect = new MySqlConnection("server=mpoctsgdb.maxim-ic.com;user id = a2_utilities;password = a2_utilities;database=a2_utitilies");
         //MySqlConnection Connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
         MySqlCommand command;
@@ -75,8 +76,11 @@ namespace PROJECT
                         " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 2:  //TO DISPLAY THE TESTER PLATFORMS
-                    command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
+                case 2:  //SEARCH DATA WITH SPECIFIC DATE
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "'" +
+                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`)) AND (`FIRST DATE` = '" + Date_search.Text + "')" +
+                        " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d')," +
@@ -97,7 +101,7 @@ namespace PROJECT
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
                 case 7:
-                    //select* from `board details` where(('Y6') IN(`SERIAL NUMBER`,`PART NUMBER`) AND `FIRST DATE` = '2020-12-19')
+                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')",Connection.connect);
                     break;
             }
         }
@@ -117,47 +121,44 @@ namespace PROJECT
         }
         private void load_data(int commandss)
         {
-            if (string.IsNullOrWhiteSpace(search_text.Text))
+            commands(count);
+            if (Connection.OpenConnection())
             {
-                MessageBox.Show("NO INPUT");
-            }
-            else
-            {
-                commands(0);
-                if (Connection.OpenConnection())
+                check = command.ExecuteScalar().ToString();
+                if (Connection.CloseConnection())
                 {
-                    check = command.ExecuteScalar().ToString();
-                    if (Connection.CloseConnection())
+                    if (check == "0")
                     {
-                        if (check == "0")
-                        {
-                            MessageBox.Show("NO DATA");
-                            search_text.Clear();
-                            return;
-                        }
-                        else
-                        {
-                            dataGridViewList.DataSource = table(commandss);
-                        }
+                        MessageBox.Show("NO DATA");
+                        search_text.Clear();
+                        return;
                     }
-                    else return;
+                    else
+                    {
+                        dataGridViewList.DataSource = table(commandss);
+                    }
                 }
                 else return;
             }
+            else return;
         }
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            load_data(1);
-            Date_search.ResetText();
-        }
-
-        private void key_Enter(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
+            if (Include_date.Checked == false && search_text.Text.Length > 0)
             {
+                count = 0;
                 load_data(1);
                 Date_search.ResetText();
+            }
+            else if (Include_date.Checked == false && search_text.Text.Length == 0)
+            {
+                count = 7;
+                load_data(6);
+            }
+            else
+            {
+                dataGridViewList.DataSource = table(2);
             }
         }
         private void Exit_btn_Click(object sender, EventArgs e)
@@ -175,6 +176,7 @@ namespace PROJECT
         {
             Date_search.ResetText();
             search_text.Clear();
+            Include_date.Checked = false;
             dataGridViewList.DataSource = table(3);
             commands(4);
             if (Connection.OpenConnection())
@@ -270,12 +272,6 @@ namespace PROJECT
             {
                 dataGridViewList.DataSource = table(5);
             }
-        }
-
-        private void selectDate(object sender, EventArgs e)
-        {
-            search_text.Clear();
-            dataGridViewList.DataSource = table(6);
         }
 
         private void UPDATE_Click(object sender, EventArgs e)

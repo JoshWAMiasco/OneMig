@@ -54,6 +54,7 @@
             this.Date_search = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.UPDATE = new System.Windows.Forms.Button();
+            this.Include_date = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.Log_in.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +81,6 @@
             this.search_text.Name = "search_text";
             this.search_text.Size = new System.Drawing.Size(147, 20);
             this.search_text.TabIndex = 1;
-            this.search_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.key_Enter);
             // 
             // Add_btn
             // 
@@ -88,7 +88,7 @@
             this.Add_btn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Add_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Add_btn.Location = new System.Drawing.Point(389, 5);
+            this.Add_btn.Location = new System.Drawing.Point(532, 5);
             this.Add_btn.Name = "Add_btn";
             this.Add_btn.Size = new System.Drawing.Size(162, 22);
             this.Add_btn.TabIndex = 2;
@@ -293,7 +293,7 @@
             this.EDIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EDIT.Location = new System.Drawing.Point(557, 5);
+            this.EDIT.Location = new System.Drawing.Point(700, 5);
             this.EDIT.Name = "EDIT";
             this.EDIT.Size = new System.Drawing.Size(162, 22);
             this.EDIT.TabIndex = 24;
@@ -322,7 +322,6 @@
             this.Date_search.Name = "Date_search";
             this.Date_search.Size = new System.Drawing.Size(106, 20);
             this.Date_search.TabIndex = 26;
-            this.Date_search.CloseUp += new System.EventHandler(this.selectDate);
             this.Date_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Date);
             // 
             // label1
@@ -341,13 +340,25 @@
             this.UPDATE.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.UPDATE.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UPDATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UPDATE.Location = new System.Drawing.Point(722, 5);
+            this.UPDATE.Location = new System.Drawing.Point(700, 30);
             this.UPDATE.Name = "UPDATE";
-            this.UPDATE.Size = new System.Drawing.Size(147, 23);
+            this.UPDATE.Size = new System.Drawing.Size(162, 23);
             this.UPDATE.TabIndex = 28;
             this.UPDATE.Text = "UPDATE";
             this.UPDATE.UseVisualStyleBackColor = false;
             this.UPDATE.Click += new System.EventHandler(this.UPDATE_Click);
+            // 
+            // Include_date
+            // 
+            this.Include_date.AutoSize = true;
+            this.Include_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Include_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.Include_date.Location = new System.Drawing.Point(389, 8);
+            this.Include_date.Name = "Include_date";
+            this.Include_date.Size = new System.Drawing.Size(137, 20);
+            this.Include_date.TabIndex = 29;
+            this.Include_date.Text = "INCLUDE DATE";
+            this.Include_date.UseVisualStyleBackColor = true;
             // 
             // SEARCH_BOARD
             // 
@@ -355,6 +366,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1154, 575);
+            this.Controls.Add(this.Include_date);
             this.Controls.Add(this.UPDATE);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Date_search);
@@ -410,5 +422,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
+        private System.Windows.Forms.CheckBox Include_date;
     }
 }

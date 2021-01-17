@@ -571,7 +571,8 @@ namespace PROJECT
                 case 3:  // FOR UPDATING THE LAST TRANSACTION
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` SET `STATUS` = '" + status + "',`SECOND DATALOG` = @SECOND_DATA," +
                         "`SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
-                        "`SECOND SLOT` = '" + Second_slot.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "',`FILENAME 2` = '" + Filename(second_verif_link.Text) + "'" +
+                        "`SECOND SLOT` = '" + Second_slot.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "',`REMARKS` = '" + Remarks.Text + "'," +
+                        "`FILENAME 2` = '" + Filename(second_verif_link.Text) + "'" +
                         " WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     command.Parameters.Add("@SECOND_DATA", MySqlDbType.VarBinary).Value = SaveFile(second_verif_link.Text);
                     break;
