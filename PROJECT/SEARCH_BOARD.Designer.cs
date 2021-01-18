@@ -382,7 +382,6 @@
             this.Controls.Add(this.Search_button);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1167, 614);
             this.MinimumSize = new System.Drawing.Size(1167, 614);
             this.Name = "SEARCH_BOARD";
             this.Text = "WELCOME";
