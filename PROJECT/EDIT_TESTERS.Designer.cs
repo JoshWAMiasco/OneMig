@@ -259,6 +259,8 @@ namespace PROJECT
             this.Controls.Add(this.Tester_platforms);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(575, 517);
+            this.MinimumSize = new System.Drawing.Size(575, 517);
             this.Name = "EDIT_TESTERS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ADD/DELETE";
