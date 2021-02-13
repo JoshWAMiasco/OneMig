@@ -405,7 +405,7 @@
             "INSTALL TO A TESTER",
             "FOR SECOND VERIF",
             "FAILURE CHANGE"});
-            this.Stats.Location = new System.Drawing.Point(693, 48);
+            this.Stats.Location = new System.Drawing.Point(693, 46);
             this.Stats.Name = "Stats";
             this.Stats.Size = new System.Drawing.Size(173, 21);
             this.Stats.TabIndex = 32;
@@ -431,7 +431,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label3.Location = new System.Drawing.Point(490, 49);
+            this.label3.Location = new System.Drawing.Point(490, 51);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 33;
