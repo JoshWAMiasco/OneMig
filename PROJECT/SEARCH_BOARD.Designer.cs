@@ -399,6 +399,7 @@
             this.Stats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Stats.FormattingEnabled = true;
             this.Stats.Items.AddRange(new object[] {
+            "ALL",
             "SPARES",
             "BRG",
             "INSTALL TO A TESTER",
@@ -415,6 +416,7 @@
             this.AREA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AREA.FormattingEnabled = true;
             this.AREA.Items.AddRange(new object[] {
+            "ALL",
             "A2",
             "A1",
             "B2"});
