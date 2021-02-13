@@ -375,6 +375,7 @@ namespace PROJECT
             if (e.KeyCode == Keys.Enter)
             {
                 Timer.Stop();
+                Timer2.Stop();
                 if (CheckTextBox(Serial_number.Text))
                 {
                     if (string.IsNullOrWhiteSpace(Serial_number.Text))
@@ -470,6 +471,7 @@ namespace PROJECT
                                 Boards.SelectedIndex = 0;
                                 First_tester.SelectedIndex = 0;
                                 First_Site.SelectedIndex = 0;
+                                Timer2.Start();
                                 if (First_Site.Text.Equals(string.Empty))
                                     First_Site.Visible = false;
                                 else
@@ -576,7 +578,7 @@ namespace PROJECT
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` SET `STATUS` = '" + status + "',`SECOND DATALOG` = @SECOND_DATA," +
                         "`SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" + Second_slot.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "',`REMARKS` = '" + Remarks.Text + "'," +
-                        "`FILENAME 2` = '" + Filename(second_verif_link.Text) + "'" +
+                        "`FILENAME 2` = '" + Filename(second_verif_link.Text) + "',`SECOND TIME` = '" + SecondTime.Text + "'"  +
                         " WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     command.Parameters.Add("@SECOND_DATA", MySqlDbType.VarBinary).Value = SaveFile(second_verif_link.Text);
                     break;
@@ -585,12 +587,12 @@ namespace PROJECT
                     command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,`SECOND DATE`," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`,`AREA`) " +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST TIME`,`SECOND TIME`) " +
             "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + Date_first_verif.Text + "','" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "',@SECOND_DATA," +
             "'" + Date_second_verif.Text + "','" + Second_tester.Text + "','" + Second_Site.Text + "','" + Second_slot.Text + "','" + second_endorser.Text + "','" + Test_system.Text + "'," +
-            "'" + Filename(first_verif_link.Text )+ "','" + Filename(second_verif_link.Text )+ "','" + Area.Text + "')");
+            "'" + Filename(first_verif_link.Text )+ "','" + Filename(second_verif_link.Text )+ "','" + Area.Text + "','" + FirstTime.Text + "','" + SecondTime.Text + "')");
                     command.Parameters.Add("@FIRST_DATA", MySqlDbType.VarBinary).Value = SaveFile(first_verif_link.Text);
                     command.Parameters.Add("@SECOND_DATA", MySqlDbType.VarBinary).Value = SaveFile(second_verif_link.Text);
                     break;
@@ -770,6 +772,7 @@ namespace PROJECT
                         continue;
                     }
                 }
+                Timer2.Stop();
                 Second_box.Visible = false;
                 return;
             }
@@ -781,11 +784,13 @@ namespace PROJECT
                         return;
                     else
                     {
+                        Timer2.Start();
                         Second_box.Visible = true;
                     }
                 }
                 else
                 {
+                    Timer2.Start();
                     Second_box.Visible = true;
                 }
             }
@@ -877,6 +882,12 @@ namespace PROJECT
         {
             DateTime time = DateTime.Now;
             FirstTime.Text = time.ToString("h:mm:ss tt");
+        }
+
+        private void Timer2_Tick(object sender, EventArgs e)
+        {
+            DateTime time2 = DateTime.Now;
+            SecondTime.Text = time2.ToString("h:mm:ss tt");
         }
 
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)

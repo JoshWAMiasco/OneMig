@@ -66,10 +66,12 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.SecondTime = new System.Windows.Forms.Label();
             this.Second_tester = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.FirstTime = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.Revision = new System.Windows.Forms.TextBox();
@@ -90,8 +92,7 @@
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.FirstTime = new System.Windows.Forms.Label();
-            this.SecondTime = new System.Windows.Forms.Label();
+            this.Timer2 = new System.Windows.Forms.Timer(this.components);
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -290,7 +291,7 @@
             this.Date_second_verif.Location = new System.Drawing.Point(22, 112);
             this.Date_second_verif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Date_second_verif.Name = "Date_second_verif";
-            this.Date_second_verif.Size = new System.Drawing.Size(108, 20);
+            this.Date_second_verif.Size = new System.Drawing.Size(120, 20);
             this.Date_second_verif.TabIndex = 21;
             this.Date_second_verif.Visible = false;
             this.Date_second_verif.CloseUp += new System.EventHandler(this.SecondDateCheck);
@@ -543,6 +544,14 @@
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
             // 
+            // SecondTime
+            // 
+            this.SecondTime.AutoSize = true;
+            this.SecondTime.Location = new System.Drawing.Point(157, 117);
+            this.SecondTime.Name = "SecondTime";
+            this.SecondTime.Size = new System.Drawing.Size(0, 13);
+            this.SecondTime.TabIndex = 36;
+            // 
             // Second_tester
             // 
             this.Second_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -597,6 +606,14 @@
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
+            // 
+            // FirstTime
+            // 
+            this.FirstTime.AutoSize = true;
+            this.FirstTime.Location = new System.Drawing.Point(156, 117);
+            this.FirstTime.Name = "FirstTime";
+            this.FirstTime.Size = new System.Drawing.Size(0, 13);
+            this.FirstTime.TabIndex = 35;
             // 
             // First_tester
             // 
@@ -864,21 +881,9 @@
             // 
             this.Timer.Tick += new System.EventHandler(this.FirstTimer_Tick);
             // 
-            // FirstTime
+            // Timer2
             // 
-            this.FirstTime.AutoSize = true;
-            this.FirstTime.Location = new System.Drawing.Point(156, 117);
-            this.FirstTime.Name = "FirstTime";
-            this.FirstTime.Size = new System.Drawing.Size(0, 13);
-            this.FirstTime.TabIndex = 35;
-            // 
-            // SecondTime
-            // 
-            this.SecondTime.AutoSize = true;
-            this.SecondTime.Location = new System.Drawing.Point(141, 117);
-            this.SecondTime.Name = "SecondTime";
-            this.SecondTime.Size = new System.Drawing.Size(0, 13);
-            this.SecondTime.TabIndex = 36;
+            this.Timer2.Tick += new System.EventHandler(this.Timer2_Tick);
             // 
             // ADD
             // 
@@ -1004,5 +1009,6 @@
         private System.Windows.Forms.Timer Timer;
         private System.Windows.Forms.Label SecondTime;
         private System.Windows.Forms.Label FirstTime;
+        private System.Windows.Forms.Timer Timer2;
     }
 }

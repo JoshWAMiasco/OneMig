@@ -30,7 +30,7 @@ namespace PROJECT
         {
             command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,date_format(`FIRST DATE`,'%Y-%m-%d'),`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,date_format(`SECOND DATE`,'%Y-%m-%d')," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST TIME` FROM `boards_for_verification`.`board details` " +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST TIME`,`SECOND TIME` FROM `boards_for_verification`.`board details` " +
             "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
 
             command.Connection = Connection.connect;
@@ -71,6 +71,7 @@ namespace PROJECT
                 Filename2 = read_data["FILENAME 2"].ToString();
                 AREA.Text = read_data["AREA"].ToString();
                 FirstTime.Text = read_data["FIRST TIME"].ToString();
+                SecondTime.Text = read_data["SECOND TIME"].ToString();
                 Connection.CloseConnection();
                 First_verif_link.Text = FileName1;
                 Second_verif_link.Text = Filename2;
