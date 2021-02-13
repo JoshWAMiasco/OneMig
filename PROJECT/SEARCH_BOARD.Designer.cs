@@ -56,6 +56,10 @@
             this.UPDATE = new System.Windows.Forms.Button();
             this.Include_date = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Stats = new System.Windows.Forms.ComboBox();
+            this.AREA = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.Log_in.SuspendLayout();
             this.SuspendLayout();
@@ -329,8 +333,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
@@ -378,12 +381,70 @@
             this.button1.Text = "EXIT";
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label2.Location = new System.Drawing.Point(619, 51);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 16);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "STATUS:";
+            // 
+            // Stats
+            // 
+            this.Stats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Stats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Stats.FormattingEnabled = true;
+            this.Stats.Items.AddRange(new object[] {
+            "SPARES",
+            "BRG",
+            "INSTALL TO A TESTER",
+            "FOR SECOND VERIF",
+            "FAILURE CHANGE"});
+            this.Stats.Location = new System.Drawing.Point(693, 48);
+            this.Stats.Name = "Stats";
+            this.Stats.Size = new System.Drawing.Size(173, 21);
+            this.Stats.TabIndex = 32;
+            // 
+            // AREA
+            // 
+            this.AREA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AREA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.AREA.FormattingEnabled = true;
+            this.AREA.Items.AddRange(new object[] {
+            "A2",
+            "A1",
+            "B2"});
+            this.AREA.Location = new System.Drawing.Point(549, 48);
+            this.AREA.Name = "AREA";
+            this.AREA.Size = new System.Drawing.Size(64, 21);
+            this.AREA.TabIndex = 34;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label3.Location = new System.Drawing.Point(490, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 16);
+            this.label3.TabIndex = 33;
+            this.label3.Text = "AREA:";
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.AREA);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.Stats);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Include_date);
             this.Controls.Add(this.UPDATE);
@@ -443,5 +504,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
         private System.Windows.Forms.CheckBox Include_date;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox Stats;
+        private System.Windows.Forms.ComboBox AREA;
+        private System.Windows.Forms.Label label3;
     }
 }
