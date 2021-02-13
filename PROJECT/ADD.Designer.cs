@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADD));
             this.Save_btn = new System.Windows.Forms.Button();
             this.Exit_btn = new System.Windows.Forms.Button();
@@ -86,6 +87,11 @@
             this.FAILURE_CHANGED = new System.Windows.Forms.RadioButton();
             this.INSTALL_TO_TESTER = new System.Windows.Forms.RadioButton();
             this.Boards = new System.Windows.Forms.ComboBox();
+            this.Area = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
+            this.FirstTime = new System.Windows.Forms.Label();
+            this.SecondTime = new System.Windows.Forms.Label();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -213,7 +219,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label6.Location = new System.Drawing.Point(26, 475);
+            this.label6.Location = new System.Drawing.Point(26, 470);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(109, 21);
             this.label6.TabIndex = 13;
@@ -271,8 +277,9 @@
             this.Date_first_verif.Location = new System.Drawing.Point(21, 112);
             this.Date_first_verif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Date_first_verif.Name = "Date_first_verif";
-            this.Date_first_verif.Size = new System.Drawing.Size(166, 20);
+            this.Date_first_verif.Size = new System.Drawing.Size(120, 20);
             this.Date_first_verif.TabIndex = 18;
+            this.Date_first_verif.Value = new System.DateTime(2021, 2, 13, 21, 29, 42, 0);
             this.Date_first_verif.CloseUp += new System.EventHandler(this.FirstDateCheck);
             this.Date_first_verif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.First_date);
             // 
@@ -283,7 +290,7 @@
             this.Date_second_verif.Location = new System.Drawing.Point(22, 112);
             this.Date_second_verif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Date_second_verif.Name = "Date_second_verif";
-            this.Date_second_verif.Size = new System.Drawing.Size(166, 20);
+            this.Date_second_verif.Size = new System.Drawing.Size(108, 20);
             this.Date_second_verif.TabIndex = 21;
             this.Date_second_verif.Visible = false;
             this.Date_second_verif.CloseUp += new System.EventHandler(this.SecondDateCheck);
@@ -321,7 +328,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label8.Location = new System.Drawing.Point(142, 507);
+            this.label8.Location = new System.Drawing.Point(142, 553);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 25);
             this.label8.TabIndex = 22;
@@ -341,7 +348,7 @@
             "QA_ROOM",
             "QA_COLD",
             "N/A"});
-            this.Test_option.Location = new System.Drawing.Point(198, 473);
+            this.Test_option.Location = new System.Drawing.Point(198, 468);
             this.Test_option.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Test_option.Name = "Test_option";
             this.Test_option.Size = new System.Drawing.Size(140, 21);
@@ -365,7 +372,6 @@
             "ROSVE VIRAY",
             "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
-            "MARK DEVON",
             "MAC KELLY",
             "ERWIN DESEO",
             "JAMES ANORA"});
@@ -393,7 +399,6 @@
             "ROSVE VIRAY",
             "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
-            "MARK DEVON",
             "MAC KELLY",
             "ERWIN DESEO",
             "JAMES ANORA"});
@@ -514,6 +519,7 @@
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.Gray;
+            this.Second_box.Controls.Add(this.SecondTime);
             this.Second_box.Controls.Add(this.Second_tester);
             this.Second_box.Controls.Add(this.label14);
             this.Second_box.Controls.Add(this.Date_second_verif);
@@ -569,6 +575,7 @@
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.Color.Gray;
+            this.First_box.Controls.Add(this.FirstTime);
             this.First_box.Controls.Add(this.First_tester);
             this.First_box.Controls.Add(this.first_endorser);
             this.First_box.Controls.Add(this.label9);
@@ -744,7 +751,7 @@
             this.SPARES.AutoSize = true;
             this.SPARES.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SPARES.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.SPARES.Location = new System.Drawing.Point(37, 556);
+            this.SPARES.Location = new System.Drawing.Point(37, 581);
             this.SPARES.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SPARES.Name = "SPARES";
             this.SPARES.Size = new System.Drawing.Size(85, 25);
@@ -759,7 +766,7 @@
             this.BRG.AutoSize = true;
             this.BRG.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BRG.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.BRG.Location = new System.Drawing.Point(37, 602);
+            this.BRG.Location = new System.Drawing.Point(37, 613);
             this.BRG.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BRG.Name = "BRG";
             this.BRG.Size = new System.Drawing.Size(61, 25);
@@ -789,7 +796,7 @@
             this.FAILURE_CHANGED.AutoSize = true;
             this.FAILURE_CHANGED.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FAILURE_CHANGED.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.FAILURE_CHANGED.Location = new System.Drawing.Point(177, 556);
+            this.FAILURE_CHANGED.Location = new System.Drawing.Point(177, 581);
             this.FAILURE_CHANGED.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.FAILURE_CHANGED.Name = "FAILURE_CHANGED";
             this.FAILURE_CHANGED.Size = new System.Drawing.Size(167, 25);
@@ -804,7 +811,7 @@
             this.INSTALL_TO_TESTER.AutoSize = true;
             this.INSTALL_TO_TESTER.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.INSTALL_TO_TESTER.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.INSTALL_TO_TESTER.Location = new System.Drawing.Point(177, 602);
+            this.INSTALL_TO_TESTER.Location = new System.Drawing.Point(177, 613);
             this.INSTALL_TO_TESTER.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.INSTALL_TO_TESTER.Name = "INSTALL_TO_TESTER";
             this.INSTALL_TO_TESTER.Size = new System.Drawing.Size(170, 25);
@@ -825,12 +832,62 @@
             this.Boards.TabIndex = 5;
             this.Boards.Visible = false;
             // 
+            // Area
+            // 
+            this.Area.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Area.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Area.FormattingEnabled = true;
+            this.Area.Items.AddRange(new object[] {
+            "A1",
+            "A2",
+            "B2"});
+            this.Area.Location = new System.Drawing.Point(198, 509);
+            this.Area.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Area.Name = "Area";
+            this.Area.Size = new System.Drawing.Size(140, 21);
+            this.Area.TabIndex = 61;
+            this.Area.Visible = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label19.Location = new System.Drawing.Point(28, 511);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(55, 21);
+            this.label19.TabIndex = 62;
+            this.label19.Text = "AREA";
+            this.label19.Visible = false;
+            // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.FirstTimer_Tick);
+            // 
+            // FirstTime
+            // 
+            this.FirstTime.AutoSize = true;
+            this.FirstTime.Location = new System.Drawing.Point(156, 117);
+            this.FirstTime.Name = "FirstTime";
+            this.FirstTime.Size = new System.Drawing.Size(0, 13);
+            this.FirstTime.TabIndex = 35;
+            // 
+            // SecondTime
+            // 
+            this.SecondTime.AutoSize = true;
+            this.SecondTime.Location = new System.Drawing.Point(141, 117);
+            this.SecondTime.Name = "SecondTime";
+            this.SecondTime.Size = new System.Drawing.Size(0, 13);
+            this.SecondTime.TabIndex = 36;
+            // 
             // ADD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1196, 687);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.Area);
             this.Controls.Add(this.Boards);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.INSTALL_TO_TESTER);
@@ -942,5 +999,10 @@
         private System.Windows.Forms.RadioButton INSTALL_TO_TESTER;
         private System.Windows.Forms.ComboBox Boards;
         public System.Windows.Forms.TextBox Part_number;
+        private System.Windows.Forms.ComboBox Area;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Timer Timer;
+        private System.Windows.Forms.Label SecondTime;
+        private System.Windows.Forms.Label FirstTime;
     }
 }

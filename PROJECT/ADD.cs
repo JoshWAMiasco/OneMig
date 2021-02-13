@@ -374,9 +374,9 @@ namespace PROJECT
         {
             if (e.KeyCode == Keys.Enter)
             {
+                Timer.Stop();
                 if (CheckTextBox(Serial_number.Text))
                 {
-                    //if (Serial_number.Text.Contains())
                     if (string.IsNullOrWhiteSpace(Serial_number.Text))
                     {
                         MessageBox.Show("NO INPUT");
@@ -412,6 +412,7 @@ namespace PROJECT
                                         Update_Button.Visible = false;
                                         FAILURE_CHANGED.Visible = false;
                                         INSTALL_TO_TESTER.Visible = false;
+                                        Timer.Start();
                                         DoNotLoadBoard = 1;
                                         if (Test_system.Items.Contains("ASL4K"))
                                             Test_system.Items.Add("ASL1K");
@@ -460,6 +461,8 @@ namespace PROJECT
                                 First_board_slot.Text = read_data["FIRST SLOT"].ToString();
                                 first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
                                 FileName = read_data["FILENAME 1"].ToString();
+                                Area.Text = read_data["AREA"].ToString();
+                                FirstTime.Text = read_data["FIRST TIME"].ToString();
                                 Connection.CloseConnection();
                                 disable_control();
                                 first_verif_link.Text = FileName;
@@ -534,6 +537,7 @@ namespace PROJECT
                                     FAILURE_CHANGED.Visible = false;
                                     INSTALL_TO_TESTER.Visible = false;
                                     DoNotLoadBoard = 0;
+                                    Timer.Start();
                                     LoadTesterPlatforms();
                                     break;
                                 case DialogResult.No:
@@ -560,11 +564,11 @@ namespace PROJECT
                 case 2:  // FOR ADDING A NEW TRANSACTION FOR NO SECOND VERIFICATION
                     command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
-            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`) VALUES('" + Serial_number.Text + "'," +
+            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`AREA`,`FIRST TIME`) VALUES('" + Serial_number.Text + "'," +
             "'" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + Date_first_verif.Text + "','" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "','" + Test_system.Text + "'," +
-            "'" + Filename(first_verif_link.Text) + "')");
+            "'" + Filename(first_verif_link.Text) + "','" + Area.Text + "','" + FirstTime.Text + "')");
                     command.Parameters.Add("@FIRST_DATA", MySqlDbType.VarBinary).Value = SaveFile(first_verif_link.Text);
                     break;
 
@@ -581,12 +585,12 @@ namespace PROJECT
                     command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST DATE`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,`SECOND DATE`," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`) " +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`,`AREA`) " +
             "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + Date_first_verif.Text + "','" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "',@SECOND_DATA," +
             "'" + Date_second_verif.Text + "','" + Second_tester.Text + "','" + Second_Site.Text + "','" + Second_slot.Text + "','" + second_endorser.Text + "','" + Test_system.Text + "'," +
-            "'" + Filename(first_verif_link.Text )+ "','" + Filename(second_verif_link.Text )+ "')");
+            "'" + Filename(first_verif_link.Text )+ "','" + Filename(second_verif_link.Text )+ "','" + Area.Text + "')");
                     command.Parameters.Add("@FIRST_DATA", MySqlDbType.VarBinary).Value = SaveFile(first_verif_link.Text);
                     command.Parameters.Add("@SECOND_DATA", MySqlDbType.VarBinary).Value = SaveFile(second_verif_link.Text);
                     break;
@@ -867,6 +871,12 @@ namespace PROJECT
         private void Second_date(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
+        }
+
+        private void FirstTimer_Tick(object sender, EventArgs e)
+        {
+            DateTime time = DateTime.Now;
+            FirstTime.Text = time.ToString("h:mm:ss tt");
         }
 
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
