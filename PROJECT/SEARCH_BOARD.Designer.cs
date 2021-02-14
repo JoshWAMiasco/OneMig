@@ -33,14 +33,6 @@
             this.search_text = new System.Windows.Forms.TextBox();
             this.Add_btn = new System.Windows.Forms.Button();
             this.dataGridViewList = new System.Windows.Forms.DataGridView();
-            this.SERIAL_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PART_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BOARD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TESTER_PLATFORMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TEST_PROGRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FIRST_DATE_VERIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REFRESH = new System.Windows.Forms.Button();
             this.EDIT = new System.Windows.Forms.Button();
             this.DUE_DATE = new System.Windows.Forms.LinkLabel();
@@ -57,6 +49,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Tester_platform = new System.Windows.Forms.ComboBox();
+            this.SERIAL_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PART_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BOARD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TESTER_PLATFORMS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TEST_PROGRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FIRST_DATE_VERIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AGING = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +115,7 @@
             this.TESTER_PLATFORMS,
             this.TEST_PROGRAM,
             this.FIRST_DATE_VERIF,
+            this.AGING,
             this.STATUS,
             this.ENDORSEMENT_NUMBER});
             this.dataGridViewList.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -126,65 +128,6 @@
             this.dataGridViewList.Size = new System.Drawing.Size(1137, 433);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
-            // 
-            // SERIAL_NUMBER
-            // 
-            this.SERIAL_NUMBER.DataPropertyName = "SERIAL NUMBER";
-            this.SERIAL_NUMBER.HeaderText = "SERIAL NUMBER";
-            this.SERIAL_NUMBER.Name = "SERIAL_NUMBER";
-            this.SERIAL_NUMBER.ReadOnly = true;
-            // 
-            // PART_NUMBER
-            // 
-            this.PART_NUMBER.DataPropertyName = "PART NUMBER";
-            this.PART_NUMBER.HeaderText = "PART NUMBER";
-            this.PART_NUMBER.Name = "PART_NUMBER";
-            this.PART_NUMBER.ReadOnly = true;
-            // 
-            // BOARD
-            // 
-            this.BOARD.DataPropertyName = "BOARD";
-            this.BOARD.HeaderText = "BOARD";
-            this.BOARD.Name = "BOARD";
-            this.BOARD.ReadOnly = true;
-            // 
-            // TESTER_PLATFORMS
-            // 
-            this.TESTER_PLATFORMS.DataPropertyName = "TESTER PLATFORM";
-            this.TESTER_PLATFORMS.HeaderText = "TESTER PLATFORM";
-            this.TESTER_PLATFORMS.Name = "TESTER_PLATFORMS";
-            this.TESTER_PLATFORMS.ReadOnly = true;
-            // 
-            // TEST_PROGRAM
-            // 
-            this.TEST_PROGRAM.DataPropertyName = "TEST PROGRAM";
-            this.TEST_PROGRAM.HeaderText = "TEST PROGRAM";
-            this.TEST_PROGRAM.Name = "TEST_PROGRAM";
-            this.TEST_PROGRAM.ReadOnly = true;
-            // 
-            // FIRST_DATE_VERIF
-            // 
-            this.FIRST_DATE_VERIF.DataPropertyName = "date_format(`FIRST DATE`,\'%Y-%m-%d\')";
-            this.FIRST_DATE_VERIF.HeaderText = "FIRST DATE VERIFIED";
-            this.FIRST_DATE_VERIF.Name = "FIRST_DATE_VERIF";
-            this.FIRST_DATE_VERIF.ReadOnly = true;
-            this.FIRST_DATE_VERIF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.FIRST_DATE_VERIF.ToolTipText = "FIRST";
-            // 
-            // STATUS
-            // 
-            this.STATUS.DataPropertyName = "STATUS";
-            this.STATUS.HeaderText = "STATUS";
-            this.STATUS.Name = "STATUS";
-            this.STATUS.ReadOnly = true;
-            // 
-            // ENDORSEMENT_NUMBER
-            // 
-            this.ENDORSEMENT_NUMBER.DataPropertyName = "ENDORSEMENT NUMBER";
-            this.ENDORSEMENT_NUMBER.HeaderText = "ENDORSEMENT NUMBER";
-            this.ENDORSEMENT_NUMBER.Name = "ENDORSEMENT_NUMBER";
-            this.ENDORSEMENT_NUMBER.ReadOnly = true;
-            this.ENDORSEMENT_NUMBER.Visible = false;
             // 
             // REFRESH
             // 
@@ -392,6 +335,72 @@
             this.Tester_platform.Size = new System.Drawing.Size(121, 21);
             this.Tester_platform.TabIndex = 38;
             // 
+            // SERIAL_NUMBER
+            // 
+            this.SERIAL_NUMBER.DataPropertyName = "SERIAL NUMBER";
+            this.SERIAL_NUMBER.HeaderText = "SERIAL NUMBER";
+            this.SERIAL_NUMBER.Name = "SERIAL_NUMBER";
+            this.SERIAL_NUMBER.ReadOnly = true;
+            // 
+            // PART_NUMBER
+            // 
+            this.PART_NUMBER.DataPropertyName = "PART NUMBER";
+            this.PART_NUMBER.HeaderText = "PART NUMBER";
+            this.PART_NUMBER.Name = "PART_NUMBER";
+            this.PART_NUMBER.ReadOnly = true;
+            // 
+            // BOARD
+            // 
+            this.BOARD.DataPropertyName = "BOARD";
+            this.BOARD.HeaderText = "BOARD";
+            this.BOARD.Name = "BOARD";
+            this.BOARD.ReadOnly = true;
+            // 
+            // TESTER_PLATFORMS
+            // 
+            this.TESTER_PLATFORMS.DataPropertyName = "TESTER PLATFORM";
+            this.TESTER_PLATFORMS.HeaderText = "TESTER PLATFORM";
+            this.TESTER_PLATFORMS.Name = "TESTER_PLATFORMS";
+            this.TESTER_PLATFORMS.ReadOnly = true;
+            // 
+            // TEST_PROGRAM
+            // 
+            this.TEST_PROGRAM.DataPropertyName = "TEST PROGRAM";
+            this.TEST_PROGRAM.HeaderText = "TEST PROGRAM";
+            this.TEST_PROGRAM.Name = "TEST_PROGRAM";
+            this.TEST_PROGRAM.ReadOnly = true;
+            // 
+            // FIRST_DATE_VERIF
+            // 
+            this.FIRST_DATE_VERIF.DataPropertyName = "date_format(`FIRST DATE`,\'%Y-%m-%d\')";
+            this.FIRST_DATE_VERIF.HeaderText = "FIRST DATE VERIFIED";
+            this.FIRST_DATE_VERIF.Name = "FIRST_DATE_VERIF";
+            this.FIRST_DATE_VERIF.ReadOnly = true;
+            this.FIRST_DATE_VERIF.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.FIRST_DATE_VERIF.ToolTipText = "FIRST";
+            // 
+            // AGING
+            // 
+            this.AGING.DataPropertyName = "AGING";
+            this.AGING.HeaderText = "AGING DAYS";
+            this.AGING.Name = "AGING";
+            this.AGING.ReadOnly = true;
+            // 
+            // STATUS
+            // 
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "STATUS";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            // 
+            // ENDORSEMENT_NUMBER
+            // 
+            this.ENDORSEMENT_NUMBER.DataPropertyName = "ENDORSEMENT NUMBER";
+            this.ENDORSEMENT_NUMBER.HeaderText = "ENDORSEMENT NUMBER";
+            this.ENDORSEMENT_NUMBER.Name = "ENDORSEMENT_NUMBER";
+            this.ENDORSEMENT_NUMBER.ReadOnly = true;
+            this.ENDORSEMENT_NUMBER.Visible = false;
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
@@ -443,14 +452,6 @@
         private System.Windows.Forms.DateTimePicker Date_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button UPDATE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SERIAL_NUMBER;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NUMBER;
-        private System.Windows.Forms.DataGridViewTextBoxColumn BOARD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TESTER_PLATFORMS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TEST_PROGRAM;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
-        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
         private System.Windows.Forms.CheckBox Include_date;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label2;
@@ -461,5 +462,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox Boards;
         private System.Windows.Forms.ComboBox Tester_platform;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SERIAL_NUMBER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PART_NUMBER;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BOARD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TESTER_PLATFORMS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TEST_PROGRAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AGING;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
     }
 }
