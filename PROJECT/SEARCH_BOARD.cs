@@ -19,8 +19,6 @@ namespace PROJECT
     {
         public string check;
         public int count;
-        //MySqlConnection Connect = new MySqlConnection("server=mpoctsgdb.maxim-ic.com;user id = a2_utilities;password = a2_utilities;database=a2_utitilies");
-        //MySqlConnection Connect = new MySqlConnection("server=localhost;user id=root;password=onemigso101996;database=boards_for_verification;persistsecurityinfo=True");
         MySqlCommand command;
         public SEARCH_BOARD()
         {
@@ -29,7 +27,6 @@ namespace PROJECT
 
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
-            Username.Focus();
             dataGridViewList.DataSource = table(3);
             commands(4);
             if (Connection.OpenConnection())
@@ -39,6 +36,10 @@ namespace PROJECT
                 DUE_DATE.Text = string.Format("OVERDUE({0})", check);
             }
             else Connection.CloseConnection();
+            Stats.SelectedIndex = 0;
+            AREA.SelectedIndex = 0;
+            Tester_platform.SelectedIndex = 0;
+            Boards.SelectedIndex = 0;
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
         {
@@ -161,10 +162,6 @@ namespace PROJECT
                 dataGridViewList.DataSource = table(2);
             }
         }
-        private void Exit_btn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
 
         private void Add_btn_Click(object sender, EventArgs e)
         {
@@ -188,77 +185,10 @@ namespace PROJECT
             else Connection.CloseConnection();
         }
 
-        private void User(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text))
-                {
-                    MessageBox.Show("INCOMPLETE INPUT");
-                }
-                else
-                {
-                    if (Username.Text.ToLower() == "maxte" && Password.Text.ToLower() == "tsg")
-                    {
-                        Log_in.Visible = false;
-                        Log_out.Visible = true;
-                        Add_btn.Visible = true;
-                    }
-                    else if (Username.Text.ToLower() == "admin" && Password.Text.ToLower() == "admin")
-                    {
-                        Log_in.Visible = false;
-                        Log_out.Visible = true;
-                        Add_btn.Visible = true;
-                        EDIT.Visible = true;
-                    }
-                    else
-                        MessageBox.Show("INCORRECT");
-                }
-            }
-        }
-        private void Pass(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                if (string.IsNullOrWhiteSpace(Username.Text) || string.IsNullOrWhiteSpace(Password.Text))
-                {
-                    MessageBox.Show("INCOMPLETE INPUT");
-                }
-                else
-                {
-                    if (Username.Text.ToLower() == "maxte" && Password.Text.ToLower() == "tsg")
-                    {
-                        Log_in.Visible = false;
-                        Log_out.Visible = true;
-                        Add_btn.Visible = true;
-                    }
-                    else if (Username.Text.ToLower() == "admin" && Password.Text.ToLower() == "admin")
-                    {
-                        Log_in.Visible = false;
-                        Log_out.Visible = true;
-                        Add_btn.Visible = true;
-                        EDIT.Visible = true;
-                    }
-                    else
-                        MessageBox.Show("INCORRECT");
-                }
-            }
-        } 
         private void EDIT_Click(object sender, EventArgs e)
         {
             EDIT_TESTERS edit = new EDIT_TESTERS();
             edit.ShowDialog();
-        }
-
-        private void Log_out_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            Log_in.Visible = true;
-            Log_out.Visible = false;
-            Add_btn.Visible = false;
-            EDIT.Visible = false;
-            Username.Clear();
-            Password.Clear();
-            Username.Focus();
         }
 
         private void DUE_DATE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -291,7 +221,12 @@ namespace PROJECT
         private void Date(object sender, KeyEventArgs e)
         {
             e.SuppressKeyPress = true;
-        }     
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
  

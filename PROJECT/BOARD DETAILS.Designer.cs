@@ -381,7 +381,7 @@ namespace PROJECT
             // Second_date
             // 
             this.Second_date.AutoSize = true;
-            this.Second_date.Location = new System.Drawing.Point(134, 98);
+            this.Second_date.Location = new System.Drawing.Point(72, 97);
             this.Second_date.Name = "Second_date";
             this.Second_date.Size = new System.Drawing.Size(0, 13);
             this.Second_date.TabIndex = 41;

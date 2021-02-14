@@ -32,7 +32,6 @@
             this.Search_button = new System.Windows.Forms.Button();
             this.search_text = new System.Windows.Forms.TextBox();
             this.Add_btn = new System.Windows.Forms.Button();
-            this.Exit_btn = new System.Windows.Forms.Button();
             this.dataGridViewList = new System.Windows.Forms.DataGridView();
             this.SERIAL_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PART_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,12 +42,6 @@
             this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REFRESH = new System.Windows.Forms.Button();
-            this.Log_in = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.Password = new System.Windows.Forms.TextBox();
-            this.Username = new System.Windows.Forms.TextBox();
-            this.Log_out = new System.Windows.Forms.LinkLabel();
             this.EDIT = new System.Windows.Forms.Button();
             this.DUE_DATE = new System.Windows.Forms.LinkLabel();
             this.Date_search = new System.Windows.Forms.DateTimePicker();
@@ -60,8 +53,11 @@
             this.Stats = new System.Windows.Forms.ComboBox();
             this.AREA = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.Boards = new System.Windows.Forms.ComboBox();
+            this.Tester_platform = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
-            this.Log_in.SuspendLayout();
             this.SuspendLayout();
             // 
             // Search_button
@@ -100,22 +96,7 @@
             this.Add_btn.TabIndex = 2;
             this.Add_btn.Text = "ADD/UPDATE BOARD";
             this.Add_btn.UseVisualStyleBackColor = false;
-            this.Add_btn.Visible = false;
             this.Add_btn.Click += new System.EventHandler(this.Add_btn_Click);
-            // 
-            // Exit_btn
-            // 
-            this.Exit_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Exit_btn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Exit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Exit_btn.Location = new System.Drawing.Point(979, 30);
-            this.Exit_btn.Name = "Exit_btn";
-            this.Exit_btn.Size = new System.Drawing.Size(164, 23);
-            this.Exit_btn.TabIndex = 3;
-            this.Exit_btn.Text = "EXIT";
-            this.Exit_btn.UseVisualStyleBackColor = true;
-            this.Exit_btn.Visible = false;
-            this.Exit_btn.Click += new System.EventHandler(this.Exit_btn_Click);
             // 
             // dataGridViewList
             // 
@@ -207,91 +188,18 @@
             // 
             // REFRESH
             // 
+            this.REFRESH.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.REFRESH.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.REFRESH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.REFRESH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.REFRESH.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.REFRESH.Location = new System.Drawing.Point(7, 30);
+            this.REFRESH.Location = new System.Drawing.Point(966, 4);
             this.REFRESH.Name = "REFRESH";
-            this.REFRESH.Size = new System.Drawing.Size(111, 22);
+            this.REFRESH.Size = new System.Drawing.Size(177, 22);
             this.REFRESH.TabIndex = 5;
             this.REFRESH.Text = "REFRESH";
             this.REFRESH.UseVisualStyleBackColor = false;
             this.REFRESH.Click += new System.EventHandler(this.REFRESH_Click);
-            // 
-            // Log_in
-            // 
-            this.Log_in.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Log_in.Controls.Add(this.label7);
-            this.Log_in.Controls.Add(this.label6);
-            this.Log_in.Controls.Add(this.Password);
-            this.Log_in.Controls.Add(this.Username);
-            this.Log_in.Location = new System.Drawing.Point(872, 5);
-            this.Log_in.Name = "Log_in";
-            this.Log_in.Size = new System.Drawing.Size(272, 50);
-            this.Log_in.TabIndex = 22;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label7.Location = new System.Drawing.Point(15, 30);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 13);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "PASSWORD";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label6.Location = new System.Drawing.Point(15, 3);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 13);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "USERNAME";
-            // 
-            // Password
-            // 
-            this.Password.Location = new System.Drawing.Point(108, 27);
-            this.Password.Name = "Password";
-            this.Password.PasswordChar = '*';
-            this.Password.Size = new System.Drawing.Size(163, 20);
-            this.Password.TabIndex = 18;
-            this.Password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Pass);
-            // 
-            // Username
-            // 
-            this.Username.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.Username.Location = new System.Drawing.Point(108, 0);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(163, 20);
-            this.Username.TabIndex = 17;
-            this.Username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.User);
-            // 
-            // Log_out
-            // 
-            this.Log_out.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Log_out.AutoSize = true;
-            this.Log_out.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.Log_out.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Log_out.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Log_out.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Log_out.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Log_out.Location = new System.Drawing.Point(1069, 5);
-            this.Log_out.Name = "Log_out";
-            this.Log_out.Size = new System.Drawing.Size(74, 16);
-            this.Log_out.TabIndex = 23;
-            this.Log_out.TabStop = true;
-            this.Log_out.Text = "LOG OUT";
-            this.Log_out.Visible = false;
-            this.Log_out.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Log_out_LinkClicked);
             // 
             // EDIT
             // 
@@ -306,7 +214,6 @@
             this.EDIT.TabIndex = 24;
             this.EDIT.Text = "EDIT";
             this.EDIT.UseVisualStyleBackColor = false;
-            this.EDIT.Visible = false;
             this.EDIT.Click += new System.EventHandler(this.EDIT_Click);
             // 
             // DUE_DATE
@@ -314,7 +221,7 @@
             this.DUE_DATE.AutoSize = true;
             this.DUE_DATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DUE_DATE.LinkColor = System.Drawing.Color.Yellow;
-            this.DUE_DATE.Location = new System.Drawing.Point(127, 35);
+            this.DUE_DATE.Location = new System.Drawing.Point(12, 44);
             this.DUE_DATE.Name = "DUE_DATE";
             this.DUE_DATE.Size = new System.Drawing.Size(0, 16);
             this.DUE_DATE.TabIndex = 25;
@@ -341,7 +248,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "VERSION 1.0.1";
+            this.label1.Text = "VERSION 1.0.2";
             // 
             // UPDATE
             // 
@@ -380,6 +287,7 @@
             this.button1.TabIndex = 30;
             this.button1.Text = "EXIT";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label2
             // 
@@ -387,7 +295,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label2.Location = new System.Drawing.Point(619, 51);
+            this.label2.Location = new System.Drawing.Point(892, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 31;
@@ -404,10 +312,11 @@
             "BRG",
             "INSTALL TO A TESTER",
             "FOR SECOND VERIF",
-            "FAILURE CHANGE"});
-            this.Stats.Location = new System.Drawing.Point(693, 46);
+            "FAILURE CHANGE",
+            "OVERDUE"});
+            this.Stats.Location = new System.Drawing.Point(966, 40);
             this.Stats.Name = "Stats";
-            this.Stats.Size = new System.Drawing.Size(173, 21);
+            this.Stats.Size = new System.Drawing.Size(177, 21);
             this.Stats.TabIndex = 32;
             // 
             // AREA
@@ -420,7 +329,7 @@
             "A2",
             "A1",
             "B2"});
-            this.AREA.Location = new System.Drawing.Point(549, 48);
+            this.AREA.Location = new System.Drawing.Point(822, 42);
             this.AREA.Name = "AREA";
             this.AREA.Size = new System.Drawing.Size(64, 21);
             this.AREA.TabIndex = 34;
@@ -431,11 +340,57 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label3.Location = new System.Drawing.Point(490, 51);
+            this.label3.Location = new System.Drawing.Point(763, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 33;
             this.label3.Text = "AREA:";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label4.Location = new System.Drawing.Point(576, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.TabIndex = 35;
+            this.label4.Text = "BOARD:";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label5.Location = new System.Drawing.Point(313, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 13);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "TESTER PLATFORM:";
+            // 
+            // Boards
+            // 
+            this.Boards.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Boards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Boards.FormattingEnabled = true;
+            this.Boards.Items.AddRange(new object[] {
+            "ALL"});
+            this.Boards.Location = new System.Drawing.Point(636, 42);
+            this.Boards.Name = "Boards";
+            this.Boards.Size = new System.Drawing.Size(121, 21);
+            this.Boards.TabIndex = 37;
+            // 
+            // Tester_platform
+            // 
+            this.Tester_platform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tester_platform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Tester_platform.FormattingEnabled = true;
+            this.Tester_platform.Items.AddRange(new object[] {
+            "ALL"});
+            this.Tester_platform.Location = new System.Drawing.Point(449, 42);
+            this.Tester_platform.Name = "Tester_platform";
+            this.Tester_platform.Size = new System.Drawing.Size(121, 21);
+            this.Tester_platform.TabIndex = 38;
             // 
             // SEARCH_BOARD
             // 
@@ -443,6 +398,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.Tester_platform);
+            this.Controls.Add(this.Boards);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.AREA);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Stats);
@@ -454,11 +413,8 @@
             this.Controls.Add(this.Date_search);
             this.Controls.Add(this.DUE_DATE);
             this.Controls.Add(this.EDIT);
-            this.Controls.Add(this.Log_out);
-            this.Controls.Add(this.Log_in);
             this.Controls.Add(this.REFRESH);
             this.Controls.Add(this.dataGridViewList);
-            this.Controls.Add(this.Exit_btn);
             this.Controls.Add(this.Add_btn);
             this.Controls.Add(this.search_text);
             this.Controls.Add(this.Search_button);
@@ -470,8 +426,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SEARCH_BOARD_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).EndInit();
-            this.Log_in.ResumeLayout(false);
-            this.Log_in.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -482,15 +436,8 @@
         private System.Windows.Forms.Button Search_button;
         private System.Windows.Forms.TextBox search_text;
         private System.Windows.Forms.Button Add_btn;
-        private System.Windows.Forms.Button Exit_btn;
         private System.Windows.Forms.DataGridView dataGridViewList;
         private System.Windows.Forms.Button REFRESH;
-        private System.Windows.Forms.Panel Log_in;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox Password;
-        private System.Windows.Forms.TextBox Username;
-        private System.Windows.Forms.LinkLabel Log_out;
         private System.Windows.Forms.Button EDIT;
         private System.Windows.Forms.LinkLabel DUE_DATE;
         private System.Windows.Forms.DateTimePicker Date_search;
@@ -510,5 +457,9 @@
         private System.Windows.Forms.ComboBox Stats;
         private System.Windows.Forms.ComboBox AREA;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox Boards;
+        private System.Windows.Forms.ComboBox Tester_platform;
     }
 }
