@@ -260,6 +260,7 @@ namespace PROJECT
             {
                 Boards.Items.Clear();
                 Boards.Items.Add("ALL");
+                Boards.SelectedIndex = 0;
                 commands(9);
                 if (Connection.OpenConnectionForBoards())
                 {
