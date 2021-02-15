@@ -19,6 +19,7 @@ namespace PROJECT
     {
         public string check;
         public int count;
+        string tester;
         MySqlCommand command;
         public SEARCH_BOARD()
         {
@@ -36,6 +37,17 @@ namespace PROJECT
                 DUE_DATE.Text = string.Format("OVERDUE({0})", check);
             }
             else Connection.CloseConnection();
+            commands(8);
+            if (Connection.OpenConnection())
+            {
+                MySqlDataReader read_data = command.ExecuteReader();
+                while (read_data.Read())
+                {
+                    Tester_platform.Items.Add(read_data.GetString("Tester platforms"));
+                }
+                Connection.CloseConnection();
+            }
+            else return;
             Stats.SelectedIndex = 0;
             AREA.SelectedIndex = 0;
             Tester_platform.SelectedIndex = 0;
@@ -103,6 +115,13 @@ namespace PROJECT
                     break;
                 case 7:
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')",Connection.connect);
+                    break;
+                case 8:
+                    command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
+                    break;
+                case 9:
+                    tester = string.Format("SELECT * FROM `boards_of_testers`.`{0}`", Tester_platform.Text.ToLower());
+                    command = new MySqlCommand(tester, Connection.ConnectBoards);
                     break;
             }
         }
@@ -226,6 +245,33 @@ namespace PROJECT
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Tester_platform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Tester_platform.SelectedIndex == 0)
+            {
+                Boards.Items.Clear();
+                Boards.Items.Add("ALL");
+                Boards.SelectedIndex = 0;
+                return;
+            }
+            else
+            {
+                Boards.Items.Clear();
+                Boards.Items.Add("ALL");
+                commands(9);
+                if (Connection.OpenConnectionForBoards())
+                {
+                    MySqlDataReader read_data = command.ExecuteReader();
+                    while (read_data.Read())
+                    {
+                        Boards.Items.Add(read_data.GetString(Tester_platform.Text.ToUpper()));
+                    }
+                    Connection.CloseConnectionForBoards();
+                }
+                else return;
+            }
         }
     }
 }
