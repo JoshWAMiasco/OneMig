@@ -1051,13 +1051,13 @@ namespace PROJECT
             if (Connection.OpenConnectionForBoards())
             {
                 MySqlDataReader LoadBoards = command.ExecuteReader();
-                while(LoadBoards.Read())
+                while (LoadBoards.Read())
                 {
                     Boards.Items.Add(LoadBoards.GetString(ForTmT.ToUpper()));
                 }
                 Connection.CloseConnectionForBoards();
             }
-
+            else return;
         }
     }
 }

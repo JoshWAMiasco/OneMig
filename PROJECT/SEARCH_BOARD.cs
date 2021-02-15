@@ -86,13 +86,13 @@ namespace PROJECT
                 case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE '" + search_text.Text + "'" +
-                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`)" +
+                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 2:  //SEARCH DATA WITH SPECIFIC DATE
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "'" +
-                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`)) AND (`FIRST DATE` = '" + Date_search.Text + "')" +
+                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)) AND (`FIRST DATE` = '" + Date_search.Text + "')" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
@@ -104,10 +104,7 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",                     
                         Connection.connect);
                     break;
-                case 5: //FOR OVERDUE TRANSACTIONS VIEWING
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')" +
-                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
+                case 5:
                     break;
                 case 6:  //FOR CHECKING TRANSACTIONS WITH SPECIFIC DATE
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
@@ -122,6 +119,9 @@ namespace PROJECT
                 case 9:
                     tester = string.Format("SELECT * FROM `boards_of_testers`.`{0}`", Tester_platform.Text.ToLower());
                     command = new MySqlCommand(tester, Connection.ConnectBoards);
+                    break;
+                case 10:
+                    command = new MySqlCommand("SELECT * FROM `boards_of_testers`.`tmt`", Connection.ConnectBoards);
                     break;
             }
         }
@@ -165,20 +165,27 @@ namespace PROJECT
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            if (Include_date.Checked == false && search_text.Text.Length > 0)
+            if (Tester_platform.SelectedIndex == 0 && Boards.SelectedIndex == 0 && AREA.SelectedIndex == 0 && Stats.SelectedIndex == 0)
             {
-                count = 0;
-                load_data(1);
-                Date_search.ResetText();
-            }
-            else if (Include_date.Checked == false && search_text.Text.Length == 0)
-            {
-                count = 7;
-                load_data(6);
+                if (Include_date.Checked == false && search_text.Text.Length > 0)
+                {
+                    count = 0;
+                    load_data(1);
+                    Date_search.ResetText();
+                }
+                else if (Include_date.Checked == false && search_text.Text.Length == 0)
+                {
+                    count = 7;
+                    load_data(6);
+                }
+                else
+                {
+                    dataGridViewList.DataSource = table(2);
+                }
             }
             else
             {
-                dataGridViewList.DataSource = table(2);
+                return;
             }
         }
 
@@ -210,19 +217,6 @@ namespace PROJECT
             edit.ShowDialog();
         }
 
-        private void DUE_DATE_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            search_text.Clear();
-            if (check == "0")
-            {
-                return;
-            }
-            else
-            {
-                dataGridViewList.DataSource = table(5);
-            }
-        }
-
         private void UPDATE_Click(object sender, EventArgs e)
         {
             CheckForUpdates();
@@ -247,31 +241,71 @@ namespace PROJECT
             this.Close();
         }
 
-        private void Tester_platform_SelectedIndexChanged(object sender, EventArgs e)
+        private void AreaIndexChanged(object sender, EventArgs e)
         {
+            search_text.Clear();
+            Include_date.Checked = false;
+            Date_search.ResetText();
+        }
+
+        private void statusIndexChanged(object sender, EventArgs e)
+        {
+            search_text.Clear();
+            Include_date.Checked = false;
+            Date_search.ResetText();
+        }
+
+        private void Boardsindexchanged(object sender, EventArgs e)
+        {
+            search_text.Clear();
+            Include_date.Checked = false;
+            Date_search.ResetText();
+        }
+
+        private void ShowBoards(object sender, EventArgs e)
+        {
+            search_text.Clear();
+            Include_date.Checked = false;
+            Date_search.ResetText();
             if (Tester_platform.SelectedIndex == 0)
             {
                 Boards.Items.Clear();
                 Boards.Items.Add("ALL");
                 Boards.SelectedIndex = 0;
-                return;
             }
             else
             {
                 Boards.Items.Clear();
                 Boards.Items.Add("ALL");
                 Boards.SelectedIndex = 0;
-                commands(9);
-                if (Connection.OpenConnectionForBoards())
+                if (Tester_platform.Text == "ASL1K" || Tester_platform.Text == "ASL4K")
                 {
-                    MySqlDataReader read_data = command.ExecuteReader();
-                    while (read_data.Read())
+                    commands(10);
+                    if (Connection.OpenConnectionForBoards())
                     {
-                        Boards.Items.Add(read_data.GetString(Tester_platform.Text.ToUpper()));
+                        MySqlDataReader read_data = command.ExecuteReader();
+                        while (read_data.Read())
+                        {
+                            Boards.Items.Add(read_data.GetString("TMT"));
+                        }
+                        Connection.CloseConnectionForBoards();
                     }
-                    Connection.CloseConnectionForBoards();
+                    else return;
                 }
-                else return;
+                else
+                {
+                    commands(9);
+                    if (Connection.OpenConnectionForBoards())
+                    {
+                        MySqlDataReader read_data = command.ExecuteReader();
+                        while (read_data.Read())
+                        {
+                            Boards.Items.Add(read_data.GetString(Tester_platform.Text.ToUpper()));
+                        }
+                        Connection.CloseConnectionForBoards();
+                    }
+                    else return;
+                }
             }
         }
     }

@@ -69,7 +69,7 @@
             this.Search_button.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Search_button.Location = new System.Drawing.Point(7, 5);
             this.Search_button.Name = "Search_button";
-            this.Search_button.Size = new System.Drawing.Size(111, 21);
+            this.Search_button.Size = new System.Drawing.Size(150, 21);
             this.Search_button.TabIndex = 0;
             this.Search_button.Text = "SEARCH";
             this.Search_button.UseVisualStyleBackColor = false;
@@ -79,7 +79,7 @@
             // 
             this.search_text.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.search_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_text.Location = new System.Drawing.Point(124, 7);
+            this.search_text.Location = new System.Drawing.Point(163, 6);
             this.search_text.Name = "search_text";
             this.search_text.Size = new System.Drawing.Size(147, 20);
             this.search_text.TabIndex = 1;
@@ -234,14 +234,13 @@
             this.DUE_DATE.Name = "DUE_DATE";
             this.DUE_DATE.Size = new System.Drawing.Size(0, 16);
             this.DUE_DATE.TabIndex = 25;
-            this.DUE_DATE.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.DUE_DATE_LinkClicked);
             // 
             // Date_search
             // 
             this.Date_search.CustomFormat = "yyyy-MM-dd";
             this.Date_search.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.Date_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date_search.Location = new System.Drawing.Point(277, 7);
+            this.Date_search.Location = new System.Drawing.Point(316, 6);
             this.Date_search.Name = "Date_search";
             this.Date_search.Size = new System.Drawing.Size(106, 20);
             this.Date_search.TabIndex = 26;
@@ -278,7 +277,7 @@
             this.Include_date.AutoSize = true;
             this.Include_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Include_date.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Include_date.Location = new System.Drawing.Point(389, 8);
+            this.Include_date.Location = new System.Drawing.Point(428, 7);
             this.Include_date.Name = "Include_date";
             this.Include_date.Size = new System.Drawing.Size(137, 20);
             this.Include_date.TabIndex = 29;
@@ -327,6 +326,7 @@
             this.Stats.Name = "Stats";
             this.Stats.Size = new System.Drawing.Size(177, 21);
             this.Stats.TabIndex = 32;
+            this.Stats.SelectionChangeCommitted += new System.EventHandler(this.statusIndexChanged);
             // 
             // AREA
             // 
@@ -342,6 +342,7 @@
             this.AREA.Name = "AREA";
             this.AREA.Size = new System.Drawing.Size(64, 21);
             this.AREA.TabIndex = 34;
+            this.AREA.SelectionChangeCommitted += new System.EventHandler(this.AreaIndexChanged);
             // 
             // label3
             // 
@@ -388,6 +389,7 @@
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(121, 21);
             this.Boards.TabIndex = 37;
+            this.Boards.SelectionChangeCommitted += new System.EventHandler(this.Boardsindexchanged);
             // 
             // Tester_platform
             // 
@@ -400,7 +402,7 @@
             this.Tester_platform.Name = "Tester_platform";
             this.Tester_platform.Size = new System.Drawing.Size(121, 21);
             this.Tester_platform.TabIndex = 38;
-            this.Tester_platform.SelectedIndexChanged += new System.EventHandler(this.Tester_platform_SelectedIndexChanged);
+            this.Tester_platform.SelectionChangeCommitted += new System.EventHandler(this.ShowBoards);
             // 
             // SEARCH_BOARD
             // 
