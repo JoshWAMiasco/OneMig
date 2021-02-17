@@ -165,27 +165,20 @@ namespace PROJECT
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            if (Tester_platform.SelectedIndex == 0 && Boards.SelectedIndex == 0 && AREA.SelectedIndex == 0 && Stats.SelectedIndex == 0)
+            if (Include_date.Checked == false && search_text.Text.Length > 0)
             {
-                if (Include_date.Checked == false && search_text.Text.Length > 0)
-                {
-                    count = 0;
-                    load_data(1);
-                    Date_search.ResetText();
-                }
-                else if (Include_date.Checked == false && search_text.Text.Length == 0)
-                {
-                    count = 7;
-                    load_data(6);
-                }
-                else
-                {
-                    dataGridViewList.DataSource = table(2);
-                }
+                count = 0;
+                load_data(1);
+                Date_search.ResetText();
+            }
+            else if (Include_date.Checked == false && search_text.Text.Length == 0)
+            {
+                count = 7;
+                load_data(6);
             }
             else
             {
-                return;         //DITO KA NA WANMEG !!!
+                dataGridViewList.DataSource = table(2);
             }
         }
 
@@ -270,13 +263,13 @@ namespace PROJECT
             if (Tester_platform.SelectedIndex == 0)
             {
                 Boards.Items.Clear();
-                Boards.Items.Add("ALL");
+                Boards.Items.Add(" ");
                 Boards.SelectedIndex = 0;
             }
             else
             {
                 Boards.Items.Clear();
-                Boards.Items.Add("ALL");
+                Boards.Items.Add(" ");
                 Boards.SelectedIndex = 0;
                 if (Tester_platform.Text == "ASL1K" || Tester_platform.Text == "ASL4K")
                 {

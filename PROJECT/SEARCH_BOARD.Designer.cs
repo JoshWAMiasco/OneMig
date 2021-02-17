@@ -79,7 +79,7 @@
             // 
             this.search_text.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.search_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_text.Location = new System.Drawing.Point(163, 6);
+            this.search_text.Location = new System.Drawing.Point(163, 5);
             this.search_text.Name = "search_text";
             this.search_text.Size = new System.Drawing.Size(147, 20);
             this.search_text.TabIndex = 1;
@@ -315,7 +315,7 @@
             this.Stats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Stats.FormattingEnabled = true;
             this.Stats.Items.AddRange(new object[] {
-            "ALL",
+            "",
             "SPARES",
             "BRG",
             "INSTALL TO A TESTER",
@@ -334,7 +334,7 @@
             this.AREA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AREA.FormattingEnabled = true;
             this.AREA.Items.AddRange(new object[] {
-            "ALL",
+            "",
             "A2",
             "A1",
             "B2"});
@@ -384,7 +384,7 @@
             this.Boards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Boards.FormattingEnabled = true;
             this.Boards.Items.AddRange(new object[] {
-            "ALL"});
+            ""});
             this.Boards.Location = new System.Drawing.Point(636, 42);
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(121, 21);
@@ -397,7 +397,7 @@
             this.Tester_platform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Tester_platform.FormattingEnabled = true;
             this.Tester_platform.Items.AddRange(new object[] {
-            "ALL"});
+            ""});
             this.Tester_platform.Location = new System.Drawing.Point(449, 42);
             this.Tester_platform.Name = "Tester_platform";
             this.Tester_platform.Size = new System.Drawing.Size(121, 21);
