@@ -60,7 +60,7 @@ namespace PROJECT
                 dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 try
                 {
-                    string endorsement_number = (dataGridViewList.SelectedCells[8].Value.ToString());
+                    string endorsement_number = (dataGridViewList.SelectedCells[7].Value.ToString());
                     BOARD_DETAILS details = new BOARD_DETAILS(endorsement_number);
                     details.ShowDialog();
                 }
