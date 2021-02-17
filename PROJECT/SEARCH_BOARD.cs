@@ -83,7 +83,7 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
                         "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`) LIMIT 1",Connection.connect);
                     break;
-                case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
+                case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER, NO DATE
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE '" + search_text.Text + "'" +
                         " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)" +
@@ -106,7 +106,7 @@ namespace PROJECT
                     break;
                 case 5:
                     break;
-                case 6:  //FOR CHECKING TRANSACTIONS WITH SPECIFIC DATE
+                case 6:  //FOR CHECKING TRANSACTIONS WITH DATE ONLY
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
@@ -165,21 +165,13 @@ namespace PROJECT
 
         private void Search_button_Click(object sender, EventArgs e)
         {
-            if (Include_date.Checked == false && search_text.Text.Length > 0)
-            {
-                count = 0;
-                load_data(1);
-                Date_search.ResetText();
-            }
-            else if (Include_date.Checked == false && search_text.Text.Length == 0)
-            {
-                count = 7;
-                load_data(6);
-            }
-            else
-            {
-                dataGridViewList.DataSource = table(2);
-            }
+            count = 0;
+            load_data(1);
+            Date_search.ResetText();
+            AREA.SelectedIndex = 0;
+            Stats.SelectedIndex = 0;
+            Tester_platform.SelectedIndex = 0;
+            clearBoards();
         }
 
         private void Add_btn_Click(object sender, EventArgs e)
@@ -192,7 +184,6 @@ namespace PROJECT
         {
             Date_search.ResetText();
             search_text.Clear();
-            Include_date.Checked = false;
             dataGridViewList.DataSource = table(3);
             commands(4);
             if (Connection.OpenConnection())
@@ -226,7 +217,10 @@ namespace PROJECT
         }
         private void Date(object sender, KeyEventArgs e)
         {
-            e.SuppressKeyPress = true;
+            if (e.KeyCode == Keys.Back)
+                Date_search.CustomFormat = " ";
+            else
+                e.SuppressKeyPress = true;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -237,40 +231,32 @@ namespace PROJECT
         private void AreaIndexChanged(object sender, EventArgs e)
         {
             search_text.Clear();
-            Include_date.Checked = false;
             Date_search.ResetText();
         }
 
         private void statusIndexChanged(object sender, EventArgs e)
         {
             search_text.Clear();
-            Include_date.Checked = false;
             Date_search.ResetText();
         }
 
         private void Boardsindexchanged(object sender, EventArgs e)
         {
             search_text.Clear();
-            Include_date.Checked = false;
             Date_search.ResetText();
         }
 
         private void ShowBoards(object sender, EventArgs e)
         {
             search_text.Clear();
-            Include_date.Checked = false;
             Date_search.ResetText();
             if (Tester_platform.SelectedIndex == 0)
             {
-                Boards.Items.Clear();
-                Boards.Items.Add(" ");
-                Boards.SelectedIndex = 0;
+                clearBoards();
             }
             else
             {
-                Boards.Items.Clear();
-                Boards.Items.Add(" ");
-                Boards.SelectedIndex = 0;
+                clearBoards();
                 if (Tester_platform.Text == "ASL1K" || Tester_platform.Text == "ASL4K")
                 {
                     commands(10);
@@ -300,6 +286,17 @@ namespace PROJECT
                     else return;
                 }
             }
+        }
+        private void clearBoards()
+        {
+            Boards.Items.Clear();
+            Boards.Items.Add(" ");
+            Boards.SelectedIndex = 0;
+        }
+
+        private void Select_date(object sender, EventArgs e)
+        {
+            Date_search.CustomFormat = "yyyy-MM-dd";
         }
     }
 }
