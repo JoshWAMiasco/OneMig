@@ -92,7 +92,7 @@ namespace PROJECT
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label17.Location = new System.Drawing.Point(13, 258);
+            this.label17.Location = new System.Drawing.Point(12, 242);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(99, 13);
             this.label17.TabIndex = 60;
@@ -103,7 +103,7 @@ namespace PROJECT
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label16.Location = new System.Drawing.Point(13, 215);
+            this.label16.Location = new System.Drawing.Point(12, 207);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(103, 13);
             this.label16.TabIndex = 59;
@@ -125,7 +125,7 @@ namespace PROJECT
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label8.Location = new System.Drawing.Point(13, 343);
+            this.label8.Location = new System.Drawing.Point(12, 348);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 13);
             this.label8.TabIndex = 57;
@@ -136,7 +136,7 @@ namespace PROJECT
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label6.Location = new System.Drawing.Point(13, 302);
+            this.label6.Location = new System.Drawing.Point(12, 281);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 13);
             this.label6.TabIndex = 56;
@@ -147,7 +147,7 @@ namespace PROJECT
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label5.Location = new System.Drawing.Point(12, 181);
+            this.label5.Location = new System.Drawing.Point(13, 173);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(140, 13);
             this.label5.TabIndex = 55;
@@ -158,7 +158,7 @@ namespace PROJECT
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label3.Location = new System.Drawing.Point(12, 141);
+            this.label3.Location = new System.Drawing.Point(12, 136);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 54;
@@ -188,7 +188,7 @@ namespace PROJECT
             // 
             // First_box
             // 
-            this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.First_box.Controls.Add(this.FirstTime);
             this.First_box.Controls.Add(this.label21);
             this.First_box.Controls.Add(this.First_date);
@@ -243,7 +243,7 @@ namespace PROJECT
             // First_endorser
             // 
             this.First_endorser.AutoSize = true;
-            this.First_endorser.Location = new System.Drawing.Point(136, 232);
+            this.First_endorser.Location = new System.Drawing.Point(139, 232);
             this.First_endorser.Name = "First_endorser";
             this.First_endorser.Size = new System.Drawing.Size(0, 13);
             this.First_endorser.TabIndex = 38;
@@ -268,7 +268,7 @@ namespace PROJECT
             // 
             this.First_slot.AutoSize = true;
             this.First_slot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.First_slot.Location = new System.Drawing.Point(133, 200);
+            this.First_slot.Location = new System.Drawing.Point(136, 200);
             this.First_slot.Name = "First_slot";
             this.First_slot.Size = new System.Drawing.Size(0, 13);
             this.First_slot.TabIndex = 37;
@@ -285,7 +285,7 @@ namespace PROJECT
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 235);
+            this.label9.Location = new System.Drawing.Point(18, 235);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 27;
@@ -336,7 +336,7 @@ namespace PROJECT
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(15, 203);
+            this.label7.Location = new System.Drawing.Point(18, 203);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 15;
@@ -344,7 +344,7 @@ namespace PROJECT
             // 
             // Second_box
             // 
-            this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Second_box.Controls.Add(this.SecondTime);
             this.Second_box.Controls.Add(this.Second_date);
             this.Second_box.Controls.Add(this.label23);
@@ -373,7 +373,7 @@ namespace PROJECT
             this.SecondTime.AutoSize = true;
             this.SecondTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SecondTime.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SecondTime.Location = new System.Drawing.Point(221, 97);
+            this.SecondTime.Location = new System.Drawing.Point(203, 98);
             this.SecondTime.Name = "SecondTime";
             this.SecondTime.Size = new System.Drawing.Size(0, 13);
             this.SecondTime.TabIndex = 44;
@@ -389,7 +389,7 @@ namespace PROJECT
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(176, 98);
+            this.label23.Location = new System.Drawing.Point(160, 98);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 13);
             this.label23.TabIndex = 43;
@@ -398,7 +398,7 @@ namespace PROJECT
             // Second_endorser
             // 
             this.Second_endorser.AutoSize = true;
-            this.Second_endorser.Location = new System.Drawing.Point(134, 232);
+            this.Second_endorser.Location = new System.Drawing.Point(136, 232);
             this.Second_endorser.Name = "Second_endorser";
             this.Second_endorser.Size = new System.Drawing.Size(0, 13);
             this.Second_endorser.TabIndex = 42;
@@ -414,7 +414,7 @@ namespace PROJECT
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(19, 98);
+            this.label20.Location = new System.Drawing.Point(16, 98);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(40, 13);
             this.label20.TabIndex = 36;
@@ -432,7 +432,7 @@ namespace PROJECT
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(16, 203);
+            this.label14.Location = new System.Drawing.Point(18, 203);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 13);
             this.label14.TabIndex = 35;
@@ -442,7 +442,7 @@ namespace PROJECT
             // 
             this.Second_slot.AutoSize = true;
             this.Second_slot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Second_slot.Location = new System.Drawing.Point(134, 200);
+            this.Second_slot.Location = new System.Drawing.Point(136, 200);
             this.Second_slot.Name = "Second_slot";
             this.Second_slot.Size = new System.Drawing.Size(0, 13);
             this.Second_slot.TabIndex = 41;
@@ -474,7 +474,7 @@ namespace PROJECT
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 166);
+            this.label12.Location = new System.Drawing.Point(18, 166);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 13);
             this.label12.TabIndex = 36;
@@ -483,7 +483,7 @@ namespace PROJECT
             // Second_verif_text
             // 
             this.Second_verif_text.AutoSize = true;
-            this.Second_verif_text.Location = new System.Drawing.Point(16, 232);
+            this.Second_verif_text.Location = new System.Drawing.Point(18, 232);
             this.Second_verif_text.Name = "Second_verif_text";
             this.Second_verif_text.Size = new System.Drawing.Size(84, 13);
             this.Second_verif_text.TabIndex = 28;
@@ -538,7 +538,7 @@ namespace PROJECT
             this.Failure_mode.AutoSize = true;
             this.Failure_mode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Failure_mode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Failure_mode.Location = new System.Drawing.Point(177, 258);
+            this.Failure_mode.Location = new System.Drawing.Point(176, 242);
             this.Failure_mode.Name = "Failure_mode";
             this.Failure_mode.Size = new System.Drawing.Size(0, 13);
             this.Failure_mode.TabIndex = 75;
@@ -548,7 +548,7 @@ namespace PROJECT
             this.Failed_during.AutoSize = true;
             this.Failed_during.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Failed_during.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Failed_during.Location = new System.Drawing.Point(177, 215);
+            this.Failed_during.Location = new System.Drawing.Point(176, 207);
             this.Failed_during.Name = "Failed_during";
             this.Failed_during.Size = new System.Drawing.Size(0, 13);
             this.Failed_during.TabIndex = 74;
@@ -568,7 +568,7 @@ namespace PROJECT
             this.Status.AutoSize = true;
             this.Status.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Status.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Status.Location = new System.Drawing.Point(177, 343);
+            this.Status.Location = new System.Drawing.Point(176, 348);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(0, 13);
             this.Status.TabIndex = 72;
@@ -578,7 +578,7 @@ namespace PROJECT
             this.Test_option.AutoSize = true;
             this.Test_option.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Test_option.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Test_option.Location = new System.Drawing.Point(177, 302);
+            this.Test_option.Location = new System.Drawing.Point(176, 281);
             this.Test_option.Name = "Test_option";
             this.Test_option.Size = new System.Drawing.Size(0, 13);
             this.Test_option.TabIndex = 71;
@@ -588,7 +588,7 @@ namespace PROJECT
             this.Test_program.AutoSize = true;
             this.Test_program.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Test_program.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Test_program.Location = new System.Drawing.Point(176, 181);
+            this.Test_program.Location = new System.Drawing.Point(176, 173);
             this.Test_program.Name = "Test_program";
             this.Test_program.Size = new System.Drawing.Size(0, 13);
             this.Test_program.TabIndex = 70;
@@ -598,7 +598,7 @@ namespace PROJECT
             this.Board.AutoSize = true;
             this.Board.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Board.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Board.Location = new System.Drawing.Point(176, 141);
+            this.Board.Location = new System.Drawing.Point(176, 136);
             this.Board.Name = "Board";
             this.Board.Size = new System.Drawing.Size(0, 13);
             this.Board.TabIndex = 69;
@@ -628,7 +628,7 @@ namespace PROJECT
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label18.Location = new System.Drawing.Point(16, 382);
+            this.label18.Location = new System.Drawing.Point(15, 314);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(40, 13);
             this.label18.TabIndex = 76;
@@ -639,7 +639,7 @@ namespace PROJECT
             this.AREA.AutoSize = true;
             this.AREA.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AREA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.AREA.Location = new System.Drawing.Point(177, 382);
+            this.AREA.Location = new System.Drawing.Point(176, 314);
             this.AREA.Name = "AREA";
             this.AREA.Size = new System.Drawing.Size(0, 13);
             this.AREA.TabIndex = 77;
