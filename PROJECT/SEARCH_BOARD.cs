@@ -28,6 +28,11 @@ namespace PROJECT
 
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
+            Date_search.CustomFormat = " ";
+            Stats.SelectedIndex = 0;
+            AREA.SelectedIndex = 0;
+            Tester_platform.SelectedIndex = 0;
+            Boards.SelectedIndex = 0;
             dataGridViewList.DataSource = table(3);
             commands(4);
             if (Connection.OpenConnection())
@@ -48,10 +53,6 @@ namespace PROJECT
                 Connection.CloseConnection();
             }
             else return;
-            Stats.SelectedIndex = 0;
-            AREA.SelectedIndex = 0;
-            Tester_platform.SelectedIndex = 0;
-            Boards.SelectedIndex = 0;
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
         {
@@ -89,11 +90,7 @@ namespace PROJECT
                         " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 2:  //SEARCH DATA WITH SPECIFIC DATE
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "'" +
-                        " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)) AND (`FIRST DATE` = '" + Date_search.Text + "')" +
-                        " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
+                case 2:
                     break;
                 case 3:  //FOR UPDATING PURPOSES
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d')," +
@@ -165,9 +162,11 @@ namespace PROJECT
 
         private void Search_button_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(search_text.Text))
+                return;
             count = 0;
             load_data(1);
-            Date_search.ResetText();
+            Date_search.CustomFormat = " ";
             AREA.SelectedIndex = 0;
             Stats.SelectedIndex = 0;
             Tester_platform.SelectedIndex = 0;
@@ -182,7 +181,11 @@ namespace PROJECT
         }
         private void REFRESH_Click(object sender, EventArgs e)
         {
-            Date_search.ResetText();
+            Date_search.CustomFormat = " ";
+            AREA.SelectedIndex = 0;
+            Stats.SelectedIndex = 0;
+            Tester_platform.SelectedIndex = 0;
+            clearBoards();
             search_text.Clear();
             dataGridViewList.DataSource = table(3);
             commands(4);

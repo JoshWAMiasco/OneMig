@@ -193,11 +193,11 @@
             this.REFRESH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.REFRESH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.REFRESH.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.REFRESH.Location = new System.Drawing.Point(966, 4);
+            this.REFRESH.Location = new System.Drawing.Point(994, 5);
             this.REFRESH.Name = "REFRESH";
-            this.REFRESH.Size = new System.Drawing.Size(177, 22);
+            this.REFRESH.Size = new System.Drawing.Size(150, 22);
             this.REFRESH.TabIndex = 5;
-            this.REFRESH.Text = "REFRESH";
+            this.REFRESH.Text = "REFRESH ALL";
             this.REFRESH.UseVisualStyleBackColor = false;
             this.REFRESH.Click += new System.EventHandler(this.REFRESH_Click);
             // 
@@ -229,6 +229,7 @@
             // Date_search
             // 
             this.Date_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Date_search.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Date_search.CustomFormat = "yyyy-MM-dd";
             this.Date_search.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.Date_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
@@ -293,6 +294,7 @@
             // Stats
             // 
             this.Stats.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Stats.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Stats.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Stats.FormattingEnabled = true;
             this.Stats.Items.AddRange(new object[] {
@@ -312,6 +314,7 @@
             // AREA
             // 
             this.AREA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AREA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AREA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.AREA.FormattingEnabled = true;
             this.AREA.Items.AddRange(new object[] {
@@ -362,6 +365,7 @@
             // Boards
             // 
             this.Boards.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Boards.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Boards.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Boards.FormattingEnabled = true;
             this.Boards.Items.AddRange(new object[] {
@@ -375,6 +379,7 @@
             // Tester_platform
             // 
             this.Tester_platform.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Tester_platform.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Tester_platform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Tester_platform.FormattingEnabled = true;
             this.Tester_platform.Items.AddRange(new object[] {
