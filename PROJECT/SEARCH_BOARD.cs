@@ -34,7 +34,7 @@ namespace PROJECT
             Tester_platform.SelectedIndex = 0;
             Boards.SelectedIndex = 0;
             dataGridViewList.DataSource = table(3);
-            commands(4);
+            commands(2);
             if (Connection.OpenConnection())
             {
                 check = command.ExecuteScalar().ToString();
@@ -91,15 +91,15 @@ namespace PROJECT
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 2:
+                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",
+                        Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d')," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 4: //TO CHECK AND COUNT THE OVERDUE TRANSACTIONS
-                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",                     
-                        Connection.connect);
+                case 4:                  
                     break;
                 case 5:
                     break;
@@ -163,14 +163,24 @@ namespace PROJECT
         private void Search_button_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(search_text.Text))
-                return;
-            count = 0;
-            load_data(1);
-            Date_search.CustomFormat = " ";
-            AREA.SelectedIndex = 0;
-            Stats.SelectedIndex = 0;
-            Tester_platform.SelectedIndex = 0;
-            clearBoards();
+            {
+                if (Stats.SelectedIndex == 6)
+                {
+                    return;
+                }
+                else
+                    return;
+            }
+            else
+            {
+                count = 0;
+                load_data(1);
+                Date_search.CustomFormat = " ";
+                AREA.SelectedIndex = 0;
+                Stats.SelectedIndex = 0;
+                Tester_platform.SelectedIndex = 0;
+                clearBoards();
+            }
         }
 
         private void Add_btn_Click(object sender, EventArgs e)
