@@ -39,7 +39,7 @@ namespace PROJECT
             {
                 check = command.ExecuteScalar().ToString();
                 Connection.CloseConnection();
-                DUE_DATE.Text = string.Format("OVERDUE({0})", check);
+                OVERDUE.Text = string.Format("OVERDUE({0})", check);
             }
             else Connection.CloseConnection();
             commands(8);
@@ -91,7 +91,7 @@ namespace PROJECT
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 2:
-                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 1 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",
+                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 2 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",
                         Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
@@ -203,7 +203,7 @@ namespace PROJECT
             {
                 check = command.ExecuteScalar().ToString();
                 Connection.CloseConnection();
-                DUE_DATE.Text = string.Format("OVERDUE({0})", check);
+                OVERDUE.Text = string.Format("OVERDUE({0})", check);
             }
             else Connection.CloseConnection();
         }

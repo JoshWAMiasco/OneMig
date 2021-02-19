@@ -43,7 +43,6 @@
             this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REFRESH = new System.Windows.Forms.Button();
             this.EDIT = new System.Windows.Forms.Button();
-            this.DUE_DATE = new System.Windows.Forms.LinkLabel();
             this.Date_search = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.UPDATE = new System.Windows.Forms.Button();
@@ -57,6 +56,7 @@
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Tester_platform = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.OVERDUE = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -215,16 +215,6 @@
             this.EDIT.Text = "EDIT";
             this.EDIT.UseVisualStyleBackColor = false;
             this.EDIT.Click += new System.EventHandler(this.EDIT_Click);
-            // 
-            // DUE_DATE
-            // 
-            this.DUE_DATE.AutoSize = true;
-            this.DUE_DATE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DUE_DATE.LinkColor = System.Drawing.Color.Yellow;
-            this.DUE_DATE.Location = new System.Drawing.Point(12, 44);
-            this.DUE_DATE.Name = "DUE_DATE";
-            this.DUE_DATE.Size = new System.Drawing.Size(0, 16);
-            this.DUE_DATE.TabIndex = 25;
             // 
             // Date_search
             // 
@@ -402,12 +392,23 @@
             this.label6.TabIndex = 39;
             this.label6.Text = "DATE:";
             // 
+            // OVERDUE
+            // 
+            this.OVERDUE.AutoSize = true;
+            this.OVERDUE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OVERDUE.ForeColor = System.Drawing.Color.Lime;
+            this.OVERDUE.Location = new System.Drawing.Point(13, 48);
+            this.OVERDUE.Name = "OVERDUE";
+            this.OVERDUE.Size = new System.Drawing.Size(0, 16);
+            this.OVERDUE.TabIndex = 40;
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.OVERDUE);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Tester_platform);
             this.Controls.Add(this.Boards);
@@ -421,7 +422,6 @@
             this.Controls.Add(this.UPDATE);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Date_search);
-            this.Controls.Add(this.DUE_DATE);
             this.Controls.Add(this.EDIT);
             this.Controls.Add(this.REFRESH);
             this.Controls.Add(this.dataGridViewList);
@@ -449,7 +449,6 @@
         private System.Windows.Forms.DataGridView dataGridViewList;
         private System.Windows.Forms.Button REFRESH;
         private System.Windows.Forms.Button EDIT;
-        private System.Windows.Forms.LinkLabel DUE_DATE;
         private System.Windows.Forms.DateTimePicker Date_search;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button UPDATE;
@@ -471,5 +470,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
+        private System.Windows.Forms.Label OVERDUE;
     }
 }
