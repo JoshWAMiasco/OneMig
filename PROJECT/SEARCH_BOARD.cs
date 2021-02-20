@@ -18,7 +18,8 @@ namespace PROJECT
     public partial class SEARCH_BOARD : Form
     {
         public string check;
-        public int count;
+        public int count,ComboBoxCount;
+        public string TP, B, A, S, D,FullTextCommand;
         string tester;
         MySqlCommand command;
         public SEARCH_BOARD()
@@ -42,7 +43,7 @@ namespace PROJECT
                 OVERDUE.Text = string.Format("OVERDUE({0})", check);
             }
             else Connection.CloseConnection();
-            commands(8);
+            commands(6);
             if (Connection.OpenConnection())
             {
                 MySqlDataReader read_data = command.ExecuteReader();
@@ -99,26 +100,28 @@ namespace PROJECT
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 4:                  
-                    break;
-                case 5:
-                    break;
-                case 6:  //FOR CHECKING TRANSACTIONS WITH DATE ONLY
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d'),`STATUS`,`ENDORSEMENT NUMBER`" +
+                case 4: // TO CHECK THE BOARDS BY SPECIFIC DATE ONLY
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
-                case 7:
-                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')",Connection.connect);
+                case 5: // TO COUNT THE BOARDS BY SPECIFIC DATE
+                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')", Connection.connect);
                     break;
-                case 8:
+                case 6:
                     command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
                     break;
-                case 9:
+                case 7:
                     tester = string.Format("SELECT * FROM `boards_of_testers`.`{0}`", Tester_platform.Text.ToLower());
                     command = new MySqlCommand(tester, Connection.ConnectBoards);
                     break;
-                case 10:
+                case 8:
                     command = new MySqlCommand("SELECT * FROM `boards_of_testers`.`tmt`", Connection.ConnectBoards);
+                    break;
+                case 9:
+                    command = new MySqlCommand("Select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`, date_format(`FIRST DATE`, '%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` WHERE (`TESTER PLATFORM` = '" + Tester_platform.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
+                    break;
+                case 10:                  
                     break;
             }
         }
@@ -169,7 +172,9 @@ namespace PROJECT
                     return;
                 }
                 else
-                    return;
+                {
+                    CommandComboBox();
+                }
             }
             else
             {
@@ -272,7 +277,7 @@ namespace PROJECT
                 clearBoards();
                 if (Tester_platform.Text == "ASL1K" || Tester_platform.Text == "ASL4K")
                 {
-                    commands(10);
+                    commands(8);
                     if (Connection.OpenConnectionForBoards())
                     {
                         MySqlDataReader read_data = command.ExecuteReader();
@@ -286,7 +291,7 @@ namespace PROJECT
                 }
                 else
                 {
-                    commands(9);
+                    commands(7);
                     if (Connection.OpenConnectionForBoards())
                     {
                         MySqlDataReader read_data = command.ExecuteReader();
@@ -310,6 +315,36 @@ namespace PROJECT
         private void Select_date(object sender, EventArgs e)
         {
             Date_search.CustomFormat = "yyyy-MM-dd";
+        }
+        private void CommandComboBox()
+        {
+            search_text.Clear();
+            if (Tester_platform.SelectedIndex != 0)
+            {
+                TP = string.Format("(`TESTER PLATFORM` = '{0}')", Tester_platform.Text);
+                FullTextCommand = string.Format("where {0}", TP);
+                ComboBoxCount++;
+            }
+            if (Boards.SelectedIndex != 0)
+            {
+                B = string.Format("(`BOARD` = '{0}')", Boards.Text);
+
+            }
+            if (AREA.SelectedIndex != 0)
+            {
+                A = string.Format("(`AREA` = '{0}')", AREA.Text);
+            }
+            if (Stats.SelectedIndex != 0)
+            {
+                S = string.Format("(`STATUS` = '{0}')", Stats.Text);
+            }
+            if (!string.IsNullOrWhiteSpace(Date_search.Text))
+            {
+                D = string.Format("(`FIRST DATE` = '{0}')", Date_search.Text);
+            }
+
+
+
         }
     }
 }
