@@ -96,7 +96,7 @@ namespace PROJECT
                         Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d')," +
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
@@ -118,8 +118,8 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT * FROM `boards_of_testers`.`tmt`", Connection.ConnectBoards);
                     break;
                 case 9:
-                    command = new MySqlCommand("Select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`, date_format(`FIRST DATE`, '%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE (`TESTER PLATFORM` = '" + Tester_platform.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
+                    command = new MySqlCommand(string.Format("Select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`, date_format(`FIRST DATE`, '%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` {0} ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",FullTextCommand), Connection.connect);
                     break;
                 case 10:                  
                     break;
@@ -174,6 +174,8 @@ namespace PROJECT
                 else
                 {
                     CommandComboBox();
+                    MessageBox.Show(FullTextCommand);
+                    dataGridViewList.DataSource = table(9);
                 }
             }
             else
@@ -203,7 +205,7 @@ namespace PROJECT
             clearBoards();
             search_text.Clear();
             dataGridViewList.DataSource = table(3);
-            commands(4);
+            commands(2);
             if (Connection.OpenConnection())
             {
                 check = command.ExecuteScalar().ToString();
@@ -318,6 +320,8 @@ namespace PROJECT
         }
         private void CommandComboBox()
         {
+            FullTextCommand = "";
+            ComboBoxCount = 0;
             search_text.Clear();
             if (Tester_platform.SelectedIndex != 0)
             {
@@ -328,23 +332,61 @@ namespace PROJECT
             if (Boards.SelectedIndex != 0)
             {
                 B = string.Format("(`BOARD` = '{0}')", Boards.Text);
-
+                FullTextCommand = FullTextCommand + string.Format(" and {0}", B);
             }
             if (AREA.SelectedIndex != 0)
             {
                 A = string.Format("(`AREA` = '{0}')", AREA.Text);
+                if (ComboBoxCount == 1)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", A);
+                    ComboBoxCount++;
+                }
+                else
+                {
+                    FullTextCommand = string.Format("where {0}", A);
+                    ComboBoxCount++;
+                }
             }
             if (Stats.SelectedIndex != 0)
             {
                 S = string.Format("(`STATUS` = '{0}')", Stats.Text);
+                if (ComboBoxCount == 2)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", S);
+                    ComboBoxCount++;
+                }
+                else if (ComboBoxCount == 1)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", S);
+                    ComboBoxCount++;
+                }
+                else
+                {
+                    FullTextCommand = string.Format("where {0}", S);
+                    ComboBoxCount++;
+                }
             }
             if (!string.IsNullOrWhiteSpace(Date_search.Text))
             {
                 D = string.Format("(`FIRST DATE` = '{0}')", Date_search.Text);
+                if (ComboBoxCount == 3)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", D);
+                }
+                else if (ComboBoxCount == 2)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", D);
+                }
+                else if (ComboBoxCount == 1)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", D);
+                }
+                else
+                {
+                    FullTextCommand = string.Format("where {0}", D);
+                }
             }
-
-
-
         }
     }
 }
