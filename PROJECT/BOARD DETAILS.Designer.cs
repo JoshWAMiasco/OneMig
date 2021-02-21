@@ -672,11 +672,11 @@ namespace PROJECT
             // AGING
             // 
             this.AGING.AutoSize = true;
-            this.AGING.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AGING.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AGING.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.AGING.Location = new System.Drawing.Point(176, 384);
+            this.AGING.Location = new System.Drawing.Point(175, 377);
             this.AGING.Name = "AGING";
-            this.AGING.Size = new System.Drawing.Size(0, 13);
+            this.AGING.Size = new System.Drawing.Size(0, 20);
             this.AGING.TabIndex = 80;
             // 
             // BOARD_DETAILS

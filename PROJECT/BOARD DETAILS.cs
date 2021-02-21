@@ -16,8 +16,8 @@ namespace PROJECT
     {
         MySqlCommand command;
         byte[] Data1,Data2;
-        int dateNow,date,count = 0;
-        string dateConvert,final;
+        int dateNow, date, count1 = 0, count2 = 0, DayCount = 0;
+        string dateConvert1,final1,dateConvert2,final2;
         public string FileName1, Filename2;
         public int Endorsement_number { get; set; }
         public string other_failure_mode, other_failed_during;
@@ -87,36 +87,91 @@ namespace PROJECT
                 }
                 if (Status.Text == "FOR SECOND VERIF")
                 {
-                    char[] dates = First_date.Text.ToCharArray();
-                    for (int Txt = 0; Txt < First_date.Text.Length; Txt++)
-                    {
-                        if(char.IsDigit(dates[Txt]))
-                        {
-                            dateConvert = dates[Txt].ToString();
-                            if (count == 0)
-                            {
-                                final = dateConvert;
-                                count++;
-                            }
-                            else
-                            {
-                                final = final + dateConvert;
-                                count++;
-                            }
-                        }
-                    }
-                    count = 0;
-                    MessageBox.Show(final);
-                    date = int.Parse(final);
+                    CountFirstDate();
+                    date = int.Parse(final1);
                     dateNow = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
-                    if (date < dateNow)
+                    do
                     {
-                        MessageBox.Show("CORRECT");
+                        Days(DayCount);
+                        DayCount++;
+                        date++;
+                    }
+                    while (date <= dateNow);
+                }
+                else if (string.IsNullOrEmpty(Second_date.Text))
+                {
+                    return;
+                }
+                else
+                {
+                    CountFirstDate();
+                    CountSecondDate();
+                    date = int.Parse(final1);
+                    dateNow = int.Parse(final2);
+                    do
+                    {
+                        Days(DayCount);
+                        DayCount++;
+                        date++;
+                    }
+                    while (date <= dateNow);
+                }
+            }
+            else
+                this.Close();
+
+        }
+        private void Days(int day)
+        {
+            AGING.Text = string.Format("{0} DAY/S", day);
+            if (day <= 2)
+                AGING.ForeColor = System.Drawing.Color.Yellow;
+            else if (day == 3)
+                AGING.ForeColor = System.Drawing.Color.Orange;
+            else
+                AGING.ForeColor = System.Drawing.Color.Red;
+        }
+        private void CountFirstDate()
+        {
+            char[] date1 = First_date.Text.ToCharArray();
+            for (int Txt = 0; Txt < First_date.Text.Length; Txt++)
+            {
+                if (char.IsDigit(date1[Txt]))
+                {
+                    dateConvert1 = date1[Txt].ToString();
+                    if (count1 == 0)
+                    {
+                        final1 = dateConvert1;
+                        count1++;
+                    }
+                    else
+                    {
+                        final1 = final1 + dateConvert1;
+                        count1++;
                     }
                 }
             }
-            else return;
-
+        }
+        private void CountSecondDate()
+        {
+            char[] date2 = Second_date.Text.ToCharArray();
+            for (int Txt = 0; Txt < First_date.Text.Length; Txt++)
+            {
+                if (char.IsDigit(date2[Txt]))
+                {
+                    dateConvert2 = date2[Txt].ToString();
+                    if (count2 == 0)
+                    {
+                        final2 = dateConvert2;
+                        count2++;
+                    }
+                    else
+                    {
+                        final2 = final2 + dateConvert2;
+                        count2++;
+                    }
+                }
+            }
         }
 
         private void Exit_btn_Click(object sender, EventArgs e)
