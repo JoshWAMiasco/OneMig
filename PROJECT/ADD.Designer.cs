@@ -293,7 +293,6 @@
             this.Date_second_verif.Name = "Date_second_verif";
             this.Date_second_verif.Size = new System.Drawing.Size(120, 20);
             this.Date_second_verif.TabIndex = 21;
-            this.Date_second_verif.Visible = false;
             this.Date_second_verif.CloseUp += new System.EventHandler(this.SecondDateCheck);
             this.Date_second_verif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Second_date);
             // 
@@ -408,7 +407,6 @@
             this.second_endorser.Name = "second_endorser";
             this.second_endorser.Size = new System.Drawing.Size(177, 21);
             this.second_endorser.TabIndex = 26;
-            this.second_endorser.SelectedIndexChanged += new System.EventHandler(this.second_verif_showdate);
             // 
             // label9
             // 

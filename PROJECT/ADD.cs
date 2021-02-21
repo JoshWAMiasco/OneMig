@@ -310,10 +310,6 @@ namespace PROJECT
             {
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
-                if (second_verif_link.Visible == true && second_endorser.SelectedIndex >= 0)
-                {
-                    Date_second_verif.Visible = true;
-                }
             }
         }
         private void first_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -813,17 +809,6 @@ namespace PROJECT
             }
             else
                 return true;
-        }
-        private void second_verif_showdate(object sender, EventArgs e)
-        {
-            if (second_verif_link.Text == string.Empty || second_endorser.Text == string.Empty)
-            {
-                Date_second_verif.Visible = false;
-            }
-            else
-            {
-                Date_second_verif.Visible = true;
-            }
         }
         private void Exit_btn_Click(object sender, EventArgs e)
         {
