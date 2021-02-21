@@ -92,7 +92,7 @@
             this.Add_btn.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Add_btn.Location = new System.Drawing.Point(351, 513);
             this.Add_btn.Name = "Add_btn";
-            this.Add_btn.Size = new System.Drawing.Size(130, 50);
+            this.Add_btn.Size = new System.Drawing.Size(130, 51);
             this.Add_btn.TabIndex = 2;
             this.Add_btn.Text = "ADD/UPDATE BOARD";
             this.Add_btn.UseVisualStyleBackColor = false;

@@ -171,7 +171,6 @@ namespace PROJECT
             if (string.IsNullOrWhiteSpace(search_text.Text))
             {
                 CommandComboBox();
-                MessageBox.Show(FullTextCommand);
                 dataGridViewList.DataSource = table(9);
             }
             else

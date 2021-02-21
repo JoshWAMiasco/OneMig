@@ -16,6 +16,8 @@ namespace PROJECT
     {
         MySqlCommand command;
         byte[] Data1,Data2;
+        int dateNow,date,count = 0;
+        string dateConvert,final;
         public string FileName1, Filename2;
         public int Endorsement_number { get; set; }
         public string other_failure_mode, other_failed_during;
@@ -82,6 +84,35 @@ namespace PROJECT
                 if (Failure_mode.Text == "OTHERS")
                 {
                     Failure_mode.Text = other_failure_mode;
+                }
+                if (Status.Text == "FOR SECOND VERIF")
+                {
+                    char[] dates = First_date.Text.ToCharArray();
+                    for (int Txt = 0; Txt < First_date.Text.Length; Txt++)
+                    {
+                        if(char.IsDigit(dates[Txt]))
+                        {
+                            dateConvert = dates[Txt].ToString();
+                            if (count == 0)
+                            {
+                                final = dateConvert;
+                                count++;
+                            }
+                            else
+                            {
+                                final = final + dateConvert;
+                                count++;
+                            }
+                        }
+                    }
+                    count = 0;
+                    MessageBox.Show(final);
+                    date = int.Parse(final);
+                    dateNow = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
+                    if (date < dateNow)
+                    {
+                        MessageBox.Show("CORRECT");
+                    }
                 }
             }
             else return;
