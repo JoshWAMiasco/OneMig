@@ -213,11 +213,21 @@ namespace PROJECT
         {
             if (FAILURE_CHANGED.Checked)
             {
+                if (second_endorser.SelectedIndex == -1)
+                {
+                    error();
+                    return;
+                }
                 status = "FAILURE CHANGED";
                 Save_data(6);
             }
             else if (INSTALL_TO_TESTER.Checked)
             {
+                if (second_endorser.SelectedIndex == -1)
+                {
+                    error();
+                    return;
+                }
                 status = "INSTALL TO A TESTER";
                 inputBox = Interaction.InputBox("WHERE DID YOU INSTALL THE BOARD?", "INSTALL TO TESTER","PUT THE TESTER WHERE YOU INSTALL THE BOARD");
                 if (inputBox.Length == 0)
@@ -596,11 +606,15 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
                     break;
                 case 6:  // IF THE SECOND VERIFICATION CHANGES
-                    command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` SET `STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
+                    command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text  + "',`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
                 case 7:  // IF THE SECOND VERIFICATION PASSED AND INSTALLED ALREADY TO THE TESTER
-                    command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` SET `STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
+                    command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",inputBox.ToUpper()));
                     break;
                 case 8:
