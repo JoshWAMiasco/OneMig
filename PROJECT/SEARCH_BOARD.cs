@@ -29,31 +29,40 @@ namespace PROJECT
 
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
-            Date_search.CustomFormat = " ";
-            Stats.SelectedIndex = 0;
-            AREA.SelectedIndex = 0;
-            Tester_platform.SelectedIndex = 0;
-            Boards.SelectedIndex = 0;
-            dataGridViewList.DataSource = table(3);
-            commands(2);
-            if (Connection.OpenConnection())
+            LoadData();
+        }
+
+        private async void LoadData()
+        {
+            await Task.Run(() =>
             {
-                check = command.ExecuteScalar().ToString();
-                Connection.CloseConnection();
-                OVERDUE.Text = string.Format("OVERDUE({0})", check);
-            }
-            else Connection.CloseConnection();
-            commands(6);
-            if (Connection.OpenConnection())
-            {
-                MySqlDataReader read_data = command.ExecuteReader();
-                while (read_data.Read())
+                Date_search.Invoke((MethodInvoker)(()=> Date_search.CustomFormat = " "));
+                Stats.Invoke((MethodInvoker)(() => Stats.SelectedIndex = 0));
+                AREA.Invoke((MethodInvoker)(() => AREA.SelectedIndex = 0));
+                Tester_platform.Invoke((MethodInvoker)(() => Tester_platform.SelectedIndex = 0));
+                Boards.Invoke((MethodInvoker)(()=> Boards.SelectedIndex = 0));
+                dataGridViewList.Invoke((MethodInvoker)(() => dataGridViewList.DataSource = table(3)));
+                commands(2);
+                if (Connection.OpenConnection())
                 {
-                    Tester_platform.Items.Add(read_data.GetString("Tester platforms"));
+                    check = command.ExecuteScalar().ToString();
+                    Connection.CloseConnection();
+                    OVERDUE.Invoke((MethodInvoker)(()=> OVERDUE.Text = string.Format("OVERDUE({0})", check)));
                 }
-                Connection.CloseConnection();
+                else Connection.CloseConnection();
+                commands(6);
+                if (Connection.OpenConnection())
+                {
+                    MySqlDataReader read_data = command.ExecuteReader();
+                    while (read_data.Read())
+                    {
+                        Tester_platform.Invoke((MethodInvoker)(()=> Tester_platform.Items.Add(read_data.GetString("Tester platforms"))));
+                    }
+                    Connection.CloseConnection();
+                }
+                else return;
             }
-            else return;
+            );
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
         {
@@ -246,25 +255,21 @@ namespace PROJECT
         private void AreaIndexChanged(object sender, EventArgs e)
         {
             search_text.Clear();
-            Date_search.ResetText();
         }
 
         private void statusIndexChanged(object sender, EventArgs e)
         {
             search_text.Clear();
-            Date_search.ResetText();
         }
 
         private void Boardsindexchanged(object sender, EventArgs e)
         {
             search_text.Clear();
-            Date_search.ResetText();
         }
 
         private void ShowBoards(object sender, EventArgs e)
         {
             search_text.Clear();
-            Date_search.ResetText();
             if (Tester_platform.SelectedIndex == 0)
             {
                 clearBoards();

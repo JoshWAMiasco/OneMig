@@ -376,7 +376,7 @@ namespace PROJECT
             this.SecondTime.AutoSize = true;
             this.SecondTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SecondTime.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SecondTime.Location = new System.Drawing.Point(203, 98);
+            this.SecondTime.Location = new System.Drawing.Point(203, 96);
             this.SecondTime.Name = "SecondTime";
             this.SecondTime.Size = new System.Drawing.Size(0, 13);
             this.SecondTime.TabIndex = 44;
@@ -392,7 +392,7 @@ namespace PROJECT
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(160, 98);
+            this.label23.Location = new System.Drawing.Point(160, 97);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(37, 13);
             this.label23.TabIndex = 43;
