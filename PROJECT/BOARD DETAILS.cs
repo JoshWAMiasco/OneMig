@@ -16,9 +16,9 @@ namespace PROJECT
     {
         MySqlCommand command;
         byte[] Data1,Data2;
-        int dateNow, date, count1 = 0, count2 = 0, DayCount = 0;
-        string dateConvert1,final1,dateConvert2,final2;
+        string DayCount, Second;
         public string FileName1, Filename2;
+        int DAY;
         public int Endorsement_number { get; set; }
         public string other_failure_mode, other_failed_during;
 
@@ -30,11 +30,7 @@ namespace PROJECT
 
         private void Load_Boards(object sender, EventArgs e)
         {
-            command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
-            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,date_format(`FIRST DATE`,'%Y-%m-%d'),`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,date_format(`SECOND DATE`,'%Y-%m-%d')," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST TIME`,`SECOND TIME` FROM `boards_for_verification`.`board details` " +
-            "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
-
+            Commands(0);
             command.Connection = Connection.connect;
 
             if (Connection.OpenConnection())
@@ -87,16 +83,8 @@ namespace PROJECT
                 }
                 if (Status.Text == "FOR SECOND VERIF")
                 {
-                    CountFirstDate();
-                    date = int.Parse(final1);
-                    dateNow = int.Parse(DateTime.Now.ToString("yyyyMMdd"));
-                    do
-                    {
-                        Days(DayCount);
-                        DayCount++;
-                        date++;
-                    }
-                    while (date <= dateNow);
+                    Second = "current_date()";
+                    Count();
                 }
                 else if (string.IsNullOrEmpty(Second_date.Text))
                 {
@@ -104,22 +92,27 @@ namespace PROJECT
                 }
                 else
                 {
-                    CountFirstDate();
-                    CountSecondDate();
-                    date = int.Parse(final1);
-                    dateNow = int.Parse(final2);
-                    do
-                    {
-                        Days(DayCount);
-                        DayCount++;
-                        date++;
-                    }
-                    while (date <= dateNow);
+                    Second = string.Format("'{0}'",Second_date.Text);
+                    Count();
                 }
             }
             else
                 this.Close();
 
+        }
+        private void Count()
+        {
+            Commands(1);
+            if (Connection.OpenConnection())
+            {
+                MySqlDataReader readDay = command.ExecuteReader();
+                readDay.Read();
+
+                DAY = int.Parse(readDay["DAY INTERVAL"].ToString());
+                Connection.CloseConnection();
+                Days(DAY);
+            }
+            else return;
         }
         private void Days(int day)
         {
@@ -131,49 +124,23 @@ namespace PROJECT
             else
                 AGING.ForeColor = System.Drawing.Color.Red;
         }
-        private void CountFirstDate()
+        private void Commands(int pick)
         {
-            char[] date1 = First_date.Text.ToCharArray();
-            for (int Txt = 0; Txt < First_date.Text.Length; Txt++)
+            switch (pick)
             {
-                if (char.IsDigit(date1[Txt]))
-                {
-                    dateConvert1 = date1[Txt].ToString();
-                    if (count1 == 0)
-                    {
-                        final1 = dateConvert1;
-                        count1++;
-                    }
-                    else
-                    {
-                        final1 = final1 + dateConvert1;
-                        count1++;
-                    }
-                }
+                case 0:
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
+            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,date_format(`FIRST DATE`,'%Y-%m-%d'),`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,date_format(`SECOND DATE`,'%Y-%m-%d')," +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST TIME`,`SECOND TIME` FROM `boards_for_verification`.`board details` " +
+            "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
+                    break;
+                case 1:
+                    DayCount = string.Format("select abs(datediff(`FIRST DATE`,{0})) as `DAY INTERVAL` from `board details` where `endorsement number` = '" + Endorsement_number + "'",Second);
+                    command = new MySqlCommand(DayCount,Connection.connect);
+                    break;
             }
+          
         }
-        private void CountSecondDate()
-        {
-            char[] date2 = Second_date.Text.ToCharArray();
-            for (int Txt = 0; Txt < First_date.Text.Length; Txt++)
-            {
-                if (char.IsDigit(date2[Txt]))
-                {
-                    dateConvert2 = date2[Txt].ToString();
-                    if (count2 == 0)
-                    {
-                        final2 = dateConvert2;
-                        count2++;
-                    }
-                    else
-                    {
-                        final2 = final2 + dateConvert2;
-                        count2++;
-                    }
-                }
-            }
-        }
-
         private void Exit_btn_Click(object sender, EventArgs e)
         {
             this.Hide();
