@@ -454,7 +454,7 @@ namespace PROJECT
             // 
             this.Add_second_verif.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Add_second_verif.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Add_second_verif.Location = new System.Drawing.Point(19, 23);
+            this.Add_second_verif.Location = new System.Drawing.Point(19, 19);
             this.Add_second_verif.Name = "Add_second_verif";
             this.Add_second_verif.Size = new System.Drawing.Size(143, 24);
             this.Add_second_verif.TabIndex = 19;
@@ -468,7 +468,7 @@ namespace PROJECT
             this.Second_verif_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Second_verif_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Second_verif_link.LinkColor = System.Drawing.Color.Black;
-            this.Second_verif_link.Location = new System.Drawing.Point(19, 64);
+            this.Second_verif_link.Location = new System.Drawing.Point(18, 60);
             this.Second_verif_link.Name = "Second_verif_link";
             this.Second_verif_link.Size = new System.Drawing.Size(0, 13);
             this.Second_verif_link.TabIndex = 20;

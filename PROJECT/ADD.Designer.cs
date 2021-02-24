@@ -314,7 +314,7 @@
             // 
             this.Add_second_verif.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.Add_second_verif.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Add_second_verif.Location = new System.Drawing.Point(22, 28);
+            this.Add_second_verif.Location = new System.Drawing.Point(22, 23);
             this.Add_second_verif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Add_second_verif.Name = "Add_second_verif";
             this.Add_second_verif.Size = new System.Drawing.Size(167, 30);
@@ -707,7 +707,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label17.Location = new System.Drawing.Point(30, 394);
+            this.label17.Location = new System.Drawing.Point(26, 393);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(127, 21);
             this.label17.TabIndex = 46;
