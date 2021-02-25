@@ -293,7 +293,7 @@
             "BRG",
             "INSTALL TO A TESTER",
             "FOR SECOND VERIF",
-            "FAILURE CHANGE",
+            "FAILURE CHANGED",
             "OVERDUE"});
             this.Stats.Location = new System.Drawing.Point(795, 42);
             this.Stats.Name = "Stats";
