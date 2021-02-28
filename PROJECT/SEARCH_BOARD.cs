@@ -91,8 +91,7 @@ namespace PROJECT
             {
                
                 case 0: //TO CHECK IF THERE'S EXISTING DATA SEARCHED
-                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE ('" + search_text.Text + "')" +
-                        "IN (`SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`FIRST TESTER`,`TEST PROGRAM`,`STATUS`) LIMIT 1",Connection.connect);
+                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details`",Connection.connect);
                     break;
                 case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
@@ -101,7 +100,7 @@ namespace PROJECT
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 2: //COUNT OVERDUE BOARDS
-                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 2 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",
+                    command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE ((select abs(datediff(`FIRST DATE`,current_date()))) > 2) AND (`STATUS` = 'FOR SECOND VERIF')",
                         Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
@@ -113,8 +112,8 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
-                case 5: // TO COUNT THE BOARDS BY SPECIFIC DATE
-                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')", Connection.connect);
+                case 5: // TO COUNT DATA SEARCHED
+                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details`", Connection.connect);
                     break;
                 case 6:  //TESTER PLATFORMS
                     command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
