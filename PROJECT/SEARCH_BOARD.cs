@@ -32,7 +32,7 @@ namespace PROJECT
             LoadData();
         }
 
-        private async void LoadData()
+        private async Task LoadData()
         {
             await Task.Run(() =>
             {
@@ -47,9 +47,17 @@ namespace PROJECT
                 {
                     check = command.ExecuteScalar().ToString();
                     Connection.CloseConnection();
-                    OVERDUE.Invoke((MethodInvoker)(()=> OVERDUE.Text = string.Format("OVERDUE({0})", check)));
+                    OVERDUE.Invoke((MethodInvoker)(() => OVERDUE.Text = string.Format("OVERDUE({0})", check)));
                 }
-                else Connection.CloseConnection();
+                else return;
+                commands(0);
+                if (Connection.OpenConnection())
+                {
+                    check = command.ExecuteScalar().ToString();
+                    Connection.CloseConnection();
+                    Count_search.Invoke((MethodInvoker)(() => Count_search.Text = string.Format("RESULT({0})", check)));
+                }
+                else return;
                 commands(6);
                 if (Connection.OpenConnection())
                 {
@@ -61,6 +69,7 @@ namespace PROJECT
                     Connection.CloseConnection();
                 }
                 else return;
+
             }
             );
         }
@@ -112,7 +121,7 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
-                case 5: // TO COUNT DATA SEARCHED
+                case 5: //unused
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details`", Connection.connect);
                     break;
                 case 6:  //TESTER PLATFORMS

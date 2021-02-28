@@ -57,6 +57,7 @@
             this.Tester_platform = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.OVERDUE = new System.Windows.Forms.Label();
+            this.Count_search = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,7 +124,7 @@
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1137, 433);
+            this.dataGridViewList.Size = new System.Drawing.Size(1137, 410);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -402,12 +403,23 @@
             this.OVERDUE.Size = new System.Drawing.Size(0, 16);
             this.OVERDUE.TabIndex = 40;
             // 
+            // Count_search
+            // 
+            this.Count_search.AutoSize = true;
+            this.Count_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Count_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.Count_search.Location = new System.Drawing.Point(570, 10);
+            this.Count_search.Name = "Count_search";
+            this.Count_search.Size = new System.Drawing.Size(0, 16);
+            this.Count_search.TabIndex = 41;
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.Count_search);
             this.Controls.Add(this.OVERDUE);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Tester_platform);
@@ -471,5 +483,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
         private System.Windows.Forms.Label OVERDUE;
+        private System.Windows.Forms.Label Count_search;
     }
 }
