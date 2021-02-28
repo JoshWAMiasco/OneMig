@@ -100,7 +100,7 @@ namespace PROJECT
                         " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
-                case 2:
+                case 2: //COUNT OVERDUE BOARDS
                     command = new MySqlCommand("SELECT count(`FIRST DATE`) FROM `board details` WHERE (`FIRST DATE` + 2 < current_date() AND `STATUS` = 'FOR SECOND VERIF')",
                         Connection.connect);
                     break;
@@ -116,21 +116,21 @@ namespace PROJECT
                 case 5: // TO COUNT THE BOARDS BY SPECIFIC DATE
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "')", Connection.connect);
                     break;
-                case 6:
+                case 6:  //TESTER PLATFORMS
                     command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
                     break;
-                case 7:
+                case 7:  //BOARDS OF TESTER PLATFORM
                     tester = string.Format("SELECT * FROM `boards_of_testers`.`{0}`", Tester_platform.Text.ToLower());
                     command = new MySqlCommand(tester, Connection.ConnectBoards);
                     break;
-                case 8:
+                case 8:   //FOR TMT BOARDS
                     command = new MySqlCommand("SELECT * FROM `boards_of_testers`.`tmt`", Connection.ConnectBoards);
                     break;
-                case 9:
+                case 9:  // FOR SEARCH IN COMBO BOXES
                     command = new MySqlCommand(string.Format("Select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`, date_format(`FIRST DATE`, '%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` {0} ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",FullTextCommand), Connection.connect);
                     break;
-                case 10:
+                case 10: //REFRESH
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
@@ -352,7 +352,7 @@ namespace PROJECT
             {
                 if (Stats.SelectedIndex == 6)
                 {
-                    S = string.Format("(`FIRST DATE` + 2 < current_date()) and (`STATUS` = 'FOR SECOND VERIF')");
+                    S = string.Format("((select abs(datediff(`FIRST DATE`,current_date()))) > 2) and (`STATUS` = 'FOR SECOND VERIF')");
                 }
                 else if (Stats.SelectedIndex == 3)
                 {
