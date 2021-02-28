@@ -17,8 +17,8 @@ namespace PROJECT
 {
     public partial class SEARCH_BOARD : Form
     {
-        public string check;
-        public int count,ComboBoxCount;
+        public string check,all;
+        public int count, ComboBoxCount, AllCount,firstCount,secondCount;
         public string TP, B, A, S, D,FullTextCommand;
         string tester;
         MySqlCommand command;
@@ -42,20 +42,11 @@ namespace PROJECT
                 Tester_platform.Invoke((MethodInvoker)(() => Tester_platform.SelectedIndex = 0));
                 Boards.Invoke((MethodInvoker)(()=> Boards.SelectedIndex = 0));
                 dataGridViewList.Invoke((MethodInvoker)(() => dataGridViewList.DataSource = table(3)));
-                commands(2);
-                if (Connection.OpenConnection())
-                {
-                    check = command.ExecuteScalar().ToString();
-                    Connection.CloseConnection();
-                    OVERDUE.Invoke((MethodInvoker)(() => OVERDUE.Text = string.Format("OVERDUE({0})", check)));
-                }
-                else return;
                 commands(0);
                 if (Connection.OpenConnection())
                 {
-                    check = command.ExecuteScalar().ToString();
+                    all = command.ExecuteScalar().ToString();
                     Connection.CloseConnection();
-                    Count_search.Invoke((MethodInvoker)(() => Count_search.Text = string.Format("RESULT({0})", check)));
                 }
                 else return;
                 commands(6);
@@ -69,9 +60,32 @@ namespace PROJECT
                     Connection.CloseConnection();
                 }
                 else return;
-
+                commands(2);
+                if (Connection.OpenConnection())
+                {
+                    check = command.ExecuteScalar().ToString();
+                    Connection.CloseConnection();
+                }
+                else return;
             }
             );
+            Counts();
+            results();
+            OVERDUE.Text = string.Format("OVERDUE({0})", check);
+        }
+        private void results()
+        {
+            Count_search.Text = string.Format("RESULT({0}-{1} of {2})", firstCount,secondCount, all);
+        }
+        private void Counts()
+        {
+            firstCount = 1;
+            if (int.Parse(all) >= 30)
+                secondCount = 30;
+            else
+                secondCount = int.Parse(all);
+            if (int.Parse(all) < 1)
+                firstCount = 0;
         }
         private void Click_data(object sender, DataGridViewCellEventArgs e)
         {
@@ -121,8 +135,8 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
-                case 5: //unused
-                    command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details`", Connection.connect);
+                case 5: //
+                    command = new MySqlCommand(string.Format("SELECT COUNT(*) FROM `boards_for_verification`.`board details` {0}",FullTextCommand), Connection.connect);
                     break;
                 case 6:  //TESTER PLATFORMS
                     command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`tester platforms`", Connection.connect);
@@ -142,6 +156,11 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
+                    break;
+                case 11:
+                    command = new MySqlCommand(string.Format("select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`," +
+                        "`STATUS`,`ENDORSEMENT NUMBER`" +
+                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT {0},{1}",firstCount,secondCount),Connection.connect);
                     break;
             }
         }
@@ -188,7 +207,16 @@ namespace PROJECT
             if (string.IsNullOrWhiteSpace(search_text.Text))
             {
                 CommandComboBox();
+                commands(5);
+                if (Connection.OpenConnection())
+                {
+                    all = command.ExecuteScalar().ToString();
+                    Connection.CloseConnection();
+                }
+                else return;
                 dataGridViewList.DataSource = table(9);
+                Counts();
+                results();
             }
             else
             {
@@ -225,6 +253,15 @@ namespace PROJECT
                 OVERDUE.Text = string.Format("OVERDUE({0})", check);
             }
             else Connection.CloseConnection();
+            commands(0);
+            if (Connection.OpenConnection())
+            {
+                all = command.ExecuteScalar().ToString();
+                Connection.CloseConnection();
+            }
+            else return;
+            Counts();
+            results();
         }
 
         private void EDIT_Click(object sender, EventArgs e)
@@ -247,12 +284,36 @@ namespace PROJECT
                 await update.UpdateApp();
             }
         }
+
         private void Date(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
                 Date_search.CustomFormat = " ";
             else
                 e.SuppressKeyPress = true;
+        }
+
+        private void ForwardClick(object sender, EventArgs e)
+        {
+            firstCount = firstCount + secondCount;
+            AllCount = secondCount;
+            secondCount = int.Parse(all);
+            if (firstCount >= int.Parse(all)) return;
+            results();
+            firstCount = firstCount - 1;
+            load_data(11);
+        }
+        private void BackClick(object sender, EventArgs e)
+        {
+            if (int.Parse(all) > 30)
+            {
+                firstCount = 0;
+            }
+            else return;
+            secondCount = 30;
+            load_data(11);
+            firstCount = 1;
+            results();
         }
 
         private void button1_Click(object sender, EventArgs e)

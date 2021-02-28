@@ -58,6 +58,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.OVERDUE = new System.Windows.Forms.Label();
             this.Count_search = new System.Windows.Forms.Label();
+            this.FORWARD = new System.Windows.Forms.Label();
+            this.BACK = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -124,7 +126,7 @@
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1137, 410);
+            this.dataGridViewList.Size = new System.Drawing.Size(1137, 432);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -408,10 +410,36 @@
             this.Count_search.AutoSize = true;
             this.Count_search.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Count_search.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.Count_search.Location = new System.Drawing.Point(570, 10);
+            this.Count_search.Location = new System.Drawing.Point(639, 9);
             this.Count_search.Name = "Count_search";
             this.Count_search.Size = new System.Drawing.Size(0, 16);
             this.Count_search.TabIndex = 41;
+            // 
+            // FORWARD
+            // 
+            this.FORWARD.AutoSize = true;
+            this.FORWARD.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FORWARD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FORWARD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.FORWARD.Location = new System.Drawing.Point(599, 5);
+            this.FORWARD.Name = "FORWARD";
+            this.FORWARD.Size = new System.Drawing.Size(34, 24);
+            this.FORWARD.TabIndex = 42;
+            this.FORWARD.Text = ">>";
+            this.FORWARD.Click += new System.EventHandler(this.ForwardClick);
+            // 
+            // BACK
+            // 
+            this.BACK.AutoSize = true;
+            this.BACK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BACK.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BACK.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.BACK.Location = new System.Drawing.Point(559, 5);
+            this.BACK.Name = "BACK";
+            this.BACK.Size = new System.Drawing.Size(34, 24);
+            this.BACK.TabIndex = 43;
+            this.BACK.Text = "<<";
+            this.BACK.Click += new System.EventHandler(this.BackClick);
             // 
             // SEARCH_BOARD
             // 
@@ -419,6 +447,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.BACK);
+            this.Controls.Add(this.FORWARD);
             this.Controls.Add(this.Count_search);
             this.Controls.Add(this.OVERDUE);
             this.Controls.Add(this.label6);
@@ -484,5 +514,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
         private System.Windows.Forms.Label OVERDUE;
         private System.Windows.Forms.Label Count_search;
+        private System.Windows.Forms.Label FORWARD;
+        private System.Windows.Forms.Label BACK;
     }
 }
