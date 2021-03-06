@@ -246,7 +246,7 @@ namespace PROJECT
             // First_endorser
             // 
             this.First_endorser.AutoSize = true;
-            this.First_endorser.Location = new System.Drawing.Point(139, 232);
+            this.First_endorser.Location = new System.Drawing.Point(134, 232);
             this.First_endorser.Name = "First_endorser";
             this.First_endorser.Size = new System.Drawing.Size(0, 13);
             this.First_endorser.TabIndex = 38;

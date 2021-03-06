@@ -32,7 +32,7 @@ namespace PROJECT
             LoadData();
         }
 
-        private async Task LoadData()
+        private async void LoadData()
         {
             await Task.Run(() =>
             {
