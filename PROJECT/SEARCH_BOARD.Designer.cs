@@ -243,7 +243,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "VERSION 1.0.3";
+            this.label1.Text = "VERSION 1.0.4";
             // 
             // UPDATE
             // 
@@ -504,6 +504,10 @@
         private System.Windows.Forms.ComboBox Boards;
         private System.Windows.Forms.ComboBox Tester_platform;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label OVERDUE;
+        private System.Windows.Forms.Label Count_search;
+        private System.Windows.Forms.Label FORWARD;
+        private System.Windows.Forms.Label BACK;
         private System.Windows.Forms.DataGridViewTextBoxColumn SERIAL_NUMBER;
         private System.Windows.Forms.DataGridViewTextBoxColumn PART_NUMBER;
         private System.Windows.Forms.DataGridViewTextBoxColumn BOARD;
@@ -512,9 +516,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
-        private System.Windows.Forms.Label OVERDUE;
-        private System.Windows.Forms.Label Count_search;
-        private System.Windows.Forms.Label FORWARD;
-        private System.Windows.Forms.Label BACK;
     }
 }

@@ -162,6 +162,9 @@ namespace PROJECT
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT {0},{1}",firstCount,secondCount),Connection.connect);
                     break;
+                case 12:
+                    command = new MySqlCommand("SELECT COUNT(*) FROM `board details` WHERE '" + search_text.Text + "' IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)", Connection.connect);
+                    break;
             }
         }
         private DataTable table(int COMMAND)
@@ -221,6 +224,15 @@ namespace PROJECT
             else
             {
                 count = 0;
+                commands(12);
+                if (Connection.OpenConnection())
+                {
+                    all = command.ExecuteScalar().ToString();
+                    Connection.CloseConnection();
+                }
+                else return;
+                Counts();
+                results();
                 load_data(1);
                 Date_search.CustomFormat = " ";
                 AREA.SelectedIndex = 0;
