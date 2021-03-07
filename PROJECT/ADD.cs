@@ -144,7 +144,7 @@ namespace PROJECT
                                 error();
                                 return false;
                             }
-                            else if (Failure_mode_others.Text.Length > 20)
+                            else if (Failure_mode_others.Text.Length > 40)
                             {
                                 MessageBox.Show("TOO LONG INPUT!");
                                 return false;
