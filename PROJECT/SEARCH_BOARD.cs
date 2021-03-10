@@ -51,7 +51,7 @@ namespace PROJECT
                     all = command.ExecuteScalar().ToString();
                     Connection.CloseConnection();
                 }
-                else return;
+                else this.Close();
                 commands(6);
                 if (Connection.OpenConnection())
                 {
@@ -62,14 +62,14 @@ namespace PROJECT
                     }
                     Connection.CloseConnection();
                 }
-                else return;
+                else this.Close();
                 commands(2);
                 if (Connection.OpenConnection())
                 {
                     check = command.ExecuteScalar().ToString();
                     Connection.CloseConnection();
                 }
-                else return;
+                else this.Close();
             }
             );
             Counts();
@@ -288,6 +288,8 @@ namespace PROJECT
         private void UPDATE_Click(object sender, EventArgs e)
         {
             CheckForUpdates();
+            MessageBox.Show(oldversion);
+            MessageBox.Show(newversion);
             this.Close();
         }
 
