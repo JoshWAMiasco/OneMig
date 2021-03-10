@@ -12,11 +12,13 @@ using MySql.Data.MySqlClient;
 using System.Runtime.InteropServices;
 using Ubiety.Dns.Core.Records.NotUsed;
 using Squirrel;
+using System.Reflection;
 
 namespace PROJECT
 {
     public partial class SEARCH_BOARD : Form
     {
+        string newversion,oldversion;
         public string check,all;
         public int count, ComboBoxCount, AllCount,firstCount,secondCount;
         public string TP, B, A, S, D,FullTextCommand;
@@ -30,6 +32,7 @@ namespace PROJECT
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
             LoadData();
+            oldversion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private async void LoadData()
@@ -285,7 +288,6 @@ namespace PROJECT
         private void UPDATE_Click(object sender, EventArgs e)
         {
             CheckForUpdates();
-            MessageBox.Show("UPDATE DONE, THE APPLICATION WILL CLOSE");
             this.Close();
         }
 
@@ -303,6 +305,11 @@ namespace PROJECT
                 Date_search.CustomFormat = " ";
             else
                 e.SuppressKeyPress = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
 
         private void ForwardClick(object sender, EventArgs e)

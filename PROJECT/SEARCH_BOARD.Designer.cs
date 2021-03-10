@@ -211,7 +211,7 @@
             this.EDIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EDIT.Location = new System.Drawing.Point(645, 513);
+            this.EDIT.Location = new System.Drawing.Point(662, 513);
             this.EDIT.Name = "EDIT";
             this.EDIT.Size = new System.Drawing.Size(130, 50);
             this.EDIT.TabIndex = 24;
@@ -241,9 +241,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label1.Location = new System.Drawing.Point(487, 525);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(152, 24);
+            this.label1.Size = new System.Drawing.Size(169, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "VERSION 1.0.5";
+            this.label1.Text = "VERSION 1.0.0.5";
             // 
             // UPDATE
             // 
