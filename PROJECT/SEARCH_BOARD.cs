@@ -311,7 +311,7 @@ namespace PROJECT
             this.Close();
         }
 
-        private async Task CheckForUpdates()
+        private async void CheckForUpdates()
         {
             using (var update = new UpdateManager(@"\\maxcavfs01\mpoc_asl_softwares\12_Projects and Activities\BFV APPLICATION"))
             {

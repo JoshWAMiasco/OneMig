@@ -213,23 +213,49 @@ namespace PROJECT
         {
             if (FAILURE_CHANGED.Checked)
             {
-                if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
+                if (Second_Site.Items.Count == 0)
                 {
-                    error();
-                    return;
+                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
+                    {
+                        error();
+                        return;
+                    }
+                    status = "FAILURE CHANGED";
+                    Save_data(6);
                 }
-                status = "FAILURE CHANGED";
-                Save_data(6);
+                else
+                {
+                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1 || Second_Site.SelectedIndex == - 1 || string.IsNullOrWhiteSpace(Second_slot.Text))
+                    {
+                        error();
+                        return;
+                    }
+                    status = "FAILURE CHANGED";
+                    Save_data(9);
+                }
             }
             else if (INSTALL_TO_TESTER.Checked)
             {
-                if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
+                if (Second_Site.Items.Count == 0)
                 {
-                    error();
-                    return;
+                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
+                    {
+                        error();
+                        return;
+                    }
+                    status = "INSTALL TO A TESTER";
+                    Save_data(7);
                 }
-                status = "INSTALL TO A TESTER";
-                Save_data(7);
+                else
+                {
+                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1 || Second_Site.SelectedIndex == - 1 || string.IsNullOrWhiteSpace(Second_slot.Text))
+                    {
+                        error();
+                        return;
+                    }
+                    status = "INSTALL TO A TESTER";
+                    Save_data(10);
+                }
             }
             else if (BRG.Checked)
             {
@@ -599,7 +625,7 @@ namespace PROJECT
                     break;
                 case 6:  // IF THE SECOND VERIFICATION CHANGES
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
-                        "SET `SECOND DATE` = '" + Date_second_verif.Text  + "',`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text  + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
@@ -613,6 +639,22 @@ namespace PROJECT
                 case 8:
                     tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
                     command = new MySqlCommand(tester_platform, Connection.connect);
+                    break;
+                case 9:
+                    command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
+                        "`SECOND SLOT` = '" +Second_slot.Text + "',`SECOND TIME` = '" + SecondTime.Text + "'," +
+                        "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
+                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
+                    break;
+                case 10:
+                    command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
+                        "`SECOND SLOT` = '" + Second_slot.Text + "',`SECOND TIME` = '" + SecondTime.Text + "'," +
+                        "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
+                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1", Second_tester.Text));
                     break;
             }
         }
