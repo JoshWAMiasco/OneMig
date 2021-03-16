@@ -215,7 +215,7 @@ namespace PROJECT
             {
                 if (Second_Site.Items.Count == 0)
                 {
-                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
+                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Second_slot.Text))
                     {
                         error();
                         return;
@@ -238,7 +238,7 @@ namespace PROJECT
             {
                 if (Second_Site.Items.Count == 0)
                 {
-                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
+                    if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Second_slot.Text))
                     {
                         error();
                         return;
@@ -625,13 +625,15 @@ namespace PROJECT
                     break;
                 case 6:  // IF THE SECOND VERIFICATION CHANGES
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
-                        "SET `SECOND DATE` = '" + Date_second_verif.Text  + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text  + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
+                        "`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
                 case 7:  // IF THE SECOND VERIFICATION PASSED AND INSTALLED ALREADY TO THE TESTER
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
-                        "SET `SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND TIME` = '" + SecondTime.Text + "'," +
+                        "SET `SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
+                        "`SECOND TIME` = '" + SecondTime.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
