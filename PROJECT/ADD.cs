@@ -223,21 +223,13 @@ namespace PROJECT
             }
             else if (INSTALL_TO_TESTER.Checked)
             {
-                if (second_endorser.SelectedIndex == -1)
+                if (second_endorser.SelectedIndex == -1 || Second_tester.SelectedIndex == -1)
                 {
                     error();
                     return;
                 }
                 status = "INSTALL TO A TESTER";
-                inputBox = Interaction.InputBox("WHERE DID YOU INSTALL THE BOARD?", "INSTALL TO TESTER","PUT THE TESTER WHERE YOU INSTALL THE BOARD");
-                if (inputBox.Length == 0)
-                {
-                    MessageBox.Show("NO INPUT");
-                }
-                else
-                {
-                    Save_data(7);
-                }
+                Save_data(7);
             }
             else if (BRG.Checked)
             {
@@ -615,7 +607,7 @@ namespace PROJECT
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND DATE` = '" + Date_second_verif.Text + "',`SECOND TIME` = '" + SecondTime.Text + "',`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
-                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",inputBox.ToUpper()));
+                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
                     break;
                 case 8:
                     tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());

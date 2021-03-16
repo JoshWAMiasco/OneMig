@@ -18,7 +18,6 @@ namespace PROJECT
 {
     public partial class SEARCH_BOARD : Form
     {
-        string newversion,oldversion;
         public string check,all;
         public int count, ComboBoxCount, AllCount,firstCount,secondCount;
         public string TP, B, A, S, D,FullTextCommand;
@@ -32,7 +31,6 @@ namespace PROJECT
         private void SEARCH_BOARD_Load(object sender, EventArgs e)
         {
             LoadData();
-            oldversion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
         }
 
         private async void LoadData()
@@ -51,7 +49,12 @@ namespace PROJECT
                     all = command.ExecuteScalar().ToString();
                     Connection.CloseConnection();
                 }
-                else this.Close();
+                else
+                {
+                    Connection.CloseConnection();
+                    CheckForUpdates();
+                    this.Close();
+                }
                 commands(6);
                 if (Connection.OpenConnection())
                 {
@@ -62,14 +65,24 @@ namespace PROJECT
                     }
                     Connection.CloseConnection();
                 }
-                else this.Close();
+                else
+                {
+                    Connection.CloseConnection();
+                    CheckForUpdates();
+                    this.Close();
+                }
                 commands(2);
                 if (Connection.OpenConnection())
                 {
                     check = command.ExecuteScalar().ToString();
                     Connection.CloseConnection();
                 }
-                else this.Close();
+                else
+                {
+                    Connection.CloseConnection();
+                    CheckForUpdates();
+                    this.Close();
+                }
             }
             );
             Counts();
@@ -203,9 +216,15 @@ namespace PROJECT
                         dataGridViewList.DataSource = table(commandss);
                     }
                 }
-                else return;
+                else
+                {
+                    Connection.CloseConnection();
+                }
             }
-            else return;
+            else
+            {
+                Connection.CloseConnection();
+            }
         }
 
         private void Search_button_Click(object sender, EventArgs e)
@@ -288,8 +307,7 @@ namespace PROJECT
         private void UPDATE_Click(object sender, EventArgs e)
         {
             CheckForUpdates();
-            MessageBox.Show(oldversion);
-            MessageBox.Show(newversion);
+            MessageBox.Show("THIS APP WILL CLOSED, WAIT FOR A FEW SECOND AND REOPEN IT AGAIN");
             this.Close();
         }
 
@@ -379,7 +397,11 @@ namespace PROJECT
                         }
                         Connection.CloseConnectionForBoards();
                     }
-                    else return;
+                    else
+                    {
+                        Connection.CloseConnectionForBoards();
+                        return;
+                    }
                 }
                 else
                 {
