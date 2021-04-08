@@ -239,6 +239,7 @@
             // 
             // First_board_slot
             // 
+            this.First_board_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.First_board_slot.Location = new System.Drawing.Point(159, 245);
             this.First_board_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_board_slot.Name = "First_board_slot";
@@ -573,6 +574,7 @@
             // 
             // Second_slot
             // 
+            this.Second_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.Second_slot.Location = new System.Drawing.Point(160, 246);
             this.Second_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_slot.Name = "Second_slot";
