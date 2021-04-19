@@ -37,7 +37,7 @@ namespace PROJECT
         {
             await Task.Run(() =>
             {
-                Date_search.Invoke((MethodInvoker)(()=> Date_search.CustomFormat = " "));
+                FROM_DATE.Invoke((MethodInvoker)(()=> FROM_DATE.CustomFormat = " "));
                 Stats.Invoke((MethodInvoker)(() => Stats.SelectedIndex = 0));
                 AREA.Invoke((MethodInvoker)(() => AREA.SelectedIndex = 0));
                 Tester_platform.Invoke((MethodInvoker)(() => Tester_platform.SelectedIndex = 0));
@@ -149,7 +149,7 @@ namespace PROJECT
                     break;
                 case 4: // TO CHECK THE BOARDS BY SPECIFIC DATE ONLY
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + Date_search.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
+                        " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + FROM_DATE.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
                 case 5: //
                     command = new MySqlCommand(string.Format("SELECT COUNT(*) FROM `boards_for_verification`.`board details` {0}",FullTextCommand), Connection.connect);
@@ -256,7 +256,7 @@ namespace PROJECT
                 Counts();
                 results();
                 load_data(1);
-                Date_search.CustomFormat = " ";
+                FROM_DATE.CustomFormat = " ";
                 AREA.SelectedIndex = 0;
                 Stats.SelectedIndex = 0;
                 Tester_platform.SelectedIndex = 0;
@@ -272,7 +272,7 @@ namespace PROJECT
         }
         private void REFRESH_Click(object sender, EventArgs e)
         {
-            Date_search.CustomFormat = " ";
+            FROM_DATE.CustomFormat = " ";
             AREA.SelectedIndex = 0;
             Stats.SelectedIndex = 0;
             Tester_platform.SelectedIndex = 0;
@@ -322,7 +322,7 @@ namespace PROJECT
         private void Date(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
-                Date_search.CustomFormat = " ";
+                FROM_DATE.CustomFormat = " ";
             else
                 e.SuppressKeyPress = true;
         }
@@ -428,7 +428,7 @@ namespace PROJECT
 
         private void Select_date(object sender, EventArgs e)
         {
-            Date_search.CustomFormat = "yyyy-MM-dd";
+            FROM_DATE.CustomFormat = "yyyy-MM-dd";
         }
         private void CommandComboBox()
         {
@@ -490,9 +490,9 @@ namespace PROJECT
                     ComboBoxCount++;
                 }
             }
-            if (!string.IsNullOrWhiteSpace(Date_search.Text))                                                //DATE
+            if (!string.IsNullOrWhiteSpace(FROM_DATE.Text))                                                //DATE
             {
-                D = string.Format("(`FIRST DATE` = '{0}')", Date_search.Text);
+                D = string.Format("(`FIRST DATE` = '{0}')", FROM_DATE.Text);
                 if (ComboBoxCount == 3)
                 {
                     FullTextCommand = FullTextCommand + string.Format(" and {0}", D);

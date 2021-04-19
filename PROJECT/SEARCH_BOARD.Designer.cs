@@ -43,7 +43,7 @@
             this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.REFRESH = new System.Windows.Forms.Button();
             this.EDIT = new System.Windows.Forms.Button();
-            this.Date_search = new System.Windows.Forms.DateTimePicker();
+            this.FROM_DATE = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.UPDATE = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -60,6 +60,8 @@
             this.Count_search = new System.Windows.Forms.Label();
             this.FORWARD = new System.Windows.Forms.Label();
             this.BACK = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TO_DATE = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -219,19 +221,19 @@
             this.EDIT.UseVisualStyleBackColor = false;
             this.EDIT.Click += new System.EventHandler(this.EDIT_Click);
             // 
-            // Date_search
+            // FROM_DATE
             // 
-            this.Date_search.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Date_search.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Date_search.CustomFormat = "yyyy-MM-dd";
-            this.Date_search.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.Date_search.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date_search.Location = new System.Drawing.Point(1037, 43);
-            this.Date_search.Name = "Date_search";
-            this.Date_search.Size = new System.Drawing.Size(106, 20);
-            this.Date_search.TabIndex = 26;
-            this.Date_search.CloseUp += new System.EventHandler(this.Select_date);
-            this.Date_search.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Date);
+            this.FROM_DATE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FROM_DATE.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FROM_DATE.CustomFormat = "yyyy-MM-dd";
+            this.FROM_DATE.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
+            this.FROM_DATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.FROM_DATE.Location = new System.Drawing.Point(898, 43);
+            this.FROM_DATE.Name = "FROM_DATE";
+            this.FROM_DATE.Size = new System.Drawing.Size(108, 20);
+            this.FROM_DATE.TabIndex = 26;
+            this.FROM_DATE.CloseUp += new System.EventHandler(this.Select_date);
+            this.FROM_DATE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Date);
             // 
             // label1
             // 
@@ -278,7 +280,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label2.Location = new System.Drawing.Point(721, 47);
+            this.label2.Location = new System.Drawing.Point(582, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 31;
@@ -298,7 +300,7 @@
             "FOR SECOND VERIF",
             "FAILURE CHANGED",
             "OVERDUE"});
-            this.Stats.Location = new System.Drawing.Point(795, 42);
+            this.Stats.Location = new System.Drawing.Point(656, 42);
             this.Stats.Name = "Stats";
             this.Stats.Size = new System.Drawing.Size(177, 21);
             this.Stats.TabIndex = 32;
@@ -315,7 +317,7 @@
             "A2",
             "A1",
             "B2"});
-            this.AREA.Location = new System.Drawing.Point(651, 44);
+            this.AREA.Location = new System.Drawing.Point(512, 44);
             this.AREA.Name = "AREA";
             this.AREA.Size = new System.Drawing.Size(64, 21);
             this.AREA.TabIndex = 34;
@@ -327,7 +329,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label3.Location = new System.Drawing.Point(592, 47);
+            this.label3.Location = new System.Drawing.Point(453, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 33;
@@ -338,7 +340,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label4.Location = new System.Drawing.Point(405, 49);
+            this.label4.Location = new System.Drawing.Point(266, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 35;
@@ -349,7 +351,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label5.Location = new System.Drawing.Point(142, 49);
+            this.label5.Location = new System.Drawing.Point(3, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 13);
             this.label5.TabIndex = 36;
@@ -363,7 +365,7 @@
             this.Boards.FormattingEnabled = true;
             this.Boards.Items.AddRange(new object[] {
             ""});
-            this.Boards.Location = new System.Drawing.Point(465, 44);
+            this.Boards.Location = new System.Drawing.Point(326, 44);
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(121, 21);
             this.Boards.TabIndex = 37;
@@ -377,7 +379,7 @@
             this.Tester_platform.FormattingEnabled = true;
             this.Tester_platform.Items.AddRange(new object[] {
             ""});
-            this.Tester_platform.Location = new System.Drawing.Point(278, 44);
+            this.Tester_platform.Location = new System.Drawing.Point(139, 44);
             this.Tester_platform.Name = "Tester_platform";
             this.Tester_platform.Size = new System.Drawing.Size(121, 21);
             this.Tester_platform.TabIndex = 38;
@@ -389,18 +391,18 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label6.Location = new System.Drawing.Point(978, 47);
+            this.label6.Location = new System.Drawing.Point(839, 46);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(53, 16);
+            this.label6.Size = new System.Drawing.Size(55, 16);
             this.label6.TabIndex = 39;
-            this.label6.Text = "DATE:";
+            this.label6.Text = "FROM:";
             // 
             // OVERDUE
             // 
             this.OVERDUE.AutoSize = true;
             this.OVERDUE.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.OVERDUE.ForeColor = System.Drawing.Color.Lime;
-            this.OVERDUE.Location = new System.Drawing.Point(13, 48);
+            this.OVERDUE.Location = new System.Drawing.Point(316, 9);
             this.OVERDUE.Name = "OVERDUE";
             this.OVERDUE.Size = new System.Drawing.Size(0, 16);
             this.OVERDUE.TabIndex = 40;
@@ -441,12 +443,35 @@
             this.BACK.Text = "<<";
             this.BACK.Click += new System.EventHandler(this.BackClick);
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label7.Location = new System.Drawing.Point(1009, 48);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(28, 13);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "TO:";
+            // 
+            // TO_DATE
+            // 
+            this.TO_DATE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TO_DATE.CustomFormat = "yyyy-MM-dd";
+            this.TO_DATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.TO_DATE.Location = new System.Drawing.Point(1038, 43);
+            this.TO_DATE.Name = "TO_DATE";
+            this.TO_DATE.Size = new System.Drawing.Size(106, 20);
+            this.TO_DATE.TabIndex = 45;
+            // 
             // SEARCH_BOARD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
             this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.Controls.Add(this.TO_DATE);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.BACK);
             this.Controls.Add(this.FORWARD);
             this.Controls.Add(this.Count_search);
@@ -463,7 +488,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.UPDATE);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.Date_search);
+            this.Controls.Add(this.FROM_DATE);
             this.Controls.Add(this.EDIT);
             this.Controls.Add(this.REFRESH);
             this.Controls.Add(this.dataGridViewList);
@@ -491,7 +516,7 @@
         private System.Windows.Forms.DataGridView dataGridViewList;
         private System.Windows.Forms.Button REFRESH;
         private System.Windows.Forms.Button EDIT;
-        private System.Windows.Forms.DateTimePicker Date_search;
+        private System.Windows.Forms.DateTimePicker FROM_DATE;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button UPDATE;
         private System.Windows.Forms.Button button1;
@@ -516,5 +541,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker TO_DATE;
     }
 }
