@@ -38,6 +38,7 @@ namespace PROJECT
             await Task.Run(() =>
             {
                 FROM_DATE.Invoke((MethodInvoker)(()=> FROM_DATE.CustomFormat = " "));
+                TO_DATE.Invoke((MethodInvoker)(() => TO_DATE.CustomFormat = " "));
                 Stats.Invoke((MethodInvoker)(() => Stats.SelectedIndex = 0));
                 AREA.Invoke((MethodInvoker)(() => AREA.SelectedIndex = 0));
                 Tester_platform.Invoke((MethodInvoker)(() => Tester_platform.SelectedIndex = 0));
