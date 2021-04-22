@@ -463,6 +463,8 @@
             this.TO_DATE.Name = "TO_DATE";
             this.TO_DATE.Size = new System.Drawing.Size(106, 20);
             this.TO_DATE.TabIndex = 45;
+            this.TO_DATE.CloseUp += new System.EventHandler(this.TO_DATE_select);
+            this.TO_DATE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TO_DATE_KeyDown);
             // 
             // SEARCH_BOARD
             // 

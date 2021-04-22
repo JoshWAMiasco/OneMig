@@ -333,6 +333,32 @@ namespace PROJECT
             MessageBox.Show(Assembly.GetExecutingAssembly().GetName().Version.ToString());
         }
 
+        private void TO_DATE_select(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(FROM_DATE.Text))
+            {
+                MessageBox.Show("FROM DATE IS EMPTY");
+                TO_DATE.CustomFormat = " ";
+                return;
+            }
+            else if (TO_DATE.Value < FROM_DATE.Value)
+            {
+                MessageBox.Show("INVALID DATE");
+                TO_DATE.CustomFormat = " ";
+                return;
+            }
+            else
+            TO_DATE.CustomFormat = "yyyy-MM-dd";
+        }
+
+        private void TO_DATE_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Back)
+                TO_DATE.CustomFormat = " ";
+            else
+                e.SuppressKeyPress = true;
+        }
+
         private void ForwardClick(object sender, EventArgs e)
         {
             firstCount = firstCount + secondCount;
