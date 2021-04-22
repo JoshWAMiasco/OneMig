@@ -128,7 +128,7 @@
             this.dataGridViewList.ReadOnly = true;
             this.dataGridViewList.RowHeadersVisible = false;
             this.dataGridViewList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewList.Size = new System.Drawing.Size(1137, 432);
+            this.dataGridViewList.Size = new System.Drawing.Size(1142, 432);
             this.dataGridViewList.TabIndex = 4;
             this.dataGridViewList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.Click_data);
             // 
@@ -198,7 +198,7 @@
             this.REFRESH.Cursor = System.Windows.Forms.Cursors.Hand;
             this.REFRESH.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.REFRESH.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.REFRESH.Location = new System.Drawing.Point(994, 5);
+            this.REFRESH.Location = new System.Drawing.Point(999, 5);
             this.REFRESH.Name = "REFRESH";
             this.REFRESH.Size = new System.Drawing.Size(150, 22);
             this.REFRESH.TabIndex = 5;
@@ -213,7 +213,7 @@
             this.EDIT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.EDIT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EDIT.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EDIT.Location = new System.Drawing.Point(662, 513);
+            this.EDIT.Location = new System.Drawing.Point(667, 513);
             this.EDIT.Name = "EDIT";
             this.EDIT.Size = new System.Drawing.Size(130, 50);
             this.EDIT.TabIndex = 24;
@@ -228,9 +228,9 @@
             this.FROM_DATE.CustomFormat = "yyyy-MM-dd";
             this.FROM_DATE.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.FROM_DATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.FROM_DATE.Location = new System.Drawing.Point(898, 43);
+            this.FROM_DATE.Location = new System.Drawing.Point(903, 43);
             this.FROM_DATE.Name = "FROM_DATE";
-            this.FROM_DATE.Size = new System.Drawing.Size(108, 20);
+            this.FROM_DATE.Size = new System.Drawing.Size(112, 20);
             this.FROM_DATE.TabIndex = 26;
             this.FROM_DATE.CloseUp += new System.EventHandler(this.Select_date);
             this.FROM_DATE.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Date);
@@ -241,7 +241,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label1.Location = new System.Drawing.Point(487, 525);
+            this.label1.Location = new System.Drawing.Point(490, 525);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(169, 24);
             this.label1.TabIndex = 27;
@@ -266,7 +266,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(1013, 514);
+            this.button1.Location = new System.Drawing.Point(1018, 514);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(130, 50);
             this.button1.TabIndex = 30;
@@ -280,7 +280,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label2.Location = new System.Drawing.Point(582, 47);
+            this.label2.Location = new System.Drawing.Point(587, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 16);
             this.label2.TabIndex = 31;
@@ -300,7 +300,7 @@
             "FOR SECOND VERIF",
             "FAILURE CHANGED",
             "OVERDUE"});
-            this.Stats.Location = new System.Drawing.Point(656, 42);
+            this.Stats.Location = new System.Drawing.Point(661, 42);
             this.Stats.Name = "Stats";
             this.Stats.Size = new System.Drawing.Size(177, 21);
             this.Stats.TabIndex = 32;
@@ -317,7 +317,7 @@
             "A2",
             "A1",
             "B2"});
-            this.AREA.Location = new System.Drawing.Point(512, 44);
+            this.AREA.Location = new System.Drawing.Point(517, 44);
             this.AREA.Name = "AREA";
             this.AREA.Size = new System.Drawing.Size(64, 21);
             this.AREA.TabIndex = 34;
@@ -329,7 +329,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label3.Location = new System.Drawing.Point(453, 47);
+            this.label3.Location = new System.Drawing.Point(458, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 16);
             this.label3.TabIndex = 33;
@@ -340,7 +340,7 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label4.Location = new System.Drawing.Point(266, 49);
+            this.label4.Location = new System.Drawing.Point(271, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 35;
@@ -351,7 +351,7 @@
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label5.Location = new System.Drawing.Point(3, 49);
+            this.label5.Location = new System.Drawing.Point(8, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(130, 13);
             this.label5.TabIndex = 36;
@@ -365,7 +365,7 @@
             this.Boards.FormattingEnabled = true;
             this.Boards.Items.AddRange(new object[] {
             ""});
-            this.Boards.Location = new System.Drawing.Point(326, 44);
+            this.Boards.Location = new System.Drawing.Point(331, 44);
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(121, 21);
             this.Boards.TabIndex = 37;
@@ -379,7 +379,7 @@
             this.Tester_platform.FormattingEnabled = true;
             this.Tester_platform.Items.AddRange(new object[] {
             ""});
-            this.Tester_platform.Location = new System.Drawing.Point(139, 44);
+            this.Tester_platform.Location = new System.Drawing.Point(144, 44);
             this.Tester_platform.Name = "Tester_platform";
             this.Tester_platform.Size = new System.Drawing.Size(121, 21);
             this.Tester_platform.TabIndex = 38;
@@ -391,7 +391,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label6.Location = new System.Drawing.Point(839, 46);
+            this.label6.Location = new System.Drawing.Point(844, 46);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(55, 16);
             this.label6.TabIndex = 39;
@@ -448,7 +448,7 @@
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label7.Location = new System.Drawing.Point(1009, 48);
+            this.label7.Location = new System.Drawing.Point(1014, 48);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(28, 13);
             this.label7.TabIndex = 44;
@@ -459,7 +459,7 @@
             this.TO_DATE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TO_DATE.CustomFormat = "yyyy-MM-dd";
             this.TO_DATE.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.TO_DATE.Location = new System.Drawing.Point(1038, 43);
+            this.TO_DATE.Location = new System.Drawing.Point(1043, 43);
             this.TO_DATE.Name = "TO_DATE";
             this.TO_DATE.Size = new System.Drawing.Size(106, 20);
             this.TO_DATE.TabIndex = 45;
@@ -471,7 +471,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(40)))), ((int)(((byte)(49)))));
-            this.ClientSize = new System.Drawing.Size(1151, 575);
+            this.ClientSize = new System.Drawing.Size(1156, 575);
             this.Controls.Add(this.TO_DATE);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.BACK);
