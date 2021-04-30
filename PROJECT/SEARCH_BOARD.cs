@@ -174,7 +174,7 @@ namespace PROJECT
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
-                case 11:
+                case 11: //NEXT BUTTON
                     command = new MySqlCommand(string.Format("select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT {0},{1}",firstCount,secondCount),Connection.connect);
