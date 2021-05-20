@@ -152,7 +152,7 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,date_format(`FIRST DATE`,'%Y-%m-%d') as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE (`FIRST DATE` = '" + FROM_DATE.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
-                case 5: //
+                case 5: // SEARCHING BOARDS WITH FILTER
                     command = new MySqlCommand(string.Format("SELECT COUNT(*) FROM `boards_for_verification`.`board details` {0}",FullTextCommand), Connection.connect);
                     break;
                 case 6:  //TESTER PLATFORMS
@@ -181,6 +181,9 @@ namespace PROJECT
                     break;
                 case 12:
                     command = new MySqlCommand("SELECT COUNT(*) FROM `board details` WHERE '" + search_text.Text + "' IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)", Connection.connect);
+                    break;
+                case 13:
+                    command = new MySqlCommand(string.Format("SELECT COUNT(*) FROM `boards_for_verification`.`board details` {0}", FullTextCommand), Connection.connect);
                     break;
             }
         }
