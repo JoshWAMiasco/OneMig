@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADD));
             this.Save_btn = new System.Windows.Forms.Button();
             this.Exit_btn = new System.Windows.Forms.Button();
@@ -45,8 +44,6 @@
             this.First_board_slot = new System.Windows.Forms.TextBox();
             this.Add_first_verif = new System.Windows.Forms.Button();
             this.first_verif_link = new System.Windows.Forms.LinkLabel();
-            this.Date_first_verif = new System.Windows.Forms.DateTimePicker();
-            this.Date_second_verif = new System.Windows.Forms.DateTimePicker();
             this.second_verif_link = new System.Windows.Forms.LinkLabel();
             this.Add_second_verif = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,12 +63,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
-            this.SecondTime = new System.Windows.Forms.Label();
             this.Second_tester = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
-            this.FirstTime = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.Revision = new System.Windows.Forms.TextBox();
@@ -91,8 +86,10 @@
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.Timer = new System.Windows.Forms.Timer(this.components);
-            this.Timer2 = new System.Windows.Forms.Timer(this.components);
+            this.FIRST_DateTime = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.Second_DateTime = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -231,7 +228,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 250);
+            this.label7.Location = new System.Drawing.Point(21, 248);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 15;
@@ -271,31 +268,6 @@
             this.first_verif_link.Size = new System.Drawing.Size(0, 13);
             this.first_verif_link.TabIndex = 17;
             this.first_verif_link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.first_verif_link_LinkClicked);
-            // 
-            // Date_first_verif
-            // 
-            this.Date_first_verif.CustomFormat = "yyyy-MM-dd";
-            this.Date_first_verif.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date_first_verif.Location = new System.Drawing.Point(21, 112);
-            this.Date_first_verif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Date_first_verif.Name = "Date_first_verif";
-            this.Date_first_verif.Size = new System.Drawing.Size(120, 20);
-            this.Date_first_verif.TabIndex = 18;
-            this.Date_first_verif.Value = new System.DateTime(2021, 2, 13, 21, 29, 42, 0);
-            this.Date_first_verif.CloseUp += new System.EventHandler(this.FirstDateCheck);
-            this.Date_first_verif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.First_date);
-            // 
-            // Date_second_verif
-            // 
-            this.Date_second_verif.CustomFormat = "yyyy-MM-dd";
-            this.Date_second_verif.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Date_second_verif.Location = new System.Drawing.Point(22, 112);
-            this.Date_second_verif.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Date_second_verif.Name = "Date_second_verif";
-            this.Date_second_verif.Size = new System.Drawing.Size(120, 20);
-            this.Date_second_verif.TabIndex = 21;
-            this.Date_second_verif.CloseUp += new System.EventHandler(this.SecondDateCheck);
-            this.Date_second_verif.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Second_date);
             // 
             // second_verif_link
             // 
@@ -412,7 +384,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(17, 289);
+            this.label9.Location = new System.Drawing.Point(21, 289);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 27;
@@ -469,7 +441,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 204);
+            this.label11.Location = new System.Drawing.Point(21, 209);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 32;
@@ -519,10 +491,10 @@
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.Gray;
-            this.Second_box.Controls.Add(this.SecondTime);
+            this.Second_box.Controls.Add(this.label23);
+            this.Second_box.Controls.Add(this.Second_DateTime);
             this.Second_box.Controls.Add(this.Second_tester);
             this.Second_box.Controls.Add(this.label14);
-            this.Second_box.Controls.Add(this.Date_second_verif);
             this.Second_box.Controls.Add(this.Second_slot);
             this.Second_box.Controls.Add(this.Add_second_verif);
             this.Second_box.Controls.Add(this.second_verif_link);
@@ -542,14 +514,6 @@
             this.Second_box.TabStop = false;
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
-            // 
-            // SecondTime
-            // 
-            this.SecondTime.AutoSize = true;
-            this.SecondTime.Location = new System.Drawing.Point(157, 117);
-            this.SecondTime.Name = "SecondTime";
-            this.SecondTime.Size = new System.Drawing.Size(0, 13);
-            this.SecondTime.TabIndex = 36;
             // 
             // Second_tester
             // 
@@ -584,7 +548,8 @@
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.Color.Gray;
-            this.First_box.Controls.Add(this.FirstTime);
+            this.First_box.Controls.Add(this.label21);
+            this.First_box.Controls.Add(this.FIRST_DateTime);
             this.First_box.Controls.Add(this.First_tester);
             this.First_box.Controls.Add(this.first_endorser);
             this.First_box.Controls.Add(this.label9);
@@ -594,7 +559,6 @@
             this.First_box.Controls.Add(this.label4);
             this.First_box.Controls.Add(this.first_verif_link);
             this.First_box.Controls.Add(this.label7);
-            this.First_box.Controls.Add(this.Date_first_verif);
             this.First_box.Controls.Add(this.First_board_slot);
             this.First_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.First_box.Location = new System.Drawing.Point(388, 6);
@@ -606,14 +570,6 @@
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
-            // 
-            // FirstTime
-            // 
-            this.FirstTime.AutoSize = true;
-            this.FirstTime.Location = new System.Drawing.Point(156, 117);
-            this.FirstTime.Name = "FirstTime";
-            this.FirstTime.Size = new System.Drawing.Size(0, 13);
-            this.FirstTime.TabIndex = 35;
             // 
             // First_tester
             // 
@@ -877,13 +833,39 @@
             this.label19.Text = "AREA";
             this.label19.Visible = false;
             // 
-            // Timer
+            // FIRST_DateTime
             // 
-            this.Timer.Tick += new System.EventHandler(this.FirstTimer_Tick);
+            this.FIRST_DateTime.AutoSize = true;
+            this.FIRST_DateTime.Location = new System.Drawing.Point(156, 122);
+            this.FIRST_DateTime.Name = "FIRST_DateTime";
+            this.FIRST_DateTime.Size = new System.Drawing.Size(0, 13);
+            this.FIRST_DateTime.TabIndex = 36;
             // 
-            // Timer2
+            // label21
             // 
-            this.Timer2.Tick += new System.EventHandler(this.Timer2_Tick);
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(21, 122);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 13);
+            this.label21.TabIndex = 37;
+            this.label21.Text = "DATE VERIFIED";
+            // 
+            // Second_DateTime
+            // 
+            this.Second_DateTime.AutoSize = true;
+            this.Second_DateTime.Location = new System.Drawing.Point(157, 122);
+            this.Second_DateTime.Name = "Second_DateTime";
+            this.Second_DateTime.Size = new System.Drawing.Size(0, 13);
+            this.Second_DateTime.TabIndex = 38;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(19, 122);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(101, 13);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "DATE VERIFIED";
             // 
             // ADD
             // 
@@ -960,8 +942,6 @@
         private System.Windows.Forms.TextBox First_board_slot;
         private System.Windows.Forms.Button Add_first_verif;
         private System.Windows.Forms.LinkLabel first_verif_link;
-        private System.Windows.Forms.DateTimePicker Date_first_verif;
-        private System.Windows.Forms.DateTimePicker Date_second_verif;
         private System.Windows.Forms.LinkLabel second_verif_link;
         private System.Windows.Forms.Button Add_second_verif;
         private System.Windows.Forms.Label label8;
@@ -1006,9 +986,9 @@
         public System.Windows.Forms.TextBox Part_number;
         private System.Windows.Forms.ComboBox Area;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Timer Timer;
-        private System.Windows.Forms.Label SecondTime;
-        private System.Windows.Forms.Label FirstTime;
-        private System.Windows.Forms.Timer Timer2;
+        private System.Windows.Forms.Label FIRST_DateTime;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label Second_DateTime;
     }
 }
