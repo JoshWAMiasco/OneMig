@@ -52,7 +52,7 @@ namespace PROJECT
                 Remarks.Text = read_data["REMARKS"].ToString();
                 Status.Text = read_data["STATUS"].ToString();
                 Data1 = (byte[])read_data["FIRST DATALOG"];
-                First_date.Text = read_data["date_format(`FIRST DATE`,'%Y-%m-%d')"].ToString();
+                First_date.Text = read_data["FIRST DATE"].ToString();
                 First_tester.Text = read_data["FIRST TESTER"].ToString();
                 First_site.Text = read_data["FIRST SITE"].ToString();
                 First_slot.Text = read_data["FIRST SLOT"].ToString();
@@ -60,7 +60,6 @@ namespace PROJECT
                 Second_verif_link.Text = read_data["SECOND DATALOG"].ToString();
                 if (Second_verif_link.Text != String.Empty)
                     Data2 = (byte[])read_data["SECOND DATALOG"];
-                Second_date.Text = read_data["date_format(`SECOND DATE`,'%Y-%m-%d')"].ToString();
                 Second_tester.Text = read_data["SECOND TESTER"].ToString();
                 Second_site.Text = read_data["SECOND SITE"].ToString();
                 Second_slot.Text = read_data["SECOND SLOT"].ToString();
@@ -68,8 +67,6 @@ namespace PROJECT
                 FileName1 = read_data["FILENAME 1"].ToString();
                 Filename2 = read_data["FILENAME 2"].ToString();
                 AREA.Text = read_data["AREA"].ToString();
-                FirstTime.Text = read_data["FIRST TIME"].ToString();
-                SecondTime.Text = read_data["SECOND TIME"].ToString();
                 Connection.CloseConnection();
                 First_verif_link.Text = FileName1;
                 Second_verif_link.Text = Filename2;
@@ -130,8 +127,8 @@ namespace PROJECT
             {
                 case 0:
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
-            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,date_format(`FIRST DATE`,'%Y-%m-%d'),`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,date_format(`SECOND DATE`,'%Y-%m-%d')," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST TIME`,`SECOND TIME` FROM `boards_for_verification`.`board details` " +
+            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`,`SECOND DATE`," +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST DATE` FROM `boards_for_verification`.`board details` " +
             "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
                     break;
                 case 1:

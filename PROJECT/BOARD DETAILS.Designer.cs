@@ -40,8 +40,6 @@ namespace PROJECT
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.First_box = new System.Windows.Forms.GroupBox();
-            this.FirstTime = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.First_date = new System.Windows.Forms.Label();
             this.First_endorser = new System.Windows.Forms.Label();
             this.First_site = new System.Windows.Forms.Label();
@@ -192,8 +190,6 @@ namespace PROJECT
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.First_box.Controls.Add(this.FirstTime);
-            this.First_box.Controls.Add(this.label21);
             this.First_box.Controls.Add(this.First_date);
             this.First_box.Controls.Add(this.First_endorser);
             this.First_box.Controls.Add(this.First_site);
@@ -214,31 +210,12 @@ namespace PROJECT
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             // 
-            // FirstTime
-            // 
-            this.FirstTime.AutoSize = true;
-            this.FirstTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FirstTime.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FirstTime.Location = new System.Drawing.Point(201, 98);
-            this.FirstTime.Name = "FirstTime";
-            this.FirstTime.Size = new System.Drawing.Size(0, 13);
-            this.FirstTime.TabIndex = 42;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(156, 98);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(37, 13);
-            this.label21.TabIndex = 41;
-            this.label21.Text = "TIME";
-            // 
             // First_date
             // 
             this.First_date.AutoSize = true;
             this.First_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.First_date.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.First_date.Location = new System.Drawing.Point(73, 98);
+            this.First_date.Location = new System.Drawing.Point(134, 98);
             this.First_date.Name = "First_date";
             this.First_date.Size = new System.Drawing.Size(0, 13);
             this.First_date.TabIndex = 40;
@@ -281,9 +258,9 @@ namespace PROJECT
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(17, 98);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(40, 13);
+            this.label19.Size = new System.Drawing.Size(101, 13);
             this.label19.TabIndex = 35;
-            this.label19.Text = "DATE";
+            this.label19.Text = "DATE VERIFIED";
             // 
             // label9
             // 
@@ -780,8 +757,6 @@ namespace PROJECT
         private System.Windows.Forms.Label Second_date;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label AREA;
-        private System.Windows.Forms.Label FirstTime;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label SecondTime;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button1;
