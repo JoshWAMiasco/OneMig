@@ -91,6 +91,10 @@
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.PHYSICAL_DAMAGE = new System.Windows.Forms.CheckBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.FIRST_CONFIG = new System.Windows.Forms.ComboBox();
+            this.SECOND_CONFIG = new System.Windows.Forms.ComboBox();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -229,7 +233,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 264);
+            this.label7.Location = new System.Drawing.Point(21, 254);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 15;
@@ -238,7 +242,7 @@
             // First_board_slot
             // 
             this.First_board_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.First_board_slot.Location = new System.Drawing.Point(159, 261);
+            this.First_board_slot.Location = new System.Drawing.Point(159, 251);
             this.First_board_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_board_slot.Name = "First_board_slot";
             this.First_board_slot.Size = new System.Drawing.Size(140, 20);
@@ -349,7 +353,7 @@
             "MAC KELLY",
             "ERWIN DESEO",
             "JAMES ANORA"});
-            this.first_endorser.Location = new System.Drawing.Point(145, 302);
+            this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
             this.first_endorser.Size = new System.Drawing.Size(177, 21);
@@ -376,7 +380,7 @@
             "MAC KELLY",
             "ERWIN DESEO",
             "JAMES ANORA"});
-            this.second_endorser.Location = new System.Drawing.Point(145, 297);
+            this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";
             this.second_endorser.Size = new System.Drawing.Size(177, 21);
@@ -385,7 +389,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 305);
+            this.label9.Location = new System.Drawing.Point(22, 287);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 27;
@@ -394,7 +398,7 @@
             // Second_verif_text
             // 
             this.Second_verif_text.AutoSize = true;
-            this.Second_verif_text.Location = new System.Drawing.Point(19, 302);
+            this.Second_verif_text.Location = new System.Drawing.Point(22, 289);
             this.Second_verif_text.Name = "Second_verif_text";
             this.Second_verif_text.Size = new System.Drawing.Size(84, 13);
             this.Second_verif_text.TabIndex = 28;
@@ -492,6 +496,8 @@
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.Gray;
+            this.Second_box.Controls.Add(this.SECOND_CONFIG);
+            this.Second_box.Controls.Add(this.label22);
             this.Second_box.Controls.Add(this.PHYSICAL_DAMAGE);
             this.Second_box.Controls.Add(this.label23);
             this.Second_box.Controls.Add(this.Second_DateTime);
@@ -549,7 +555,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(19, 266);
+            this.label14.Location = new System.Drawing.Point(19, 257);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 13);
             this.label14.TabIndex = 35;
@@ -558,7 +564,7 @@
             // Second_slot
             // 
             this.Second_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.Second_slot.Location = new System.Drawing.Point(160, 260);
+            this.Second_slot.Location = new System.Drawing.Point(160, 251);
             this.Second_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_slot.Name = "Second_slot";
             this.Second_slot.Size = new System.Drawing.Size(140, 20);
@@ -567,6 +573,8 @@
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.Color.Gray;
+            this.First_box.Controls.Add(this.FIRST_CONFIG);
+            this.First_box.Controls.Add(this.label20);
             this.First_box.Controls.Add(this.label21);
             this.First_box.Controls.Add(this.FIRST_DateTime);
             this.First_box.Controls.Add(this.First_tester);
@@ -880,6 +888,42 @@
             this.PHYSICAL_DAMAGE.UseVisualStyleBackColor = true;
             this.PHYSICAL_DAMAGE.CheckedChanged += new System.EventHandler(this.PHYSICAL_DAMAGE_CheckedChanged);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(21, 190);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 13);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "CONFIG";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(19, 190);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 13);
+            this.label22.TabIndex = 39;
+            this.label22.Text = "CONFIG";
+            // 
+            // FIRST_CONFIG
+            // 
+            this.FIRST_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FIRST_CONFIG.FormattingEnabled = true;
+            this.FIRST_CONFIG.Location = new System.Drawing.Point(159, 182);
+            this.FIRST_CONFIG.Name = "FIRST_CONFIG";
+            this.FIRST_CONFIG.Size = new System.Drawing.Size(140, 21);
+            this.FIRST_CONFIG.TabIndex = 39;
+            // 
+            // SECOND_CONFIG
+            // 
+            this.SECOND_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SECOND_CONFIG.FormattingEnabled = true;
+            this.SECOND_CONFIG.Location = new System.Drawing.Point(160, 182);
+            this.SECOND_CONFIG.Name = "SECOND_CONFIG";
+            this.SECOND_CONFIG.Size = new System.Drawing.Size(140, 21);
+            this.SECOND_CONFIG.TabIndex = 40;
+            // 
             // ADD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1004,5 +1048,9 @@
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label Second_DateTime;
         private System.Windows.Forms.CheckBox PHYSICAL_DAMAGE;
+        private System.Windows.Forms.ComboBox SECOND_CONFIG;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ComboBox FIRST_CONFIG;
+        private System.Windows.Forms.Label label20;
     }
 }
