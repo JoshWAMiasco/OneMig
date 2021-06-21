@@ -63,10 +63,14 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.Second_DateTime = new System.Windows.Forms.Label();
             this.Second_tester = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.FIRST_DateTime = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.Revision = new System.Windows.Forms.TextBox();
@@ -86,10 +90,7 @@
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.FIRST_DateTime = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.Second_DateTime = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.PHYSICAL_DAMAGE = new System.Windows.Forms.CheckBox();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -183,7 +184,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 166);
+            this.label4.Location = new System.Drawing.Point(19, 155);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 9;
@@ -228,7 +229,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 248);
+            this.label7.Location = new System.Drawing.Point(21, 264);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 15;
@@ -237,7 +238,7 @@
             // First_board_slot
             // 
             this.First_board_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.First_board_slot.Location = new System.Drawing.Point(159, 245);
+            this.First_board_slot.Location = new System.Drawing.Point(159, 261);
             this.First_board_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_board_slot.Name = "First_board_slot";
             this.First_board_slot.Size = new System.Drawing.Size(140, 20);
@@ -348,7 +349,7 @@
             "MAC KELLY",
             "ERWIN DESEO",
             "JAMES ANORA"});
-            this.first_endorser.Location = new System.Drawing.Point(145, 286);
+            this.first_endorser.Location = new System.Drawing.Point(145, 302);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
             this.first_endorser.Size = new System.Drawing.Size(177, 21);
@@ -375,7 +376,7 @@
             "MAC KELLY",
             "ERWIN DESEO",
             "JAMES ANORA"});
-            this.second_endorser.Location = new System.Drawing.Point(141, 286);
+            this.second_endorser.Location = new System.Drawing.Point(145, 297);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";
             this.second_endorser.Size = new System.Drawing.Size(177, 21);
@@ -384,7 +385,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 289);
+            this.label9.Location = new System.Drawing.Point(21, 305);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 13);
             this.label9.TabIndex = 27;
@@ -393,7 +394,7 @@
             // Second_verif_text
             // 
             this.Second_verif_text.AutoSize = true;
-            this.Second_verif_text.Location = new System.Drawing.Point(19, 286);
+            this.Second_verif_text.Location = new System.Drawing.Point(19, 302);
             this.Second_verif_text.Name = "Second_verif_text";
             this.Second_verif_text.Size = new System.Drawing.Size(84, 13);
             this.Second_verif_text.TabIndex = 28;
@@ -441,7 +442,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 209);
+            this.label11.Location = new System.Drawing.Point(21, 225);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 32;
@@ -451,7 +452,7 @@
             // 
             this.First_Site.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.First_Site.FormattingEnabled = true;
-            this.First_Site.Location = new System.Drawing.Point(159, 201);
+            this.First_Site.Location = new System.Drawing.Point(159, 217);
             this.First_Site.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_Site.Name = "First_Site";
             this.First_Site.Size = new System.Drawing.Size(140, 21);
@@ -463,7 +464,7 @@
             // 
             this.Second_Site.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Second_Site.FormattingEnabled = true;
-            this.Second_Site.Location = new System.Drawing.Point(160, 201);
+            this.Second_Site.Location = new System.Drawing.Point(160, 217);
             this.Second_Site.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_Site.Name = "Second_Site";
             this.Second_Site.Size = new System.Drawing.Size(140, 21);
@@ -473,7 +474,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 204);
+            this.label12.Location = new System.Drawing.Point(19, 220);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 36;
@@ -482,7 +483,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(19, 166);
+            this.label13.Location = new System.Drawing.Point(19, 153);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 13);
             this.label13.TabIndex = 35;
@@ -491,6 +492,7 @@
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.Gray;
+            this.Second_box.Controls.Add(this.PHYSICAL_DAMAGE);
             this.Second_box.Controls.Add(this.label23);
             this.Second_box.Controls.Add(this.Second_DateTime);
             this.Second_box.Controls.Add(this.Second_tester);
@@ -515,11 +517,28 @@
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(19, 117);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(101, 13);
+            this.label23.TabIndex = 39;
+            this.label23.Text = "DATE VERIFIED";
+            // 
+            // Second_DateTime
+            // 
+            this.Second_DateTime.AutoSize = true;
+            this.Second_DateTime.Location = new System.Drawing.Point(157, 116);
+            this.Second_DateTime.Name = "Second_DateTime";
+            this.Second_DateTime.Size = new System.Drawing.Size(0, 13);
+            this.Second_DateTime.TabIndex = 38;
+            // 
             // Second_tester
             // 
             this.Second_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Second_tester.FormattingEnabled = true;
-            this.Second_tester.Location = new System.Drawing.Point(160, 160);
+            this.Second_tester.Location = new System.Drawing.Point(160, 147);
             this.Second_tester.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_tester.Name = "Second_tester";
             this.Second_tester.Size = new System.Drawing.Size(140, 21);
@@ -530,7 +549,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(19, 250);
+            this.label14.Location = new System.Drawing.Point(19, 266);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 13);
             this.label14.TabIndex = 35;
@@ -539,7 +558,7 @@
             // Second_slot
             // 
             this.Second_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.Second_slot.Location = new System.Drawing.Point(160, 246);
+            this.Second_slot.Location = new System.Drawing.Point(160, 260);
             this.Second_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_slot.Name = "Second_slot";
             this.Second_slot.Size = new System.Drawing.Size(140, 20);
@@ -571,11 +590,28 @@
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(21, 117);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(101, 13);
+            this.label21.TabIndex = 37;
+            this.label21.Text = "DATE VERIFIED";
+            // 
+            // FIRST_DateTime
+            // 
+            this.FIRST_DateTime.AutoSize = true;
+            this.FIRST_DateTime.Location = new System.Drawing.Point(156, 117);
+            this.FIRST_DateTime.Name = "FIRST_DateTime";
+            this.FIRST_DateTime.Size = new System.Drawing.Size(0, 13);
+            this.FIRST_DateTime.TabIndex = 36;
+            // 
             // First_tester
             // 
             this.First_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.First_tester.FormattingEnabled = true;
-            this.First_tester.Location = new System.Drawing.Point(159, 160);
+            this.First_tester.Location = new System.Drawing.Point(159, 149);
             this.First_tester.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_tester.Name = "First_tester";
             this.First_tester.Size = new System.Drawing.Size(140, 21);
@@ -833,39 +869,16 @@
             this.label19.Text = "AREA";
             this.label19.Visible = false;
             // 
-            // FIRST_DateTime
+            // PHYSICAL_DAMAGE
             // 
-            this.FIRST_DateTime.AutoSize = true;
-            this.FIRST_DateTime.Location = new System.Drawing.Point(156, 122);
-            this.FIRST_DateTime.Name = "FIRST_DateTime";
-            this.FIRST_DateTime.Size = new System.Drawing.Size(0, 13);
-            this.FIRST_DateTime.TabIndex = 36;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(21, 122);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(101, 13);
-            this.label21.TabIndex = 37;
-            this.label21.Text = "DATE VERIFIED";
-            // 
-            // Second_DateTime
-            // 
-            this.Second_DateTime.AutoSize = true;
-            this.Second_DateTime.Location = new System.Drawing.Point(157, 122);
-            this.Second_DateTime.Name = "Second_DateTime";
-            this.Second_DateTime.Size = new System.Drawing.Size(0, 13);
-            this.Second_DateTime.TabIndex = 38;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(19, 122);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(101, 13);
-            this.label23.TabIndex = 39;
-            this.label23.Text = "DATE VERIFIED";
+            this.PHYSICAL_DAMAGE.AutoSize = true;
+            this.PHYSICAL_DAMAGE.Location = new System.Drawing.Point(214, 31);
+            this.PHYSICAL_DAMAGE.Name = "PHYSICAL_DAMAGE";
+            this.PHYSICAL_DAMAGE.Size = new System.Drawing.Size(149, 17);
+            this.PHYSICAL_DAMAGE.TabIndex = 40;
+            this.PHYSICAL_DAMAGE.Text = "PHYSICAL DAMAGE?";
+            this.PHYSICAL_DAMAGE.UseVisualStyleBackColor = true;
+            this.PHYSICAL_DAMAGE.CheckedChanged += new System.EventHandler(this.PHYSICAL_DAMAGE_CheckedChanged);
             // 
             // ADD
             // 
@@ -990,5 +1003,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label Second_DateTime;
+        private System.Windows.Forms.CheckBox PHYSICAL_DAMAGE;
     }
 }

@@ -23,6 +23,7 @@ namespace PROJECT
         public string tester_platform, get_status, inputBox,FileName,status,displayStatus,boardQuery,database,ForTmT;
         public int sites, DoNotLoadBoard;
         public DateTime FIRST_DATE = new DateTime();
+        public DateTime SECOND_DATE = new DateTime();
 
         byte[] data;
         public ADD()
@@ -337,6 +338,8 @@ namespace PROJECT
             {
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
+                SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog2.FileName);
+                FIRST_DateTime.Text = SECOND_DATE.ToString();
             }
         }
         private void first_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -603,12 +606,13 @@ namespace PROJECT
                     command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`,`AREA`) " +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST DATE`,`SECOND DATE`) " +
             "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "',@SECOND_DATA," +
             "'" + Second_tester.Text + "','" + Second_Site.Text + "','" + Second_slot.Text + "','" + second_endorser.Text + "','" + Test_system.Text + "'," +
-            "'" + Filename(first_verif_link.Text )+ "','" + Filename(second_verif_link.Text )+ "','" + Area.Text + "')");
+            "'" + Filename(first_verif_link.Text )+ "','" + Filename(second_verif_link.Text )+ "','" + Area.Text + "','" + FIRST_DATE.ToString("yyyy-M-dd hh:mm:ss") + "'" +
+            "'" + SECOND_DATE.ToString("yyyy-M-dd hh:mm:ss") + "')");
                     command.Parameters.Add("@FIRST_DATA", MySqlDbType.VarBinary).Value = SaveFile(first_verif_link.Text);
                     command.Parameters.Add("@SECOND_DATA", MySqlDbType.VarBinary).Value = SaveFile(second_verif_link.Text);
                     break;
@@ -861,6 +865,16 @@ namespace PROJECT
                 Failure_mode_others.Visible = false;
                 Failure_mode_others.Clear();
             }
+        }
+
+        private void PHYSICAL_DAMAGE_CheckedChanged(object sender, EventArgs e)
+        {
+            if (PHYSICAL_DAMAGE.Checked)
+            {
+                Second_DateTime.Text = DateTime.Now.ToString();
+            }
+            else
+                Second_DateTime.Text = " ";
         }
 
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)

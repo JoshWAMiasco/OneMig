@@ -67,6 +67,7 @@ namespace PROJECT
                 FileName1 = read_data["FILENAME 1"].ToString();
                 Filename2 = read_data["FILENAME 2"].ToString();
                 AREA.Text = read_data["AREA"].ToString();
+                Second_date.Text = read_data["SECOND DATE"].ToString();
                 Connection.CloseConnection();
                 First_verif_link.Text = FileName1;
                 Second_verif_link.Text = Filename2;

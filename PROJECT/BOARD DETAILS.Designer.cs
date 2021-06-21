@@ -53,9 +53,7 @@ namespace PROJECT
             this.First_verif_link = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
-            this.SecondTime = new System.Windows.Forms.Label();
             this.Second_date = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.Second_endorser = new System.Windows.Forms.Label();
             this.Second_site = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
@@ -223,7 +221,7 @@ namespace PROJECT
             // First_endorser
             // 
             this.First_endorser.AutoSize = true;
-            this.First_endorser.Location = new System.Drawing.Point(134, 232);
+            this.First_endorser.Location = new System.Drawing.Point(136, 232);
             this.First_endorser.Name = "First_endorser";
             this.First_endorser.Size = new System.Drawing.Size(0, 13);
             this.First_endorser.TabIndex = 38;
@@ -325,9 +323,7 @@ namespace PROJECT
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Second_box.Controls.Add(this.SecondTime);
             this.Second_box.Controls.Add(this.Second_date);
-            this.Second_box.Controls.Add(this.label23);
             this.Second_box.Controls.Add(this.Second_endorser);
             this.Second_box.Controls.Add(this.Second_site);
             this.Second_box.Controls.Add(this.label20);
@@ -348,37 +344,18 @@ namespace PROJECT
             this.Second_box.TabStop = false;
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             // 
-            // SecondTime
-            // 
-            this.SecondTime.AutoSize = true;
-            this.SecondTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SecondTime.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.SecondTime.Location = new System.Drawing.Point(203, 96);
-            this.SecondTime.Name = "SecondTime";
-            this.SecondTime.Size = new System.Drawing.Size(0, 13);
-            this.SecondTime.TabIndex = 44;
-            // 
             // Second_date
             // 
             this.Second_date.AutoSize = true;
-            this.Second_date.Location = new System.Drawing.Point(72, 97);
+            this.Second_date.Location = new System.Drawing.Point(137, 98);
             this.Second_date.Name = "Second_date";
             this.Second_date.Size = new System.Drawing.Size(0, 13);
             this.Second_date.TabIndex = 41;
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(160, 97);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(37, 13);
-            this.label23.TabIndex = 43;
-            this.label23.Text = "TIME";
-            // 
             // Second_endorser
             // 
             this.Second_endorser.AutoSize = true;
-            this.Second_endorser.Location = new System.Drawing.Point(136, 232);
+            this.Second_endorser.Location = new System.Drawing.Point(135, 232);
             this.Second_endorser.Name = "Second_endorser";
             this.Second_endorser.Size = new System.Drawing.Size(0, 13);
             this.Second_endorser.TabIndex = 42;
@@ -396,9 +373,9 @@ namespace PROJECT
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(16, 98);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(40, 13);
+            this.label20.Size = new System.Drawing.Size(101, 13);
             this.label20.TabIndex = 36;
-            this.label20.Text = "DATE";
+            this.label20.Text = "DATE VERIFIED";
             // 
             // Second_tester
             // 
@@ -422,7 +399,7 @@ namespace PROJECT
             // 
             this.Second_slot.AutoSize = true;
             this.Second_slot.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Second_slot.Location = new System.Drawing.Point(136, 200);
+            this.Second_slot.Location = new System.Drawing.Point(135, 200);
             this.Second_slot.Name = "Second_slot";
             this.Second_slot.Size = new System.Drawing.Size(0, 13);
             this.Second_slot.TabIndex = 41;
@@ -757,8 +734,6 @@ namespace PROJECT
         private System.Windows.Forms.Label Second_date;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label AREA;
-        private System.Windows.Forms.Label SecondTime;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label AGING;
