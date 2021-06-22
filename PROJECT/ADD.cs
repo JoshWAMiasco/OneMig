@@ -339,7 +339,7 @@ namespace PROJECT
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
                 SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog2.FileName);
-                FIRST_DateTime.Text = SECOND_DATE.ToString();
+                Second_DateTime.Text = SECOND_DATE.ToString();
             }
         }
         private void first_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -485,6 +485,7 @@ namespace PROJECT
                                 first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
                                 FileName = read_data["FILENAME 1"].ToString();
                                 Area.Text = read_data["AREA"].ToString();
+                                FIRST_DateTime.Text = read_data["FIRST DATE"].ToString();
                                 Connection.CloseConnection();
                                 disable_control();
                                 first_verif_link.Text = FileName;
