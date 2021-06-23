@@ -351,7 +351,7 @@ namespace PROJECT
                 SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog2.FileName);
                 if (FIRST_DATE > SECOND_DATE)
                 {
-                    MessageBox.Show("DATE NOT VALID, MUST BE AHEAD TO THE FIRST VERIFICATION");
+                    MessageBox.Show("DATE NOT VALID, MUST BE AHEAD TO THE FIRST VERIFICATION DATE");
                     return;
                 }
                 second_verif_link.Visible = true;
