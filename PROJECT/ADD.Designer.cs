@@ -351,7 +351,8 @@
             "BRYAN FELICIANO",
             "ERWIN DESEO",
             "JAMES ANORA",
-            "JACOB LORESCO"});
+            "JACOB LORESCO",
+            "MARCO LOPEZ"});
             this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
@@ -377,7 +378,8 @@
             "BRYAN FELICIANO",
             "ERWIN DESEO",
             "JAMES ANORA",
-            "JACOB LORESCO"});
+            "JACOB LORESCO",
+            "MARCO LOPEZ"});
             this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";

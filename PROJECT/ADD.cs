@@ -348,9 +348,14 @@ namespace PROJECT
             openFileDialog2.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             if (openFileDialog2.ShowDialog() == DialogResult.OK)
             {
+                SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog2.FileName);
+                if (FIRST_DATE > SECOND_DATE)
+                {
+                    MessageBox.Show("DATE NOT VALID, MUST BE AHEAD TO THE FIRST VERIFICATION");
+                    return;
+                }
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
-                SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog2.FileName);
                 Second_DateTime.Text = SECOND_DATE.ToString();
             }
         }
