@@ -63,12 +63,17 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.SECOND_CONFIG = new System.Windows.Forms.ComboBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.PHYSICAL_DAMAGE = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.Second_DateTime = new System.Windows.Forms.Label();
             this.Second_tester = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.FIRST_CONFIG = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.FIRST_DateTime = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.ComboBox();
@@ -90,11 +95,6 @@
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.PHYSICAL_DAMAGE = new System.Windows.Forms.CheckBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.FIRST_CONFIG = new System.Windows.Forms.ComboBox();
-            this.SECOND_CONFIG = new System.Windows.Forms.ComboBox();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -343,16 +343,15 @@
             "RALPH ARVIN CANDA",
             "SUSANA SAN GABRIEL",
             "BABYLYN HILARIO",
-            "JOSHUA MIASCO",
             "VJ TOLENTINO",
             "ROALD BAGABAY",
             "DARYL SOVERANO",
             "ROSVE VIRAY",
             "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
-            "MAC KELLY",
             "ERWIN DESEO",
-            "JAMES ANORA"});
+            "JAMES ANORA",
+            "JACOB LORESCO"});
             this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
@@ -370,16 +369,15 @@
             "RALPH ARVIN CANDA",
             "SUSANA SAN GABRIEL",
             "BABYLYN HILARIO",
-            "JOSHUA MIASCO",
             "VJ TOLENTINO",
             "ROALD BAGABAY",
             "DARYL SOVERANO",
             "ROSVE VIRAY",
             "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
-            "MAC KELLY",
             "ERWIN DESEO",
-            "JAMES ANORA"});
+            "JAMES ANORA",
+            "JACOB LORESCO"});
             this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";
@@ -523,6 +521,35 @@
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
             // 
+            // SECOND_CONFIG
+            // 
+            this.SECOND_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.SECOND_CONFIG.FormattingEnabled = true;
+            this.SECOND_CONFIG.Location = new System.Drawing.Point(160, 182);
+            this.SECOND_CONFIG.Name = "SECOND_CONFIG";
+            this.SECOND_CONFIG.Size = new System.Drawing.Size(140, 21);
+            this.SECOND_CONFIG.TabIndex = 40;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(19, 190);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(53, 13);
+            this.label22.TabIndex = 39;
+            this.label22.Text = "CONFIG";
+            // 
+            // PHYSICAL_DAMAGE
+            // 
+            this.PHYSICAL_DAMAGE.AutoSize = true;
+            this.PHYSICAL_DAMAGE.Location = new System.Drawing.Point(214, 31);
+            this.PHYSICAL_DAMAGE.Name = "PHYSICAL_DAMAGE";
+            this.PHYSICAL_DAMAGE.Size = new System.Drawing.Size(149, 17);
+            this.PHYSICAL_DAMAGE.TabIndex = 40;
+            this.PHYSICAL_DAMAGE.Text = "PHYSICAL DAMAGE?";
+            this.PHYSICAL_DAMAGE.UseVisualStyleBackColor = true;
+            this.PHYSICAL_DAMAGE.CheckedChanged += new System.EventHandler(this.PHYSICAL_DAMAGE_CheckedChanged);
+            // 
             // label23
             // 
             this.label23.AutoSize = true;
@@ -597,6 +624,24 @@
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
+            // 
+            // FIRST_CONFIG
+            // 
+            this.FIRST_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.FIRST_CONFIG.FormattingEnabled = true;
+            this.FIRST_CONFIG.Location = new System.Drawing.Point(159, 182);
+            this.FIRST_CONFIG.Name = "FIRST_CONFIG";
+            this.FIRST_CONFIG.Size = new System.Drawing.Size(140, 21);
+            this.FIRST_CONFIG.TabIndex = 39;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(21, 190);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(53, 13);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "CONFIG";
             // 
             // label21
             // 
@@ -876,53 +921,6 @@
             this.label19.TabIndex = 62;
             this.label19.Text = "AREA";
             this.label19.Visible = false;
-            // 
-            // PHYSICAL_DAMAGE
-            // 
-            this.PHYSICAL_DAMAGE.AutoSize = true;
-            this.PHYSICAL_DAMAGE.Location = new System.Drawing.Point(214, 31);
-            this.PHYSICAL_DAMAGE.Name = "PHYSICAL_DAMAGE";
-            this.PHYSICAL_DAMAGE.Size = new System.Drawing.Size(149, 17);
-            this.PHYSICAL_DAMAGE.TabIndex = 40;
-            this.PHYSICAL_DAMAGE.Text = "PHYSICAL DAMAGE?";
-            this.PHYSICAL_DAMAGE.UseVisualStyleBackColor = true;
-            this.PHYSICAL_DAMAGE.CheckedChanged += new System.EventHandler(this.PHYSICAL_DAMAGE_CheckedChanged);
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(21, 190);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 13);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "CONFIG";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(19, 190);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(53, 13);
-            this.label22.TabIndex = 39;
-            this.label22.Text = "CONFIG";
-            // 
-            // FIRST_CONFIG
-            // 
-            this.FIRST_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FIRST_CONFIG.FormattingEnabled = true;
-            this.FIRST_CONFIG.Location = new System.Drawing.Point(159, 182);
-            this.FIRST_CONFIG.Name = "FIRST_CONFIG";
-            this.FIRST_CONFIG.Size = new System.Drawing.Size(140, 21);
-            this.FIRST_CONFIG.TabIndex = 39;
-            // 
-            // SECOND_CONFIG
-            // 
-            this.SECOND_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SECOND_CONFIG.FormattingEnabled = true;
-            this.SECOND_CONFIG.Location = new System.Drawing.Point(160, 182);
-            this.SECOND_CONFIG.Name = "SECOND_CONFIG";
-            this.SECOND_CONFIG.Size = new System.Drawing.Size(140, 21);
-            this.SECOND_CONFIG.TabIndex = 40;
             // 
             // ADD
             // 

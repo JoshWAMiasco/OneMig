@@ -257,7 +257,19 @@ namespace PROJECT
             }
             else if (BRG.Checked)
             {
-                if (ForSecondVerif())
+                if (PHYSICAL_DAMAGE.Checked)
+                {
+                    if (second_endorser.SelectedIndex == -1)
+                    {
+                        error(); return;
+                    }
+                    else
+                    {
+                        status = "BRG";
+                        Save_data(11);
+                    }
+                }
+                else if (ForSecondVerif())
                 {
                     status = "BRG";
                     Save_data(3);
@@ -654,6 +666,11 @@ namespace PROJECT
                         "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1", Second_tester.Text));
                     break;
+                case 11: //UPDATE SECOND VERIF WITH PHYSICAL DAMAGE BOARD
+                    command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` SET `SECOND ENDORSER` = '" + second_endorser.Text + "'," +
+                        "`REMARKS` = '" + Remarks.Text + "',`STATUS` = '" + status + "',`SECOND DATE` = '" + SECOND_DATE.ToString("yyyy-M-dd hh:mm:ss") + "'" +
+                        " WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
+                    break;
             }
         }
         private void disable_control()
@@ -873,9 +890,13 @@ namespace PROJECT
             if (PHYSICAL_DAMAGE.Checked)
             {
                 Second_DateTime.Text = DateTime.Now.ToString();
+                second_verif_link.Text = " ";
             }
             else
+            {
                 Second_DateTime.Text = " ";
+                second_verif_link.Text = " ";
+            }
         }
 
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
