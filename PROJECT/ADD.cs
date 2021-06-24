@@ -895,6 +895,7 @@ namespace PROJECT
             if (PHYSICAL_DAMAGE.Checked)
             {
                 Second_DateTime.Text = DateTime.Now.ToString();
+                SECOND_DATE = DateTime.Now;
                 second_verif_link.Text = " ";
             }
             else

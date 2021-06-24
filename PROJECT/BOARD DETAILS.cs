@@ -16,7 +16,7 @@ namespace PROJECT
     {
         MySqlCommand command;
         byte[] Data1,Data2;
-        string DayCount, Second;
+        string DayCount,Second;
         public string FileName1, Filename2;
         int DAY;
         public int Endorsement_number { get; set; }
@@ -90,7 +90,7 @@ namespace PROJECT
                 }
                 else
                 {
-                    Second = string.Format("'{0}'",Second_date.Text);
+                    Second = "`SECOND DATE`";
                     Count();
                 }
             }
@@ -106,7 +106,7 @@ namespace PROJECT
                 MySqlDataReader readDay = command.ExecuteReader();
                 readDay.Read();
 
-                DAY = int.Parse(readDay["DAY INTERVAL"].ToString());
+                DAY = int.Parse(readDay["DAYS INTERVAL"].ToString());
                 Connection.CloseConnection();
                 Days(DAY);
             }
@@ -133,7 +133,7 @@ namespace PROJECT
             "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
                     break;
                 case 1:
-                    DayCount = string.Format("select abs(datediff(`FIRST DATE`,{0})) as `DAY INTERVAL` from `board details` where `endorsement number` = '" + Endorsement_number + "'",Second);
+                    DayCount = string.Format("select abs(datediff(`FIRST DATE`,{0})) as `DAYS INTERVAL` from `board details` where `endorsement number` = '" + Endorsement_number + "'",Second);
                     command = new MySqlCommand(DayCount,Connection.connect);
                     break;
             }
