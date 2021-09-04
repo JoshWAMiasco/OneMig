@@ -384,15 +384,15 @@ namespace PROJECT
         }
         private void BackClick(object sender, EventArgs e)
         {
-            resultDisplay = 0;
-            if (int.Parse(all) > 30)
+            resultDisplay--;
+            if (firstCount == 1)
             {
-                firstCount = 0;
+                resultDisplay = 0;
+                return;
             }
-            else return;
-            secondCount = 30;
+            firstCount = firstCount - 30;
+            //secondCount = secondCount - 30;
             load_data(11);
-            firstCount = 1;
             results();
         }
 
