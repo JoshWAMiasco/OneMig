@@ -19,7 +19,7 @@ namespace PROJECT
     public partial class SEARCH_BOARD : Form
     {
         public string check,all;
-        public int count, ComboBoxCount,firstCount,secondCount,resultDisplay=0;
+        public int count, ComboBoxCount, firstCount, secondCount, resultDisplay = 0, backButton = 0;
         public string TP, B, A, S, D,FullTextCommand;
         string tester;
         MySqlCommand command;
@@ -373,7 +373,9 @@ namespace PROJECT
             {
                 secondCount = secondCount + 30;
                 if (secondCount >= int.Parse(all))
-                    secondCount = int.Parse(all);
+                { 
+                    secondCount = int.Parse(all);  
+                }
                 results();
             }
             else results();
@@ -381,18 +383,23 @@ namespace PROJECT
             firstCount = firstCount - 1;
             load_data(11);
             firstCount = firstCount + 1;
+            backButton = 0;
         }
         private void BackClick(object sender, EventArgs e)
         {
+            backButton++;
             resultDisplay--;
             if (firstCount == 1)
             {
                 resultDisplay = 0;
                 return;
             }
+            if (backButton > 1)
+                secondCount = secondCount - 30;
             firstCount = firstCount - 30;
-            //secondCount = secondCount - 30;
+
             load_data(11);
+            
             results();
         }
 
