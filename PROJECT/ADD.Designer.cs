@@ -869,6 +869,7 @@
             this.FAILURE_CHANGED.Text = "FAILURE CHANGE";
             this.FAILURE_CHANGED.UseVisualStyleBackColor = true;
             this.FAILURE_CHANGED.Visible = false;
+            this.FAILURE_CHANGED.CheckedChanged += new System.EventHandler(this.FAILURE_CHANGED_CheckedChanged);
             // 
             // INSTALL_TO_TESTER
             // 

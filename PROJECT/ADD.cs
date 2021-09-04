@@ -905,6 +905,11 @@ namespace PROJECT
             }
         }
 
+        private void FAILURE_CHANGED_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Test_system.Text.Contains("ASL4K"))

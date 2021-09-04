@@ -19,7 +19,7 @@ namespace PROJECT
     public partial class SEARCH_BOARD : Form
     {
         public string check,all;
-        public int count, ComboBoxCount,firstCount,secondCount;
+        public int count, ComboBoxCount,firstCount,secondCount,resultDisplay=0;
         public string TP, B, A, S, D,FullTextCommand;
         string tester;
         MySqlCommand command;
@@ -177,7 +177,7 @@ namespace PROJECT
                 case 11: //NEXT BUTTON
                     command = new MySqlCommand(string.Format("select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`," +
                         "`STATUS`,`ENDORSEMENT NUMBER`" +
-                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT {0},{1}",firstCount,secondCount),Connection.connect);
+                        " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT {0},30",firstCount),Connection.connect);
                     break;
                 case 12:
                     command = new MySqlCommand("SELECT COUNT(*) FROM `board details` WHERE '" + search_text.Text + "' IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)", Connection.connect);
@@ -365,16 +365,26 @@ namespace PROJECT
 
         private void ForwardClick(object sender, EventArgs e)
         {
-            firstCount = firstCount + secondCount;
-            //secondCount = int.Parse(all);
+            firstCount = firstCount + 30;
             if (firstCount >= int.Parse(all)) return;
-            results();
+            secondCount = secondCount + 30;
+            resultDisplay++;
+            if (resultDisplay > 1)
+            {
+                secondCount = secondCount + 30;
+                if (secondCount >= int.Parse(all))
+                    secondCount = int.Parse(all);
+                results();
+            }
+            else results();
+            secondCount = secondCount - 30;
             firstCount = firstCount - 1;
             load_data(11);
-            secondCount = secondCount + 30;
+            firstCount = firstCount + 1;
         }
         private void BackClick(object sender, EventArgs e)
         {
+            resultDisplay = 0;
             if (int.Parse(all) > 30)
             {
                 firstCount = 0;
