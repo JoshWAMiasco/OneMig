@@ -339,20 +339,19 @@
             this.first_endorser.FormattingEnabled = true;
             this.first_endorser.Items.AddRange(new object[] {
             "JOHN MICHAEL SO",
-            "KINGSON VICTORIO",
             "RALPH ARVIN CANDA",
             "SUSANA SAN GABRIEL",
             "BABYLYN HILARIO",
             "VJ TOLENTINO",
             "ROALD BAGABAY",
-            "DARYL SOVERANO",
             "ROSVE VIRAY",
             "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
             "ERWIN DESEO",
             "JAMES ANORA",
             "JACOB LORESCO",
-            "MARCO LOPEZ"});
+            "MARCO LOPEZ",
+            "LOREN ZARAGOZA"});
             this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
@@ -366,20 +365,19 @@
             this.second_endorser.FormattingEnabled = true;
             this.second_endorser.Items.AddRange(new object[] {
             "JOHN MICHAEL SO",
-            "KINGSON VICTORIO",
             "RALPH ARVIN CANDA",
             "SUSANA SAN GABRIEL",
             "BABYLYN HILARIO",
             "VJ TOLENTINO",
             "ROALD BAGABAY",
-            "DARYL SOVERANO",
             "ROSVE VIRAY",
             "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
             "ERWIN DESEO",
             "JAMES ANORA",
             "JACOB LORESCO",
-            "MARCO LOPEZ"});
+            "MARCO LOPEZ",
+            "LOREN ZARAGOZA"});
             this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";
