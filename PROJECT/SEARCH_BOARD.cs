@@ -365,41 +365,34 @@ namespace PROJECT
 
         private void ForwardClick(object sender, EventArgs e)
         {
-            firstCount = firstCount + 30;
-            if (firstCount >= int.Parse(all)) return;
-            secondCount = secondCount + 30;
-            resultDisplay++;
-            if (resultDisplay > 1)
+            if (secondCount == int.Parse(all))
             {
-                secondCount = secondCount + 30;
-                if (secondCount >= int.Parse(all))
-                { 
-                    secondCount = int.Parse(all);  
-                }
-                results();
+                return;
             }
-            else results();
-            secondCount = secondCount - 30;
-            firstCount = firstCount - 1;
+            secondCount = secondCount + 30;
+            if (secondCount > int.Parse(all))
+            {
+                secondCount = int.Parse(all);
+            }
+            firstCount = firstCount + 30;
+            results();
             load_data(11);
-            firstCount = firstCount + 1;
-            backButton = 0;
         }
         private void BackClick(object sender, EventArgs e)
         {
-            backButton++;
-            resultDisplay--;
             if (firstCount == 1)
+                return;
+            if (secondCount == int.Parse(all))
             {
-                resultDisplay = 0;
+                secondCount = firstCount - 1;
+                firstCount = firstCount - 30;
+                load_data(11);
+                results();
                 return;
             }
-            if (backButton > 1)
-                secondCount = secondCount - 30;
+            secondCount = secondCount - 30;
             firstCount = firstCount - 30;
-
             load_data(11);
-            
             results();
         }
 
