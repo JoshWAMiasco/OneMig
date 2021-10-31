@@ -73,7 +73,6 @@ namespace PROJECT
                 Connection.CloseConnection();
                 First_verif_link.Text = FileName1;
                 Second_verif_link.Text = Filename2;
-                MessageBox.Show(Second_date.ToString());
                 if (Failed_during.Text.ToUpper() == "OTHERS")
                 {
                     Failed_during.Text = other_failed_during;
