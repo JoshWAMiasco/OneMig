@@ -82,6 +82,8 @@ namespace PROJECT
             this.button1 = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.AGING = new System.Windows.Forms.Label();
+            this.FirstTime = new System.Windows.Forms.Label();
+            this.SecondTime = new System.Windows.Forms.Label();
             this.First_box.SuspendLayout();
             this.Second_box.SuspendLayout();
             this.SuspendLayout();
@@ -188,6 +190,7 @@ namespace PROJECT
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.First_box.Controls.Add(this.FirstTime);
             this.First_box.Controls.Add(this.First_date);
             this.First_box.Controls.Add(this.First_endorser);
             this.First_box.Controls.Add(this.First_site);
@@ -213,7 +216,7 @@ namespace PROJECT
             this.First_date.AutoSize = true;
             this.First_date.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.First_date.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.First_date.Location = new System.Drawing.Point(134, 98);
+            this.First_date.Location = new System.Drawing.Point(136, 98);
             this.First_date.Name = "First_date";
             this.First_date.Size = new System.Drawing.Size(0, 13);
             this.First_date.TabIndex = 40;
@@ -323,6 +326,7 @@ namespace PROJECT
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Second_box.Controls.Add(this.SecondTime);
             this.Second_box.Controls.Add(this.Second_date);
             this.Second_box.Controls.Add(this.Second_endorser);
             this.Second_box.Controls.Add(this.Second_site);
@@ -634,6 +638,22 @@ namespace PROJECT
             this.AGING.Size = new System.Drawing.Size(0, 20);
             this.AGING.TabIndex = 80;
             // 
+            // FirstTime
+            // 
+            this.FirstTime.AutoSize = true;
+            this.FirstTime.Location = new System.Drawing.Point(221, 98);
+            this.FirstTime.Name = "FirstTime";
+            this.FirstTime.Size = new System.Drawing.Size(0, 13);
+            this.FirstTime.TabIndex = 41;
+            // 
+            // SecondTime
+            // 
+            this.SecondTime.AutoSize = true;
+            this.SecondTime.Location = new System.Drawing.Point(228, 98);
+            this.SecondTime.Name = "SecondTime";
+            this.SecondTime.Size = new System.Drawing.Size(0, 13);
+            this.SecondTime.TabIndex = 42;
+            // 
             // BOARD_DETAILS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -737,5 +757,7 @@ namespace PROJECT
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label AGING;
+        private System.Windows.Forms.Label FirstTime;
+        private System.Windows.Forms.Label SecondTime;
     }
 }

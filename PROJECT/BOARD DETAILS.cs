@@ -68,6 +68,8 @@ namespace PROJECT
                 Filename2 = read_data["FILENAME 2"].ToString();
                 AREA.Text = read_data["AREA"].ToString();
                 Second_date.Text = read_data["SECOND DATE"].ToString();
+                FirstTime.Text = read_data["FIRST TIME"].ToString();
+                SecondTime.Text = read_data["SECOND TIME"].ToString();
                 Connection.CloseConnection();
                 First_verif_link.Text = FileName1;
                 Second_verif_link.Text = Filename2;
@@ -129,7 +131,8 @@ namespace PROJECT
                 case 0:
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`," +
-            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST DATE`,`SECOND DATE` FROM `boards_for_verification`.`board details` " +
+            "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST DATE`,`SECOND DATE`,`FIRST TIME`,`SECOND TIME`" +
+            " FROM `boards_for_verification`.`board details` " +
             "WHERE (`ENDORSEMENT NUMBER` = '" + Endorsement_number + "')");
                     break;
                 case 1:
