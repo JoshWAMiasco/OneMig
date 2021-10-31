@@ -63,19 +63,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
-            this.SECOND_CONFIG = new System.Windows.Forms.ComboBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.PHYSICAL_DAMAGE = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.Second_DateTime = new System.Windows.Forms.Label();
+            this.SecondDate = new System.Windows.Forms.Label();
             this.Second_tester = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
             this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
-            this.FIRST_CONFIG = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.FIRST_DateTime = new System.Windows.Forms.Label();
+            this.FirstDate = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.Revision = new System.Windows.Forms.TextBox();
@@ -95,6 +91,10 @@
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.FirstTime = new System.Windows.Forms.Label();
+            this.SecondTime = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -188,7 +188,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 155);
+            this.label4.Location = new System.Drawing.Point(19, 190);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 9;
@@ -233,7 +233,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(21, 254);
+            this.label7.Location = new System.Drawing.Point(21, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(39, 13);
             this.label7.TabIndex = 15;
@@ -242,7 +242,7 @@
             // First_board_slot
             // 
             this.First_board_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.First_board_slot.Location = new System.Drawing.Point(159, 251);
+            this.First_board_slot.Location = new System.Drawing.Point(159, 242);
             this.First_board_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_board_slot.Name = "First_board_slot";
             this.First_board_slot.Size = new System.Drawing.Size(140, 20);
@@ -338,26 +338,27 @@
             this.first_endorser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.first_endorser.FormattingEnabled = true;
             this.first_endorser.Items.AddRange(new object[] {
-            "JOHN MICHAEL SO",
-            "RALPH ARVIN CANDA",
-            "SUSANA SAN GABRIEL",
+            "ARJANE GARCIA",
             "BABYLYN HILARIO",
-            "VJ TOLENTINO",
-            "ROALD BAGABAY",
-            "ROSVE VIRAY",
-            "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
             "ERWIN DESEO",
-            "JAMES ANORA",
             "JACOB LORESCO",
-            "MARCO LOPEZ",
-            "LOREN ZARAGOZA",
+            "JAMES ANORA",
+            "JOHN MICHAEL SO",
             "KEVIN KERK",
-            "ARJANE GARCIA"});
+            "LOREN ZARAGOZA",
+            "MARCO LOPEZ",
+            "MARVIN CHAVEZ",
+            "RALPH ARVIN CANDA",
+            "ROALD BAGABAY",
+            "ROSVE VIRAY",
+            "SUSANA SAN GABRIEL",
+            "VJ TOLENTINO"});
             this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
             this.first_endorser.Size = new System.Drawing.Size(177, 21);
+            this.first_endorser.Sorted = true;
             this.first_endorser.TabIndex = 25;
             this.first_endorser.SelectedIndexChanged += new System.EventHandler(this.first_verif_endorser);
             // 
@@ -366,26 +367,27 @@
             this.second_endorser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.second_endorser.FormattingEnabled = true;
             this.second_endorser.Items.AddRange(new object[] {
-            "JOHN MICHAEL SO",
-            "RALPH ARVIN CANDA",
-            "SUSANA SAN GABRIEL",
+            "ARJANE GARCIA",
             "BABYLYN HILARIO",
-            "VJ TOLENTINO",
-            "ROALD BAGABAY",
-            "ROSVE VIRAY",
-            "MARVIN CHAVEZ",
             "BRYAN FELICIANO",
             "ERWIN DESEO",
-            "JAMES ANORA",
             "JACOB LORESCO",
-            "MARCO LOPEZ",
-            "LOREN ZARAGOZA",
+            "JAMES ANORA",
+            "JOHN MICHAEL SO",
             "KEVIN KERK",
-            "ARJANE GARCIA"});
+            "LOREN ZARAGOZA",
+            "MARCO LOPEZ",
+            "MARVIN CHAVEZ",
+            "RALPH ARVIN CANDA",
+            "ROALD BAGABAY",
+            "ROSVE VIRAY",
+            "SUSANA SAN GABRIEL",
+            "VJ TOLENTINO"});
             this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";
             this.second_endorser.Size = new System.Drawing.Size(177, 21);
+            this.second_endorser.Sorted = true;
             this.second_endorser.TabIndex = 26;
             // 
             // label9
@@ -448,7 +450,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 225);
+            this.label11.Location = new System.Drawing.Point(21, 221);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 32;
@@ -458,7 +460,7 @@
             // 
             this.First_Site.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.First_Site.FormattingEnabled = true;
-            this.First_Site.Location = new System.Drawing.Point(159, 217);
+            this.First_Site.Location = new System.Drawing.Point(159, 213);
             this.First_Site.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_Site.Name = "First_Site";
             this.First_Site.Size = new System.Drawing.Size(140, 21);
@@ -470,7 +472,7 @@
             // 
             this.Second_Site.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Second_Site.FormattingEnabled = true;
-            this.Second_Site.Location = new System.Drawing.Point(160, 217);
+            this.Second_Site.Location = new System.Drawing.Point(160, 214);
             this.Second_Site.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_Site.Name = "Second_Site";
             this.Second_Site.Size = new System.Drawing.Size(140, 21);
@@ -480,7 +482,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 220);
+            this.label12.Location = new System.Drawing.Point(19, 217);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(91, 13);
             this.label12.TabIndex = 36;
@@ -489,7 +491,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(19, 153);
+            this.label13.Location = new System.Drawing.Point(19, 188);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(56, 13);
             this.label13.TabIndex = 35;
@@ -498,11 +500,11 @@
             // Second_box
             // 
             this.Second_box.BackColor = System.Drawing.Color.Gray;
-            this.Second_box.Controls.Add(this.SECOND_CONFIG);
-            this.Second_box.Controls.Add(this.label22);
+            this.Second_box.Controls.Add(this.SecondTime);
+            this.Second_box.Controls.Add(this.label24);
             this.Second_box.Controls.Add(this.PHYSICAL_DAMAGE);
             this.Second_box.Controls.Add(this.label23);
-            this.Second_box.Controls.Add(this.Second_DateTime);
+            this.Second_box.Controls.Add(this.SecondDate);
             this.Second_box.Controls.Add(this.Second_tester);
             this.Second_box.Controls.Add(this.label14);
             this.Second_box.Controls.Add(this.Second_slot);
@@ -525,24 +527,6 @@
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
             // 
-            // SECOND_CONFIG
-            // 
-            this.SECOND_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.SECOND_CONFIG.FormattingEnabled = true;
-            this.SECOND_CONFIG.Location = new System.Drawing.Point(160, 182);
-            this.SECOND_CONFIG.Name = "SECOND_CONFIG";
-            this.SECOND_CONFIG.Size = new System.Drawing.Size(140, 21);
-            this.SECOND_CONFIG.TabIndex = 40;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(19, 190);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(53, 13);
-            this.label22.TabIndex = 39;
-            this.label22.Text = "CONFIG";
-            // 
             // PHYSICAL_DAMAGE
             // 
             this.PHYSICAL_DAMAGE.AutoSize = true;
@@ -563,19 +547,19 @@
             this.label23.TabIndex = 39;
             this.label23.Text = "DATE VERIFIED";
             // 
-            // Second_DateTime
+            // SecondDate
             // 
-            this.Second_DateTime.AutoSize = true;
-            this.Second_DateTime.Location = new System.Drawing.Point(157, 116);
-            this.Second_DateTime.Name = "Second_DateTime";
-            this.Second_DateTime.Size = new System.Drawing.Size(0, 13);
-            this.Second_DateTime.TabIndex = 38;
+            this.SecondDate.AutoSize = true;
+            this.SecondDate.Location = new System.Drawing.Point(157, 116);
+            this.SecondDate.Name = "SecondDate";
+            this.SecondDate.Size = new System.Drawing.Size(0, 13);
+            this.SecondDate.TabIndex = 38;
             // 
             // Second_tester
             // 
             this.Second_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Second_tester.FormattingEnabled = true;
-            this.Second_tester.Location = new System.Drawing.Point(160, 147);
+            this.Second_tester.Location = new System.Drawing.Point(160, 182);
             this.Second_tester.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_tester.Name = "Second_tester";
             this.Second_tester.Size = new System.Drawing.Size(140, 21);
@@ -587,7 +571,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(19, 257);
+            this.label14.Location = new System.Drawing.Point(19, 248);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(39, 13);
             this.label14.TabIndex = 35;
@@ -596,7 +580,7 @@
             // Second_slot
             // 
             this.Second_slot.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.Second_slot.Location = new System.Drawing.Point(160, 251);
+            this.Second_slot.Location = new System.Drawing.Point(160, 242);
             this.Second_slot.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_slot.Name = "Second_slot";
             this.Second_slot.Size = new System.Drawing.Size(140, 20);
@@ -605,10 +589,10 @@
             // First_box
             // 
             this.First_box.BackColor = System.Drawing.Color.Gray;
-            this.First_box.Controls.Add(this.FIRST_CONFIG);
+            this.First_box.Controls.Add(this.FirstTime);
             this.First_box.Controls.Add(this.label20);
             this.First_box.Controls.Add(this.label21);
-            this.First_box.Controls.Add(this.FIRST_DateTime);
+            this.First_box.Controls.Add(this.FirstDate);
             this.First_box.Controls.Add(this.First_tester);
             this.First_box.Controls.Add(this.first_endorser);
             this.First_box.Controls.Add(this.label9);
@@ -630,24 +614,6 @@
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
             // 
-            // FIRST_CONFIG
-            // 
-            this.FIRST_CONFIG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FIRST_CONFIG.FormattingEnabled = true;
-            this.FIRST_CONFIG.Location = new System.Drawing.Point(159, 182);
-            this.FIRST_CONFIG.Name = "FIRST_CONFIG";
-            this.FIRST_CONFIG.Size = new System.Drawing.Size(140, 21);
-            this.FIRST_CONFIG.TabIndex = 39;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(21, 190);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(53, 13);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "CONFIG";
-            // 
             // label21
             // 
             this.label21.AutoSize = true;
@@ -657,19 +623,19 @@
             this.label21.TabIndex = 37;
             this.label21.Text = "DATE VERIFIED";
             // 
-            // FIRST_DateTime
+            // FirstDate
             // 
-            this.FIRST_DateTime.AutoSize = true;
-            this.FIRST_DateTime.Location = new System.Drawing.Point(156, 117);
-            this.FIRST_DateTime.Name = "FIRST_DateTime";
-            this.FIRST_DateTime.Size = new System.Drawing.Size(0, 13);
-            this.FIRST_DateTime.TabIndex = 36;
+            this.FirstDate.AutoSize = true;
+            this.FirstDate.Location = new System.Drawing.Point(156, 117);
+            this.FirstDate.Name = "FirstDate";
+            this.FirstDate.Size = new System.Drawing.Size(0, 13);
+            this.FirstDate.TabIndex = 36;
             // 
             // First_tester
             // 
             this.First_tester.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.First_tester.FormattingEnabled = true;
-            this.First_tester.Location = new System.Drawing.Point(159, 149);
+            this.First_tester.Location = new System.Drawing.Point(159, 184);
             this.First_tester.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_tester.Name = "First_tester";
             this.First_tester.Size = new System.Drawing.Size(140, 21);
@@ -715,6 +681,7 @@
             this.Failed_during.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Failed_during.Name = "Failed_during";
             this.Failed_during.Size = new System.Drawing.Size(140, 21);
+            this.Failed_during.Sorted = true;
             this.Failed_during.TabIndex = 7;
             this.Failed_during.Visible = false;
             this.Failed_during.SelectedIndexChanged += new System.EventHandler(this.Failed_during_indexchanged);
@@ -744,13 +711,14 @@
             "EXTERNAL DRIVER",
             "GAUGE",
             "N/A",
+            "OTHERS",
             "POST CALIBRATION",
-            "VERIFY",
-            "OTHERS"});
+            "VERIFY"});
             this.Failure_mode.Location = new System.Drawing.Point(198, 396);
             this.Failure_mode.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Failure_mode.Name = "Failure_mode";
             this.Failure_mode.Size = new System.Drawing.Size(140, 21);
+            this.Failure_mode.Sorted = true;
             this.Failure_mode.TabIndex = 8;
             this.Failure_mode.Visible = false;
             this.Failure_mode.SelectedIndexChanged += new System.EventHandler(this.Failure_mode_indexchanged);
@@ -931,6 +899,40 @@
             this.label19.Text = "AREA";
             this.label19.Visible = false;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(21, 148);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(37, 13);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "TIME";
+            // 
+            // FirstTime
+            // 
+            this.FirstTime.AutoSize = true;
+            this.FirstTime.Location = new System.Drawing.Point(156, 148);
+            this.FirstTime.Name = "FirstTime";
+            this.FirstTime.Size = new System.Drawing.Size(0, 13);
+            this.FirstTime.TabIndex = 39;
+            // 
+            // SecondTime
+            // 
+            this.SecondTime.AutoSize = true;
+            this.SecondTime.Location = new System.Drawing.Point(157, 148);
+            this.SecondTime.Name = "SecondTime";
+            this.SecondTime.Size = new System.Drawing.Size(0, 13);
+            this.SecondTime.TabIndex = 42;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(19, 148);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(37, 13);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "TIME";
+            // 
             // ADD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -1050,14 +1052,14 @@
         public System.Windows.Forms.TextBox Part_number;
         private System.Windows.Forms.ComboBox Area;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label FIRST_DateTime;
+        private System.Windows.Forms.Label FirstDate;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label Second_DateTime;
+        private System.Windows.Forms.Label SecondDate;
         private System.Windows.Forms.CheckBox PHYSICAL_DAMAGE;
-        private System.Windows.Forms.ComboBox SECOND_CONFIG;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.ComboBox FIRST_CONFIG;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label FirstTime;
+        private System.Windows.Forms.Label SecondTime;
+        private System.Windows.Forms.Label label24;
     }
 }

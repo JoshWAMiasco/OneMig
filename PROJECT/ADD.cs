@@ -24,6 +24,8 @@ namespace PROJECT
         public int sites, DoNotLoadBoard;
         public DateTime FIRST_DATE = new DateTime();
         public DateTime SECOND_DATE = new DateTime();
+        public DateTime FIRST_TIME = new DateTime();
+        public DateTime SECOND_TIME = new DateTime();
 
         byte[] data;
         public ADD()
@@ -336,7 +338,9 @@ namespace PROJECT
                 first_verif_link.Visible = true;
                 first_verif_link.Text = openFileDialog1.FileName;
                 FIRST_DATE = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
-                FIRST_DateTime.Text = FIRST_DATE.ToString();
+                FirstDate.Text = FIRST_DATE.ToString("MM-dd-yyyy");
+                FIRST_TIME = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
+                FirstTime.Text = FIRST_DATE.ToString("hh:mm tt");
             }
             Show_second_grpBox();
         }
@@ -356,7 +360,10 @@ namespace PROJECT
                 }
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
-                Second_DateTime.Text = SECOND_DATE.ToString();
+                SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
+                SecondDate.Text = FIRST_DATE.ToString("MM-dd-yyyy");
+                SECOND_TIME = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
+                SecondTime.Text = FIRST_DATE.ToString("hh:mm tt");
             }
         }
         private void first_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -502,7 +509,7 @@ namespace PROJECT
                                 first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
                                 FileName = read_data["FILENAME 1"].ToString();
                                 Area.Text = read_data["AREA"].ToString();
-                                FIRST_DateTime.Text = read_data["FIRST DATE"].ToString();
+                                FirstDate.Text = read_data["FIRST DATE"].ToString();
                                 Connection.CloseConnection();
                                 disable_control();
                                 first_verif_link.Text = FileName;
@@ -894,13 +901,13 @@ namespace PROJECT
         {
             if (PHYSICAL_DAMAGE.Checked)
             {
-                Second_DateTime.Text = DateTime.Now.ToString();
+                SecondDate.Text = DateTime.Now.ToString();
                 SECOND_DATE = DateTime.Now;
                 second_verif_link.Text = " ";
             }
             else
             {
-                Second_DateTime.Text = " ";
+                SecondDate.Text = " ";
                 second_verif_link.Text = " ";
             }
         }
