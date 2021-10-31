@@ -351,7 +351,9 @@
             "JAMES ANORA",
             "JACOB LORESCO",
             "MARCO LOPEZ",
-            "LOREN ZARAGOZA"});
+            "LOREN ZARAGOZA",
+            "KEVIN KERK",
+            "ARJANE GARCIA"});
             this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.first_endorser.Name = "first_endorser";
@@ -377,7 +379,9 @@
             "JAMES ANORA",
             "JACOB LORESCO",
             "MARCO LOPEZ",
-            "LOREN ZARAGOZA"});
+            "LOREN ZARAGOZA",
+            "KEVIN KERK",
+            "ARJANE GARCIA"});
             this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.second_endorser.Name = "second_endorser";
@@ -575,6 +579,7 @@
             this.Second_tester.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Second_tester.Name = "Second_tester";
             this.Second_tester.Size = new System.Drawing.Size(140, 21);
+            this.Second_tester.Sorted = true;
             this.Second_tester.TabIndex = 35;
             this.Second_tester.SelectedIndexChanged += new System.EventHandler(this.Second_tester_SelectedIndexChanged);
             // 
@@ -668,6 +673,7 @@
             this.First_tester.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.First_tester.Name = "First_tester";
             this.First_tester.Size = new System.Drawing.Size(140, 21);
+            this.First_tester.Sorted = true;
             this.First_tester.TabIndex = 34;
             this.First_tester.SelectedIndexChanged += new System.EventHandler(this.First_tester_SelectedIndexChanged);
             // 
@@ -804,6 +810,7 @@
             this.Test_system.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Test_system.Name = "Test_system";
             this.Test_system.Size = new System.Drawing.Size(140, 21);
+            this.Test_system.Sorted = true;
             this.Test_system.TabIndex = 4;
             this.Test_system.Visible = false;
             this.Test_system.SelectionChangeCommitted += new System.EventHandler(this.Test_system_SelectionChangeCommitted);
@@ -892,6 +899,7 @@
             this.Boards.Location = new System.Drawing.Point(198, 216);
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(140, 21);
+            this.Boards.Sorted = true;
             this.Boards.TabIndex = 5;
             this.Boards.Visible = false;
             // 
