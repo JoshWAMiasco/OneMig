@@ -361,9 +361,10 @@ namespace PROJECT
                 }
                 if (UpdateCheck == 1)
                 {
-                    FirstVsSecond = Convert.ToDateTime(FirstDate);
+                    FirstVsSecond = DateTime.ParseExact(FirstDate.Text, "yyyy-MM-dd",
+                    System.Globalization.CultureInfo.InvariantCulture);
                     if (FirstVsSecond > SECOND_DATE)
-                    {
+                    { 
                         MessageBox.Show("DATE NOT VALID, MUST BE AHEAD TO THE FIRST VERIFICATION DATE");
                         return;
                     }
