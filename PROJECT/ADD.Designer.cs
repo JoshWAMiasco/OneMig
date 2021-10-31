@@ -281,7 +281,7 @@
             this.second_verif_link.Cursor = System.Windows.Forms.Cursors.Hand;
             this.second_verif_link.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.second_verif_link.LinkColor = System.Drawing.Color.Black;
-            this.second_verif_link.Location = new System.Drawing.Point(22, 79);
+            this.second_verif_link.Location = new System.Drawing.Point(21, 74);
             this.second_verif_link.Name = "second_verif_link";
             this.second_verif_link.Size = new System.Drawing.Size(0, 13);
             this.second_verif_link.TabIndex = 20;
