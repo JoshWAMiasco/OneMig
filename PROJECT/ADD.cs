@@ -914,13 +914,14 @@ namespace PROJECT
         {
             if (PHYSICAL_DAMAGE.Checked)
             {
-                SecondDate.Text = DateTime.Now.ToString();
-                SECOND_DATE = DateTime.Now;
+                SecondDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+                SecondTime.Text = DateTime.Now.ToString("hh:mm tt");
                 second_verif_link.Text = " ";
             }
             else
             {
                 SecondDate.Text = " ";
+                SecondTime.Text = " ";
                 second_verif_link.Text = " ";
             }
         }
