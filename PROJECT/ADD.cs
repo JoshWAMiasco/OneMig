@@ -21,11 +21,12 @@ namespace PROJECT
     {
         MySqlCommand command;
         public string tester_platform, get_status, inputBox,FileName,status,displayStatus,boardQuery,database,ForTmT;
-        public int sites, DoNotLoadBoard;
+        public int sites, DoNotLoadBoard,UpdateCheck;
         public DateTime FIRST_DATE = new DateTime();
         public DateTime SECOND_DATE = new DateTime();
         public DateTime FIRST_TIME = new DateTime();
         public DateTime SECOND_TIME = new DateTime();
+        public DateTime FirstVsSecond = new DateTime();
 
         byte[] data;
         public ADD()
@@ -76,6 +77,7 @@ namespace PROJECT
                 }
                 if (Connection.CloseConnection())
                 {
+                    UpdateCheck = 0;
                     MessageBox.Show("FILE SAVED SUCCESSFULLY");
                     clear_all();
                     Save_btn.Visible = false;
@@ -357,6 +359,15 @@ namespace PROJECT
                     MessageBox.Show("DATE NOT VALID, MUST BE AHEAD TO THE FIRST VERIFICATION DATE");
                     return;
                 }
+                if (UpdateCheck == 1)
+                {
+                    FirstVsSecond = Convert.ToDateTime(FirstDate);
+                    if (FirstVsSecond > SECOND_DATE)
+                    {
+                        MessageBox.Show("DATE NOT VALID, MUST BE AHEAD TO THE FIRST VERIFICATION DATE");
+                        return;
+                    }
+                }
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
                 SecondDate.Text = SECOND_DATE.ToString("yyyy-MM-dd");
@@ -419,6 +430,7 @@ namespace PROJECT
         }
         private void Key_Enter(object sender, KeyEventArgs e)
         {
+            UpdateCheck = 0;
             if (e.KeyCode == Keys.Enter)
             {
                 if (CheckTextBox(Serial_number.Text))
@@ -507,7 +519,9 @@ namespace PROJECT
                                 FileName = read_data["FILENAME 1"].ToString();
                                 Area.Text = read_data["AREA"].ToString();
                                 FirstDate.Text = read_data["FIRST DATE"].ToString();
+                                FirstTime.Text = read_data["FIRST TIME"].ToString();
                                 Connection.CloseConnection();
+                                UpdateCheck = 1;
                                 disable_control();
                                 first_verif_link.Text = FileName;
                                 Test_system.SelectedIndex = 0;
