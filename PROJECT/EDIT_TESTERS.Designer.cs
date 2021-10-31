@@ -54,6 +54,7 @@ namespace PROJECT
             this.AddOrDelete.Location = new System.Drawing.Point(12, 168);
             this.AddOrDelete.Name = "AddOrDelete";
             this.AddOrDelete.Size = new System.Drawing.Size(205, 238);
+            this.AddOrDelete.Sorted = true;
             this.AddOrDelete.TabIndex = 0;
             // 
             // Current_List
@@ -62,6 +63,7 @@ namespace PROJECT
             this.Current_List.Location = new System.Drawing.Point(342, 168);
             this.Current_List.Name = "Current_List";
             this.Current_List.Size = new System.Drawing.Size(205, 238);
+            this.Current_List.Sorted = true;
             this.Current_List.TabIndex = 1;
             // 
             // ADD
