@@ -339,7 +339,6 @@ namespace PROJECT
                 first_verif_link.Text = openFileDialog1.FileName;
                 FIRST_DATE = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
                 FirstDate.Text = FIRST_DATE.ToString("yyyy-MM-dd");
-                FIRST_TIME = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
                 FirstTime.Text = FIRST_DATE.ToString("hh:mm tt");
             }
             Show_second_grpBox();
@@ -360,10 +359,8 @@ namespace PROJECT
                 }
                 second_verif_link.Visible = true;
                 second_verif_link.Text = openFileDialog2.FileName;
-                SECOND_DATE = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
-                SecondDate.Text = FIRST_DATE.ToString("yyyy-MM-dd");
-                SECOND_TIME = System.IO.File.GetLastWriteTime(openFileDialog1.FileName);
-                SecondTime.Text = FIRST_DATE.ToString("hh:mm tt");
+                SecondDate.Text = SECOND_DATE.ToString("yyyy-MM-dd");
+                SecondTime.Text = SECOND_DATE.ToString("hh:mm tt");
             }
         }
         private void first_verif_link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
