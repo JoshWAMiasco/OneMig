@@ -805,7 +805,14 @@ namespace PROJECT
                             TextBox textBox = b as TextBox;
                             textBox.Clear();
                         }
-                        else continue;
+                        else if (b is Label)
+                        {
+                            Label label = b as Label;
+                            if (label == FirstDate || label == FirstTime || label == SecondDate || label == SecondTime)
+                            {
+                                label.Text = " ";
+                            }
+                        }
                     }
                     groupBox.Visible = false;
                 }
