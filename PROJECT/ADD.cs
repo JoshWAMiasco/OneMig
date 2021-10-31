@@ -268,7 +268,7 @@ namespace PROJECT
                         error(); return;
                     }
                     else
-                    {
+                    { 
                         status = "BRG";
                         Save_data(11);
                     }
@@ -693,7 +693,8 @@ namespace PROJECT
                     break;
                 case 11: //UPDATE SECOND VERIF WITH PHYSICAL DAMAGE BOARD
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` SET `SECOND ENDORSER` = '" + second_endorser.Text + "'," +
-                        "`REMARKS` = '" + Remarks.Text + "',`STATUS` = '" + status + "',`SECOND DATE` = '" + SECOND_DATE.ToString("yyyy-MM-dd") + "'" +
+                        "`REMARKS` = '" + Remarks.Text + "',`STATUS` = '" + status + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
+                        "`SECOND DATE` = '" + SecondTime.Text + "'" +
                         " WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
             }
