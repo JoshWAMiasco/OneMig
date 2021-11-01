@@ -813,6 +813,7 @@ namespace PROJECT
                                 label.Text = " ";
                             }
                         }
+                        else continue;
                     }
                     groupBox.Visible = false;
                 }

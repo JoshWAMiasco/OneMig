@@ -20,7 +20,7 @@ namespace PROJECT
     {
         public string check,all;
         public int count, ComboBoxCount, firstCount, secondCount, resultDisplay = 0, backButton = 0;
-        public string TP, B, A, S, D,FullTextCommand;
+        public string TP, B, A, S, FD,TD,FullTextCommand;
         string tester;
         MySqlCommand command;
         public SEARCH_BOARD()
@@ -531,24 +531,45 @@ namespace PROJECT
                     ComboBoxCount++;
                 }
             }
-            if (!string.IsNullOrWhiteSpace(FROM_DATE.Text))                                                //DATE
+            if (!string.IsNullOrWhiteSpace(TO_DATE.Text))                                                  //TO DATE
             {
-                D = string.Format("(`FIRST DATE` = '{0}')", FROM_DATE.Text);
+                TD = string.Format("(`FIRST DATE` between '{0}' and '{1}')", FROM_DATE.Text, TO_DATE.Text);
                 if (ComboBoxCount == 3)
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", D);
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", TD);
                 }
                 else if (ComboBoxCount == 2)
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", D);
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", TD);
                 }
                 else if (ComboBoxCount == 1)
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", D);
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", TD);
                 }
                 else
                 {
-                    FullTextCommand = string.Format("where {0}", D);
+                    FullTextCommand = string.Format("where {0}", TD);
+                }
+                return;
+            }
+            if (!string.IsNullOrWhiteSpace(FROM_DATE.Text))                                                //FROM DATE
+            {
+                FD = string.Format("(`FIRST DATE` = '{0}')", FROM_DATE.Text);
+                if (ComboBoxCount == 3)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", FD);
+                }
+                else if (ComboBoxCount == 2)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", FD);
+                }
+                else if (ComboBoxCount == 1)
+                {
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", FD);
+                }
+                else
+                {
+                    FullTextCommand = string.Format("where {0}", FD);
                 }
             }
         }
