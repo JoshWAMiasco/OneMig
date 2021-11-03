@@ -550,7 +550,6 @@ namespace PROJECT
                 {
                     FullTextCommand = string.Format("where {0}", TD);
                 }
-                return;
             }
             if (!string.IsNullOrWhiteSpace(FROM_DATE.Text))                                                //FROM DATE
             {
