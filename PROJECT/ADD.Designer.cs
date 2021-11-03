@@ -63,6 +63,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.SecondTime = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.PHYSICAL_DAMAGE = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.SecondDate = new System.Windows.Forms.Label();
@@ -70,6 +72,8 @@
             this.label14 = new System.Windows.Forms.Label();
             this.Second_slot = new System.Windows.Forms.TextBox();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.FirstTime = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.FirstDate = new System.Windows.Forms.Label();
             this.First_tester = new System.Windows.Forms.ComboBox();
@@ -91,10 +95,6 @@
             this.Boards = new System.Windows.Forms.ComboBox();
             this.Area = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.FirstTime = new System.Windows.Forms.Label();
-            this.SecondTime = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.Second_box.SuspendLayout();
             this.First_box.SuspendLayout();
             this.SuspendLayout();
@@ -450,7 +450,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 221);
+            this.label11.Location = new System.Drawing.Point(21, 217);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(91, 13);
             this.label11.TabIndex = 32;
@@ -526,6 +526,23 @@
             this.Second_box.TabStop = false;
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
             this.Second_box.Visible = false;
+            // 
+            // SecondTime
+            // 
+            this.SecondTime.AutoSize = true;
+            this.SecondTime.Location = new System.Drawing.Point(157, 148);
+            this.SecondTime.Name = "SecondTime";
+            this.SecondTime.Size = new System.Drawing.Size(0, 13);
+            this.SecondTime.TabIndex = 42;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(19, 148);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(37, 13);
+            this.label24.TabIndex = 41;
+            this.label24.Text = "TIME";
             // 
             // PHYSICAL_DAMAGE
             // 
@@ -613,6 +630,23 @@
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
             this.First_box.Visible = false;
+            // 
+            // FirstTime
+            // 
+            this.FirstTime.AutoSize = true;
+            this.FirstTime.Location = new System.Drawing.Point(156, 148);
+            this.FirstTime.Name = "FirstTime";
+            this.FirstTime.Size = new System.Drawing.Size(0, 13);
+            this.FirstTime.TabIndex = 39;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(21, 148);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(37, 13);
+            this.label20.TabIndex = 38;
+            this.label20.Text = "TIME";
             // 
             // label21
             // 
@@ -898,40 +932,6 @@
             this.label19.TabIndex = 62;
             this.label19.Text = "AREA";
             this.label19.Visible = false;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(21, 148);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(37, 13);
-            this.label20.TabIndex = 38;
-            this.label20.Text = "TIME";
-            // 
-            // FirstTime
-            // 
-            this.FirstTime.AutoSize = true;
-            this.FirstTime.Location = new System.Drawing.Point(156, 148);
-            this.FirstTime.Name = "FirstTime";
-            this.FirstTime.Size = new System.Drawing.Size(0, 13);
-            this.FirstTime.TabIndex = 39;
-            // 
-            // SecondTime
-            // 
-            this.SecondTime.AutoSize = true;
-            this.SecondTime.Location = new System.Drawing.Point(157, 148);
-            this.SecondTime.Name = "SecondTime";
-            this.SecondTime.Size = new System.Drawing.Size(0, 13);
-            this.SecondTime.TabIndex = 42;
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(19, 148);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(37, 13);
-            this.label24.TabIndex = 41;
-            this.label24.Text = "TIME";
             // 
             // ADD
             // 
