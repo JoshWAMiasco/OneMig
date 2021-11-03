@@ -306,7 +306,19 @@ namespace PROJECT
             {
                 if (ForFirstVerif())
                 {
-                    if (ForSecondVerif())
+                    if (PHYSICAL_DAMAGE.Checked)
+                    {
+                        if (second_endorser.SelectedIndex == -1)
+                        {
+                            error(); return;
+                        }
+                        else
+                        {
+                            status = "BRG";
+                            Save_data(12);
+                        }
+                    }
+                    else if (ForSecondVerif())
                     {
                         status = "BRG";
                         Save_data(4);
@@ -671,11 +683,11 @@ namespace PROJECT
                         "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
                     break;
-                case 8:
+                case 8:  //LOAD TESTER PLATFORMS
                     tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
                     command = new MySqlCommand(tester_platform, Connection.connect);
                     break;
-                case 9:
+                case 9:   // IF SECOND VERIF FAILURE CHANGES
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" +Second_slot.Text + "'," +
@@ -683,7 +695,7 @@ namespace PROJECT
                         "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
-                case 10:
+                case 10:  // INSTALL TO A TESTER
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" + Second_slot.Text + "'," +
@@ -696,6 +708,18 @@ namespace PROJECT
                         "`REMARKS` = '" + Remarks.Text + "',`STATUS` = '" + status + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
                         "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         " WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
+                    break;
+                case 12:
+                    command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
+            "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
+            "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`," +
+            "`SECOND ENDORSER`,`FILENAME 1`,`AREA`,`FIRST DATE`,`SECOND DATE`,`FIRST TIME`,`SECOND TIME`) " +
+            "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
+            "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
+            "'" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "'," +
+            "'" + second_endorser.Text + "'," +
+            "'" + Filename(first_verif_link.Text) + "','" + Area.Text + "','" + FIRST_DATE.ToString("yyyy-M-dd") + "','" + FIRST_DATE.ToString("h:mm tt") + "'" +
+            "'" + SECOND_DATE.ToString("yyyy-M-dd") + "','" + SECOND_DATE.ToString("h:mm tt") + "')");
                     break;
             }
         }
