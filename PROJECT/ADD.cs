@@ -306,6 +306,7 @@ namespace PROJECT
             {
                 if (ForFirstVerif())
                 {
+                    status = "BRG";
                     if (PHYSICAL_DAMAGE.Checked)
                     {
                         if (second_endorser.SelectedIndex == -1)
@@ -314,13 +315,11 @@ namespace PROJECT
                         }
                         else
                         {
-                            status = "BRG";
                             Save_data(12);
                         }
                     }
                     else if (ForSecondVerif())
                     {
-                        status = "BRG";
                         Save_data(4);
                     }
                 }
