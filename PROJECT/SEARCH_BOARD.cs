@@ -277,7 +277,7 @@ namespace PROJECT
                 results();
                 load_data(1);
                 FROM_DATE.CustomFormat = " ";
-                TO_DATE.CustomFormat = "";
+                TO_DATE.CustomFormat = " ";
                 AREA.SelectedIndex = 0;
                 Stats.SelectedIndex = 0;
                 Tester_platform.SelectedIndex = 0;
