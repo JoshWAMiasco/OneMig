@@ -20,7 +20,7 @@ namespace PROJECT
     {
         public string check,all;
         public int count, ComboBoxCount, firstCount, secondCount, resultDisplay = 0, backButton = 0;
-        public string TP, B, A, S, FD,TD,FullTextCommand;
+        public string TP, B, A, S, DATE_FILTER,FullTextCommand;
         string tester;
         MySqlCommand command;
         public SEARCH_BOARD()
@@ -339,17 +339,26 @@ namespace PROJECT
             }
         }
 
-        private void Date(object sender, KeyEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+        }
+
+        private void FirstDate(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)
+            {
                 FROM_DATE.CustomFormat = " ";
+                TO_DATE.CustomFormat = " ";
+            }
             else
                 e.SuppressKeyPress = true;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Select_FirstDate(object sender, EventArgs e)
         {
-            MessageBox.Show(Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            FROM_DATE.CustomFormat = "yyyy-MM-dd";
+            TO_DATE.CustomFormat = " ";
         }
 
         private void TO_DATE_select(object sender, EventArgs e)
@@ -546,44 +555,31 @@ namespace PROJECT
                     ComboBoxCount++;
                 }
             }
-            if (!string.IsNullOrWhiteSpace(TO_DATE.Text))                                                  //TO DATE
+            if (!string.IsNullOrWhiteSpace(FROM_DATE.Text))                                                //DATE FILTERING
             {
-                TD = string.Format("(`FIRST DATE` between '{0}' and '{1}')", FROM_DATE.Text, TO_DATE.Text);
-                if (ComboBoxCount == 3)
+                if (!string.IsNullOrWhiteSpace(TO_DATE.Text))
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", TD);
-                }
-                else if (ComboBoxCount == 2)
-                {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", TD);
-                }
-                else if (ComboBoxCount == 1)
-                {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", TD);
+                    DATE_FILTER = string.Format("(`FIRST DATE` between '{0}' and '{1}')", FROM_DATE.Text, TO_DATE.Text);
                 }
                 else
                 {
-                    FullTextCommand = string.Format("where {0}", TD);
+                    DATE_FILTER = string.Format("(`FIRST DATE` = '{0}')", FROM_DATE.Text);
                 }
-            }
-            if (!string.IsNullOrWhiteSpace(FROM_DATE.Text))                                                //FROM DATE
-            {
-                FD = string.Format("(`FIRST DATE` = '{0}')", FROM_DATE.Text);
                 if (ComboBoxCount == 3)
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", FD);
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", DATE_FILTER);
                 }
                 else if (ComboBoxCount == 2)
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", FD);
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", DATE_FILTER);
                 }
                 else if (ComboBoxCount == 1)
                 {
-                    FullTextCommand = FullTextCommand + string.Format(" and {0}", FD);
+                    FullTextCommand = FullTextCommand + string.Format(" and {0}", DATE_FILTER);
                 }
                 else
                 {
-                    FullTextCommand = string.Format("where {0}", FD);
+                    FullTextCommand = string.Format("where {0}", DATE_FILTER);
                 }
             }
         }
