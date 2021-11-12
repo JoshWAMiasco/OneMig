@@ -553,6 +553,7 @@
             this.PHYSICAL_DAMAGE.TabIndex = 40;
             this.PHYSICAL_DAMAGE.Text = "PHYSICAL DAMAGE?";
             this.PHYSICAL_DAMAGE.UseVisualStyleBackColor = true;
+            this.PHYSICAL_DAMAGE.Visible = false;
             this.PHYSICAL_DAMAGE.CheckedChanged += new System.EventHandler(this.PHYSICAL_DAMAGE_CheckedChanged);
             // 
             // label23
@@ -831,6 +832,7 @@
             this.SPARES.Text = "SPARES";
             this.SPARES.UseVisualStyleBackColor = true;
             this.SPARES.Visible = false;
+            this.SPARES.CheckedChanged += new System.EventHandler(this.SPARES_CheckedChanged);
             // 
             // BRG
             // 
@@ -846,6 +848,7 @@
             this.BRG.Text = "BRG";
             this.BRG.UseVisualStyleBackColor = true;
             this.BRG.Visible = false;
+            this.BRG.CheckedChanged += new System.EventHandler(this.BRG_CheckedChanged);
             // 
             // FOR_SECOND_VERIF
             // 
@@ -892,6 +895,7 @@
             this.INSTALL_TO_TESTER.Text = "INSTALL TO TESTER";
             this.INSTALL_TO_TESTER.UseVisualStyleBackColor = true;
             this.INSTALL_TO_TESTER.Visible = false;
+            this.INSTALL_TO_TESTER.CheckedChanged += new System.EventHandler(this.INSTALL_TO_TESTER_CheckedChanged);
             // 
             // Boards
             // 

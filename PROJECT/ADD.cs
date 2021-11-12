@@ -187,7 +187,7 @@ namespace PROJECT
         }
         private bool ForSecondVerif()
         {
-            if (second_verif_link.Text == string.Empty || Second_tester.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Second_slot.Text)
+            if (string.IsNullOrWhiteSpace(second_verif_link.Text) || Second_tester.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Second_slot.Text)
                     || second_endorser.SelectedIndex == -1 || string.IsNullOrWhiteSpace(Remarks.Text))
             {
                 error();
@@ -679,7 +679,8 @@ namespace PROJECT
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
-                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
+                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'`SECOND DATE` = '" + SecondDate.Text + "'," +
+                        "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
                     break;
                 case 8:  //LOAD TESTER PLATFORMS
@@ -699,7 +700,8 @@ namespace PROJECT
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" + Second_slot.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
-                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'" +
+                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
+                        "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1", Second_tester.Text));
                     break;
                 case 11: //UPDATE SECOND VERIF WITH PHYSICAL DAMAGE BOARD
@@ -958,9 +960,30 @@ namespace PROJECT
             }
         }
 
+        private void INSTALL_TO_TESTER_CheckedChanged(object sender, EventArgs e)
+        {
+            PHYSICAL_DAMAGE.Visible = false;
+            SecondDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            SecondTime.Text = DateTime.Now.ToString("hh:mm tt");
+        }
+
+        private void SPARES_CheckedChanged(object sender, EventArgs e)
+        {
+            PHYSICAL_DAMAGE.Visible = false;
+            SecondDate.Text = " ";
+            SecondTime.Text = " ";
+        }
+
+        private void BRG_CheckedChanged(object sender, EventArgs e)
+        {
+            PHYSICAL_DAMAGE.Visible = true;
+        }
+
         private void FAILURE_CHANGED_CheckedChanged(object sender, EventArgs e)
         {
-
+            PHYSICAL_DAMAGE.Checked = false;
+            SecondDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            SecondTime.Text = DateTime.Now.ToString("hh:mm tt");
         }
 
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
