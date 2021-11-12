@@ -504,7 +504,14 @@ namespace PROJECT
             search_text.Clear();
             if (Tester_platform.SelectedIndex != 0)                                                        //TESTER PLATFORM
             {
-                TP = string.Format("(`TESTER PLATFORM` = '{0}')", Tester_platform.Text);
+                if (Tester_platform.Text == "TMT")
+                {
+                    TP = "(`TESTER PLATFORM` = 'ASL1K' OR `TESTER PLATFORM` = 'ASL4K')";
+                }
+                else
+                {
+                    TP = string.Format("(`TESTER PLATFORM` = '{0}')", Tester_platform.Text);
+                }
                 FullTextCommand = string.Format("where {0}", TP);
                 ComboBoxCount++;
             } 
