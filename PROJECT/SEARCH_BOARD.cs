@@ -111,7 +111,7 @@ namespace PROJECT
                 dataGridViewList.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
                 try
                 {
-                    string endorsement_number = (dataGridViewList.SelectedCells[7].Value.ToString());
+                    string endorsement_number = (dataGridViewList.SelectedCells[8].Value.ToString());
                     BOARD_DETAILS details = new BOARD_DETAILS(endorsement_number);
                     details.ShowDialog();
                 }
@@ -134,7 +134,11 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT COUNT(*) FROM `boards_for_verification`.`board details`",Connection.connect);
                     break;
                 case 1:  //TO DISPLAY THE DATA THAT IS SEARCHED BY THE USER
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`,`STATUS`," +
+                        "CASE WHEN ISNULL(`SECOND DATE`)" +
+                        " THEN DATEDIFF(NOW(),`FIRST DATE`) " +
+                        "ELSE DATEDIFF(`SECOND DATE`,`FIRST DATE`) END AS `AGING DAYS`," +
+                        "`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` WHERE '" + search_text.Text + "'" +
                         " IN (`SERIAL NUMBER`,`PART NUMBER`,`FIRST TESTER`,`TEST PROGRAM`)" +
                         " ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
@@ -144,8 +148,11 @@ namespace PROJECT
                         Connection.connect);
                     break;
                 case 3:  //FOR UPDATING PURPOSES
-                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`," +
-                        "`STATUS`,`ENDORSEMENT NUMBER`" +
+                    command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE`,`STATUS`," +
+                        "CASE WHEN ISNULL(`SECOND DATE`)" +
+                        " THEN DATEDIFF(NOW(),`FIRST DATE`) " +
+                        "ELSE DATEDIFF(`SECOND DATE`,`FIRST DATE`) END AS `AGING DAYS`," +
+                        "`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",Connection.connect);
                     break;
                 case 4: // TO CHECK THE BOARDS BY SPECIFIC DATE ONLY
@@ -166,12 +173,20 @@ namespace PROJECT
                     command = new MySqlCommand("SELECT * FROM `boards_of_testers`.`tmt`", Connection.ConnectBoards);
                     break;
                 case 9:  // FOR SEARCH IN COMBO BOXES
-                    command = new MySqlCommand(string.Format("Select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`,`STATUS`,`ENDORSEMENT NUMBER`" +
+                    command = new MySqlCommand(string.Format("Select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`,`STATUS`," +
+                        "CASE WHEN ISNULL(`SECOND DATE`)" +
+                        " THEN DATEDIFF(NOW(),`FIRST DATE`) " +
+                        "ELSE DATEDIFF(`SECOND DATE`,`FIRST DATE`) END AS `AGING DAYS`," +
+                        "`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` {0} ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30",FullTextCommand), Connection.connect);
                     break;
                 case 10: //REFRESH
                     command = new MySqlCommand("SELECT `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`," +
-                        "`STATUS`,`ENDORSEMENT NUMBER`" +
+                        "`STATUS`," +
+                        "CASE WHEN ISNULL(`SECOND DATE`)" +
+                        " THEN DATEDIFF(NOW(),`FIRST DATE`) " +
+                        "ELSE DATEDIFF(`SECOND DATE`,`FIRST DATE`) END AS `AGING DAYS`," +
+                        "`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 30", Connection.connect);
                     break;
                 case 11: //NEXT BUTTON

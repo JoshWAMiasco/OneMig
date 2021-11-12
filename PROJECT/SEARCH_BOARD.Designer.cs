@@ -61,6 +61,7 @@
             this.TEST_PROGRAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FIRST_DATE_VERIF = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AGING_DAYS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ENDORSEMENT_NUMBER = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewList)).BeginInit();
             this.SuspendLayout();
@@ -120,6 +121,7 @@
             this.TEST_PROGRAM,
             this.FIRST_DATE_VERIF,
             this.STATUS,
+            this.AGING_DAYS,
             this.ENDORSEMENT_NUMBER});
             this.dataGridViewList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.dataGridViewList.GridColor = System.Drawing.SystemColors.ActiveCaptionText;
@@ -458,6 +460,13 @@
             this.STATUS.Name = "STATUS";
             this.STATUS.ReadOnly = true;
             // 
+            // AGING_DAYS
+            // 
+            this.AGING_DAYS.DataPropertyName = "AGING DAYS";
+            this.AGING_DAYS.HeaderText = "AGING DAYS";
+            this.AGING_DAYS.Name = "AGING_DAYS";
+            this.AGING_DAYS.ReadOnly = true;
+            // 
             // ENDORSEMENT_NUMBER
             // 
             this.ENDORSEMENT_NUMBER.DataPropertyName = "ENDORSEMENT NUMBER";
@@ -544,6 +553,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TEST_PROGRAM;
         private System.Windows.Forms.DataGridViewTextBoxColumn FIRST_DATE_VERIF;
         private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AGING_DAYS;
         private System.Windows.Forms.DataGridViewTextBoxColumn ENDORSEMENT_NUMBER;
     }
 }

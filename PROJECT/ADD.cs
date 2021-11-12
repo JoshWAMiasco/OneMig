@@ -970,8 +970,6 @@ namespace PROJECT
         private void SPARES_CheckedChanged(object sender, EventArgs e)
         {
             PHYSICAL_DAMAGE.Visible = false;
-            SecondDate.Text = " ";
-            SecondTime.Text = " ";
         }
 
         private void BRG_CheckedChanged(object sender, EventArgs e)
