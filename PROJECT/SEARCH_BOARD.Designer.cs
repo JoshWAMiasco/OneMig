@@ -303,15 +303,16 @@
             this.Stats.FormattingEnabled = true;
             this.Stats.Items.AddRange(new object[] {
             "",
-            "SPARES",
             "BRG",
-            "INSTALL TO A TESTER",
-            "FOR SECOND VERIF",
             "FAILURE CHANGED",
-            "OVERDUE"});
+            "FOR SECOND VERIF",
+            "INSTALL TO A TESTER",
+            "OVERDUE",
+            "SPARES"});
             this.Stats.Location = new System.Drawing.Point(661, 42);
             this.Stats.Name = "Stats";
             this.Stats.Size = new System.Drawing.Size(177, 21);
+            this.Stats.Sorted = true;
             this.Stats.TabIndex = 32;
             this.Stats.SelectionChangeCommitted += new System.EventHandler(this.statusIndexChanged);
             // 
@@ -377,6 +378,7 @@
             this.Boards.Location = new System.Drawing.Point(331, 44);
             this.Boards.Name = "Boards";
             this.Boards.Size = new System.Drawing.Size(121, 21);
+            this.Boards.Sorted = true;
             this.Boards.TabIndex = 37;
             this.Boards.SelectionChangeCommitted += new System.EventHandler(this.Boardsindexchanged);
             // 
@@ -391,6 +393,7 @@
             this.Tester_platform.Location = new System.Drawing.Point(144, 44);
             this.Tester_platform.Name = "Tester_platform";
             this.Tester_platform.Size = new System.Drawing.Size(121, 21);
+            this.Tester_platform.Sorted = true;
             this.Tester_platform.TabIndex = 38;
             this.Tester_platform.SelectionChangeCommitted += new System.EventHandler(this.ShowBoards);
             // 
