@@ -155,7 +155,7 @@ namespace PROJECT
                             else
                             {
                                 MessageBox.Show("INVALID TESTER NAME");
-                                return;
+                                ADD.Clear();
                             }
                         }
                         else
