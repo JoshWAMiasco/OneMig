@@ -20,7 +20,7 @@ namespace PROJECT
     public partial class ADD : Form
     {
         MySqlCommand command;
-        public string tester_platform, get_status, inputBox,FileName,status,displayStatus,boardQuery,database,ForTmT;
+        public string tester_platform, get_status, inputBox,FileName,status,displayStatus,boardQuery,database,tester;
         public int sites, DoNotLoadBoard,UpdateCheck;
         public DateTime FIRST_DATE = new DateTime();
         public DateTime SECOND_DATE = new DateTime();
@@ -702,7 +702,7 @@ namespace PROJECT
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
                         "`SECOND TIME` = '" + SecondTime.Text + "'" +
-                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1", Second_tester.Text));
+                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1", Second_tester.Text));
                     break;
                 case 11: //UPDATE SECOND VERIF WITH PHYSICAL DAMAGE BOARD
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` SET `SECOND ENDORSER` = '" + second_endorser.Text + "'," +
@@ -986,7 +986,7 @@ namespace PROJECT
 
         private void First_tester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Test_system.Text.Contains("ASL4K"))
+            if (Test_system.Text == "TMT")
             {
                 if (First_tester.Text.Contains("ASL4K"))
                 {
@@ -997,13 +997,16 @@ namespace PROJECT
                     }
                     First_Site.Visible = true;
                 }
-                else First_Site.Visible = false;
+                else
+                {
+                    First_Site.Visible = false;
+                    Show_second_grpBox();
+                }
             }
-            else Show_second_grpBox();
         }
         private void Second_tester_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Test_system.Text.Contains("ASL4K") || Test_system.Text.Contains("ASL1K"))
+            if (Test_system.Text == "TMT")
             {
                 if (Second_tester.Text.Contains("ASL4K"))
                 {
@@ -1020,7 +1023,6 @@ namespace PROJECT
                     Second_Site.Visible = false;
                 }
             }
-            else return;
         }
         private void ADD_Load(object sender, EventArgs e)
         {
@@ -1081,65 +1083,30 @@ namespace PROJECT
                 Connection.CloseConnection();
             }
             else return;
-            if (Test_system.Text == "ASL4K")
+            if (sites != 0)
             {
-                command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`asl1k`", Connection.connect);
-
-                if (Connection.OpenConnection())
+                for (int CountSite = 1; CountSite <= sites; CountSite++)
                 {
-                    MySqlDataReader readAsl1k = command.ExecuteReader();
-                    while (readAsl1k.Read())
-                    {
-                        Second_tester.Items.Add(readAsl1k.GetString("ASL1K"));
-                    }
-                    Connection.CloseConnection();
+                    First_Site.Items.Add(CountSite.ToString());
+                    Second_Site.Items.Add(CountSite.ToString());
                 }
-
-            }
-            else if (Test_system.Text == "ASL1K")
-            {
-                First_Site.Visible = false;
-                command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`asl4k`", Connection.connect);
-                if (Connection.OpenConnection())
-                {
-                    MySqlDataReader readAsl4k = command.ExecuteReader();
-                    while (readAsl4k.Read())
-                    {
-                        Second_tester.Items.Add(readAsl4k.GetString("ASL4K"));
-                    }
-                    Connection.CloseConnection();
-                }
+                Second_Site.Visible = true;
+                First_Site.Visible = true;
             }
             else
             {
-                if (sites != 0)
-                {
-                    for (int CountSite = 1; CountSite <= sites; CountSite++)
-                    {
-                        First_Site.Items.Add(CountSite.ToString());
-                        Second_Site.Items.Add(CountSite.ToString());
-                    }
-                    Second_Site.Visible = true;
-                    First_Site.Visible = true;
-                }
-                else
-                {
-                    First_Site.Visible = false;
-                    First_Site.Items.Clear();
-                    Second_Site.Visible = false;
-                    Second_Site.Items.Clear();
-                }
+                First_Site.Visible = false;
+                First_Site.Items.Clear();
+                Second_Site.Visible = false;
+                Second_Site.Items.Clear();
             }
         }
         private void LoadBoards()
         {
             Boards.Items.Clear();
             database = "boards_of_testers";
-            if (Test_system.Text == "ASL1K" || Test_system.Text == "ASL4K")
-                ForTmT = "tmt";
-            else
-                ForTmT = Test_system.Text;
-            boardQuery = string.Format("SELECT * FROM `{0}`.`{1}`", database, ForTmT.ToLower());
+            tester = Test_system.Text;
+            boardQuery = string.Format("SELECT * FROM `{0}`.`{1}`", database, tester.ToLower());
             command = new MySqlCommand(boardQuery, Connection.ConnectBoards);
 
             if (Connection.OpenConnectionForBoards())
@@ -1147,7 +1114,7 @@ namespace PROJECT
                 MySqlDataReader LoadBoards = command.ExecuteReader();
                 while (LoadBoards.Read())
                 {
-                    Boards.Items.Add(LoadBoards.GetString(ForTmT.ToUpper()));
+                    Boards.Items.Add(LoadBoards.GetString(tester.ToUpper()));
                 }
                 Connection.CloseConnectionForBoards();
             }
