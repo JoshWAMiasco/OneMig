@@ -250,11 +250,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label1.Location = new System.Drawing.Point(490, 525);
+            this.label1.Location = new System.Drawing.Point(496, 525);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(169, 24);
+            this.label1.Size = new System.Drawing.Size(152, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "VERSION 1.0.0.5";
+            this.label1.Text = "VERSION 1.0.5";
             // 
             // UPDATE
             // 
