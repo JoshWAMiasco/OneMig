@@ -135,12 +135,6 @@
     <Compile Include="EDIT_TESTERS.Designer.cs">
       <DependentUpon>EDIT_TESTERS.cs</DependentUpon>
     </Compile>
-    <Compile Include="LOG_IN.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="LOG_IN.Designer.cs">
-      <DependentUpon>LOG_IN.cs</DependentUpon>
-    </Compile>
     <Compile Include="SEARCH_BOARD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,9 +151,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EDIT_TESTERS.resx">
       <DependentUpon>EDIT_TESTERS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="LOG_IN.resx">
-      <DependentUpon>LOG_IN.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
