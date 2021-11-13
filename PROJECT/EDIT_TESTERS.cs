@@ -44,10 +44,7 @@ namespace PROJECT
             AddOrDelete.Items.Clear();
             Current_List.Items.Clear();
             database = boards;
-            if (Tester_platforms.Text == "ASL4K" || Tester_platforms.Text == "ASL1K")
-                Tester_platform = "tmt";
-            else
-                Tester_platform = Tester_platforms.Text;
+            Tester_platform = Tester_platforms.Text;
             Commands(1);
             if (Connection.OpenConnectionForBoards())
             {
@@ -148,6 +145,18 @@ namespace PROJECT
                         if (ADD.Text.Contains(Tester_platforms.Text))
                         {
                             CheckTextInListBox();
+                        }
+                        else if(Tester_platforms.Text == "TMT")
+                        {
+                            if (ADD.Text.Contains("ASL1K") || ADD.Text.Contains("ASL4K"))
+                            {
+                                CheckTextInListBox();
+                            }
+                            else
+                            {
+                                MessageBox.Show("INVALID TESTER NAME");
+                                return;
+                            }
                         }
                         else
                         {
