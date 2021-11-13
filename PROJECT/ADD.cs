@@ -679,7 +679,7 @@ namespace PROJECT
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
-                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "'`SECOND DATE` = '" + SecondDate.Text + "'," +
+                        "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
                         "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
                     break;
