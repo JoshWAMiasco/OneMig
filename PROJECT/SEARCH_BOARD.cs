@@ -191,7 +191,11 @@ namespace PROJECT
                     break;
                 case 11: //NEXT BUTTON
                     command = new MySqlCommand(string.Format("select `SERIAL NUMBER`,`PART NUMBER`,`BOARD`,`TESTER PLATFORM`,`TEST PROGRAM`,`FIRST DATE` as `FIRST DATE VERIFIED`," +
-                        "`STATUS`,`ENDORSEMENT NUMBER`" +
+                        "`STATUS`," +
+                        "CASE WHEN ISNULL(`SECOND DATE`)" +
+                        " THEN DATEDIFF(NOW(),`FIRST DATE`) " +
+                        "ELSE DATEDIFF(`SECOND DATE`,`FIRST DATE`) END AS `AGING DAYS`," +
+                        "`ENDORSEMENT NUMBER`" +
                         " FROM `boards_for_verification`.`board details` ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT {0},30",firstCount),Connection.connect);
                     break;
                 case 12:
@@ -536,11 +540,11 @@ namespace PROJECT
             }
             if (Stats.SelectedIndex != 0)                                                                 //STATUS
             {
-                if (Stats.SelectedIndex == 6)
+                if (Stats.SelectedIndex == 5)
                 {
                     S = string.Format("((select abs(datediff(`FIRST DATE`,current_date()))) > 2) and (`STATUS` = 'FOR SECOND VERIF')");
                 }
-                else if (Stats.SelectedIndex == 3)
+                else if (Stats.SelectedIndex == 4)
                 {
                     S = string.Format("(`STATUS` REGEXP 'INSTALL')");
                 }
