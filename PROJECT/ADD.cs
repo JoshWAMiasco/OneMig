@@ -950,10 +950,12 @@ namespace PROJECT
             {
                 SecondDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 SecondTime.Text = DateTime.Now.ToString("hh:mm tt");
+                Add_second_verif.Visible = false;
                 second_verif_link.Text = " ";
             }
             else
             {
+                Add_second_verif.Visible = true;
                 SecondDate.Text = " ";
                 SecondTime.Text = " ";
                 second_verif_link.Text = " ";
