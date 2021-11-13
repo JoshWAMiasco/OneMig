@@ -935,7 +935,7 @@ namespace PROJECT
         }
         private void Failure_mode_indexchanged(object sender, EventArgs e)
         {
-            if (Failure_mode.SelectedIndex == 9)
+            if (Failure_mode.SelectedIndex == 7)
                 Failure_mode_others.Visible = true;
             else
             {
