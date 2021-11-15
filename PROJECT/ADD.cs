@@ -483,16 +483,14 @@ namespace PROJECT
                                         FAILURE_CHANGED.Visible = false;
                                         INSTALL_TO_TESTER.Visible = false;
                                         DoNotLoadBoard = 1;
-                                        if (Test_system.Items.Contains("ASL4K"))
-                                            Test_system.Items.Add("ASL1K");
-                                        else if (Test_system.Items.Contains("ASL1K"))
-                                            Test_system.Items.Add("ASL4K");
-                                        else
+                                        Test_system.SelectedIndex = 0;
+                                        if (Test_system.Text == "ASL1K" || Test_system.Text == "ASL4K")
                                         {
-                                            Test_system.SelectedIndex = 0;
-                                            Testers();
-                                            return;
+                                            Test_system.Items.Clear();
+                                            Test_system.Items.Add("TMT");
                                         }
+                                        Test_system.SelectedIndex = 0;
+                                        Testers();
                                         return;
                                     case DialogResult.No:
                                         Connection.CloseConnection();
@@ -536,8 +534,8 @@ namespace PROJECT
                                 UpdateCheck = 1;
                                 disable_control();
                                 first_verif_link.Text = FileName;
-                                Test_system.SelectedIndex = 0;
                                 Boards.SelectedIndex = 0;
+                                Test_system.SelectedIndex = 0;
                                 First_tester.SelectedIndex = 0;
                                 First_Site.SelectedIndex = 0;
                                 if (First_Site.Text.Equals(string.Empty))
@@ -552,20 +550,15 @@ namespace PROJECT
                                 FOR_SECOND_VERIF.Visible = false;
                                 if (Test_system.Text == "ASL4K" || Test_system.Text == "ASL1K")
                                 {
-                                    command = new MySqlCommand("select * from `boards_for_verification`.`asl1k`", Connection.connect);
+                                    Test_system.Items.Clear();
+                                    Test_system.Items.Add("TMT");
+                                    Test_system.SelectedIndex = 0;
+                                    command = new MySqlCommand("select * from `boards_for_verification`.`tmt`", Connection.connect);
                                     Connection.OpenConnection();
-                                    MySqlDataReader read1k = command.ExecuteReader();
-                                    while (read1k.Read())
+                                    MySqlDataReader tmt = command.ExecuteReader();
+                                    while (tmt.Read())
                                     {
-                                        Second_tester.Items.Add(read1k["ASL1K"].ToString());
-                                    }
-                                    Connection.CloseConnection();
-                                    command = new MySqlCommand("select * from `boards_for_verification`.`asl4k`", Connection.connect);
-                                    Connection.OpenConnection();
-                                    MySqlDataReader read4k = command.ExecuteReader();
-                                    while (read4k.Read())
-                                    {
-                                        Second_tester.Items.Add(read4k["ASL4K"].ToString());
+                                        Second_tester.Items.Add(tmt["TMT"].ToString());
                                     }
                                     Connection.CloseConnection();
                                 }
@@ -672,7 +665,8 @@ namespace PROJECT
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
                         "`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
-                        "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
+                        "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
+                        "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
                 case 7:  // IF THE SECOND VERIFICATION PASSED AND INSTALLED ALREADY TO THE TESTER
@@ -692,7 +686,8 @@ namespace PROJECT
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" +Second_slot.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
-                        "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "'" +
+                        "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
+                        "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
                 case 10:  // INSTALL TO A TESTER
@@ -950,7 +945,6 @@ namespace PROJECT
             {
                 SecondDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
                 SecondTime.Text = DateTime.Now.ToString("hh:mm tt");
-                Add_second_verif.Visible = false;
                 second_verif_link.Text = " ";
             }
             else
@@ -967,11 +961,6 @@ namespace PROJECT
             PHYSICAL_DAMAGE.Visible = false;
             SecondDate.Text = DateTime.Now.ToString("yyyy-MM-dd");
             SecondTime.Text = DateTime.Now.ToString("hh:mm tt");
-        }
-
-        private void SPARES_CheckedChanged(object sender, EventArgs e)
-        {
-            PHYSICAL_DAMAGE.Visible = false;
         }
 
         private void BRG_CheckedChanged(object sender, EventArgs e)

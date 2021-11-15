@@ -832,7 +832,6 @@
             this.SPARES.Text = "SPARES";
             this.SPARES.UseVisualStyleBackColor = true;
             this.SPARES.Visible = false;
-            this.SPARES.CheckedChanged += new System.EventHandler(this.SPARES_CheckedChanged);
             // 
             // BRG
             // 
