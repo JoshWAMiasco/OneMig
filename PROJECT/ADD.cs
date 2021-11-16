@@ -143,7 +143,7 @@ namespace PROJECT
                     }
                     else if (comboBox == Failure_mode)
                     {
-                        if (Failure_mode.SelectedIndex == 9)
+                        if (Failure_mode.SelectedIndex == 7)
                         {
                             if (string.IsNullOrWhiteSpace(Failure_mode_others.Text))
                             {
