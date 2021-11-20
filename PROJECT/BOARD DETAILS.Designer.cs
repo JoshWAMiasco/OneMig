@@ -40,6 +40,7 @@ namespace PROJECT
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.First_box = new System.Windows.Forms.GroupBox();
+            this.FirstTime = new System.Windows.Forms.Label();
             this.First_date = new System.Windows.Forms.Label();
             this.First_endorser = new System.Windows.Forms.Label();
             this.First_site = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@ namespace PROJECT
             this.First_verif_link = new System.Windows.Forms.LinkLabel();
             this.label7 = new System.Windows.Forms.Label();
             this.Second_box = new System.Windows.Forms.GroupBox();
+            this.SecondTime = new System.Windows.Forms.Label();
             this.Second_date = new System.Windows.Forms.Label();
             this.Second_endorser = new System.Windows.Forms.Label();
             this.Second_site = new System.Windows.Forms.Label();
@@ -82,8 +84,6 @@ namespace PROJECT
             this.button1 = new System.Windows.Forms.Button();
             this.label22 = new System.Windows.Forms.Label();
             this.AGING = new System.Windows.Forms.Label();
-            this.FirstTime = new System.Windows.Forms.Label();
-            this.SecondTime = new System.Windows.Forms.Label();
             this.First_box.SuspendLayout();
             this.Second_box.SuspendLayout();
             this.SuspendLayout();
@@ -150,9 +150,9 @@ namespace PROJECT
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label5.Location = new System.Drawing.Point(9, 173);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 13);
+            this.label5.Size = new System.Drawing.Size(64, 13);
             this.label5.TabIndex = 55;
-            this.label5.Text = "LAST TEST PROGRAM";
+            this.label5.Text = "DIE TYPE";
             // 
             // label3
             // 
@@ -210,6 +210,14 @@ namespace PROJECT
             this.First_box.TabIndex = 65;
             this.First_box.TabStop = false;
             this.First_box.Text = "FIRST VERIFICATION DETAILS";
+            // 
+            // FirstTime
+            // 
+            this.FirstTime.AutoSize = true;
+            this.FirstTime.Location = new System.Drawing.Point(221, 98);
+            this.FirstTime.Name = "FirstTime";
+            this.FirstTime.Size = new System.Drawing.Size(0, 13);
+            this.FirstTime.TabIndex = 41;
             // 
             // First_date
             // 
@@ -347,6 +355,14 @@ namespace PROJECT
             this.Second_box.TabIndex = 64;
             this.Second_box.TabStop = false;
             this.Second_box.Text = "SECOND VERIFICATION DETAILS";
+            // 
+            // SecondTime
+            // 
+            this.SecondTime.AutoSize = true;
+            this.SecondTime.Location = new System.Drawing.Point(228, 98);
+            this.SecondTime.Name = "SecondTime";
+            this.SecondTime.Size = new System.Drawing.Size(0, 13);
+            this.SecondTime.TabIndex = 42;
             // 
             // Second_date
             // 
@@ -637,22 +653,6 @@ namespace PROJECT
             this.AGING.Name = "AGING";
             this.AGING.Size = new System.Drawing.Size(0, 20);
             this.AGING.TabIndex = 80;
-            // 
-            // FirstTime
-            // 
-            this.FirstTime.AutoSize = true;
-            this.FirstTime.Location = new System.Drawing.Point(221, 98);
-            this.FirstTime.Name = "FirstTime";
-            this.FirstTime.Size = new System.Drawing.Size(0, 13);
-            this.FirstTime.TabIndex = 41;
-            // 
-            // SecondTime
-            // 
-            this.SecondTime.AutoSize = true;
-            this.SecondTime.Location = new System.Drawing.Point(228, 98);
-            this.SecondTime.Name = "SecondTime";
-            this.SecondTime.Size = new System.Drawing.Size(0, 13);
-            this.SecondTime.TabIndex = 42;
             // 
             // BOARD_DETAILS
             // 
