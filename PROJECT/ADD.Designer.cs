@@ -32,13 +32,13 @@
             this.Save_btn = new System.Windows.Forms.Button();
             this.Exit_btn = new System.Windows.Forms.Button();
             this.Serial_number = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label_serial = new System.Windows.Forms.Label();
+            this.label_PartNumber = new System.Windows.Forms.Label();
             this.Part_number = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.Test_program = new System.Windows.Forms.TextBox();
+            this.DIE_TYPE = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.First_board_slot = new System.Windows.Forms.TextBox();
@@ -139,28 +139,27 @@
             this.Serial_number.TabIndex = 1;
             this.Serial_number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_Enter);
             // 
-            // label1
+            // label_serial
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label1.Location = new System.Drawing.Point(30, 23);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(132, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "SERIAL NUMBER";
+            this.label_serial.AutoSize = true;
+            this.label_serial.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_serial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label_serial.Location = new System.Drawing.Point(30, 23);
+            this.label_serial.Name = "label_serial";
+            this.label_serial.Size = new System.Drawing.Size(132, 21);
+            this.label_serial.TabIndex = 3;
+            this.label_serial.Text = "SERIAL NUMBER";
             // 
-            // label2
+            // label_PartNumber
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
-            this.label2.Location = new System.Drawing.Point(30, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "PART NUMBER";
-            this.label2.Visible = false;
+            this.label_PartNumber.AutoSize = true;
+            this.label_PartNumber.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_PartNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
+            this.label_PartNumber.Location = new System.Drawing.Point(30, 69);
+            this.label_PartNumber.Name = "label_PartNumber";
+            this.label_PartNumber.Size = new System.Drawing.Size(120, 21);
+            this.label_PartNumber.TabIndex = 5;
+            this.label_PartNumber.Text = "PART NUMBER";
             // 
             // Part_number
             // 
@@ -171,7 +170,7 @@
             this.Part_number.Name = "Part_number";
             this.Part_number.Size = new System.Drawing.Size(140, 20);
             this.Part_number.TabIndex = 2;
-            this.Part_number.Visible = false;
+            this.Part_number.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Key_PartNumber);
             // 
             // label3
             // 
@@ -201,21 +200,21 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label5.Location = new System.Drawing.Point(27, 265);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(172, 21);
+            this.label5.Size = new System.Drawing.Size(77, 21);
             this.label5.TabIndex = 11;
-            this.label5.Text = "LAST TEST PROGRAM";
+            this.label5.Text = "DIE TYPE";
             this.label5.Visible = false;
             // 
-            // Test_program
+            // DIE_TYPE
             // 
-            this.Test_program.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.Test_program.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Test_program.Location = new System.Drawing.Point(198, 265);
-            this.Test_program.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Test_program.Name = "Test_program";
-            this.Test_program.Size = new System.Drawing.Size(140, 20);
-            this.Test_program.TabIndex = 6;
-            this.Test_program.Visible = false;
+            this.DIE_TYPE.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.DIE_TYPE.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DIE_TYPE.Location = new System.Drawing.Point(198, 265);
+            this.DIE_TYPE.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.DIE_TYPE.Name = "DIE_TYPE";
+            this.DIE_TYPE.Size = new System.Drawing.Size(140, 20);
+            this.DIE_TYPE.TabIndex = 6;
+            this.DIE_TYPE.Visible = false;
             // 
             // label6
             // 
@@ -969,11 +968,11 @@
             this.Controls.Add(this.Test_option);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.Test_program);
+            this.Controls.Add(this.DIE_TYPE);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label_PartNumber);
             this.Controls.Add(this.Part_number);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label_serial);
             this.Controls.Add(this.Serial_number);
             this.Controls.Add(this.Exit_btn);
             this.Controls.Add(this.Save_btn);
@@ -1000,12 +999,12 @@
 
         private System.Windows.Forms.Button Save_btn;
         private System.Windows.Forms.Button Exit_btn;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label_serial;
+        private System.Windows.Forms.Label label_PartNumber;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox Test_program;
+        private System.Windows.Forms.TextBox DIE_TYPE;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox First_board_slot;

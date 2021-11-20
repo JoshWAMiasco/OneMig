@@ -84,6 +84,7 @@ namespace PROJECT
                     Update_Button.Visible = false;
                     Serial_number.Visible = true;
                     Serial_number.Clear();
+                    Part_number.Clear();
                     LoadTesterPlatforms();
                 }
                 else return;
@@ -428,10 +429,8 @@ namespace PROJECT
             }
             for (int Txt = 0; Txt < textBox.Length ; Txt++)
             {
-                if (char.IsLetterOrDigit(text[Txt]))
-                {
-                    continue;
-                }
+                if (char.IsLetterOrDigit(text[Txt])) continue;
+                else if (text[Txt] == '-') continue;
                 else
                 {
                     MessageBox.Show("PLEASE ENTER NUMBER OR LETTER ONLY");
@@ -447,187 +446,199 @@ namespace PROJECT
             {
                 if (CheckTextBox(Serial_number.Text))
                 {
-                    if (string.IsNullOrWhiteSpace(Serial_number.Text))
+                    if (string.IsNullOrWhiteSpace(Serial_number.Text) || string.IsNullOrWhiteSpace(Part_number.Text))
                     {
                         MessageBox.Show("NO INPUT");
                         return;
                     }
-                    commands(1);
-                    command.Connection = Connection.connect;
+                    LoadBoardDetails();
+                }
+            }
+        }
 
-                    if (Connection.OpenConnection())
+        private void LoadBoardDetails()
+        {
+            commands(1);
+            command.Connection = Connection.connect;
+
+            if (Connection.OpenConnection())
+            {
+                MySqlDataReader read_data = command.ExecuteReader();
+                read_data.Read();
+                try
+                {
+                    get_status = read_data["STATUS"].ToString();
+                    if (get_status == "SPARES" || get_status == "BRG" || get_status.Contains("INSTALL") || get_status == "FAILURE CHANGED")
                     {
-                        MySqlDataReader read_data = command.ExecuteReader();
-                        read_data.Read();
-                        try
+                        DialogResult yes_no = MessageBox.Show("LAST TRANSACTION: " + get_status + ", ADD NEW?", "ATTENTION!",
+                            MessageBoxButtons.YesNo);
+                        switch (yes_no)
                         {
-                            get_status = read_data["STATUS"].ToString();
-                            if (get_status == "SPARES" || get_status == "BRG" || get_status.Contains("INSTALL") || get_status == "FAILURE CHANGED")
-                            {
-                                DialogResult yes_no = MessageBox.Show("LAST TRANSACTION: " + get_status + ", ADD NEW?", "ATTENTION!",
-                                    MessageBoxButtons.YesNo);
-                                switch (yes_no)
-                                {
-                                    case DialogResult.Yes:
-                                        clear_all();
-                                        enable_control();
-                                        all_controls();
-                                        Part_number.Text = read_data["PART NUMBER"].ToString();
-                                        Revision.Text = read_data["REVISION"].ToString();
-                                        Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
-                                        Boards.Items.Add(read_data["BOARD"].ToString());
-                                        Connection.CloseConnection();
-                                        Boards.SelectedIndex = 0;
-                                        Boards.SelectedIndex = 0;
-                                        Update_Button.Visible = false;
-                                        FAILURE_CHANGED.Visible = false;
-                                        INSTALL_TO_TESTER.Visible = false;
-                                        DoNotLoadBoard = 1;
-                                        Test_system.SelectedIndex = 0;
-                                        if (Test_system.Text == "ASL1K" || Test_system.Text == "ASL4K")
-                                        {
-                                            Test_system.Items.Clear();
-                                            Test_system.Items.Add("TMT");
-                                        }
-                                        Test_system.SelectedIndex = 0;
-                                        Testers();
-                                        return;
-                                    case DialogResult.No:
-                                        Connection.CloseConnection();
-                                        clear_all();
-                                        Serial_number.Clear();
-                                        Save_btn.Visible = false;
-                                        Update_Button.Visible = false;
-                                        FAILURE_CHANGED.Visible = false;
-                                        INSTALL_TO_TESTER.Visible = false;
-                                        DoNotLoadBoard = 0;
-                                        return;
-                                }
-                            }
-                            else
-                            {
-                                ClearItemsInTesterBox();
-                                Test_system.Items.Clear();
-                                Boards.Items.Clear();
+                            case DialogResult.Yes:
+                                clear_all();
+                                enable_control();
                                 all_controls();
-                                Part_number.Text = read_data["PART NUMBER"].ToString();
                                 Revision.Text = read_data["REVISION"].ToString();
-                                Boards.Items.Add(read_data["BOARD"].ToString());
-                                Test_program.Text = read_data["TEST PROGRAM"].ToString();
                                 Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
-                                Failed_during.Text = read_data["FAILED DURING"].ToString();
-                                Failed_during_others.Text = read_data["FAILED DURING OTHERS"].ToString();
-                                Failure_mode.Text = read_data["FAILURE MODE"].ToString();
-                                Failure_mode_others.Text = read_data["FAILURE MODE OTHERS"].ToString();
-                                Test_option.Text = read_data["TEST OPTION"].ToString();
-                                Remarks.Text = read_data["REMARKS"].ToString();
-                                data = (byte[])read_data["FIRST DATALOG"];
-                                First_tester.Items.Add(read_data["FIRST TESTER"]);
-                                First_Site.Items.Add(read_data["FIRST SITE"].ToString());
-                                First_board_slot.Text = read_data["FIRST SLOT"].ToString();
-                                first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
-                                FileName = read_data["FILENAME 1"].ToString();
-                                Area.Text = read_data["AREA"].ToString();
-                                FirstDate.Text = read_data["FIRST DATE"].ToString();
-                                FirstTime.Text = read_data["FIRST TIME"].ToString();
+                                Boards.Items.Add(read_data["BOARD"].ToString());
                                 Connection.CloseConnection();
-                                UpdateCheck = 1;
-                                disable_control();
-                                first_verif_link.Text = FileName;
                                 Boards.SelectedIndex = 0;
+                                Boards.SelectedIndex = 0;
+                                Update_Button.Visible = false;
+                                FAILURE_CHANGED.Visible = false;
+                                INSTALL_TO_TESTER.Visible = false;
+                                DoNotLoadBoard = 1;
                                 Test_system.SelectedIndex = 0;
-                                First_tester.SelectedIndex = 0;
-                                First_Site.SelectedIndex = 0;
-                                if (First_Site.Text.Equals(string.Empty))
-                                    First_Site.Visible = false;
-                                else
-                                    First_Site.Visible = true;
-                                Save_btn.Visible = false;
-                                Update_Button.Visible = true;
-                                Second_box.Visible = true;
-                                FAILURE_CHANGED.Visible = true;
-                                INSTALL_TO_TESTER.Visible = true;
-                                FOR_SECOND_VERIF.Visible = false;
-                                if (Test_system.Text == "ASL4K" || Test_system.Text == "ASL1K")
+                                if (Test_system.Text == "ASL1K" || Test_system.Text == "ASL4K")
                                 {
                                     Test_system.Items.Clear();
                                     Test_system.Items.Add("TMT");
-                                    Test_system.SelectedIndex = 0;
-                                    command = new MySqlCommand("select * from `boards_for_verification`.`tmt`", Connection.connect);
-                                    Connection.OpenConnection();
-                                    MySqlDataReader tmt = command.ExecuteReader();
-                                    while (tmt.Read())
-                                    {
-                                        Second_tester.Items.Add(tmt["TMT"].ToString());
-                                    }
-                                    Connection.CloseConnection();
                                 }
-                                else
-                                {
-                                    tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
-                                    command = new MySqlCommand(tester_platform, Connection.connect);
-
-                                    Connection.OpenConnection();
-                                    MySqlDataReader read = command.ExecuteReader();
-                                    while (read.Read())
-                                    {
-                                        Second_tester.Items.Add(read.GetString(Test_system.Text.ToUpper()));
-                                    }
-                                    sites = int.Parse(read["SITE"].ToString());
-                                    Connection.CloseConnection();
-                                    if (sites != 0)
-                                    {
-                                        for (int CountSite = 1; CountSite <= sites; CountSite++)
-                                        {
-                                            Second_Site.Items.Add(CountSite.ToString());
-                                        }
-                                        Second_Site.Visible = true;
-                                    }
-                                }
-                            }
+                                Test_system.SelectedIndex = 0;
+                                Testers();
+                                DIE_TYPE.Focus();
+                                return;
+                            case DialogResult.No:
+                                Connection.CloseConnection();
+                                clear_all();
+                                Serial_number.Clear();
+                                Part_number.Clear();
+                                Save_btn.Visible = false;
+                                Update_Button.Visible = false;
+                                FAILURE_CHANGED.Visible = false;
+                                INSTALL_TO_TESTER.Visible = false;
+                                DoNotLoadBoard = 0;
+                                return;
                         }
-                        catch (Exception)
+                    }
+                    else
+                    {
+                        ClearItemsInTesterBox();
+                        Test_system.Items.Clear();
+                        Boards.Items.Clear();
+                        all_controls();
+
+                        Revision.Text = read_data["REVISION"].ToString();
+                        Boards.Items.Add(read_data["BOARD"].ToString());
+                        DIE_TYPE.Text = read_data["TEST PROGRAM"].ToString();
+                        Test_system.Items.Add(read_data["TESTER PLATFORM"].ToString());
+                        Failed_during.Text = read_data["FAILED DURING"].ToString();
+                        Failed_during_others.Text = read_data["FAILED DURING OTHERS"].ToString();
+                        Failure_mode.Text = read_data["FAILURE MODE"].ToString();
+                        Failure_mode_others.Text = read_data["FAILURE MODE OTHERS"].ToString();
+                        Test_option.Text = read_data["TEST OPTION"].ToString();
+                        Remarks.Text = read_data["REMARKS"].ToString();
+                        data = (byte[])read_data["FIRST DATALOG"];
+                        First_tester.Items.Add(read_data["FIRST TESTER"]);
+                        First_Site.Items.Add(read_data["FIRST SITE"].ToString());
+                        First_board_slot.Text = read_data["FIRST SLOT"].ToString();
+                        first_endorser.Text = read_data["FIRST ENDORSER"].ToString();
+                        FileName = read_data["FILENAME 1"].ToString();
+                        Area.Text = read_data["AREA"].ToString();
+                        FirstDate.Text = read_data["FIRST DATE"].ToString();
+                        FirstTime.Text = read_data["FIRST TIME"].ToString();
+                        Connection.CloseConnection();
+                        UpdateCheck = 1;
+                        disable_control();
+                        first_verif_link.Text = FileName;
+                        Boards.SelectedIndex = 0;
+                        Test_system.SelectedIndex = 0;
+                        First_tester.SelectedIndex = 0;
+                        First_Site.SelectedIndex = 0;
+                        Remarks.Focus();
+                        if (First_Site.Text.Equals(string.Empty))
+                            First_Site.Visible = false;
+                        else
+                            First_Site.Visible = true;
+                        Save_btn.Visible = false;
+                        Update_Button.Visible = true;
+                        Second_box.Visible = true;
+                        FAILURE_CHANGED.Visible = true;
+                        INSTALL_TO_TESTER.Visible = true;
+                        FOR_SECOND_VERIF.Visible = false;
+                        if (Test_system.Text == "ASL4K" || Test_system.Text == "ASL1K")
                         {
-                            DialogResult yes_no = MessageBox.Show("NO DATA, ADD NEW?", "ATTENTION!", MessageBoxButtons.YesNo);
-                            switch (yes_no)
+                            Test_system.Items.Clear();
+                            Test_system.Items.Add("TMT");
+                            Test_system.SelectedIndex = 0;
+                            command = new MySqlCommand("select * from `boards_for_verification`.`tmt`", Connection.connect);
+                            Connection.OpenConnection();
+                            MySqlDataReader tmt = command.ExecuteReader();
+                            while (tmt.Read())
                             {
-                                case DialogResult.Yes:
-                                    Connection.CloseConnection();
-                                    clear_all();
-                                    all_controls();
-                                    enable_control();
-                                    Update_Button.Visible = false;
-                                    FAILURE_CHANGED.Visible = false;
-                                    INSTALL_TO_TESTER.Visible = false;
-                                    DoNotLoadBoard = 0;
-                                    LoadTesterPlatforms();
-                                    break;
-                                case DialogResult.No:
-                                    Connection.CloseConnection();
-                                    Serial_number.Clear();
-                                    clear_all();
-                                    Save_btn.Visible = false;
-                                    Update_Button.Visible = false;
-                                    break;
+                                Second_tester.Items.Add(tmt["TMT"].ToString());
+                            }
+                            Connection.CloseConnection();
+                        }
+                        else
+                        {
+                            tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
+                            command = new MySqlCommand(tester_platform, Connection.connect);
+
+                            Connection.OpenConnection();
+                            MySqlDataReader read = command.ExecuteReader();
+                            while (read.Read())
+                            {
+                                Second_tester.Items.Add(read.GetString(Test_system.Text.ToUpper()));
+                            }
+                            sites = int.Parse(read["SITE"].ToString());
+                            Connection.CloseConnection();
+                            if (sites != 0)
+                            {
+                                for (int CountSite = 1; CountSite <= sites; CountSite++)
+                                {
+                                    Second_Site.Items.Add(CountSite.ToString());
+                                }
+                                Second_Site.Visible = true;
                             }
                         }
                     }
                 }
+                catch (Exception)
+                {
+                    DialogResult yes_no = MessageBox.Show("NO DATA, ADD NEW?", "ATTENTION!", MessageBoxButtons.YesNo);
+                    switch (yes_no)
+                    {
+                        case DialogResult.Yes:
+                            Connection.CloseConnection();
+                            clear_all();
+                            all_controls();
+                            enable_control();
+                            Update_Button.Visible = false;
+                            FAILURE_CHANGED.Visible = false;
+                            INSTALL_TO_TESTER.Visible = false;
+                            DoNotLoadBoard = 0;
+                            LoadTesterPlatforms();
+                            Revision.Focus();
+                            break;
+                        case DialogResult.No:
+                            Connection.CloseConnection();
+                            Serial_number.Clear();
+                            Part_number.Clear();
+                            clear_all();
+                            Save_btn.Visible = false;
+                            Update_Button.Visible = false;
+                            break;
+                    }
+                }
             }
+                
+            
         }
         private void commands(int Pick)
         {
             switch (Pick)
             {
                 case 1:  // FOR CHECKING THE LAST TRANSACTION
-                    command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`board details` WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "') ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
+                    command = new MySqlCommand("SELECT * FROM `boards_for_verification`.`board details` WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "' and `PART NUMBER` = '" + Part_number.Text + "') " +
+                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
 
                 case 2:  // FOR ADDING A NEW TRANSACTION FOR NO SECOND VERIFICATION
                     command = new MySqlCommand("INSERT INTO `boards_for_verification`." +
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`AREA`,`FIRST DATE`,`FIRST TIME`) VALUES('" + Serial_number.Text + "'," +
-            "'" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
+            "'" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + DIE_TYPE.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "','" + Test_system.Text + "'," +
             "'" + Filename(first_verif_link.Text) + "','" + Area.Text + "','" + FirstDate.Text + "','" + FirstTime.Text + "')");
@@ -649,7 +660,7 @@ namespace PROJECT
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`,`SECOND DATALOG`," +
             "`SECOND TESTER`,`SECOND SITE`,`SECOND SLOT`,`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`FILENAME 2`,`AREA`,`FIRST DATE`,`SECOND DATE`,`FIRST TIME`,`SECOND TIME`) " +
-            "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
+            "VALUES('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + DIE_TYPE.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "',@SECOND_DATA," +
             "'" + Second_tester.Text + "','" + Second_Site.Text + "','" + Second_slot.Text + "','" + second_endorser.Text + "','" + Test_system.Text + "'," +
@@ -710,7 +721,7 @@ namespace PROJECT
             "`board details`(`SERIAL NUMBER`,`PART NUMBER`,REVISION,BOARD,`TEST PROGRAM`,`FAILED DURING`,`FAILED DURING OTHERS`,`FAILURE MODE`,`FAILURE MODE OTHERS`," +
             "`TEST OPTION`,STATUS,REMARKS,`FIRST DATALOG`,`FIRST TESTER`,`FIRST SITE`,`FIRST SLOT`,`FIRST ENDORSER`," +
             "`SECOND ENDORSER`,`TESTER PLATFORM`,`FILENAME 1`,`AREA`,`FIRST DATE`,`SECOND DATE`,`FIRST TIME`,`SECOND TIME`) " +
-            "VALUES ('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + Test_program.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
+            "VALUES ('" + Serial_number.Text + "','" + Part_number.Text + "','" + Revision.Text + "','" + Boards.Text + "','" + DIE_TYPE.Text + "','" + Failed_during.Text + "','" + Failed_during_others.Text + "'," +
             "'" + Failure_mode.Text + "','" + Failure_mode_others.Text + "','" + Test_option.Text + "','" + status + "','" + Remarks.Text + "',@FIRST_DATA," +
             "'" + First_tester.Text + "','" + First_Site.Text + "','" + First_board_slot.Text + "','" + first_endorser.Text + "','" + second_endorser.Text + "','" + Test_system.Text + "'," +
             "'" + Filename(first_verif_link.Text) + "','" + Area.Text + "','" + FirstDate.Text + "','" + SecondDate.Text + "'," +
@@ -724,7 +735,7 @@ namespace PROJECT
             foreach (Control c in this.Controls)
             {
                 if (c == Remarks || c == Save_btn || c == Update_Button || c == Exit_btn || c == Serial_number
-                    || c == Second_box || c is RadioButton)
+                    || c == Second_box || c is RadioButton || c == Part_number)
                 {
                     continue;
                 }
@@ -784,7 +795,7 @@ namespace PROJECT
                 if (c is TextBox)
                 {
                     TextBox textBox = c as TextBox;
-                    if (textBox == Serial_number)
+                    if (textBox == Serial_number || textBox == Part_number)
                     {
                         continue;
                     }
@@ -840,7 +851,7 @@ namespace PROJECT
                 else if (c is Label)
                 {
                     Label label = c as Label;
-                    if (label == label1)
+                    if (label == label_serial || label == label_PartNumber)
                         label.Enabled = true;
                     else label.Visible = false;
                 }
@@ -966,6 +977,23 @@ namespace PROJECT
         private void BRG_CheckedChanged(object sender, EventArgs e)
         {
             PHYSICAL_DAMAGE.Visible = true;
+        }
+
+        private void Key_PartNumber(object sender, KeyEventArgs e)
+        {
+            UpdateCheck = 0;
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (CheckTextBox(Part_number.Text))
+                {
+                    if (string.IsNullOrWhiteSpace(Serial_number.Text) || string.IsNullOrWhiteSpace(Part_number.Text))
+                    {
+                        MessageBox.Show("NO INPUT");
+                        return;
+                    }
+                    LoadBoardDetails();
+                }
+            }
         }
 
         private void FAILURE_CHANGED_CheckedChanged(object sender, EventArgs e)
