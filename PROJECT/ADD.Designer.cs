@@ -337,21 +337,33 @@
             this.first_endorser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.first_endorser.FormattingEnabled = true;
             this.first_endorser.Items.AddRange(new object[] {
+            "AIDA NAMOG",
             "ARJANE GARCIA",
+            "AUGETTE MERIDA",
             "BABYLYN HILARIO",
             "BRYAN FELICIANO",
+            "DONALD DINAWANAO",
             "ERWIN DESEO",
+            "IAN LUCERO",
             "JACOB LORESCO",
             "JAMES ANORA",
             "JOHN MICHAEL SO",
             "KEVIN KERK",
+            "LEIU BLANCO",
+            "LEOMAR VIDAL",
             "LOREN ZARAGOZA",
             "MARCO LOPEZ",
             "MARVIN CHAVEZ",
+            "MELVIN NOVESTRO",
+            "NIKKO ORGANO",
             "RALPH ARVIN CANDA",
+            "RAYMOND CRUZIN",
+            "RAYMOND ROMERO",
+            "RENATO SUPERO",
             "ROALD BAGABAY",
             "ROSVE VIRAY",
             "SUSANA SAN GABRIEL",
+            "VHON BUGTAY",
             "VJ TOLENTINO"});
             this.first_endorser.Location = new System.Drawing.Point(146, 284);
             this.first_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -366,21 +378,33 @@
             this.second_endorser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.second_endorser.FormattingEnabled = true;
             this.second_endorser.Items.AddRange(new object[] {
+            "AIDA NAMOG",
             "ARJANE GARCIA",
+            "AUGETTE MERIDA",
             "BABYLYN HILARIO",
             "BRYAN FELICIANO",
+            "DONALD DINAWANAO",
             "ERWIN DESEO",
+            "IAN LUCERO",
             "JACOB LORESCO",
             "JAMES ANORA",
             "JOHN MICHAEL SO",
             "KEVIN KERK",
+            "LEIU BLANCO",
+            "LEOMAR VIDAL",
             "LOREN ZARAGOZA",
             "MARCO LOPEZ",
             "MARVIN CHAVEZ",
+            "MELVIN NOVESTRO",
+            "NIKKO ORGANO",
             "RALPH ARVIN CANDA",
+            "RAYMOND CRUZIN",
+            "RAYMOND ROMERO",
+            "RENATO SUPERO",
             "ROALD BAGABAY",
             "ROSVE VIRAY",
             "SUSANA SAN GABRIEL",
+            "VHON BUGTAY",
             "VJ TOLENTINO"});
             this.second_endorser.Location = new System.Drawing.Point(148, 284);
             this.second_endorser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
