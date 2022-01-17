@@ -674,11 +674,12 @@ namespace PROJECT
                     break;
                 case 6:  // IF THE SECOND VERIFICATION FAILURE CHANGES
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
-                        "`SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
+                        "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SLOT` = '" + Second_slot.Text + "'," +
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'FAILURE CHANGED',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
                         "`SECOND TIME` = '" + SecondTime.Text + "'" +
-                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
+                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "' and `PART NUMBER` = '" + Part_number.Text + "')" +
+                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
                 case 7:  // IF THE SECOND VERIFICATION PASSED AND INSTALLED ALREADY TO THE TESTER
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
@@ -686,13 +687,14 @@ namespace PROJECT
                         "`SECOND ENDORSER` = '" + second_endorser.Text + "'," +
                         "`STATUS` = 'INSTALL TO {0}',`REMARKS` = '" + Remarks.Text + "',`SECOND DATE` = '" + SecondDate.Text + "'," +
                         "`SECOND TIME` = '" + SecondTime.Text + "'" +
-                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
+                        "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "' and `PART NUMBER` = '" + Part_number.Text + "')" +
+                        "ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1",Second_tester.Text));
                     break;
                 case 8:  //LOAD TESTER PLATFORMS
                     tester_platform = string.Format("SELECT * FROM `boards_for_verification`.`{0}`", Test_system.Text.ToLower());
                     command = new MySqlCommand(tester_platform, Connection.connect);
                     break;
-                case 9:   // IF SECOND VERIF FAILURE CHANGES
+                case 9:   // IF SECOND VERIF FAILURE CHANGES WITH SITE
                     command = new MySqlCommand("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" +Second_slot.Text + "'," +
@@ -701,7 +703,7 @@ namespace PROJECT
                         "`SECOND TIME` = '" + SecondTime.Text + "'" +
                         "WHERE (`SERIAL NUMBER` = '" + Serial_number.Text + "')ORDER BY `ENDORSEMENT NUMBER` DESC LIMIT 1");
                     break;
-                case 10:  // INSTALL TO A TESTER
+                case 10:  // INSTALL TO A TESTER WITH SITE
                     command = new MySqlCommand(string.Format("UPDATE `boards_for_verification`.`board details` " +
                         "SET `SECOND TESTER` = '" + Second_tester.Text + "',`SECOND SITE` = '" + Second_Site.Text + "'," +
                         "`SECOND SLOT` = '" + Second_slot.Text + "'," +
