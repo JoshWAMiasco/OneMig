@@ -200,9 +200,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(211)))), ((int)(((byte)(105)))));
             this.label5.Location = new System.Drawing.Point(27, 265);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 21);
+            this.label5.Size = new System.Drawing.Size(172, 21);
             this.label5.TabIndex = 11;
-            this.label5.Text = "DIE TYPE";
+            this.label5.Text = "LAST TEST PROGRAM";
             this.label5.Visible = false;
             // 
             // DIE_TYPE
