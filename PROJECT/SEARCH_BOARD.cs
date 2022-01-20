@@ -385,6 +385,31 @@ namespace PROJECT
             TO_DATE.CustomFormat = "yyyy-MM-dd";
         }
 
+        private void Enter_search(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                count = 0;
+                commands(12);
+                if (Connection.OpenConnection())
+                {
+                    all = command.ExecuteScalar().ToString();
+                    Connection.CloseConnection();
+                }
+                else return;
+                Counts();
+                results();
+                load_data(1);
+                FROM_DATE.CustomFormat = " ";
+                TO_DATE.CustomFormat = " ";
+                AREA.SelectedIndex = 0;
+                Stats.SelectedIndex = 0;
+                Tester_platform.SelectedIndex = 0;
+                clearBoards();
+            }
+
+        }
+
         private void TO_DATE_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Back)

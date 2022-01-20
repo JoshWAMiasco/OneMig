@@ -88,6 +88,7 @@
             this.search_text.Name = "search_text";
             this.search_text.Size = new System.Drawing.Size(147, 20);
             this.search_text.TabIndex = 1;
+            this.search_text.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_search);
             // 
             // Add_btn
             // 
@@ -188,7 +189,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(152, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "VERSION 1.0.9";
+            this.label1.Text = "VERSION 1.1.0";
             // 
             // UPDATE
             // 
@@ -443,7 +444,7 @@
             // TEST_PROGRAM
             // 
             this.TEST_PROGRAM.DataPropertyName = "TEST PROGRAM";
-            this.TEST_PROGRAM.HeaderText = "DIE TYPE";
+            this.TEST_PROGRAM.HeaderText = "TEST PROGRAM";
             this.TEST_PROGRAM.Name = "TEST_PROGRAM";
             this.TEST_PROGRAM.ReadOnly = true;
             // 
